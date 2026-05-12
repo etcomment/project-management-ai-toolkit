@@ -1,0 +1,50 @@
+# Environment variables and secrets
+.env
+.env.*
+*.env
+credentials.json
+secrets.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# API keys or local config
+config.local.*
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Node / package files - not used in this repository, but ignored for safety
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Python cache - not used in this repository, but ignored for safety
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated archives
+*.zip
+*.tar
+*.gz

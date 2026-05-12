@@ -402,3 +402,11 @@ Claude Code 向けファイルは、PMレビューの考え方を Skill とし�
 ## Security
 
 セキュリティ上の懸念、危険な記述、誤って含まれている可能性のある機密情報を見つけた場合は、`SECURITY.md` を確認してください。
+
+## Contributing
+
+改善提案やPull Requestは歓迎します。
+
+ただし、IssueやPull Requestには、実在する顧客情報・個人情報・契約情報・APIキー・パスワード・トークン等を含めないでください。
+
+詳細は `CONTRIBUTING.md` を確認してください。
