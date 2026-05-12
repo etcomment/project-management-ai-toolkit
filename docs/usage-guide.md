@@ -4,7 +4,7 @@
 
 ## はじめに
 
-本リポジトリ「project-management-ai-contexts」は、プロジェクトマネージャー・PMO・開発リーダーが、ChatGPT / Gemini / Claude / Claude Code を PM 業務で活用するための参考資料およびサンプルテンプレート集です。
+本リポジトリ「project-management-ai-contexts」は、プロジェクトマネージャー・PMO・開発リーダーが、ChatGPT / Gemini / Claude / Claude Code を PM 業務で活用するためのAIコンテキストファイル集です。
 
 このガイドでは、リポジトリの使い方と、目的別のファイル選び方を説明します。
 
