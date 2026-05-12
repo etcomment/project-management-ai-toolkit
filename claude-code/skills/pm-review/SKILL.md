@@ -1,5 +1,6 @@
 ---
-description: PM視点でプロジェクト状況、Issue、進捗、課題、リスク、顧客影響、次アクションをレビューする
+name: pm-review
+description: PM視点でプロジェクト状況、Issue、進捗、課題、リスク、顧客影響、次アクションをレビューする。README・Issueリスト・仕様メモ・進捗メモをPM視点でレビューしたい、抜け漏れや担当者不明・期限不明のタスクを確認したいときに使用します。
 ---
 
 # PM Review Skill

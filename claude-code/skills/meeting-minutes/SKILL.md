@@ -1,5 +1,6 @@
 ---
-description: 会議メモから議事録、決定事項、未決事項、TODO、次回確認事項を整理する
+name: meeting-minutes
+description: 会議メモから議事録、決定事項、未決事項、TODO、次回確認事項を整理する。会議後のメモを議事録形式に整理したい、決定事項とTODOを担当者・期限付きでまとめたい、次回会議の確認事項を一覧化したいときに使用します。
 ---
 
 # Meeting Minutes Skill

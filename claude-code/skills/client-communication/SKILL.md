@@ -1,5 +1,6 @@
 ---
-description: 顧客向け説明文、相談文、報告文のたたき台をPM視点で整理する
+name: client-communication
+description: 顧客向け説明文・相談文・報告文のたたき台をPM視点で整理する。遅延・問題発生時の説明文作成、仕様確認の相談文、定期報告・完了報告の文面作成、難しい状況を顧客に伝える文章が必要なときに使用します。
 ---
 
 # Client Communication Skill
