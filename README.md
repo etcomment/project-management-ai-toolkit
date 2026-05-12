@@ -162,6 +162,21 @@ Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗�
 
 - `claude-code/skills/pm-review/SKILL.md`
 
+## Examples
+
+実際の使い方を確認したい場合は、`examples/` 配下のサンプルを参照してください。
+
+すべてのサンプルは架空データで作成しており、実在する顧客情報・案件情報・個人情報は含みません。
+
+- `examples/project-health-check-example.md`
+- `examples/status-report-example.md`
+- `examples/issue-risk-review-example.md`
+- `examples/meeting-minutes-example.md`
+- `examples/fire-response-first-72h-example.md`
+- `examples/scope-change-example.md`
+- `examples/delay-recovery-example.md`
+- `examples/claude-code-pm-review-example.md`
+
 ## 追加ユースケース
 
 | 用途 | コンテキストファイル | プロンプト |

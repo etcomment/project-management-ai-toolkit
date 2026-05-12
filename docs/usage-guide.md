@@ -214,7 +214,36 @@ project-management-ai-contexts/
 └── claude-code/
     ├── README.md                       ← Claude Code向け説明
     └── skills/pm-review/SKILL.md       ← PMレビューSkillサンプル
+examples/
+    ├── README.md                       ← サンプル集の入口ページ
+    ├── project-health-check-example.md ← ヘルスチェック例
+    ├── status-report-example.md        ← 進捗報告作成例
+    ├── issue-risk-review-example.md    ← 課題・リスクレビュー例
+    ├── meeting-minutes-example.md      ← 議事録・TODO作成例
+    ├── fire-response-first-72h-example.md ← 炎上初動整理例
+    ├── scope-change-example.md         ← スコープ変更整理例
+    ├── delay-recovery-example.md       ← 遅延リカバリー例
+    └── claude-code-pm-review-example.md ← Claude Code PMレビュー例
 ```
+
+---
+
+## サンプルで使い方を確認する
+
+具体的な入力例・プロンプト例・期待する出力例を確認したい場合は、`examples/` 配下を参照してください。
+
+各サンプルには、以下を記載しています。
+
+- Use Case
+- 使用するファイル
+- Sanitized Input
+- Prompt
+- Expected Output
+- Human Review Points
+
+> [!IMPORTANT]
+> すべてのサンプルは架空データです。実在する顧客情報・案件情報・個人情報は含みません。
+> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認してください。
 
 ---
 
