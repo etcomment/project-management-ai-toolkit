@@ -1,0 +1,58 @@
+# Gemini 向け使い方ガイド
+
+このディレクトリには、Gemini で本リポジトリを活用するためのファイルが入っています。
+
+> [!IMPORTANT]
+> 顧客情報・個人情報・契約情報・認証情報（APIキー・パスワード等）は、Gemini に入力しないでください。
+> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
+
+---
+
+## このディレクトリのファイル一覧
+
+| ファイル | 内容 |
+|---|---|
+| [gemini-instructions.md](gemini-instructions.md) | Gemini / Gems に設定する指示文 |
+| [gem-setup-guide.md](gem-setup-guide.md) | Gems の作成・設定ガイド |
+| [use-context-files.md](use-context-files.md) | contexts/ と prompts/ の使い方手順 |
+| [examples.md](examples.md) | Geminiでの利用例（架空データ） |
+
+---
+
+## 利用パターン別の案内
+
+### Gemini の通常チャットで使う場合
+
+1. `contexts/PM_CONTEXT.md` の内容をコピーする
+2. Gemini で新しいチャットを開く
+3. チャットの冒頭にコンテキストの内容を貼り付ける
+4. 用途別コンテキストと案件情報（マスキング済み）を続けて入力する
+5. 詳細手順は `use-context-files.md` を参照する
+
+### Gems で使う場合
+
+`gem-setup-guide.md` を参照してください。Gems の設定方法、指示欄の文面、参照ファイルの推奨一覧を記載しています。
+
+---
+
+## contexts/ と prompts/ の使い分け
+
+| ディレクトリ | 役割 |
+|---|---|
+| `contexts/` | AIに読み込ませる前提情報・判断軸・業務ルール |
+| `prompts/` | 用途別の依頼文テンプレート（入力欄付き） |
+
+基本的な流れ：
+
+1. `contexts/PM_CONTEXT.md`（共通前提）を読み込ませる
+2. 目的に合った `contexts/` のファイルを追加する
+3. `prompts/` のテンプレートを使って依頼文を組み立てる
+4. 案件情報をマスキングしてから入力する
+
+---
+
+## 関連ドキュメント
+
+- [docs/for-gemini.md](../docs/for-gemini.md) — Gemini向け使い方（詳細）
+- [docs/ai-safety.md](../docs/ai-safety.md) — AIに入力してよい情報・安全な使い方
+- [DISCLAIMER.md](../DISCLAIMER.md) — 免責事項

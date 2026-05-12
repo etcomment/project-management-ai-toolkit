@@ -226,9 +226,17 @@ project-management-ai-contexts/
 │   ├── pmo-review.md
 │   └── engineer-to-pm-report.md
 ├── chatgpt/
-│   └── project-instructions.md
+│   ├── README.md
+│   ├── project-instructions.md
+│   ├── custom-gpt-instructions.md
+│   ├── use-context-files.md
+│   └── examples.md
 ├── gemini/
-│   └── gemini-instructions.md
+│   ├── README.md
+│   ├── gemini-instructions.md
+│   ├── gem-setup-guide.md
+│   ├── use-context-files.md
+│   └── examples.md
 ├── claude/
 │   └── claude-project-instructions.md
 └── claude-code/

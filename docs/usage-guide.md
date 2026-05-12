@@ -182,9 +182,17 @@ project-management-ai-contexts/
 │   ├── pmo-review.md                  ← PMO横断レビュープロンプト
 │   └── engineer-to-pm-report.md       ← エンジニアからPM相談プロンプト
 ├── chatgpt/
-│   └── project-instructions.md        ← ChatGPT指示文
+│   ├── README.md                       ← ChatGPT向け入口ページ
+│   ├── project-instructions.md        ← ChatGPT指示文
+│   ├── custom-gpt-instructions.md     ← カスタムGPT設定ガイド
+│   ├── use-context-files.md           ← コンテキストファイルの使い方
+│   └── examples.md                   ← 利用例（架空データ）
 ├── gemini/
-│   └── gemini-instructions.md         ← Gemini指示文
+│   ├── README.md                       ← Gemini向け入口ページ
+│   ├── gemini-instructions.md         ← Gemini指示文
+│   ├── gem-setup-guide.md             ← Gems設定ガイド
+│   ├── use-context-files.md           ← コンテキストファイルの使い方
+│   └── examples.md                   ← 利用例（架空データ）
 ├── claude/
 │   └── claude-project-instructions.md ← Claude Projects指示文
 └── claude-code/
