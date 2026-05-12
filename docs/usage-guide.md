@@ -69,6 +69,8 @@
 
 目的に応じて、以下のコンテキストファイルを使い分けてください。
 
+「自分の状況ではどのファイルを使えばよいか」を素早く確認したい場合は、[docs/use-case-map.md](use-case-map.md) を参照してください。
+
 各 `contexts/*.md` には、以下が含まれています。
 
 - Purpose
@@ -99,6 +101,8 @@
 | 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
 
 すべての用途で、まず `contexts/PM_CONTEXT.md` を読み込ませることを推奨します。
+
+状況に応じてどのコンテキストを使えばよいか迷った場合は、[docs/use-case-map.md](use-case-map.md) を参照してください。
 
 ---
 
@@ -136,6 +140,8 @@
 - Claude Projects の「プロジェクト指示」に `claude/claude-project-instructions.md` を設定すると便利
 - 長文コンテキストを渡す場合は、不要な情報を省いてから貼り付ける
 - 詳細：[docs/for-claude.md](for-claude.md)
+- Claude向け利用例：[claude/examples.md](../claude/examples.md)
+- コンテキストファイルの使い方：[claude/use-context-files.md](../claude/use-context-files.md)
 
 ### Claude Code
 
@@ -209,6 +215,8 @@ project-management-ai-contexts/
 ├── docs/
 │   ├── usage-guide.md                 ← このファイル
 │   ├── ai-safety.md                   ← AI安全ガイド
+│   ├── use-case-map.md                ← 状況別コンテキスト選びガイド
+│   ├── github-publishing-checklist.md ← GitHub公開チェックリスト
 │   ├── for-chatgpt.md                 ← ChatGPT向け使い方
 │   ├── for-gemini.md                  ← Gemini向け使い方
 │   ├── for-claude.md                  ← Claude向け使い方
@@ -253,7 +261,10 @@ project-management-ai-contexts/
 │   ├── use-context-files.md           ← コンテキストファイルの使い方
 │   └── examples.md                   ← 利用例（架空データ）
 ├── claude/
-│   └── claude-project-instructions.md ← Claude Projects指示文
+│   ├── README.md                       ← Claude向けガイド
+│   ├── claude-project-instructions.md ← Claude Projects指示文
+│   ├── use-context-files.md           ← コンテキストファイルの使い方
+│   └── examples.md                    ← 利用例（架空データ）
 └── claude-code/
     ├── README.md                       ← Claude Code向け説明
     └── skills/

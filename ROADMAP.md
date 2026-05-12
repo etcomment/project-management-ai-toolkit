@@ -15,8 +15,6 @@
 - `CONTRIBUTING.md` / Issue Template / PR Template の整備
 - `examples/` の追加改善
 - 各ファイルの表記ゆれ修正
-- README の英語要素の軽微追加
-- GitHub Topics / Social Preview の整備
 - Claude Code Skill の公式ベストプラクティス準拠レビュー
 
 ---
@@ -25,7 +23,6 @@
 
 中期的に検討・対応予定の項目です。
 
-- Claude Projects 向けドキュメントの拡充
 - 用途別サンプルの追加
 
   - `examples/stakeholder-report-example.md`
@@ -34,7 +31,6 @@
   - `examples/engineer-to-pm-report-example.md`
 
 - 英語 README の追加検討
-- `docs/use-case-map.md` の追加検討
 
 ---
 

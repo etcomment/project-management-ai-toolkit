@@ -210,10 +210,16 @@ Project Management AI Contexts
 ├─ examples/        ← 架空データによる使い方例
 │
 ├─ docs/            ← 使い方・安全ガイド
+│  ├─ usage-guide.md
+│  └─ use-case-map.md    ← 状況別コンテキスト選びガイド
 │
 ├─ chatgpt/         ← ChatGPT向け設定ガイド
 ├─ gemini/          ← Gemini向け設定ガイド
 ├─ claude/          ← Claude Projects向け設定ガイド
+│  ├─ README.md
+│  ├─ claude-project-instructions.md
+│  ├─ use-context-files.md
+│  └─ examples.md
 │
 └─ claude-code/     ← Claude Code向けPM実務Skill
    └─ skills/
@@ -236,6 +242,8 @@ project-management-ai-contexts/
 ├── docs/
 │   ├── usage-guide.md
 │   ├── ai-safety.md
+│   ├── use-case-map.md             ← 状況別コンテキスト選びガイド
+│   ├── github-publishing-checklist.md ← GitHub公開チェックリスト
 │   ├── for-chatgpt.md
 │   ├── for-gemini.md
 │   ├── for-claude.md
@@ -280,7 +288,10 @@ project-management-ai-contexts/
 │   ├── use-context-files.md
 │   └── examples.md
 ├── claude/
-│   └── claude-project-instructions.md
+│   ├── README.md                   ← Claude向けガイド
+│   ├── claude-project-instructions.md
+│   ├── use-context-files.md        ← コンテキストファイルの使い方
+│   └── examples.md                 ← 利用例（架空データ）
 └── claude-code/
     ├── README.md
     └── skills/
