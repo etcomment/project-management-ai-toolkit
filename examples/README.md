@@ -50,7 +50,7 @@
 | fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`、`contexts/FIRE_RESPONSE_FIRST_72H.md` |
 | scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` |
 | delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
-| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`claude-code/skills/pm-review/SKILL.md` |
+| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`.claude/skills/pm-review/SKILL.md` |
 
 ---
 

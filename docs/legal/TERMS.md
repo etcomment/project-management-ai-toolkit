@@ -63,7 +63,7 @@
 
 本資料の内容の正確性・完全性・有用性・最新性・特定目的への適合性について、当社は保証しません。
 
-詳細は [DISCLAIMER.md](DISCLAIMER.md) を参照してください。
+詳細は [docs/legal/DISCLAIMER.md](DISCLAIMER.md) を参照してください。
 
 ---
 
@@ -95,9 +95,9 @@
 
 ## 9. 関連文書
 
-- 免責事項：[DISCLAIMER.md](DISCLAIMER.md)
-- ライセンス：[LICENSE.md](LICENSE.md)
-- セキュリティポリシー：[SECURITY.md](SECURITY.md)
+- 免責事項：[docs/legal/DISCLAIMER.md](DISCLAIMER.md)
+- ライセンス：[LICENSE.md](../../LICENSE.md)
+- セキュリティポリシー：[.github/SECURITY.md](../../.github/SECURITY.md)
 
 ---
 

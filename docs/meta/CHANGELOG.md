@@ -4,17 +4,37 @@
 
 ## [Unreleased]
 
+### Changed
+
+- リポジトリ全体を再構成
+  - `claude-code/skills/` を `.claude/skills/` に移動
+  - `chatgpt/`、`gemini/`、`claude/`、`claude-code/` を廃止
+  - 設定用指示文を `instructions/` に統合
+  - ツール別ガイドを `docs/tools/` に統合
+  - `CONTRIBUTING.md`、`SECURITY.md` を `.github/` に移動
+  - `DISCLAIMER.md`、`TERMS.md` を `docs/legal/` に移動
+  - `CHANGELOG.md`、`ROADMAP.md` を `docs/meta/` に移動
+
 ### Added
 
-- Claude Code向けの用途別 Skill を追加
-  - `claude-code/skills/project-health-check/SKILL.md`
-  - `claude-code/skills/status-report/SKILL.md`
-  - `claude-code/skills/issue-risk-review/SKILL.md`
-  - `claude-code/skills/client-communication/SKILL.md`
-  - `claude-code/skills/fire-response-first-72h/SKILL.md`
-  - `claude-code/skills/meeting-minutes/SKILL.md`
-  - `claude-code/skills/scope-change-review/SKILL.md`
-  - `claude-code/skills/delay-recovery/SKILL.md`
+- `instructions/` ディレクトリ（ChatGPT / Gemini / Claude 向け設定用指示文）
+- `docs/tools/chatgpt.md`、`docs/tools/gemini.md`、`docs/tools/claude.md`、`docs/tools/claude-code.md`
+
+---
+
+## [0.3.1] - 2026-05
+
+### Added
+
+- Claude Code向けの用途別 Skill を追加（現在は `.claude/skills/` に配置）
+  - `.claude/skills/project-health-check/SKILL.md`
+  - `.claude/skills/status-report/SKILL.md`
+  - `.claude/skills/issue-risk-review/SKILL.md`
+  - `.claude/skills/client-communication/SKILL.md`
+  - `.claude/skills/fire-response-first-72h/SKILL.md`
+  - `.claude/skills/meeting-minutes/SKILL.md`
+  - `.claude/skills/scope-change-review/SKILL.md`
+  - `.claude/skills/delay-recovery/SKILL.md`
 
 ### Changed
 

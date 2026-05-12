@@ -100,15 +100,15 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 
 | ツール | 設定参考ファイル |
 |---|---|
-| ChatGPT | `chatgpt/project-instructions.md` |
-| Gemini（Gems） | `gemini/gemini-instructions.md` |
-| Claude Projects | `claude/claude-project-instructions.md` |
+| ChatGPT | `instructions/chatgpt-project-instructions.md` |
+| Gemini（Gems） | `instructions/gemini-instructions.md` |
+| Claude Projects | `instructions/claude-project-instructions.md` |
 
-各ツール向けの設定ガイドは、`docs/for-chatgpt.md`、`docs/for-gemini.md`、`docs/for-claude.md` を参照してください。
+各ツール向けの設定ガイドは、`docs/tools/chatgpt.md`、`docs/tools/gemini.md`、`docs/tools/claude.md` を参照してください。
 
 ### 3. Claude Code Skill と組み合わせる
 
-Claude Code を使っている場合は、`claude-code/skills/` 配下の Skill と組み合わせることができます。
+Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と組み合わせることができます。
 
 詳細は次セクションを参照してください。
 
@@ -118,18 +118,18 @@ Claude Code を使っている場合は、`claude-code/skills/` 配下の Skill 
 
 | 目的 | Claude Code Skill |
 |---|---|
-| 汎用PMレビュー | `claude-code/skills/pm-review/SKILL.md` |
-| プロジェクトヘルスチェック | `claude-code/skills/project-health-check/SKILL.md` |
-| 進捗報告 | `claude-code/skills/status-report/SKILL.md` |
-| 課題・リスクレビュー | `claude-code/skills/issue-risk-review/SKILL.md` |
-| 顧客向け文面 | `claude-code/skills/client-communication/SKILL.md` |
-| 炎上初動 | `claude-code/skills/fire-response-first-72h/SKILL.md` |
-| 議事録・TODO | `claude-code/skills/meeting-minutes/SKILL.md` |
-| スコープ変更 | `claude-code/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー | `claude-code/skills/delay-recovery/SKILL.md` |
+| 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
+| プロジェクトヘルスチェック | `.claude/skills/project-health-check/SKILL.md` |
+| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
+| 課題・リスクレビュー | `.claude/skills/issue-risk-review/SKILL.md` |
+| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
+| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
+| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
+| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
+| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
 
 > [!NOTE]
-> `claude-code/skills/` は実行系ではありません。hooks、command、MCP設定、自動実行は含みません。
+> `.claude/skills/` は実行系ではありません。hooks、command、MCP設定、自動実行は含みません。
 > PM実務の観点をClaude Codeに伝えるためのドキュメントです。
 
 ---
@@ -142,4 +142,4 @@ Claude Code を使っている場合は、`claude-code/skills/` 配下の Skill 
 > - AI出力は業務判断の代替ではありません
 > - 顧客提出・社内報告・契約判断・納期回答には必ず人間が確認してください
 
-詳細は [docs/ai-safety.md](ai-safety.md) および [DISCLAIMER.md](../DISCLAIMER.md) を参照してください。
+詳細は [docs/ai-safety.md](ai-safety.md) および [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) を参照してください。

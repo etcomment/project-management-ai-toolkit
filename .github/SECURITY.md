@@ -23,7 +23,7 @@
 - 自動コミット・自動デプロイの仕組み
 - 外部サービスへの自動通信を行う設定
 
-Claude Code 向けの Skill サンプル（`claude-code/skills/pm-review/SKILL.md`）は、PMレビューの考え方を示すサンプルドキュメントであり、実行系の自動化機能は提供しません。
+Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`）は、PMレビューの考え方を示すサンプルドキュメントであり、実行系の自動化機能は提供しません。
 
 ---
 
@@ -67,15 +67,15 @@ Claude Code 向けの Skill サンプル（`claude-code/skills/pm-review/SKILL.m
 - 顧客との契約・NDAの内容を確認すること
 - 利用するAIサービスの利用規約・プライバシーポリシー・データ利用条件を確認すること
 
-詳細は [docs/ai-safety.md](docs/ai-safety.md) を参照してください。
+詳細は [docs/ai-safety.md](../docs/ai-safety.md) を参照してください。
 
 ---
 
 ## 6. 関連文書
 
-- 免責事項：[DISCLAIMER.md](DISCLAIMER.md)
-- 利用規約：[TERMS.md](TERMS.md)
-- AI利用時の安全ガイド：[docs/ai-safety.md](docs/ai-safety.md)
+- 免責事項：[docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md)
+- 利用規約：[docs/legal/TERMS.md](../docs/legal/TERMS.md)
+- AI利用時の安全ガイド：[docs/ai-safety.md](../docs/ai-safety.md)
 
 ---
 

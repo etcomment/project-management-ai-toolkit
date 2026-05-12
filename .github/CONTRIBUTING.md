@@ -106,4 +106,4 @@ Update meeting minutes prompt
 - 投稿者は、投稿内容に第三者の権利侵害や機密情報が含まれていないことを確認する責任を負います。
 - 投稿した内容がリポジトリに取り込まれた場合、本リポジトリのライセンス（LICENSE.md）が適用されます。
 
-詳細は `TERMS.md`、`DISCLAIMER.md`、`SECURITY.md` を確認してください。
+詳細は `docs/legal/TERMS.md`、`docs/legal/DISCLAIMER.md`、`.github/SECURITY.md` を確認してください。

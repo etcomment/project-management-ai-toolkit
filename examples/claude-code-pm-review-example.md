@@ -4,7 +4,7 @@
 
 Claude Codeを使って、プロジェクトのリポジトリ内ファイル（README、Issue一覧、進捗メモ、仕様メモ）をPM視点でレビューする場面を想定しています。
 
-`claude-code/skills/pm-review/SKILL.md` をPMレビューの観点として参照させ、状況を整理させる例です。
+`.claude/skills/pm-review/SKILL.md` をPMレビューの観点として参照させ、状況を整理させる例です。
 
 > **注意：** このサンプルはClaude Codeへのプロンプト例を示すものです。hooks・コマンド・MCP設定・自動実行・自動コミット・自動デプロイは含まれていません。
 
@@ -12,7 +12,7 @@ Claude Codeを使って、プロジェクトのリポジトリ内ファイル（
 
 ## 使用するファイル
 
-- `claude-code/skills/pm-review/SKILL.md`
+- `.claude/skills/pm-review/SKILL.md`
 - `contexts/PM_CONTEXT.md`
 
 ---
@@ -112,7 +112,7 @@ Issue #30: バグ管理表の整備
 Claude Codeに対して以下のように依頼します：
 
 ```text
-claude-code/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
+.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
 このリポジトリの現在の状況をPM視点でレビューしてください。
 
 レビュー対象：

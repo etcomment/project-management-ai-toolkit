@@ -69,7 +69,7 @@
 
 ## 5. Claude Code 向けファイルについて
 
-本リポジトリには、Claude Code 向けの Skill サンプル（`claude-code/skills/pm-review/SKILL.md`）を含みます。
+本リポジトリには、Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`）を含みます。
 
 このファイルは PM レビューの考え方を示すサンプルであり、以下は含まれていません。
 
@@ -96,10 +96,10 @@
 
 ## 7. 関連文書
 
-- 利用規約：[TERMS.md](TERMS.md)
-- ライセンス：[LICENSE.md](LICENSE.md)
-- セキュリティポリシー：[SECURITY.md](SECURITY.md)
-- AI利用時の安全ガイド：[docs/ai-safety.md](docs/ai-safety.md)
+- 利用規約：[docs/legal/TERMS.md](TERMS.md)
+- ライセンス：[LICENSE.md](../../LICENSE.md)
+- セキュリティポリシー：[.github/SECURITY.md](../../.github/SECURITY.md)
+- AI利用時の安全ガイド：[docs/ai-safety.md](../ai-safety.md)
 
 ---
 
