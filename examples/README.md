@@ -60,7 +60,7 @@
 
 AIの出力をそのまま顧客提出・社内報告・契約関連文書に使わないでください。最終的な判断と責任は、必ず人間が持ってください。
 
-詳細は [docs/usage-guide.md](../docs/usage-guide.md) および [DISCLAIMER.md](../DISCLAIMER.md) を参照してください。
+詳細は [docs/usage-guide.md](../docs/usage-guide.md) および [docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md) を参照してください。
 
 ---
 

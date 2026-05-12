@@ -8,15 +8,22 @@
 
 ---
 
-## Short-term
+## Done
 
-近い将来に対応予定の項目です。
+完了済みの項目です。
 
 - `docs/learning-roadmap.md` の追加
 - READMEに「初めての方へ：次に何をすればよいか」セクションを追加
 - 用途別マップと学習テーマの接続を強化
 - `examples/` から学習ロードマップへの導線を追加
 - Discordコミュニティ案内の追加
+
+---
+
+## Short-term
+
+近い将来に対応予定の項目です。
+
 - `CONTRIBUTING.md` / Issue Template / PR Template の整備
 - `examples/` の追加改善
 - 各ファイルの表記ゆれ修正
