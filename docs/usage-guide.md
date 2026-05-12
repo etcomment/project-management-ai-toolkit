@@ -10,6 +10,44 @@
 
 ---
 
+## 利用フロー
+
+以下の順番でファイルを確認してから、AIへの入力に進んでください。
+
+```text
+[1] READMEを読む
+        │
+        v
+[2] DISCLAIMER / ai-safety を確認
+        │
+        v
+[3] PM_CONTEXT.md を確認
+        │
+        v
+[4] 目的に合う contexts/*.md を選ぶ
+        │
+        ├─ 進捗報告        → STATUS_REPORT_CONTEXT.md
+        ├─ 課題・リスク    → ISSUE_RISK_CONTEXT.md
+        ├─ 顧客説明        → CLIENT_COMMUNICATION_CONTEXT.md
+        ├─ 炎上初動        → FIRE_RESPONSE_FIRST_72H.md
+        └─ その他          → 下記「用途別のファイル選び」を参照
+        │
+        v
+[5] 案件情報をマスキング
+        │
+        v
+[6] AIに入力
+        │
+        v
+[7] AI出力を人間が確認・修正
+```
+
+> [!IMPORTANT]
+> AI出力は業務判断の代替ではありません。最終的には必ず人間が確認・修正してください。
+> 機密情報・個人情報・認証情報はAIサービスに入力しないでください。
+
+---
+
 ## まず読むべきファイル
 
 本リポジトリを使い始める前に、以下のファイルを確認してください。

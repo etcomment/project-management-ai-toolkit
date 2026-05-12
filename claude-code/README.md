@@ -40,6 +40,47 @@ claude-code/
 
 ---
 
+## Skill 選択マップ
+
+目的に応じて、以下のSkillを選んでください。
+
+```text
+Claude CodeでPM支援をしたい
+│
+├─ 汎用レビュー
+│    └─ skills/pm-review/SKILL.md
+│
+├─ プロジェクト全体の健全性確認
+│    └─ skills/project-health-check/SKILL.md
+│
+├─ 進捗報告
+│    └─ skills/status-report/SKILL.md
+│
+├─ 課題・リスク整理
+│    └─ skills/issue-risk-review/SKILL.md
+│
+├─ 顧客向け文面
+│    └─ skills/client-communication/SKILL.md
+│
+├─ 炎上初動
+│    └─ skills/fire-response-first-72h/SKILL.md
+│
+├─ 議事録・TODO
+│    └─ skills/meeting-minutes/SKILL.md
+│
+├─ スコープ変更
+│    └─ skills/scope-change-review/SKILL.md
+│
+└─ 遅延リカバリー
+     └─ skills/delay-recovery/SKILL.md
+```
+
+> - Skillはドキュメントです。hooks / command / MCP設定 / 自動実行は含みません
+> - 実案件情報はマスキングしてから入力してください
+> - AI出力は業務判断の代替ではありません
+
+---
+
 ## Skill 一覧
 
 | Skill | 用途 |

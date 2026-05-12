@@ -194,6 +194,36 @@ Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗�
 
 各 `contexts/*.md` には、AIに渡す前提情報・Input・Output定義・Prompt Template が含まれています。通常は対象の contexts ファイルを読むだけで、AIへの依頼に必要な情報を確認できます。
 
+## リポジトリ全体像
+
+このリポジトリの主役は `contexts/` 配下のコンテキストファイルです。各AIツール向けディレクトリは、これらのコンテキストを使いやすくするための設定例・ガイドです。
+
+```text
+Project Management AI Contexts
+│
+├─ contexts/        ← 主役：PM向けAIコンテキスト本体
+│  ├─ PM_CONTEXT.md
+│  ├─ PROJECT_HEALTH_CHECK.md
+│  ├─ STATUS_REPORT_CONTEXT.md
+│  └─ その他の用途別コンテキスト
+│
+├─ examples/        ← 架空データによる使い方例
+│
+├─ docs/            ← 使い方・安全ガイド
+│
+├─ chatgpt/         ← ChatGPT向け設定ガイド
+├─ gemini/          ← Gemini向け設定ガイド
+├─ claude/          ← Claude Projects向け設定ガイド
+│
+└─ claude-code/     ← Claude Code向けPM実務Skill
+   └─ skills/
+      ├─ pm-review/
+      ├─ project-health-check/
+      └─ その他の用途別Skill
+```
+
+---
+
 ## リポジトリ構成
 
 ```text

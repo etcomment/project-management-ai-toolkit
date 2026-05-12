@@ -44,6 +44,32 @@ Geminiで利用する場合、すべてのファイルを事前設定する必�
 
 ---
 
+## 利用フロー
+
+```text
+Geminiで使う
+│
+├─ 通常チャットで使う
+│    └─ contexts/*.md をチャットに貼り付ける
+│
+└─ Gemsで使う
+     └─ gemini-instructions.md / gem-setup-guide.md を参考に設定する
+
+共通の流れ：
+PM_CONTEXT.md
+   ↓
+用途別 contexts/*.md
+   ↓
+案件情報をマスキングして入力
+   ↓
+AI出力を人間が確認
+```
+
+> [!NOTE]
+> Google Workspaceで利用する場合は、組織のポリシーおよびデータ利用条件を事前に確認してください。
+
+---
+
 ## 利用パターン別の案内
 
 ### Gemini の通常チャットで使う場合

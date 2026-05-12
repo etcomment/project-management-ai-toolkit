@@ -44,6 +44,32 @@ ChatGPTで利用する場合、すべてのファイルを事前設定する必�
 
 ---
 
+## 利用フロー
+
+```text
+ChatGPTで使う
+│
+├─ 通常チャットで使う
+│    └─ contexts/*.md をチャットに貼り付ける
+│
+├─ ChatGPT Projectsで使う
+│    └─ project-instructions.md を設定する
+│
+└─ Custom GPTで使う
+     └─ custom-gpt-instructions.md を参考に設定する
+
+共通の流れ：
+PM_CONTEXT.md
+   ↓
+用途別 contexts/*.md
+   ↓
+案件情報をマスキングして入力
+   ↓
+AI出力を人間が確認
+```
+
+---
+
 ## 利用パターン別の案内
 
 ### ChatGPT Projects で使う場合
