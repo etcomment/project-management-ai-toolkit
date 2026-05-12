@@ -162,6 +162,21 @@ Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗�
 
 - `claude-code/skills/pm-review/SKILL.md`
 
+## 追加ユースケース
+
+| 用途 | コンテキストファイル | プロンプト |
+|---|---|---|
+| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` | `prompts/meeting-minutes.md` |
+| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` | `prompts/weekly-meeting.md` |
+| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` | `prompts/scope-change.md` |
+| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` | `prompts/delay-recovery.md` |
+| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` | `prompts/quality-issue.md` |
+| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` | `prompts/retrospective.md` |
+| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | `prompts/stakeholder-report.md` |
+| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` | `prompts/estimation.md` |
+| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` | `prompts/pmo-review.md` |
+| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | `prompts/engineer-to-pm-report.md` |
+
 ## リポジトリ構成
 
 ```text
@@ -184,12 +199,32 @@ project-management-ai-contexts/
 │   ├── STATUS_REPORT_CONTEXT.md
 │   ├── ISSUE_RISK_CONTEXT.md
 │   ├── FIRE_RESPONSE_FIRST_72H.md
-│   └── CLIENT_COMMUNICATION_CONTEXT.md
+│   ├── CLIENT_COMMUNICATION_CONTEXT.md
+│   ├── MEETING_MINUTES_CONTEXT.md
+│   ├── WEEKLY_MEETING_CONTEXT.md
+│   ├── SCOPE_CHANGE_CONTEXT.md
+│   ├── DELAY_RECOVERY_CONTEXT.md
+│   ├── QUALITY_ISSUE_CONTEXT.md
+│   ├── RETROSPECTIVE_CONTEXT.md
+│   ├── STAKEHOLDER_REPORT_CONTEXT.md
+│   ├── ESTIMATION_CONTEXT.md
+│   ├── PMO_REVIEW_CONTEXT.md
+│   └── ENGINEER_TO_PM_REPORT_CONTEXT.md
 ├── prompts/
 │   ├── status-report.md
 │   ├── issue-risk-review.md
 │   ├── client-communication.md
-│   └── fire-response.md
+│   ├── fire-response.md
+│   ├── meeting-minutes.md
+│   ├── weekly-meeting.md
+│   ├── scope-change.md
+│   ├── delay-recovery.md
+│   ├── quality-issue.md
+│   ├── retrospective.md
+│   ├── stakeholder-report.md
+│   ├── estimation.md
+│   ├── pmo-review.md
+│   └── engineer-to-pm-report.md
 ├── chatgpt/
 │   └── project-instructions.md
 ├── gemini/

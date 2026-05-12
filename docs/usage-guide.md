@@ -38,6 +38,16 @@
 | 課題・リスクの整理 | `contexts/ISSUE_RISK_CONTEXT.md` | `prompts/issue-risk-review.md` |
 | 顧客向け説明文の作成 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | `prompts/client-communication.md` |
 | 炎上・トラブル初動の整理 | `contexts/FIRE_RESPONSE_FIRST_72H.md` | `prompts/fire-response.md` |
+| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` | `prompts/meeting-minutes.md` |
+| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` | `prompts/weekly-meeting.md` |
+| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` | `prompts/scope-change.md` |
+| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` | `prompts/delay-recovery.md` |
+| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` | `prompts/quality-issue.md` |
+| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` | `prompts/retrospective.md` |
+| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | `prompts/stakeholder-report.md` |
+| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` | `prompts/estimation.md` |
+| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` | `prompts/pmo-review.md` |
+| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | `prompts/engineer-to-pm-report.md` |
 
 すべての用途で、まず `contexts/PM_CONTEXT.md` を読み込ませることを推奨します。
 
@@ -145,12 +155,32 @@ project-management-ai-contexts/
 │   ├── STATUS_REPORT_CONTEXT.md       ← 進捗報告用
 │   ├── ISSUE_RISK_CONTEXT.md          ← 課題・リスク管理用
 │   ├── FIRE_RESPONSE_FIRST_72H.md     ← 炎上初動用
-│   └── CLIENT_COMMUNICATION_CONTEXT.md ← 顧客コミュニケーション用
+│   ├── CLIENT_COMMUNICATION_CONTEXT.md ← 顧客コミュニケーション用
+│   ├── MEETING_MINUTES_CONTEXT.md     ← 議事録・TODO整理用
+│   ├── WEEKLY_MEETING_CONTEXT.md      ← 週次定例アジェンダ用
+│   ├── SCOPE_CHANGE_CONTEXT.md        ← スコープ変更整理用
+│   ├── DELAY_RECOVERY_CONTEXT.md      ← 遅延リカバリー用
+│   ├── QUALITY_ISSUE_CONTEXT.md       ← 品質問題対応用
+│   ├── RETROSPECTIVE_CONTEXT.md       ← 振り返り・ポストモーテム用
+│   ├── STAKEHOLDER_REPORT_CONTEXT.md  ← ステークホルダー報告用
+│   ├── ESTIMATION_CONTEXT.md          ← 見積前提整理用
+│   ├── PMO_REVIEW_CONTEXT.md          ← PMO横断レビュー用
+│   └── ENGINEER_TO_PM_REPORT_CONTEXT.md ← エンジニアからPMへの相談用
 ├── prompts/
 │   ├── status-report.md               ← 進捗報告プロンプト
 │   ├── issue-risk-review.md           ← 課題・リスクレビュープロンプト
 │   ├── client-communication.md        ← 顧客向け文面プロンプト
-│   └── fire-response.md               ← 炎上初動プロンプト
+│   ├── fire-response.md               ← 炎上初動プロンプト
+│   ├── meeting-minutes.md             ← 議事録・TODOプロンプト
+│   ├── weekly-meeting.md              ← 週次定例アジェンダプロンプト
+│   ├── scope-change.md                ← スコープ変更プロンプト
+│   ├── delay-recovery.md              ← 遅延リカバリープロンプト
+│   ├── quality-issue.md               ← 品質問題対応プロンプト
+│   ├── retrospective.md               ← 振り返りプロンプト
+│   ├── stakeholder-report.md          ← ステークホルダー報告プロンプト
+│   ├── estimation.md                  ← 見積前提整理プロンプト
+│   ├── pmo-review.md                  ← PMO横断レビュープロンプト
+│   └── engineer-to-pm-report.md       ← エンジニアからPM相談プロンプト
 ├── chatgpt/
 │   └── project-instructions.md        ← ChatGPT指示文
 ├── gemini/
