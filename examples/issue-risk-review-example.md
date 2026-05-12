@@ -12,7 +12,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
-- `prompts/issue-risk-review.md`
 
 ---
 
@@ -82,7 +81,6 @@ No.5
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/ISSUE_RISK_CONTEXT.md
-- prompts/issue-risk-review.md
 
 【課題一覧】
 （上記の Sanitized Input を貼り付ける）

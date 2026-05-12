@@ -70,7 +70,6 @@ ChatGPT で本リポジトリのコンテキストファイルを活用した利
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
-- `prompts/status-report.md`
 
 **Sanitized Input（架空データ）**
 
@@ -116,7 +115,6 @@ ChatGPT で本リポジトリのコンテキストファイルを活用した利
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
-- `prompts/issue-risk-review.md`
 
 **Sanitized Input（架空データ）**
 
@@ -163,7 +161,6 @@ No. | 課題内容 | 担当 | 期限 | 影響
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
-- `prompts/client-communication.md`
 
 **Sanitized Input（架空データ）**
 
@@ -211,7 +208,6 @@ No. | 課題内容 | 担当 | 期限 | 影響
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/FIRE_RESPONSE_FIRST_72H.md`
-- `prompts/fire-response.md`
 
 **Sanitized Input（架空データ）**
 

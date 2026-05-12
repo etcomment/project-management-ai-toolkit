@@ -12,7 +12,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/MEETING_MINUTES_CONTEXT.md`
-- `prompts/meeting-minutes.md`
 
 ---
 
@@ -52,7 +51,7 @@
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/MEETING_MINUTES_CONTEXT.md
-- prompts/meeting-minutes.md
+
 
 【会議メモ】
 （上記の Sanitized Input を貼り付ける）

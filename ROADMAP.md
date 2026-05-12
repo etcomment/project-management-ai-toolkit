@@ -17,6 +17,7 @@
 - 各ファイルの表記ゆれ修正
 - README の英語要素の軽微追加
 - GitHub Topics / Social Preview の整備
+- Claude Code Skill の公式ベストプラクティス準拠レビュー
 
 ---
 
@@ -25,7 +26,6 @@
 中期的に検討・対応予定の項目です。
 
 - Claude Projects 向けドキュメントの拡充
-- Claude Code Skill の公式ベストプラクティス準拠レビュー
 - 用途別サンプルの追加
 
   - `examples/stakeholder-report-example.md`

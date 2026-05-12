@@ -12,7 +12,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/DELAY_RECOVERY_CONTEXT.md`
-- `prompts/delay-recovery.md`
 
 ---
 
@@ -75,7 +74,6 @@
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/DELAY_RECOVERY_CONTEXT.md
-- prompts/delay-recovery.md
 
 【状況】
 （上記の Sanitized Input を貼り付ける）

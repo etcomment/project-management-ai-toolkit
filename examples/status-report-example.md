@@ -12,7 +12,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
-- `prompts/status-report.md`
 
 ---
 
@@ -66,7 +65,6 @@
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/STATUS_REPORT_CONTEXT.md
-- prompts/status-report.md
 
 【進捗情報】
 （上記の Sanitized Input を貼り付ける）

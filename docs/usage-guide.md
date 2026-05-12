@@ -31,23 +31,34 @@
 
 目的に応じて、以下のコンテキストファイルを使い分けてください。
 
-| 目的 | コンテキストファイル | プロンプトテンプレート |
-|---|---|---|
-| プロジェクト全体のヘルスチェック | `contexts/PROJECT_HEALTH_CHECK.md` | — |
-| 進捗報告の作成 | `contexts/STATUS_REPORT_CONTEXT.md` | `prompts/status-report.md` |
-| 課題・リスクの整理 | `contexts/ISSUE_RISK_CONTEXT.md` | `prompts/issue-risk-review.md` |
-| 顧客向け説明文の作成 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | `prompts/client-communication.md` |
-| 炎上・トラブル初動の整理 | `contexts/FIRE_RESPONSE_FIRST_72H.md` | `prompts/fire-response.md` |
-| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` | `prompts/meeting-minutes.md` |
-| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` | `prompts/weekly-meeting.md` |
-| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` | `prompts/scope-change.md` |
-| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` | `prompts/delay-recovery.md` |
-| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` | `prompts/quality-issue.md` |
-| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` | `prompts/retrospective.md` |
-| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | `prompts/stakeholder-report.md` |
-| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` | `prompts/estimation.md` |
-| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` | `prompts/pmo-review.md` |
-| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | `prompts/engineer-to-pm-report.md` |
+各 `contexts/*.md` には、以下が含まれています。
+
+- Purpose
+- Use Case
+- Input
+- Output
+- Caution
+- Prompt Template
+
+そのため、通常は `contexts/` の対象ファイルを読むだけで、AIに渡す前提情報と依頼文テンプレートを確認できます。
+
+| 目的 | コンテキストファイル |
+|---|---|
+| プロジェクト全体のヘルスチェック | `contexts/PROJECT_HEALTH_CHECK.md` |
+| 進捗報告の作成 | `contexts/STATUS_REPORT_CONTEXT.md` |
+| 課題・リスクの整理 | `contexts/ISSUE_RISK_CONTEXT.md` |
+| 顧客向け説明文の作成 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| 炎上・トラブル初動の整理 | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` |
+| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` |
+| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` |
+| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` |
+| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
+| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` |
+| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` |
+| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
 
 すべての用途で、まず `contexts/PM_CONTEXT.md` を読み込ませることを推奨します。
 
@@ -64,8 +75,7 @@
 | 設定用・コピー用ファイル | AIツールの指示欄・プロジェクト指示・Gem/GPT設定にコピーする文面 |
 | 人間向けガイド | 設定方法、使い方、利用例、注意事項を説明するドキュメント |
 
-コンテキスト本体は主に `contexts/` 配下にあります。
-用途別の依頼文テンプレートは `prompts/` 配下にあります。
+コンテキスト本体は `contexts/` 配下にあります。各コンテキストファイルにはPrompt Templateが内包されています。
 
 ---
 
@@ -91,7 +101,7 @@
 
 ### Claude Code
 
-- `claude-code/skills/pm-review/SKILL.md` をPMレビューの観点サンプルとして参照する
+- `claude-code/skills/` 配下に用途別 PM 実務 Skill を提供している
 - プロジェクトの README、Issue、仕様メモ、進捗メモをPM視点でレビューする用途に使う
 - hooks や自動実行は含まない
 - 詳細：[docs/for-claude-code.md](for-claude-code.md)
@@ -165,7 +175,7 @@ project-management-ai-contexts/
 │   ├── for-gemini.md                  ← Gemini向け使い方
 │   ├── for-claude.md                  ← Claude向け使い方
 │   └── for-claude-code.md             ← Claude Code向け使い方
-├── contexts/
+├── contexts/                          ← コンテキストファイル（主役）
 │   ├── PM_CONTEXT.md                  ← 共通前提コンテキスト
 │   ├── PROJECT_HEALTH_CHECK.md        ← ヘルスチェック用
 │   ├── STATUS_REPORT_CONTEXT.md       ← 進捗報告用
@@ -182,21 +192,16 @@ project-management-ai-contexts/
 │   ├── ESTIMATION_CONTEXT.md          ← 見積前提整理用
 │   ├── PMO_REVIEW_CONTEXT.md          ← PMO横断レビュー用
 │   └── ENGINEER_TO_PM_REPORT_CONTEXT.md ← エンジニアからPMへの相談用
-├── prompts/
-│   ├── status-report.md               ← 進捗報告プロンプト
-│   ├── issue-risk-review.md           ← 課題・リスクレビュープロンプト
-│   ├── client-communication.md        ← 顧客向け文面プロンプト
-│   ├── fire-response.md               ← 炎上初動プロンプト
-│   ├── meeting-minutes.md             ← 議事録・TODOプロンプト
-│   ├── weekly-meeting.md              ← 週次定例アジェンダプロンプト
-│   ├── scope-change.md                ← スコープ変更プロンプト
-│   ├── delay-recovery.md              ← 遅延リカバリープロンプト
-│   ├── quality-issue.md               ← 品質問題対応プロンプト
-│   ├── retrospective.md               ← 振り返りプロンプト
-│   ├── stakeholder-report.md          ← ステークホルダー報告プロンプト
-│   ├── estimation.md                  ← 見積前提整理プロンプト
-│   ├── pmo-review.md                  ← PMO横断レビュープロンプト
-│   └── engineer-to-pm-report.md       ← エンジニアからPM相談プロンプト
+├── examples/
+│   ├── README.md                       ← サンプル集の入口ページ
+│   ├── project-health-check-example.md ← ヘルスチェック例
+│   ├── status-report-example.md        ← 進捗報告作成例
+│   ├── issue-risk-review-example.md    ← 課題・リスクレビュー例
+│   ├── meeting-minutes-example.md      ← 議事録・TODO作成例
+│   ├── fire-response-first-72h-example.md ← 炎上初動整理例
+│   ├── scope-change-example.md         ← スコープ変更整理例
+│   ├── delay-recovery-example.md       ← 遅延リカバリー例
+│   └── claude-code-pm-review-example.md ← Claude Code PMレビュー例
 ├── chatgpt/
 │   ├── README.md                       ← ChatGPT向け入口ページ
 │   ├── project-instructions.md        ← ChatGPT指示文
@@ -213,17 +218,16 @@ project-management-ai-contexts/
 │   └── claude-project-instructions.md ← Claude Projects指示文
 └── claude-code/
     ├── README.md                       ← Claude Code向け説明
-    └── skills/pm-review/SKILL.md       ← PMレビューSkillサンプル
-examples/
-    ├── README.md                       ← サンプル集の入口ページ
-    ├── project-health-check-example.md ← ヘルスチェック例
-    ├── status-report-example.md        ← 進捗報告作成例
-    ├── issue-risk-review-example.md    ← 課題・リスクレビュー例
-    ├── meeting-minutes-example.md      ← 議事録・TODO作成例
-    ├── fire-response-first-72h-example.md ← 炎上初動整理例
-    ├── scope-change-example.md         ← スコープ変更整理例
-    ├── delay-recovery-example.md       ← 遅延リカバリー例
-    └── claude-code-pm-review-example.md ← Claude Code PMレビュー例
+    └── skills/
+        ├── pm-review/SKILL.md          ← 汎用PMレビューSkill
+        ├── project-health-check/SKILL.md
+        ├── status-report/SKILL.md
+        ├── issue-risk-review/SKILL.md
+        ├── client-communication/SKILL.md
+        ├── fire-response-first-72h/SKILL.md
+        ├── meeting-minutes/SKILL.md
+        ├── scope-change-review/SKILL.md
+        └── delay-recovery/SKILL.md
 ```
 
 ---

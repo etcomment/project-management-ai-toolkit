@@ -6,15 +6,19 @@
 
 ### Added
 
-- 今後追加予定の変更をここに記録します。
+- Claude Code向けの用途別 Skill を追加
+  - `claude-code/skills/project-health-check/SKILL.md`
+  - `claude-code/skills/status-report/SKILL.md`
+  - `claude-code/skills/issue-risk-review/SKILL.md`
+  - `claude-code/skills/client-communication/SKILL.md`
+  - `claude-code/skills/fire-response-first-72h/SKILL.md`
+  - `claude-code/skills/meeting-minutes/SKILL.md`
+  - `claude-code/skills/scope-change-review/SKILL.md`
+  - `claude-code/skills/delay-recovery/SKILL.md`
 
 ### Changed
 
-- 変更予定の内容をここに記録します。
-
-### Fixed
-
-- 修正予定の内容をここに記録します。
+- `prompts/` の内容を `contexts/` 各ファイルの Prompt Template に統合し、リポジトリをコンテキストファイル中心の構成に整理
 
 ---
 

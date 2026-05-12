@@ -71,7 +71,6 @@ Gemini で本リポジトリのコンテキストファイルを活用した利�
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
-- `prompts/status-report.md`
 
 **Sanitized Input（架空データ）**
 
@@ -117,7 +116,6 @@ Gemini で本リポジトリのコンテキストファイルを活用した利�
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
-- `prompts/issue-risk-review.md`
 
 **Sanitized Input（架空データ）**
 
@@ -164,7 +162,6 @@ No. | 課題内容 | 担当 | 期限 | 影響
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/WEEKLY_MEETING_CONTEXT.md`
-- `prompts/weekly-meeting.md`
 
 **Sanitized Input（架空データ）**
 
@@ -211,7 +208,6 @@ No. | 課題内容 | 担当 | 期限 | 影響
 **使用するファイル**
 - `contexts/PM_CONTEXT.md`
 - `contexts/SCOPE_CHANGE_CONTEXT.md`
-- `prompts/scope-change.md`
 
 **Sanitized Input（架空データ）**
 

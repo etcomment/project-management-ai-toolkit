@@ -1,6 +1,6 @@
 # Geminiでのコンテキストファイルの使い方
 
-`contexts/` と `prompts/` のファイルを Gemini で活用するための手順を説明します。
+`contexts/` のファイルを Gemini で活用するための手順を説明します。
 
 > [!IMPORTANT]
 > 案件情報を入力する前に、顧客名・個人名・認証情報等をマスキングしてください。
@@ -41,8 +41,8 @@
 2. **用途別コンテキストを選ぶ**
    目的に合った `contexts/` のファイルを選択する（[用途別の組み合わせ例](#用途別の組み合わせ例)を参照）
 
-3. **必要に応じて `prompts/` のテンプレートを使う**
-   `prompts/` のファイルを開き、依頼文のテンプレートを確認する
+3. **コンテキストファイル末尾の Prompt Template を参考にする**
+   各 `contexts/` ファイルの末尾に Prompt Template が内包されています
 
 4. **案件情報をマスキングして入力する**
    顧客名・個人名・認証情報等を[プレースホルダーに置き換え](#入力前のマスキング例)てから入力する
@@ -59,40 +59,35 @@
 | 使用ファイル | 役割 |
 |---|---|
 | `contexts/PM_CONTEXT.md` | 共通前提 |
-| `contexts/STATUS_REPORT_CONTEXT.md` | 進捗報告の判断軸 |
-| `prompts/status-report.md` | 依頼文テンプレート |
+| `contexts/STATUS_REPORT_CONTEXT.md` | 進捗報告の判断軸・Prompt Template 内包 |
 
 ### 課題・リスク
 
 | 使用ファイル | 役割 |
 |---|---|
 | `contexts/PM_CONTEXT.md` | 共通前提 |
-| `contexts/ISSUE_RISK_CONTEXT.md` | 課題・リスク管理の判断軸 |
-| `prompts/issue-risk-review.md` | 依頼文テンプレート |
+| `contexts/ISSUE_RISK_CONTEXT.md` | 課題・リスク管理の判断軸・Prompt Template 内包 |
 
 ### 炎上初動
 
 | 使用ファイル | 役割 |
 |---|---|
 | `contexts/PM_CONTEXT.md` | 共通前提 |
-| `contexts/FIRE_RESPONSE_FIRST_72H.md` | 炎上初動の判断軸 |
-| `prompts/fire-response.md` | 依頼文テンプレート |
+| `contexts/FIRE_RESPONSE_FIRST_72H.md` | 炎上初動の判断軸・Prompt Template 内包 |
 
 ### 議事録
 
 | 使用ファイル | 役割 |
 |---|---|
 | `contexts/PM_CONTEXT.md` | 共通前提 |
-| `contexts/MEETING_MINUTES_CONTEXT.md` | 議事録整理の判断軸 |
-| `prompts/meeting-minutes.md` | 依頼文テンプレート |
+| `contexts/MEETING_MINUTES_CONTEXT.md` | 議事録整理の判断軸・Prompt Template 内包 |
 
 ### スコープ変更
 
 | 使用ファイル | 役割 |
 |---|---|
 | `contexts/PM_CONTEXT.md` | 共通前提 |
-| `contexts/SCOPE_CHANGE_CONTEXT.md` | スコープ変更整理の判断軸 |
-| `prompts/scope-change.md` | 依頼文テンプレート |
+| `contexts/SCOPE_CHANGE_CONTEXT.md` | スコープ変更整理の判断軸・Prompt Template 内包 |
 
 ---
 

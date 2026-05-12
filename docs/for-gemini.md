@@ -23,7 +23,7 @@
 | 人間向けガイド | `use-context-files.md` | コンテキストファイルの使い方 |
 | 人間向けガイド | `examples.md` | 利用例（架空データ） |
 
-コンテキスト本体は `contexts/`、用途別プロンプトは `prompts/` にあります。
+コンテキスト本体は `contexts/` に配置しています。各コンテキストファイルには Prompt Template が内包されています。
 
 ---
 

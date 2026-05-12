@@ -1,12 +1,12 @@
 # Examples — 実用サンプル集
 
-このディレクトリは、`contexts/` および `prompts/` の使い方を具体的に示すサンプル集です。
+このディレクトリは、`contexts/` の使い方を具体的に示すサンプル集です。
 
 ---
 
 ## このディレクトリの目的
 
-各コンテキストファイル・プロンプトファイルを実際にどのように使うのか、入力例・プロンプト例・期待する出力例を通じて確認できます。
+各コンテキストファイルを実際にどのように使うのか、入力例・プロンプト例・期待する出力例を通じて確認できます。
 
 ---
 
@@ -39,18 +39,18 @@
 
 ---
 
-## コンテキストファイルとプロンプトファイルの対応表
+## 使用するファイルの対応表
 
-| サンプル | コンテキストファイル | プロンプトファイル |
-|---|---|---|
-| project-health-check-example.md | `contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md` | — |
-| status-report-example.md | `contexts/PM_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md` | `prompts/status-report.md` |
-| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md` | `prompts/issue-risk-review.md` |
-| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`、`contexts/MEETING_MINUTES_CONTEXT.md` | `prompts/meeting-minutes.md` |
-| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`、`contexts/FIRE_RESPONSE_FIRST_72H.md` | `prompts/fire-response.md` |
-| scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` | `prompts/scope-change.md` |
-| delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` | `prompts/delay-recovery.md` |
-| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md` | `claude-code/skills/pm-review/SKILL.md` |
+| サンプル | 使用するファイル |
+|---|---|
+| project-health-check-example.md | `contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md` |
+| status-report-example.md | `contexts/PM_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md` |
+| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md` |
+| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`、`contexts/MEETING_MINUTES_CONTEXT.md` |
+| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`、`contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` |
+| delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
+| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`claude-code/skills/pm-review/SKILL.md` |
 
 ---
 

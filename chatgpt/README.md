@@ -14,7 +14,7 @@
 |---|---|---|
 | [project-instructions.md](project-instructions.md) | 設定用・コピー用 | ChatGPT Projects・カスタムGPTの指示欄にコピーして使う指示文 |
 | [custom-gpt-instructions.md](custom-gpt-instructions.md) | 設定ガイド＋コピー用 | カスタムGPTの設定手順（人間向けガイド）と、Instructions欄にコピーする文面を含む |
-| [use-context-files.md](use-context-files.md) | 人間向けガイド | contexts/ と prompts/ の使い方手順 |
+| [use-context-files.md](use-context-files.md) | 人間向けガイド | contexts/ のコンテキストファイルの使い方手順 |
 | [examples.md](examples.md) | 人間向けガイド | ChatGPTでの利用例（架空データ） |
 
 ---
@@ -66,18 +66,15 @@ ChatGPTで利用する場合、すべてのファイルを事前設定する必�
 
 ---
 
-## contexts/ と prompts/ の使い分け
+## contexts/ の使い方
 
-| ディレクトリ | 役割 |
-|---|---|
-| `contexts/` | AIに読み込ませる前提情報・判断軸・業務ルール |
-| `prompts/` | 用途別の依頼文テンプレート（入力欄付き） |
+`contexts/` の各ファイルには、AIへの前提情報・判断軸・業務ルールに加えて、Prompt Template が内包されています。
 
 基本的な流れ：
 
 1. `contexts/PM_CONTEXT.md`（共通前提）を読み込ませる
 2. 目的に合った `contexts/` のファイルを追加する
-3. `prompts/` のテンプレートを使って依頼文を組み立てる
+3. 各コンテキストファイル末尾の Prompt Template を参考に依頼文を組み立てる
 4. 案件情報をマスキングしてから入力する
 
 ---

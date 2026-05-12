@@ -1,6 +1,6 @@
 # Project Management AI Contexts
 
-ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAIコンテキストファイルとプロンプトテンプレート集です。
+ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAIコンテキストファイル集です。
 
 このリポジトリは、PM業務における以下のような作業を、生成AIに相談しやすくするための Markdown ファイルを提供します。
 
@@ -9,7 +9,7 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 - 課題・リスクの洗い出し
 - 顧客向け説明文の作成
 - 炎上初動72時間の整理
-- Claude Code 向け PM レビュー Skill の利用
+- Claude Code 向け PM 実務 Skill の利用
 
 ## このリポジトリの目的
 
@@ -17,7 +17,7 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 
 ただし、AIにただ「進捗報告を作って」「リスクを洗い出して」と依頼しても、前提情報や判断軸が不足していると、実務で使いにくい出力になりがちです。
 
-このリポジトリでは、PM業務でAIに読み込ませるためのコンテキストファイルと、用途別のプロンプトテンプレートを提供します。
+このリポジトリでは、PM業務でAIに読み込ませるためのコンテキストファイルを提供します。各コンテキストファイルには、AIに渡す前提情報・判断軸・コピーして使えるPrompt Templateを含めています。
 
 AIにPM判断を代行させるのではなく、PM・PMO・開発リーダーが状況整理や判断材料の作成を効率化することを目的としています。
 
@@ -78,7 +78,6 @@ AIにPM判断を代行させるのではなく、PM・PMO・開発リーダー�
 利用ファイル例：
 
 - `contexts/STATUS_REPORT_CONTEXT.md`
-- `prompts/status-report.md`
 
 ---
 
@@ -99,7 +98,6 @@ AIにPM判断を代行させるのではなく、PM・PMO・開発リーダー�
 利用ファイル例：
 
 - `contexts/ISSUE_RISK_CONTEXT.md`
-- `prompts/issue-risk-review.md`
 
 ---
 
@@ -119,7 +117,6 @@ AIにPM判断を代行させるのではなく、PM・PMO・開発リーダー�
 利用ファイル例：
 
 - `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
-- `prompts/client-communication.md`
 
 ---
 
@@ -140,13 +137,12 @@ AIにPM判断を代行させるのではなく、PM・PMO・開発リーダー�
 利用ファイル例：
 
 - `contexts/FIRE_RESPONSE_FIRST_72H.md`
-- `prompts/fire-response.md`
 
 ---
 
-### 6. Claude Code 向け PM レビュー Skill
+### 6. Claude Code 向け PM 実務 Skill
 
-Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗メモなどをもとに、PM視点でレビューするための Skill サンプルです。
+Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗メモなどをもとに、PM視点でレビュー・整理するための Skill 集です。
 
 主な出力例：
 
@@ -160,7 +156,11 @@ Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗�
 
 利用ファイル例：
 
-- `claude-code/skills/pm-review/SKILL.md`
+- `claude-code/skills/pm-review/SKILL.md`（汎用PMレビュー）
+- `claude-code/skills/project-health-check/SKILL.md`
+- `claude-code/skills/status-report/SKILL.md`
+- `claude-code/skills/issue-risk-review/SKILL.md`
+- `claude-code/skills/` 配下の用途別 Skill
 
 ## Examples
 
@@ -179,18 +179,20 @@ Claude Code で、プロジェクトの README、Issue、仕様メモ、進捗�
 
 ## 追加ユースケース
 
-| 用途 | コンテキストファイル | プロンプト |
-|---|---|---|
-| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` | `prompts/meeting-minutes.md` |
-| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` | `prompts/weekly-meeting.md` |
-| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` | `prompts/scope-change.md` |
-| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` | `prompts/delay-recovery.md` |
-| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` | `prompts/quality-issue.md` |
-| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` | `prompts/retrospective.md` |
-| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | `prompts/stakeholder-report.md` |
-| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` | `prompts/estimation.md` |
-| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` | `prompts/pmo-review.md` |
-| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | `prompts/engineer-to-pm-report.md` |
+| 用途 | コンテキストファイル |
+|---|---|
+| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` |
+| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` |
+| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` |
+| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` |
+| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
+| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` |
+| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` |
+| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
+
+各 `contexts/*.md` には、AIに渡す前提情報・Input・Output定義・Prompt Template が含まれています。通常は対象の contexts ファイルを読むだけで、AIへの依頼に必要な情報を確認できます。
 
 ## リポジトリ構成
 
@@ -225,21 +227,16 @@ project-management-ai-contexts/
 │   ├── ESTIMATION_CONTEXT.md
 │   ├── PMO_REVIEW_CONTEXT.md
 │   └── ENGINEER_TO_PM_REPORT_CONTEXT.md
-├── prompts/
-│   ├── status-report.md
-│   ├── issue-risk-review.md
-│   ├── client-communication.md
-│   ├── fire-response.md
-│   ├── meeting-minutes.md
-│   ├── weekly-meeting.md
-│   ├── scope-change.md
-│   ├── delay-recovery.md
-│   ├── quality-issue.md
-│   ├── retrospective.md
-│   ├── stakeholder-report.md
-│   ├── estimation.md
-│   ├── pmo-review.md
-│   └── engineer-to-pm-report.md
+├── examples/
+│   ├── README.md
+│   ├── project-health-check-example.md
+│   ├── status-report-example.md
+│   ├── issue-risk-review-example.md
+│   ├── meeting-minutes-example.md
+│   ├── fire-response-first-72h-example.md
+│   ├── scope-change-example.md
+│   ├── delay-recovery-example.md
+│   └── claude-code-pm-review-example.md
 ├── chatgpt/
 │   ├── README.md
 │   ├── project-instructions.md
@@ -257,7 +254,23 @@ project-management-ai-contexts/
 └── claude-code/
     ├── README.md
     └── skills/
-        └── pm-review/
+        ├── pm-review/
+        │   └── SKILL.md
+        ├── project-health-check/
+        │   └── SKILL.md
+        ├── status-report/
+        │   └── SKILL.md
+        ├── issue-risk-review/
+        │   └── SKILL.md
+        ├── client-communication/
+        │   └── SKILL.md
+        ├── fire-response-first-72h/
+        │   └── SKILL.md
+        ├── meeting-minutes/
+        │   └── SKILL.md
+        ├── scope-change-review/
+        │   └── SKILL.md
+        └── delay-recovery/
             └── SKILL.md
 ```
 
@@ -265,7 +278,7 @@ project-management-ai-contexts/
 
 `chatgpt/`、`gemini/`、`claude/`、`claude-code/` 配下には、各AIツールで使うための設定例・使い方ガイド・利用例を配置しています。
 
-コンテキスト本体は `contexts/`、用途別プロンプトは `prompts/` に配置しています。
+コンテキスト本体は `contexts/` に配置しています。各コンテキストファイルには、AIに渡すInput、期待するOutput、コピーして使えるPrompt Templateを含めています。
 ツール別ディレクトリ内のファイルをすべてAIに読み込ませる必要はありません。
 
 ## Quick Start
@@ -343,7 +356,9 @@ AIの出力は、そのまま顧客提出・社内報告・契約判断・納期
 
 ## Claude Code 利用時の注意
 
-このリポジトリには、Claude Code 向けの Skill サンプルを含みます。
+このリポジトリには、Claude Code 向けの PM 実務 Skill を含みます。
+
+`claude-code/skills/` 配下に、汎用PMレビュー用の `pm-review` と、用途別の複数 Skill を提供しています。
 
 ただし、以下は含めていません。
 
@@ -356,7 +371,7 @@ AIの出力は、そのまま顧客提出・社内報告・契約判断・納期
 * 自動デプロイ
 * ファイル削除や上書きを伴うスクリプト
 
-Claude Code 向けファイルは、PMレビューの考え方を Skill として表現するための参考例です。
+Claude Code 向けファイルは、PM実務のレビュー観点・整理観点をClaude Codeに伝えるためのものです。
 
 内容を理解しないまま、本番環境や顧客案件で利用しないでください。
 

@@ -14,7 +14,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/FIRE_RESPONSE_FIRST_72H.md`
-- `prompts/fire-response.md`
 
 ---
 
@@ -75,7 +74,6 @@
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/FIRE_RESPONSE_FIRST_72H.md
-- prompts/fire-response.md
 
 【状況】
 （上記の Sanitized Input を貼り付ける）

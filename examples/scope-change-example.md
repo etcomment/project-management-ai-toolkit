@@ -12,7 +12,6 @@
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/SCOPE_CHANGE_CONTEXT.md`
-- `prompts/scope-change.md`
 
 ---
 
@@ -73,7 +72,6 @@
 【読み込むファイル】
 - contexts/PM_CONTEXT.md
 - contexts/SCOPE_CHANGE_CONTEXT.md
-- prompts/scope-change.md
 
 【変更状況】
 （上記の Sanitized Input を貼り付ける）
