@@ -1,4 +1,4 @@
-﻿# Project Management AI Contexts
+# Project Management AI Contexts
 
 ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAIコンテキストファイル集です。
 

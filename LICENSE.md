@@ -50,15 +50,15 @@ https://techaide.jp/
 
 内容の正確性・完全性・有用性・特定目的への適合性について保証しません。
 
-詳細は [DISCLAIMER.md](DISCLAIMER.md) を参照してください。
+詳細は [docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md) を参照してください。
 
 ---
 
 ## 関連文書
 
-- 免責事項：[DISCLAIMER.md](DISCLAIMER.md)
-- 利用規約：[TERMS.md](TERMS.md)
-- セキュリティポリシー：[SECURITY.md](SECURITY.md)
+- 免責事項：[docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md)
+- 利用規約：[docs/legal/TERMS.md](docs/legal/TERMS.md)
+- セキュリティポリシー：[.github/SECURITY.md](.github/SECURITY.md)
 
 ---
 

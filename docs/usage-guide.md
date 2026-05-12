@@ -1,4 +1,4 @@
-﻿# 使い方ガイド / Usage Guide
+# 使い方ガイド / Usage Guide
 
 ---
 

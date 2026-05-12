@@ -6,7 +6,7 @@
 
 ## 1. 本リポジトリの位置づけ
 
-本リポジトリ「project-management-ai-contexts」は、プロジェクトマネージャー・PMO・開発リーダーがChatGPT / Gemini / Claude / Claude Code を活用する際の、参考資料およびサンプルテンプレートです。
+本リポジトリ「project-management-ai-contexts」は、プロジェクトマネージャー・PMO・開発リーダーがChatGPT / Gemini / Claude / Claude Code を活用する際の、PM業務で生成AIに読み込ませるためのコンテキストファイル、設定用指示文、利用ガイド、サンプルを提供するものです。
 
 本リポジトリの内容は、PM業務における生成AIの活用を補助することを目的としており、業務上の意思決定、専門的判断、法的判断、契約判断、責任判断を行うためのものではありません。
 
@@ -69,7 +69,7 @@
 
 ## 5. Claude Code 向けファイルについて
 
-本リポジトリには、Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`）を含みます。
+本リポジトリには、Claude Code 向けの Skill サンプル（`.claude/skills/` 配下）を含みます。
 
 このファイルは PM レビューの考え方を示すサンプルであり、以下は含まれていません。
 
