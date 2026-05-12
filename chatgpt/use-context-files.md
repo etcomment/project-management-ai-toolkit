@@ -8,6 +8,31 @@
 
 ---
 
+## 事前設定と都度利用の考え方
+
+すべてのコンテキストファイルを常に読み込ませる必要はありません。
+
+おすすめは以下です。
+
+### 常に使う
+
+- `PM_CONTEXT.md`
+- `docs/ai-safety.md`
+
+### 必要なときだけ使う
+
+- 進捗報告：`STATUS_REPORT_CONTEXT.md`
+- 課題・リスク：`ISSUE_RISK_CONTEXT.md`
+- 顧客説明：`CLIENT_COMMUNICATION_CONTEXT.md`
+- 炎上初動：`FIRE_RESPONSE_FIRST_72H.md`
+- 議事録：`MEETING_MINUTES_CONTEXT.md`
+- スコープ変更：`SCOPE_CHANGE_CONTEXT.md`
+- 遅延リカバリー：`DELAY_RECOVERY_CONTEXT.md`
+
+必要なコンテキストだけを追加することで、AIへの指示が明確になり、不要な情報を減らせます。
+
+---
+
 ## 基本手順
 
 1. **`PM_CONTEXT.md` を読む**

@@ -246,6 +246,13 @@ project-management-ai-contexts/
             └── SKILL.md
 ```
 
+## ツール別ディレクトリについて
+
+`chatgpt/`、`gemini/`、`claude/`、`claude-code/` 配下には、各AIツールで使うための設定例・使い方ガイド・利用例を配置しています。
+
+コンテキスト本体は `contexts/`、用途別プロンプトは `prompts/` に配置しています。
+ツール別ディレクトリ内のファイルをすべてAIに読み込ませる必要はありません。
+
 ## Quick Start
 
 ### 1. 共通コンテキストを読む

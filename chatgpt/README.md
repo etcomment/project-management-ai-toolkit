@@ -10,12 +10,37 @@
 
 ## このディレクトリのファイル一覧
 
-| ファイル | 内容 |
+| ファイル | 種別 | 内容 |
+|---|---|---|
+| [project-instructions.md](project-instructions.md) | 設定用・コピー用 | ChatGPT Projects・カスタムGPTの指示欄にコピーして使う指示文 |
+| [custom-gpt-instructions.md](custom-gpt-instructions.md) | 設定ガイド＋コピー用 | カスタムGPTの設定手順（人間向けガイド）と、Instructions欄にコピーする文面を含む |
+| [use-context-files.md](use-context-files.md) | 人間向けガイド | contexts/ と prompts/ の使い方手順 |
+| [examples.md](examples.md) | 人間向けガイド | ChatGPTでの利用例（架空データ） |
+
+---
+
+## どのファイルを事前設定するか
+
+ChatGPTで利用する場合、すべてのファイルを事前設定する必要はありません。
+
+### 事前設定・コピーするファイル
+
+| 用途 | ファイル | 設定先 |
+|---|---|---|
+| ChatGPT Projects の基本指示 | `project-instructions.md` | Project Instructions |
+| カスタムGPTの基本指示 | `custom-gpt-instructions.md` 内の Instructions 欄 | Custom GPT Instructions |
+| PM共通前提 | `../contexts/PM_CONTEXT.md` | Knowledge / プロジェクトファイル / チャット冒頭 |
+| AI安全ガイド | `../docs/ai-safety.md` | Knowledge / プロジェクトファイル |
+| 用途別コンテキスト | `../contexts/*.md` | 必要に応じてKnowledgeまたはチャットに追加 |
+
+### 人間が読むガイド
+
+| 用途 | ファイル |
 |---|---|
-| [project-instructions.md](project-instructions.md) | ChatGPT Projects・カスタムGPTに設定する指示文 |
-| [custom-gpt-instructions.md](custom-gpt-instructions.md) | カスタムGPTの作成・設定ガイド |
-| [use-context-files.md](use-context-files.md) | contexts/ と prompts/ の使い方手順 |
-| [examples.md](examples.md) | ChatGPTでの利用例（架空データ） |
+| ChatGPTでの全体的な使い方 | `README.md` |
+| コンテキストファイルの使い方 | `use-context-files.md` |
+| 利用例 | `examples.md` |
+| カスタムGPTの作成手順 | `custom-gpt-instructions.md` の設定ガイド部分 |
 
 ---
 

@@ -10,12 +10,37 @@
 
 ## このディレクトリのファイル一覧
 
-| ファイル | 内容 |
+| ファイル | 種別 | 内容 |
+|---|---|---|
+| [gemini-instructions.md](gemini-instructions.md) | 設定用・コピー用 | Gemini / Gems の指示欄にコピーして使う指示文 |
+| [gem-setup-guide.md](gem-setup-guide.md) | 設定ガイド＋コピー用 | Gemの設定手順（人間向けガイド）と、指示欄にコピーする文面を含む |
+| [use-context-files.md](use-context-files.md) | 人間向けガイド | contexts/ と prompts/ の使い方手順 |
+| [examples.md](examples.md) | 人間向けガイド | Geminiでの利用例（架空データ） |
+
+---
+
+## どのファイルを事前設定するか
+
+Geminiで利用する場合、すべてのファイルを事前設定する必要はありません。
+
+### 事前設定・コピーするファイル
+
+| 用途 | ファイル | 設定先 |
+|---|---|---|
+| Gemini / Gems の基本指示 | `gemini-instructions.md` | Gemの指示欄 / チャット冒頭 |
+| Gemの設定文 | `gem-setup-guide.md` 内の「Gems の指示欄に貼る文面」 | Gemの指示欄 |
+| PM共通前提 | `../contexts/PM_CONTEXT.md` | チャット冒頭 / Gem利用時の参照情報 |
+| AI安全ガイド | `../docs/ai-safety.md` | チャット冒頭 / 参照情報 |
+| 用途別コンテキスト | `../contexts/*.md` | 必要に応じてチャットに追加 |
+
+### 人間が読むガイド
+
+| 用途 | ファイル |
 |---|---|
-| [gemini-instructions.md](gemini-instructions.md) | Gemini / Gems に設定する指示文 |
-| [gem-setup-guide.md](gem-setup-guide.md) | Gems の作成・設定ガイド |
-| [use-context-files.md](use-context-files.md) | contexts/ と prompts/ の使い方手順 |
-| [examples.md](examples.md) | Geminiでの利用例（架空データ） |
+| Geminiでの全体的な使い方 | `README.md` |
+| Gemの作成手順 | `gem-setup-guide.md` の設定ガイド部分 |
+| コンテキストファイルの使い方 | `use-context-files.md` |
+| 利用例 | `examples.md` |
 
 ---
 

@@ -12,6 +12,21 @@
 
 ---
 
+## chatgpt/ ディレクトリのファイル分類
+
+`chatgpt/` 配下のファイルは以下の2種類に分かれます。
+
+| 種別 | ファイル | 内容 |
+|---|---|---|
+| 設定用・コピー用 | `project-instructions.md` | Project Instructions・Custom GPT Instructions にコピーする指示文 |
+| 設定ガイド＋コピー用 | `custom-gpt-instructions.md` | 設定手順（ガイド）とInstructions欄にコピーする文面を含む |
+| 人間向けガイド | `use-context-files.md` | コンテキストファイルの使い方 |
+| 人間向けガイド | `examples.md` | 利用例（架空データ） |
+
+コンテキスト本体は `contexts/`、用途別プロンプトは `prompts/` にあります。
+
+---
+
 ## 基本手順
 
 ### 1. コンテキストファイルの内容を確認する
