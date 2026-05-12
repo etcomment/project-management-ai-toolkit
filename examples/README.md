@@ -61,3 +61,20 @@
 AIの出力をそのまま顧客提出・社内報告・契約関連文書に使わないでください。最終的な判断と責任は、必ず人間が持ってください。
 
 詳細は [docs/usage-guide.md](../docs/usage-guide.md) および [DISCLAIMER.md](../DISCLAIMER.md) を参照してください。
+
+---
+
+## サンプルから学べること
+
+- AIに渡す前提情報（AI Contexts）の整理方法
+- PMとして確認すべき観点
+- AIに任せてよい部分と、人間が判断すべき部分
+- 顧客・上司・チームに共有する前のレビュー観点
+
+---
+
+## 次に確認するとよいページ
+
+- 用途別に選びたい方：[`docs/use-case-map.md`](../docs/use-case-map.md)
+- 学習順を知りたい方：[`docs/learning-roadmap.md`](../docs/learning-roadmap.md)
+- 安全に使うための注意点：[`docs/ai-safety.md`](../docs/ai-safety.md)

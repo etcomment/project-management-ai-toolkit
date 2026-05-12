@@ -1,6 +1,39 @@
 # Project Management AI Contexts
 
-ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAIコンテキストファイル集です。
+ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAI Contextsファイル集です。
+
+## 初めての方へ：次に何をすればよいか
+
+このリポジトリを初めて見る方は、以下の順で確認すると理解しやすくなります。
+
+1. [`docs/use-case-map.md`](docs/use-case-map.md) で、自分の状況に合うAI Contextsを選ぶ
+2. [`examples/`](examples/) で具体的な使い方を確認する
+3. 実務で使う前に [`docs/ai-safety.md`](docs/ai-safety.md) を確認する
+4. 必要に応じて [`docs/learning-roadmap.md`](docs/learning-roadmap.md) で、PM・AI活用の学習テーマを確認する
+5. 更新情報や活用Tipsを受け取りたい方は、[Discordコミュニティ](#discordコミュニティ)を確認する
+
+---
+
+## このリポジトリでできること
+
+- PM業務でAIに渡す前提情報（AI Contexts）を整理できる
+- 進捗報告・課題管理・顧客説明などのAI Contextsを試せる
+- 架空サンプルを使って活用イメージを確認できる
+- AI入力前の安全確認ポイントを理解できる
+
+## 体系的に学ぶとよいこと
+
+以下のようなテーマは、このリポジトリのAI Contextsだけでは補いにくい部分です。
+
+- なぜその観点で情報を整理するのか
+- PMとしてどの順番で考えるべきか
+- 顧客・上司・チームにどう説明するのか
+- AIの出力をどうレビューし、業務判断に落とし込むか
+- チームや組織でAI活用を標準化する際の注意点
+
+関連する学習テーマや講座情報は、テックエイド公式サイトで案内しています。
+
+---
 
 ## このリポジトリの主役は `contexts/`
 
@@ -103,6 +136,7 @@ project-management-ai-contexts/
 │   ├── usage-guide.md
 │   ├── ai-safety.md
 │   ├── use-case-map.md
+│   ├── learning-roadmap.md
 │   ├── github-publishing-checklist.md
 │   ├── tools/
 │   │   ├── chatgpt.md
@@ -164,11 +198,35 @@ project-management-ai-contexts/
 
 `examples/` 配下のサンプルはすべて架空データです。実在する顧客情報・案件情報・個人情報は含みません。
 
-## 公式サイト・関連情報
+## Discordコミュニティ
+
+PM・AI活用ラボ（Discordコミュニティ）では、このリポジトリの更新情報、PM実務Tips、AI活用例を案内しています。
+
+主な内容：
+
+- 新しいAI Contextsやサンプルの更新情報
+- PM業務でのAI活用Tips
+- 学習ロードマップ
+- 関連する学習テーマや講座情報
+
+招待URL：TODO: Discord招待URLを設定
+
+> [!NOTE]
+> ※ 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
+> ※ 投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
+
+---
+
+## 関連情報
 
 このリポジトリは、株式会社テックエイドが公開するPM業務向けAI活用コンテキスト集です。
 
+PM実務・AI活用・関連講座の学習順については、テックエイド公式サイトでも案内しています。
+
 - 公式サイト：[https://techaide.jp/](https://techaide.jp/)
+- 学習ロードマップ：TODO
+- Udemy講師クーポン：TODO
+- コース診断：TODO
 
 ## Disclaimer
 
