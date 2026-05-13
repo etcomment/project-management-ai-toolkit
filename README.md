@@ -114,11 +114,20 @@ AIの出力は、そのまま顧客提出・社内報告・契約判断・納期
 
 Claude Code 向け PM 実務 Skill は `.claude/skills/` 配下にあります。
 
-- `.claude/skills/pm-review/SKILL.md`（汎用PMレビュー）
-- `.claude/skills/project-health-check/SKILL.md`
-- `.claude/skills/status-report/SKILL.md`
-- `.claude/skills/issue-risk-review/SKILL.md`
-- `.claude/skills/` 配下の用途別 Skill
+初めて使う場合や、自分の状況に合うContextを選びたい場合は、まず以下のSkillを確認してください。
+
+- `.claude/skills/pm-ai-diagnosis/SKILL.md`
+  - PM課題とAI活用課題を切り分け、使うべきContextやSkillを案内します
+- `.claude/skills/project-risk-radar/SKILL.md`
+  - 表面化していないプロジェクトリスクを検知します
+- `.claude/skills/pm-decision-support/SKILL.md`
+  - PMの意思決定を構造化します
+- `.claude/skills/stakeholder-strategy/SKILL.md`
+  - 顧客・上長・開発チームなど相手別の伝え方を整理します
+- `.claude/skills/ai-output-governance-review/SKILL.md`
+  - AI出力を実務利用する前に、安全性・表現・確認漏れをレビューします
+
+その他の用途別Skill（`.claude/skills/pm-review/SKILL.md`、`project-health-check`、`status-report`、`issue-risk-review` など）も含め、全Skill一覧は `.claude/skills/README.md` を参照してください。
 
 Skill はドキュメントのみです。hooks、自動実行コマンド、MCP設定は含みません。
 

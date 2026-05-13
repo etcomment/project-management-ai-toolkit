@@ -21,15 +21,28 @@ Claude Code 向けの PM 実務 Skill は `.claude/skills/` 配下に配置さ�
 ```text
 .claude/
 └─ skills/
-   ├─ pm-review/SKILL.md
-   ├─ project-health-check/SKILL.md
-   ├─ status-report/SKILL.md
+   ├─ README.md                          ← Skill一覧・使い方ガイド
+   │
+   ├─ pm-ai-diagnosis/SKILL.md           ← まず使う：診断・入口
+   │
+   ├─ project-risk-radar/SKILL.md        ← リスクを見つける
    ├─ issue-risk-review/SKILL.md
+   │
+   ├─ pm-decision-support/SKILL.md       ← 判断する
+   │
+   ├─ stakeholder-strategy/SKILL.md      ← 伝える
    ├─ client-communication/SKILL.md
-   ├─ fire-response-first-72h/SKILL.md
-   ├─ meeting-minutes/SKILL.md
+   ├─ status-report/SKILL.md
+   │
+   ├─ ai-output-governance-review/SKILL.md  ← AI出力を確認する
+   │
+   ├─ meeting-minutes/SKILL.md           ← 会議・変更・遅延を整理する
    ├─ scope-change-review/SKILL.md
-   └─ delay-recovery/SKILL.md
+   ├─ delay-recovery/SKILL.md
+   ├─ fire-response-first-72h/SKILL.md
+   │
+   ├─ pm-review/SKILL.md                 ← 汎用レビュー・ヘルスチェック
+   └─ project-health-check/SKILL.md
 ```
 
 ---
@@ -53,17 +66,54 @@ Skill は、PM実務のレビュー観点・整理観点をClaude Codeに伝え�
 
 ## Skill 選択マップ
 
+### まず使う
+
+| 目的 | Skill |
+|---|---|
+| どのContextやSkillを使えばよいか診断したい | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
+
+### リスクを見つける
+
+| 目的 | Skill |
+|---|---|
+| 表面化していないプロジェクトリスクを検知したい | `.claude/skills/project-risk-radar/SKILL.md` |
+| 課題・リスクの抜け漏れを整理したい | `.claude/skills/issue-risk-review/SKILL.md` |
+
+### 判断する
+
+| 目的 | Skill |
+|---|---|
+| PM判断（エスカレーション・方針選択）を構造化したい | `.claude/skills/pm-decision-support/SKILL.md` |
+
+### 伝える
+
+| 目的 | Skill |
+|---|---|
+| 相手別の伝え方・コミュニケーション戦略を整理したい | `.claude/skills/stakeholder-strategy/SKILL.md` |
+| 顧客向け文面のたたき台を作りたい | `.claude/skills/client-communication/SKILL.md` |
+| 進捗報告を整理したい | `.claude/skills/status-report/SKILL.md` |
+
+### AI出力を確認する
+
+| 目的 | Skill |
+|---|---|
+| AI出力を実務利用する前に安全性・表現をレビューしたい | `.claude/skills/ai-output-governance-review/SKILL.md` |
+
+### 会議・変更・遅延を整理する
+
+| 目的 | Skill |
+|---|---|
+| 議事録・TODO・次回確認事項を整理したい | `.claude/skills/meeting-minutes/SKILL.md` |
+| スコープ変更の影響を整理したい | `.claude/skills/scope-change-review/SKILL.md` |
+| 遅延リカバリー方針を整理したい | `.claude/skills/delay-recovery/SKILL.md` |
+| 炎上初動を整理したい | `.claude/skills/fire-response-first-72h/SKILL.md` |
+
+### 汎用レビュー・ヘルスチェック
+
 | 目的 | Skill |
 |---|---|
 | 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
 | プロジェクト全体の健全性確認 | `.claude/skills/project-health-check/SKILL.md` |
-| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
-| 課題・リスク整理 | `.claude/skills/issue-risk-review/SKILL.md` |
-| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
-| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
-| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
-| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
 
 ---
 
