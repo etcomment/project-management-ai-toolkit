@@ -137,6 +137,8 @@ Skill はドキュメントのみです。hooks、自動実行コマンド、MCP
 - `examples/project-risk-radar-example.md`
 - `examples/ai-output-governance-review-example.md`
 
+Claudeで利用する場合は、`contexts/` 各ファイル内の「Claude向け Prompt Template（XMLタグ版）」も参照してください。タスク、入力情報、制約、出力形式を分けて依頼できます。
+
 ## リポジトリ構成
 
 ```
