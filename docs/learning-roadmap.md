@@ -88,8 +88,15 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 
 - このリポジトリは、PM業務でAIを使うための無料コンテキスト集です。
 - 体系的に学びたい方は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)の学習ロードマップ・関連講座情報も参考にしてください。
-- PM・AI活用ラボ（Discordコミュニティ）は現在準備中です。公開後は、更新情報、PM実務Tips、AI活用例、学習ロードマップを案内する予定です。招待URLは、公開後に公式サイトおよびREADMEでお知らせします。
 
-> [!NOTE]
-> ※ Discordコミュニティへの投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
-> ※ 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
+継続して学びたい方・更新情報を受け取りたい方は、PM・AI活用ラボへ。
+
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（更新情報・PM実務Tips・AI活用例の共有）
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（自分に合う講座がわからない場合）
+- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（体系的に学びたい場合）
+
+> [!IMPORTANT]
+> コミュニティへの投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
+> 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
+>
+> 詳細は [docs/community.md](community.md) を参照してください。

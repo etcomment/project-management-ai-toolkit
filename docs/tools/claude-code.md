@@ -263,3 +263,11 @@ Claude Codeで使う場合は、Skill と `contexts/PM_CONTEXT.md` を組み合�
 
 - [docs/ai-safety.md](../ai-safety.md) — AIに入力してよい情報・安全な使い方
 - [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — 免責事項
+
+---
+
+## 関連情報
+
+- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)

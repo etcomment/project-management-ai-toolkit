@@ -2,6 +2,17 @@
 
 ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAI Contextsファイル集です。
 
+## はじめての方へ
+
+このリポジトリは、PM・PMO・開発リーダーが ChatGPT / Gemini / Claude / Claude Code を実務で使うための AI Contexts ファイル集です。
+
+まず全体像を知りたい方は、公式サイトの紹介ページをご覧ください。
+
+- [AI Contextsの概要を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [自分に合う学習テーマを診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [安全に使うための注意事項](docs/ai-safety.md)
+
 ## 初めての方へ：次に何をすればよいか
 
 このリポジトリを初めて見る方は、以下の順で確認すると理解しやすくなります。
@@ -12,7 +23,7 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 4. 必要に応じて [`docs/learning-roadmap.md`](docs/learning-roadmap.md) で、PM・AI活用の学習テーマを確認する
 5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)でコース案内を確認する
 6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を活用する
-7. 更新情報や活用Tipsを受け取りたい方は、[Discordコミュニティ](#discordコミュニティ)を確認する（現在準備中）
+7. 更新情報や活用Tipsを受け取りたい方は、[PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認する
 
 ---
 
@@ -219,20 +230,26 @@ project-management-ai-contexts/
 
 ## Discordコミュニティ
 
-PM・AI活用ラボ（Discordコミュニティ）は、現在準備中です。
+PM・AI活用ラボでは、このリポジトリの更新情報、PM業務でのAI活用Tips、学習ロードマップに関する情報を共有しています。
 
-公開後は、以下の内容を案内する予定です。
+以下のような情報を受け取りたい方に向いています。
 
 - 新しいAI Contextsやサンプルの更新情報
-- PM業務でのAI活用Tips
-- 学習ロードマップ
-- 関連する学習テーマや講座情報
+- ChatGPT / Gemini / Claude / Claude Codeでの活用例
+- PM・PMO・開発リーダー向けの学習テーマ
+- 関連するブログ記事・Udemy講座の案内
+- 学習ロードマップや継続学習のヒント
 
-Discord招待URLは、公開後にこのREADMEおよび[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)でお知らせします。
+参加前に、コミュニティの目的・ルール・対象外事項をご確認ください。
 
-> [!NOTE]
-> ※ 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
-> ※ 投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
+[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+
+詳細は [docs/community.md](docs/community.md) を参照してください。
+
+> [!IMPORTANT]
+> 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
+>
+> 投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
 
 ---
 
@@ -240,13 +257,13 @@ Discord招待URLは、公開後にこのREADMEおよび[テックエイド公式
 
 このリポジトリは、株式会社テックエイドが公開するPM業務向けAI活用コンテキスト集です。
 
-PM実務・AI活用・関連講座の学習順については、テックエイド公式サイトでも案内しています。
-
 - [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（どの講座が自分に合うか迷う方向け）
+- [AI Contexts紹介ページ](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
 - [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
 - [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- Discordコミュニティ（準備中）：公開後、公式サイトおよびこのREADMEで案内予定
+- [学習ロードマップ](https://techaide.jp/learning-roadmaps/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
 
 ## Disclaimer
 
