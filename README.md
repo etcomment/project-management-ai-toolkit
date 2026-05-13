@@ -131,6 +131,12 @@ Claude Code 向け PM 実務 Skill は `.claude/skills/` 配下にあります�
 
 Skill はドキュメントのみです。hooks、自動実行コマンド、MCP設定は含みません。
 
+具体的な使い方を確認したい場合は、以下のサンプルも参照してください。
+
+- `examples/pm-ai-diagnosis-example.md`
+- `examples/project-risk-radar-example.md`
+- `examples/ai-output-governance-review-example.md`
+
 ## リポジトリ構成
 
 ```

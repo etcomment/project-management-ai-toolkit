@@ -36,6 +36,9 @@
 | [scope-change-example.md](scope-change-example.md) | 仕様変更・スコープ変更の整理例 |
 | [delay-recovery-example.md](delay-recovery-example.md) | 遅延時のリカバリー方針整理例 |
 | [claude-code-pm-review-example.md](claude-code-pm-review-example.md) | Claude CodeでPMレビューSkillを使う例 |
+| [pm-ai-diagnosis-example.md](pm-ai-diagnosis-example.md) | PM課題・AI活用課題を診断し、使うべきContextとSkillを選ぶ例 |
+| [project-risk-radar-example.md](project-risk-radar-example.md) | 進捗メモから表面化していないリスクを検知する例 |
+| [ai-output-governance-review-example.md](ai-output-governance-review-example.md) | AI出力を顧客提出前にレビューする例 |
 
 ---
 
@@ -51,6 +54,9 @@
 | scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` |
 | delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
 | claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`.claude/skills/pm-review/SKILL.md` |
+| pm-ai-diagnosis-example.md | `.claude/skills/pm-ai-diagnosis/SKILL.md`、`contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| project-risk-radar-example.md | `.claude/skills/project-risk-radar/SKILL.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
+| ai-output-governance-review-example.md | `.claude/skills/ai-output-governance-review/SKILL.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`docs/ai-safety.md` |
 
 ---
 
@@ -78,3 +84,4 @@ AIの出力をそのまま顧客提出・社内報告・契約関連文書に使
 - 用途別に選びたい方：[`docs/use-case-map.md`](../docs/use-case-map.md)
 - 学習順を知りたい方：[`docs/learning-roadmap.md`](../docs/learning-roadmap.md)
 - 安全に使うための注意点：[`docs/ai-safety.md`](../docs/ai-safety.md)
+- Claude Code Skill一覧：[`../.claude/skills/README.md`](../.claude/skills/README.md)
