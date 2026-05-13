@@ -217,8 +217,21 @@ AI出力を以下の目的で利用する場合は、特に注意が必要です
 
 ---
 
+## AI出力の利用制限
+
+AI出力を以下の判断に**そのまま使わないでください**。必ず人間が確認し、必要に応じて専門家や上長の承認を得てください。
+
+- 顧客への提出文書・説明資料
+- 契約・発注・見積に関する判断
+- 法務判断・税務判断・労務判断
+- セキュリティ判断
+- 納期回答・品質判断
+
+---
+
 ## 関連文書
 
-- 免責事項：[DISCLAIMER.md](../DISCLAIMER.md)
-- 利用規約：[TERMS.md](../TERMS.md)
+- 免責事項：[docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md)
+- 利用規約：[docs/legal/TERMS.md](legal/TERMS.md)
 - 使い方ガイド：[docs/usage-guide.md](usage-guide.md)
+- コミュニティの注意事項：[docs/community.md](community.md)

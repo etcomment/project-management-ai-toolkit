@@ -52,9 +52,9 @@ Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`�
 **連絡先：**
 
 株式会社テックエイド
-公式サイト：https://techaide.jp/
+公式サイト：https://techaide.jp/contact/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts
 
-（メールアドレスは公式サイトのお問い合わせフォームよりご連絡ください）
+（公式サイトのお問い合わせフォームよりご連絡ください。公開 Issue やコメントに機密情報・セキュリティ懸念の詳細を書かないでください。）
 
 ---
 

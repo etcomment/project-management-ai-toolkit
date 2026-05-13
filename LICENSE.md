@@ -26,7 +26,7 @@ https://techaide.jp/
 本資料を改変して公開・再配布する場合は、以下の条件をすべて満たしてください。
 
 1. 出典として本リポジトリの URL を明示すること
-   `https://github.com/ryotasuzukitechaide/project-management-ai-contexts`（またはその時点の正式 URL）
+   `https://github.com/techaide-jp/project-management-ai-contexts`（またはその時点の正式 URL）
 2. 「株式会社テックエイドの公式版ではない」ことを明示すること
 3. 著作権表示（本ファイルの Copyright 表記）を削除しないこと
 

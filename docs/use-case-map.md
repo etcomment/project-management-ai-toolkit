@@ -192,3 +192,11 @@ Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と�
 ## 学習ロードマップ
 
 AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的に学ぶとよいかについては、[docs/learning-roadmap.md](learning-roadmap.md) を参照してください。
+
+---
+
+## 関連情報
+
+- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（全体像を知りたい方）
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（用途に合う講座を探したい方）
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（更新情報を受け取りたい方）
