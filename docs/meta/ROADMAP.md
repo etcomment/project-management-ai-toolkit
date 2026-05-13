@@ -27,6 +27,11 @@
 - `.claude/skills/pm-decision-support/SKILL.md` の追加（PM意思決定構造化Skill）
 - `.claude/skills/stakeholder-strategy/SKILL.md` の追加（ステークホルダー別伝達戦略Skill）
 - `.claude/skills/ai-output-governance-review/SKILL.md` の追加（AI出力ガバナンスレビューSkill）
+- `examples/pm-ai-diagnosis-example.md` の追加
+- `examples/project-risk-radar-example.md` の追加
+- `examples/ai-output-governance-review-example.md` の追加
+- `docs/tools/claude-code.md` に上位Skillの利用例を追加
+- `examples/README.md` に新規サンプルを追加
 
 ---
 
