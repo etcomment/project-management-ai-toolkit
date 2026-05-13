@@ -32,6 +32,11 @@
 - `examples/ai-output-governance-review-example.md` の追加
 - `docs/tools/claude-code.md` に上位Skillの利用例を追加
 - `examples/README.md` に新規サンプルを追加
+- `contexts/*_CONTEXT.md` にClaude向けXMLタグ版Prompt Templateを追加
+- `instructions/claude-project-instructions.md` にClaude向け構造化指示文（XMLタグ版）を追加
+- `docs/tools/claude-code.md` の利用例4〜7をXMLタグ構造に整理
+- `docs/tools/claude.md` にXMLタグ構造のプロンプト例セクションを追加
+- `examples/` の主要サンプルにClaude向け構造化プロンプト（XMLタグ版）を追加
 
 ---
 
