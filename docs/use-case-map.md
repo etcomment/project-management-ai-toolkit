@@ -197,6 +197,6 @@ AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的�
 
 ## 関連情報
 
-- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（全体像を知りたい方）
+- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（全体像を知りたい方）
 - [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（用途に合う講座を探したい方）
 - [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報を受け取りたい方）

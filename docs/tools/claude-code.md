@@ -268,6 +268,6 @@ Claude Codeで使う場合は、Skill と `contexts/PM_CONTEXT.md` を組み合�
 
 ## 関連情報
 
-- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 - [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 - [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

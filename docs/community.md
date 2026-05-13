@@ -51,7 +51,7 @@ PM・AI活用ラボは、PM業務とAI活用を学び続けるための無料コ
 
 ## 関連情報
 
-- [AI Contextsの概要を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 - [学習ロードマップ](learning-roadmap.md)
 - [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 - [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
