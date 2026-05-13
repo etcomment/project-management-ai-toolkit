@@ -80,6 +80,12 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 | PMOとして複数案件を見たい | `contexts/PMO_REVIEW_CONTEXT.md` | PMO運営・案件横断管理 |
 | エンジニアからPMへ相談したい | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | エンジニア向けビジネススキル・PL準備 |
 
+**次の行動**
+
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で学習テーマを確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+
 ---
 
 ## AIツール別の使い方

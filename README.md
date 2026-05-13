@@ -10,7 +10,9 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 2. [`examples/`](examples/) で具体的な使い方を確認する
 3. 実務で使う前に [`docs/ai-safety.md`](docs/ai-safety.md) を確認する
 4. 必要に応じて [`docs/learning-roadmap.md`](docs/learning-roadmap.md) で、PM・AI活用の学習テーマを確認する
-5. 更新情報や活用Tipsを受け取りたい方は、[Discordコミュニティ](#discordコミュニティ)を確認する
+5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)でコース案内を確認する
+6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を活用する
+7. 更新情報や活用Tipsを受け取りたい方は、[Discordコミュニティ](#discordコミュニティ)を確認する（現在準備中）
 
 ---
 
@@ -200,16 +202,16 @@ project-management-ai-contexts/
 
 ## Discordコミュニティ
 
-PM・AI活用ラボ（Discordコミュニティ）では、このリポジトリの更新情報、PM実務Tips、AI活用例を案内しています。
+PM・AI活用ラボ（Discordコミュニティ）は、現在準備中です。
 
-主な内容：
+公開後は、以下の内容を案内する予定です。
 
 - 新しいAI Contextsやサンプルの更新情報
 - PM業務でのAI活用Tips
 - 学習ロードマップ
 - 関連する学習テーマや講座情報
 
-招待URL：TODO（Discordコミュニティ公開準備後に設定）
+Discord招待URLは、公開後にこのREADMEおよび[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)でお知らせします。
 
 > [!NOTE]
 > ※ 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
@@ -223,10 +225,11 @@ PM・AI活用ラボ（Discordコミュニティ）では、このリポジトリ
 
 PM実務・AI活用・関連講座の学習順については、テックエイド公式サイトでも案内しています。
 
-- 公式サイト：[https://techaide.jp/](https://techaide.jp/)
-- 学習ロードマップ：TODO（公式サイト側のページ公開後に設定）
-- Udemy講師クーポン：TODO（クーポンページ公開後に設定）
-- コース診断：TODO（診断ページ公開後に設定）
+- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（どの講座が自分に合うか迷う方向け）
+- [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- Discordコミュニティ（準備中）：公開後、公式サイトおよびこのREADMEで案内予定
 
 ## Disclaimer
 
@@ -244,6 +247,6 @@ PM実務・AI活用・関連講座の学習順については、テックエイ�
 
 ## Contributing
 
-改善提案やPull Requestは歓迎します。詳細は [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) を確認してください。
+誤字脱字・安全上の懸念・改善提案はIssueでお知らせください。詳細は [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md) を確認してください。
 
 IssueやPull Requestには、実在する顧客情報・個人情報・契約情報・APIキー・パスワード・トークン等を含めないでください。
