@@ -1,6 +1,6 @@
 # Roadmap
 
-このドキュメントでは、project-management-ai-contexts の今後の追加予定・改善方針を公開します。
+このドキュメントでは、project-management-ai-toolkit の今後の追加予定・改善方針を公開します。
 
 > [!NOTE]
 > これらはあくまでも現時点の予定であり、実施を確約するものではありません。

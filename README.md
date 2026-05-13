@@ -153,7 +153,7 @@ Claudeで利用する場合は、`contexts/` 各ファイル内の「Claude向�
 ## リポジトリ構成
 
 ```
-project-management-ai-contexts/
+project-management-ai-toolkit/
 ├── README.md
 ├── LICENSE.md
 ├── .gitignore

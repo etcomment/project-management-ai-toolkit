@@ -1,6 +1,6 @@
 # Changelog
 
-このファイルでは、project-management-ai-contexts の主な変更履歴を記録します。
+このファイルでは、project-management-ai-toolkit の主な変更履歴を記録します。
 
 ## [Unreleased]
 

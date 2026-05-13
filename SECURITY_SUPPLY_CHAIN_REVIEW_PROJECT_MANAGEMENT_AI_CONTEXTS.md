@@ -5,7 +5,7 @@
 | 項目 | 内容 |
 |---|---|
 | 検査日時 | 2026年5月13日 |
-| 検査対象リポジトリ | ryotasuzukitechaide/project-management-ai-contexts |
+| 検査対象リポジトリ | ryotasuzukitechaide/project-management-ai-toolkit |
 | 検査実施者 | GitHub Copilot（Claude Sonnet 4.6）/ サイバーセキュリティエンジニア視点 |
 | 検査種別 | 静的解析（ファイル読み取り・キーワード検索）|
 | 実行した破壊的操作 | なし |
@@ -24,7 +24,7 @@
 ### ディレクトリ構成（公開対象）
 
 ```
-project-management-ai-contexts/
+project-management-ai-toolkit/
 ├── README.md
 ├── LICENSE.md
 ├── .gitignore
