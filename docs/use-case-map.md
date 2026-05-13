@@ -63,22 +63,22 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 
 ## 状況別ファイル選び
 
-| 困っていること | 使うコンテキスト | 補足 |
+| 困っていること | 使うAI Contexts | 次に学ぶとよいテーマ |
 |---|---|---|
-| プロジェクト全体が危ないか確認したい | `contexts/PROJECT_HEALTH_CHECK.md` | 進捗・課題・リスク・体制を俯瞰 |
-| 週次進捗報告を作りたい | `contexts/STATUS_REPORT_CONTEXT.md` | 社内向け・顧客向け・上長向けに整理 |
-| 課題管理表の抜け漏れを確認したい | `contexts/ISSUE_RISK_CONTEXT.md` | 担当者不明・期限不明・潜在リスクを確認 |
-| 顧客向けの説明文を作りたい | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 契約・費用・納期表現は人間確認必須 |
-| 炎上初動を整理したい | `contexts/FIRE_RESPONSE_FIRST_72H.md` | 事実・影響・未確認事項・初動対応を整理 |
-| 会議メモから議事録を作りたい | `contexts/MEETING_MINUTES_CONTEXT.md` | 決定事項・TODO・次回確認事項を整理 |
-| 仕様変更の影響を整理したい | `contexts/SCOPE_CHANGE_CONTEXT.md` | 工数・納期・費用・顧客確認事項を整理 |
-| 遅延リカバリーを考えたい | `contexts/DELAY_RECOVERY_CONTEXT.md` | 原因・影響・リカバリー案を整理 |
-| 品質問題の対策を考えたい | `contexts/QUALITY_ISSUE_CONTEXT.md` | 原因・暫定対応・再発防止策を整理 |
-| 振り返り・ポストモーテムを整理したい | `contexts/RETROSPECTIVE_CONTEXT.md` | Keep / Problem / Try、再発防止を整理 |
-| ステークホルダー向け報告を整理したい | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | 経営層・上長・顧客責任者向けに整理 |
-| 見積前提・不確実性を整理したい | `contexts/ESTIMATION_CONTEXT.md` | 見積金額ではなく前提・確認事項を整理 |
-| PMOとして複数案件を見たい | `contexts/PMO_REVIEW_CONTEXT.md` | 危険案件・横断課題・支援対象を整理 |
-| エンジニアからPMへ相談したい | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | 技術課題をPM向けに整理 |
+| プロジェクト全体が危ないか確認したい | `contexts/PROJECT_HEALTH_CHECK.md` | プロジェクト全体像の把握・状況整理 |
+| 週次進捗報告を作りたい | `contexts/STATUS_REPORT_CONTEXT.md` | 進捗管理・報告スキル |
+| 課題管理表の抜け漏れを確認したい | `contexts/ISSUE_RISK_CONTEXT.md` | 課題管理・リスク管理 |
+| 顧客向けの説明文を作りたい | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 顧客対応・合意形成 |
+| 炎上初動を整理したい | `contexts/FIRE_RESPONSE_FIRST_72H.md` | 炎上予防・初動対応 |
+| 会議メモから議事録を作りたい | `contexts/MEETING_MINUTES_CONTEXT.md` | 会議ファシリテーション・議事録管理 |
+| 仕様変更の影響を整理したい | `contexts/SCOPE_CHANGE_CONTEXT.md` | スコープ管理・変更管理 |
+| 遅延リカバリーを考えたい | `contexts/DELAY_RECOVERY_CONTEXT.md` | スケジュール管理・リカバリー計画 |
+| 品質問題の対策を考えたい | `contexts/QUALITY_ISSUE_CONTEXT.md` | 品質管理・再発防止 |
+| 振り返り・ポストモーテムを整理したい | `contexts/RETROSPECTIVE_CONTEXT.md` | 振り返り・継続改善 |
+| ステークホルダー向け報告を整理したい | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | ステークホルダー管理・説明責任 |
+| 見積前提・不確実性を整理したい | `contexts/ESTIMATION_CONTEXT.md` | 見積精度向上・不確実性マネジメント |
+| PMOとして複数案件を見たい | `contexts/PMO_REVIEW_CONTEXT.md` | PMO運営・案件横断管理 |
+| エンジニアからPMへ相談したい | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | エンジニア向けビジネススキル・PL準備 |
 
 ---
 
@@ -143,3 +143,9 @@ Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と�
 > - 顧客提出・社内報告・契約判断・納期回答には必ず人間が確認してください
 
 詳細は [docs/ai-safety.md](ai-safety.md) および [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) を参照してください。
+
+---
+
+## 学習ロードマップ
+
+AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的に学ぶとよいかについては、[docs/learning-roadmap.md](learning-roadmap.md) を参照してください。

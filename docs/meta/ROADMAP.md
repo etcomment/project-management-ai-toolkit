@@ -8,6 +8,18 @@
 
 ---
 
+## Done
+
+完了済みの項目です。
+
+- `docs/learning-roadmap.md` の追加
+- READMEに「初めての方へ：次に何をすればよいか」セクションを追加
+- 用途別マップと学習テーマの接続を強化
+- `examples/` から学習ロードマップへの導線を追加
+- Discordコミュニティ案内の追加
+
+---
+
 ## Short-term
 
 近い将来に対応予定の項目です。
@@ -23,14 +35,16 @@
 
 中期的に検討・対応予定の項目です。
 
+- 用途別AI Contextsと関連学習テーマの対応表を拡充
+- 公式サイト側の学習ロードマップ・関連講座ページとの導線整理
+- 経路別CTAの効果測定方針を検討
+- 英語READMEや海外向け案内を検討する場合は、既存方針に合わせる
 - 用途別サンプルの追加
 
   - `examples/stakeholder-report-example.md`
   - `examples/estimation-example.md`
   - `examples/pmo-review-example.md`
   - `examples/engineer-to-pm-report-example.md`
-
-- 英語 README の追加検討
 
 ---
 
