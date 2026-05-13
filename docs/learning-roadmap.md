@@ -1,4 +1,4 @@
-# PM・AI活用 学習ロードマップ
+﻿# PM・AI活用 学習ロードマップ
 
 ---
 
@@ -23,9 +23,9 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 
 **体系的に学びたい場合**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
 
 ---
 
@@ -42,9 +42,9 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 
 **体系的に学びたい場合**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
 
 ---
 
@@ -60,9 +60,9 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 
 **体系的に学びたい場合**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
 
 ---
 
@@ -78,22 +78,22 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 
 **体系的に学びたい場合**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
 
 ---
 
 ## 関連情報
 
 - このリポジトリは、PM業務でAIを使うための無料コンテキスト集です。
-- 体系的に学びたい方は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)の学習ロードマップ・関連講座情報も参考にしてください。
+- 体系的に学びたい方は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)の学習ロードマップ・関連講座情報も参考にしてください。
 
 継続して学びたい方・更新情報を受け取りたい方は、PM・AI活用ラボへ。
 
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（更新情報・PM実務Tips・AI活用例の共有）
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（自分に合う講座がわからない場合）
-- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（体系的に学びたい場合）
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報・PM実務Tips・AI活用例の共有）
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（自分に合う講座がわからない場合）
+- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（体系的に学びたい場合）
 
 > [!IMPORTANT]
 > コミュニティへの投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。

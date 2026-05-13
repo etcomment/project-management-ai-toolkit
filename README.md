@@ -1,16 +1,16 @@
-# Project Management AI Contexts
+# Project Management AI Toolkit
 
-ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネージャー・PMO・開発リーダー向けのAI Contextsファイル集です。
+PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code で使える AI Contexts、Prompt Template、Claude Code Skills、実務サンプルをまとめたAI活用ツールキットです。
 
 ## はじめての方へ
 
-このリポジトリは、PM・PMO・開発リーダーが ChatGPT / Gemini / Claude / Claude Code を実務で使うための AI Contexts ファイル集です。
+このリポジトリは、PM・PMO・開発リーダーが ChatGPT / Gemini / Claude / Claude Code を実務で活用するための、AI Contexts、Prompt Template、Claude Code Skills、実務サンプルを含むAI活用ツールキットです。
 
 まず全体像を知りたい方は、公式サイトの紹介ページをご覧ください。
 
-- [AI Contextsの概要を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [自分に合う学習テーマを診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [AI Contextsの概要を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [自分に合う学習テーマを診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 - [安全に使うための注意事項](docs/ai-safety.md)
 
 ## 初めての方へ：次に何をすればよいか
@@ -21,9 +21,9 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 2. [`examples/`](examples/) で具体的な使い方を確認する
 3. 実務で使う前に [`docs/ai-safety.md`](docs/ai-safety.md) を確認する
 4. 必要に応じて [`docs/learning-roadmap.md`](docs/learning-roadmap.md) で、PM・AI活用の学習テーマを確認する
-5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)でコース案内を確認する
-6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を活用する
-7. 更新情報や活用Tipsを受け取りたい方は、[PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認する
+5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)でコース案内を確認する
+6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を活用する
+7. 更新情報や活用Tipsを受け取りたい方は、[PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認する
 
 ---
 
@@ -48,18 +48,16 @@ ChatGPT / Gemini / Claude / Claude Code で使える、プロジェクトマネ�
 
 ---
 
-## このリポジトリの主役は `contexts/`
+## このリポジトリの構成
 
-`contexts/` 配下にある Markdown ファイルが主役です。
-
-AIに渡す前提情報・判断軸・Prompt Template がすべて各コンテキストファイルに含まれています。
+このリポジトリは、PM実務でAIを活用するための複数のコンポーネントで構成されています。
 
 ```text
-contexts/       → AIに渡すPMコンテキスト本体
-instructions/   → ChatGPT / Gemini / Claude の設定欄にコピーする指示文
-docs/tools/     → 各AIツールの使い方ガイド
-examples/       → 架空データによる利用例
-.claude/skills/ → Claude Codeが認識するProject Skill
+contexts/       → AI Contexts本体：AIに渡すPM業務の前提情報・判断軸・Prompt Template
+instructions/   → 設定用指示文：ChatGPT / Gemini / Claude の設定欄にコピーする指示文
+docs/tools/     → ツール別ガイド：各AIツールの使い方ガイド
+examples/       → 実務サンプル：架空データによる利用例
+.claude/skills/ → Claude Code Skills：Claude Codeが認識するPM実務向けSkill
 .github/        → GitHub運用ファイル
 ```
 
@@ -158,9 +156,9 @@ project-management-ai-toolkit/
 ├── LICENSE.md
 ├── .gitignore
 │
-├── contexts/           ← 主役：PM向けAIコンテキスト本体
-├── instructions/       ← 各AIツールの設定欄にコピーする指示文
-├── examples/           ← 架空データによる利用例
+├── contexts/           ← AI Contexts本体：PM業務の前提情報・Prompt Template
+├── instructions/       ← 設定用指示文：各AIツールの設定欄にコピーする指示文
+├── examples/           ← 実務サンプル：架空データによる利用例
 │
 ├── docs/
 │   ├── usage-guide.md
@@ -242,7 +240,7 @@ PM・AI活用ラボでは、このリポジトリの更新情報、PM業務で�
 
 参加前に、コミュニティの目的・ルール・対象外事項をご確認ください。
 
-[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 詳細は [docs/community.md](docs/community.md) を参照してください。
 
@@ -255,15 +253,15 @@ PM・AI活用ラボでは、このリポジトリの更新情報、PM業務で�
 
 ## 関連情報
 
-このリポジトリは、株式会社テックエイドが公開するPM業務向けAI活用コンテキスト集です。
+このリポジトリは、株式会社テックエイドが公開するPM向けAI活用ツールキットです。
 
-- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [AI Contexts紹介ページ](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [学習ロードマップ](https://techaide.jp/learning-roadmaps/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [AI Contexts紹介ページ](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [学習ロードマップ](https://techaide.jp/learning-roadmaps/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ## Disclaimer
 

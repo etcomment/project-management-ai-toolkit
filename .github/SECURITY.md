@@ -4,7 +4,7 @@
 
 ## 1. このリポジトリのセキュリティ方針
 
-本リポジトリ「project-management-ai-toolkit」は、PM業務向けの生成AI活用コンテキストファイルおよびプロンプトテンプレートを提供するものです。
+本リポジトリ「project-management-ai-toolkit」は、PM業務向けのAI Contexts、Prompt Template、Claude Code Skills、実務サンプルを提供するものです。
 
 以下のセキュリティ方針に基づいて管理・運用しています。
 
@@ -23,7 +23,7 @@
 - 自動コミット・自動デプロイの仕組み
 - 外部サービスへの自動通信を行う設定
 
-Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`）は、PMレビューの考え方を示すサンプルドキュメントであり、実行系の自動化機能は提供しません。
+Claude Code 向けの Skill サンプル（`.claude/skills/` 配下に複数の Skillを含む）は、PMレビューの考え方を示すサンプルドキュメントであり、実行系の自動化機能は提供しません。
 
 ---
 
@@ -52,7 +52,7 @@ Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`�
 **連絡先：**
 
 株式会社テックエイド
-公式サイト：https://techaide.jp/contact/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts
+公式サイト：https://techaide.jp/contact/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit
 
 （公式サイトのお問い合わせフォームよりご連絡ください。公開 Issue やコメントに機密情報・セキュリティ懸念の詳細を書かないでください。）
 

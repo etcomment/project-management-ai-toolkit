@@ -1,4 +1,4 @@
-# Use Case Map / ユースケースマップ
+﻿# Use Case Map / ユースケースマップ
 
 ---
 
@@ -7,7 +7,7 @@
 PM業務の状況別に、使うべき `contexts/*.md` を整理するガイドです。
 
 - ChatGPT / Gemini / Claude / Claude Code で共通して使えます
-- このリポジトリの主役は `contexts/` 配下のコンテキストファイルです
+- このページでは `contexts/` 配下のコンテキストファイルを中心に案内します
 - `prompts/` ディレクトリは存在しません。用途別のプロンプトは各 `contexts/*.md` の `Prompt Template` に内包されています
 - まず自分の状況に合う `contexts/*.md` を選び、内包されている `Prompt Template` を活用してください
 
@@ -82,9 +82,9 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 
 **次の行動**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で学習テーマを確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で学習テーマを確認
+- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
 
 ---
 
@@ -197,6 +197,6 @@ AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的�
 
 ## 関連情報
 
-- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（全体像を知りたい方）
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（用途に合う講座を探したい方）
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)（更新情報を受け取りたい方）
+- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（全体像を知りたい方）
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（用途に合う講座を探したい方）
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報を受け取りたい方）

@@ -5,7 +5,7 @@
 | 項目 | 内容 |
 |---|---|
 | 検査日時 | 2026年5月13日 |
-| 検査対象リポジトリ | ryotasuzukitechaide/project-management-ai-toolkit |
+| 検査対象リポジトリ | techaide-jp/project-management-ai-toolkit |
 | 検査実施者 | GitHub Copilot（Claude Sonnet 4.6）/ サイバーセキュリティエンジニア視点 |
 | 検査種別 | 静的解析（ファイル読み取り・キーワード検索）|
 | 実行した破壊的操作 | なし |
@@ -19,7 +19,7 @@
 **配布用テンプレート・ドキュメント中心リポジトリ**
 
 実行系ファイル（shell スクリプト、JavaScript、TypeScript、Python、PowerShell 等）は一切存在しない。
-全コンテンツは `.md`（Markdown）ファイルのみで構成された、PM業務向けAIコンテキスト集・プロンプトテンプレート集。
+全コンテンツは `.md`（Markdown）ファイルのみで構成された、PM業務向けAI Contexts、Prompt Template、Claude Code Skills、実務サンプルを含むドキュメント中心のAI活用ツールキット。
 
 ### ディレクトリ構成（公開対象）
 

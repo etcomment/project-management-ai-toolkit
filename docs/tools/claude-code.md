@@ -8,7 +8,7 @@ Claude Code で本リポジトリを活用するためのガイドです。
 
 ---
 
-## このリポジトリの主役は `contexts/`
+## `contexts/` — AI Contexts本体
 
 コンテキスト本体は `contexts/` 配下にあります。
 
@@ -268,6 +268,6 @@ Claude Codeで使う場合は、Skill と `contexts/PM_CONTEXT.md` を組み合�
 
 ## 関連情報
 
-- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
-- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)
+- [AI Contextsの全体像を見る](https://techaide.jp/ai-contexts/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
