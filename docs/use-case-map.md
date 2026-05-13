@@ -122,17 +122,54 @@ Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と�
 
 ## Claude Code Skill と組み合わせる場合
 
+### まず使う
+
+| 目的 | Claude Code Skill |
+|---|---|
+| どのContextを使うべきか診断したい | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
+
+### リスクを見つける
+
+| 目的 | Claude Code Skill |
+|---|---|
+| 表面化していないリスクを確認したい | `.claude/skills/project-risk-radar/SKILL.md` |
+| 課題・リスクレビュー | `.claude/skills/issue-risk-review/SKILL.md` |
+
+### 判断する
+
+| 目的 | Claude Code Skill |
+|---|---|
+| PM判断を整理したい | `.claude/skills/pm-decision-support/SKILL.md` |
+
+### 伝える
+
+| 目的 | Claude Code Skill |
+|---|---|
+| 相手別の伝え方を整理したい | `.claude/skills/stakeholder-strategy/SKILL.md` |
+| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
+| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
+
+### AI出力を確認する
+
+| 目的 | Claude Code Skill |
+|---|---|
+| AI出力を実務利用前に確認したい | `.claude/skills/ai-output-governance-review/SKILL.md` |
+
+### 会議・変更・遅延を整理する
+
+| 目的 | Claude Code Skill |
+|---|---|
+| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
+| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
+| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
+| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
+
+### 汎用レビュー・ヘルスチェック
+
 | 目的 | Claude Code Skill |
 |---|---|
 | 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
 | プロジェクトヘルスチェック | `.claude/skills/project-health-check/SKILL.md` |
-| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
-| 課題・リスクレビュー | `.claude/skills/issue-risk-review/SKILL.md` |
-| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
-| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
-| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
-| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
 
 > [!NOTE]
 > `.claude/skills/` は実行系ではありません。hooks、command、MCP設定、自動実行は含みません。

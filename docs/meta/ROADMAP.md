@@ -21,6 +21,12 @@
 - Discord案内の「準備中」表記への統一・TODOリンクの整理
 - 各ロードマップへの「体系的に学びたい場合」の導線追加
 - use-case-mapの「次の行動」CTA追加
+- `.claude/skills/README.md` の追加（Skill一覧・使い方ガイド）
+- `.claude/skills/pm-ai-diagnosis/SKILL.md` の追加（PM課題・AI活用課題の診断入口Skill）
+- `.claude/skills/project-risk-radar/SKILL.md` の追加（表面化していないリスク検知Skill）
+- `.claude/skills/pm-decision-support/SKILL.md` の追加（PM意思決定構造化Skill）
+- `.claude/skills/stakeholder-strategy/SKILL.md` の追加（ステークホルダー別伝達戦略Skill）
+- `.claude/skills/ai-output-governance-review/SKILL.md` の追加（AI出力ガバナンスレビューSkill）
 
 ---
 
