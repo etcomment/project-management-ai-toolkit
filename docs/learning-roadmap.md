@@ -39,11 +39,13 @@ AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその
 | 4 | ステークホルダーへの説明 | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
 | 5 | PM基礎 | `contexts/PM_CONTEXT.md`（共通前提） |
 | 6 | AIを使った報告・整理の補助 | `contexts/STATUS_REPORT_CONTEXT.md` |
+
 **体系的に学びたい場合**
 
 - どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)で確認
 - 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
 - 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts)を確認
+
 ---
 
 ## PMO・支援者向けロードマップ

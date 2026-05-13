@@ -259,4 +259,4 @@ project-management-ai-contexts/
 
 このリポジトリは株式会社テックエイドが公開しています。
 
-https://techaide.jp/
+https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_contexts
