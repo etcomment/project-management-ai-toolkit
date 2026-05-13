@@ -71,7 +71,39 @@ Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`�
 
 ---
 
-## 6. 関連文書
+## 6. サプライチェーン攻撃・設定ファイルに関する注意
+
+2026年時点、npm サプライチェーン攻撃・GitHub Actions 侵害・Claude Code hooks 永続化・VS Code tasks 永続化などの攻撃手法が報告されています。
+本リポジトリを利用する際、および他のリポジトリの設定ファイルを参照・導入する際は、以下に注意してください。
+
+### `.claude/settings.json` の hooks について
+
+- 本リポジトリは `.claude/settings.json` を配布しません。hooks は含まれていません。
+- **他のリポジトリや外部サンプルの `.claude/settings.json` を導入する場合は、`hooks` の内容を必ず確認してください。**
+- `PreToolUse` / `PostToolUse` / `SessionStart` 等の hooks に、curl / wget / powershell / npm / npx / bash / python を含む記述がある場合は、導入前に内容を精査してください。
+- `.claude/settings.local.json` はローカル個人設定ファイルです。コミット・共有しないでください。
+
+### `.vscode/tasks.json` の自動実行について
+
+- 本リポジトリは `.vscode/tasks.json` を配布しません。
+- **他のリポジトリの `.vscode/tasks.json` を導入する場合は、`runOn: folderOpen` や自動実行タスクの内容を必ず確認してください。**
+- 信頼できないタスクをワークスペースに追加しないでください。
+
+### 外部スクリプト・パッケージの実行について
+
+- **`npx <パッケージ名>` や `npm exec` は、バージョン固定・lockfile 管理されていない場合、悪意あるコードを実行するリスクがあります。**
+- `curl URL | sh` / `wget URL | sh` / `Invoke-WebRequest` で取得したスクリプトを即時実行することは避けてください。
+- 信頼できないソースの `package.json` を `npm install` する前に、`postinstall` / `preinstall` / `prepare` スクリプトを確認してください。
+
+### GitHub Actions について
+
+- `pull_request_target` を使用するワークフローには、PR由来コードの権限昇格リスクがあります。
+- `actions/cache` の `restore-keys` は、信頼済みキャッシュの汚染リスクに注意してください。
+- `id-token: write` は必要最小限の job にのみ付与してください。
+
+---
+
+## 7. 関連文書
 
 - 免責事項：[docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md)
 - 利用規約：[docs/legal/TERMS.md](../docs/legal/TERMS.md)

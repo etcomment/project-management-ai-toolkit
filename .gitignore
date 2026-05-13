@@ -4,6 +4,9 @@
 *.env
 credentials.json
 secrets.json
+token.json
+service-account.json
+client_secret.json
 *.pem
 *.key
 *.p12
@@ -22,6 +25,9 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Claude Code local settings (contains personal hooks/config, must not be committed)
+.claude/settings.local.json
 
 # Logs
 *.log
@@ -43,6 +49,10 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Build outputs - not used in this repository, but ignored for safety
+dist/
+build/
 
 # Generated archives
 *.zip
