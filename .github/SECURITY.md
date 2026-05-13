@@ -71,10 +71,11 @@ Claude Code 向けの Skill サンプル（`.claude/skills/pm-review/SKILL.md`�
 
 ---
 
-## 6. サプライチェーン攻撃・設定ファイルに関する注意
+## 6. 設定ファイル・外部スクリプトの安全な取り扱いについて
 
-2026年時点、npm サプライチェーン攻撃・GitHub Actions 侵害・Claude Code hooks 永続化・VS Code tasks 永続化などの攻撃手法が報告されています。
-本リポジトリを利用する際、および他のリポジトリの設定ファイルを参照・導入する際は、以下に注意してください。
+本リポジトリ自体には実行可能ファイル・hooks・自動実行設定は含まれていません。
+ただし、他のリポジトリや外部の設定ファイル（`.claude/settings.json`、`.vscode/tasks.json`、`package.json` 等）を参照・導入する際には、以下の点に注意してください。
+（2026年時点で、npm サプライチェーン攻撃・Claude Code hooks 悪用・VS Code tasks 悪用などの手法が報告されています。）
 
 ### `.claude/settings.json` の hooks について
 
