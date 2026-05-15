@@ -8,9 +8,9 @@ PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code
 
 まず全体像を知りたい方は、公式サイトの紹介ページをご覧ください。
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=hero_ai_toolkit)
-- [自分に合う学習テーマを診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=hero_course_diagnosis)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=hero_community)
+- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_top_ai_toolkit)
+- [自分に合う学習テーマを診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_top_course_diagnosis)
+- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_top_community)
 - [安全に使うための注意事項](docs/ai-safety.md)
 
 ## 初めての方へ：次に何をすればよいか
@@ -21,9 +21,9 @@ PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code
 2. [`examples/`](examples/) で具体的な使い方を確認する
 3. 実務で使う前に [`docs/ai-safety.md`](docs/ai-safety.md) を確認する
 4. 必要に応じて [`docs/learning-roadmap.md`](docs/learning-roadmap.md) で、PM・AI活用の学習テーマを確認する
-5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=quickstart_top)でコース案内を確認する
-6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=quickstart_course_diagnosis)を活用する
-7. 更新情報や活用Tipsを受け取りたい方は、[PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=quickstart_community)を確認する
+5. 体系的に学びたい場合は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_next_official_site)でコース案内を確認する
+6. どの講座が自分に合うか迷う場合は、[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_next_course_diagnosis)を活用する
+7. 更新情報や活用Tipsを受け取りたい方は、[PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_next_community)を確認する
 
 ---
 
@@ -240,7 +240,7 @@ PM・AI活用ラボでは、このリポジトリの更新情報、PM業務で�
 
 参加前に、コミュニティの目的・ルール・対象外事項をご確認ください。
 
-[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=discord_community)
+[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_discord_community)
 
 詳細は [docs/community.md](docs/community.md) を参照してください。
 
@@ -255,13 +255,13 @@ PM・AI活用ラボでは、このリポジトリの更新情報、PM業務で�
 
 このリポジトリは、株式会社テックエイドが公開するPM向けAI活用ツールキットです。
 
-- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_top)
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_ai_toolkit)
-- [PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_community)
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_course_diagnosis)
-- [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_coupons)
-- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_courses)
-- [学習ロードマップ](https://techaide.jp/learning-roadmaps/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=footer_learning_roadmaps)
+- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_official_site)
+- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_ai_toolkit)
+- [PM・AI活用ラボ](https://techaide.jp/community/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_community)
+- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_course_diagnosis)
+- [Udemy講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_coupons)
+- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_courses)
+- [学習ロードマップ](https://techaide.jp/learning-roadmaps/?utm_source=github&utm_medium=repository&utm_campaign=ai_toolkit&utm_content=readme_related_learning_roadmaps)
 
 ## Disclaimer
 
