@@ -1,3 +1,24 @@
+---
+id: stakeholder-report
+title: ステークホルダー向け報告プロンプト
+slug: stakeholder-report
+category: ステークホルダー報告
+roles:
+  - PM
+  - PMO
+  - 管理職
+tools:
+  - ChatGPT
+  - Claude
+difficulty: 中級
+summary: 上司、経営層、顧客、開発チームなど、相手に合わせた報告内容を整理するプロンプトです。
+githubPath: contexts/STAKEHOLDER_REPORT_CONTEXT.md
+relatedRoadmaps:
+  - label: PMのための生成AI活用ロードマップ
+    href: /learning-roadmaps/ai-for-pm/
+relatedCoursesHref: /courses/
+---
+
 # ステークホルダー報告コンテキスト / Stakeholder Report Context
 
 ---
@@ -102,6 +123,7 @@
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
+<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、ステークホルダー向けの報告内容を整理してください。
 
@@ -153,6 +175,8 @@
 ※ 経営判断・顧客上位層への報告はAI出力をそのまま使わず、必ず人間が確認してください。
 ※ AI出力は整理のたたき台です。送付前に必ず人間が確認・修正してください。
 ```
+
+<!-- copy:end -->
 
 ---
 

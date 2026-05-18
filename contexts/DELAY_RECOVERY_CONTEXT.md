@@ -1,3 +1,26 @@
+---
+id: delay-recovery
+title: 遅延リカバリー検討プロンプト
+slug: delay-recovery
+category: 遅延リカバリー
+roles:
+  - PM
+  - 開発リーダー
+  - PMO
+tools:
+  - ChatGPT
+  - Claude
+difficulty: 中級
+summary: 遅延が発生したプロジェクトで、原因、影響、回復策、顧客説明方針を整理するプロンプトです。
+githubPath: contexts/DELAY_RECOVERY_CONTEXT.md
+relatedRoadmaps:
+  - label: 未経験・新任PM向けロードマップ
+    href: /learning-roadmaps/pm-beginner/
+  - label: PMのための生成AI活用ロードマップ
+    href: /learning-roadmaps/ai-for-pm/
+relatedCoursesHref: /courses/
+---
+
 # 遅延リカバリー対応コンテキスト / Delay Recovery Context
 
 ---
@@ -113,6 +136,7 @@
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
+<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、遅延状況の整理とリカバリー方針を検討してください。
 
@@ -169,6 +193,8 @@
 ※ 納期・費用・責任範囲に関する判断は必ず人間が行ってください。
 ※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
 ```
+
+<!-- copy:end -->
 
 ---
 

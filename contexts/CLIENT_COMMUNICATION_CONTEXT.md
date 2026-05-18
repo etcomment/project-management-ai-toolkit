@@ -1,3 +1,23 @@
+---
+id: client-communication
+title: 顧客説明文作成プロンプト
+slug: client-communication
+category: 顧客対応
+roles:
+  - PM
+  - 開発リーダー
+tools:
+  - ChatGPT
+  - Claude
+difficulty: 中級
+summary: 遅延、仕様変更、品質問題などを顧客に説明するための文面・論点を整理するプロンプトです。
+githubPath: contexts/CLIENT_COMMUNICATION_CONTEXT.md
+relatedRoadmaps:
+  - label: PMのための生成AI活用ロードマップ
+    href: /learning-roadmaps/ai-for-pm/
+relatedCoursesHref: /courses/
+---
+
 # 顧客コミュニケーション用コンテキスト / Client Communication Context
 
 ---
@@ -110,6 +130,7 @@
 
 ### 【基本テンプレート】顧客向け文面のたたき台を作成する
 
+<!-- copy:start -->
 ```text
 # 顧客向け文面作成の依頼
 
@@ -166,6 +187,8 @@
 ※ 契約・納期・費用・責任範囲に関する表現は、必ず人間が確認してください。
 ※ 最終的な送付・報告は、担当者・上長が確認してから行ってください。
 ```
+
+<!-- copy:end -->
 
 ---
 

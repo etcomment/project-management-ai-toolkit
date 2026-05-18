@@ -1,3 +1,26 @@
+---
+id: scope-change
+title: スコープ変更整理プロンプト
+slug: scope-change
+category: スコープ変更
+roles:
+  - PM
+  - PMO
+  - 開発リーダー
+tools:
+  - ChatGPT
+  - Claude
+difficulty: 中級
+summary: 仕様変更・追加要望の影響範囲、工数、納期、リスク、顧客確認事項を整理するプロンプトです。
+githubPath: contexts/SCOPE_CHANGE_CONTEXT.md
+relatedRoadmaps:
+  - label: 未経験・新任PM向けロードマップ
+    href: /learning-roadmaps/pm-beginner/
+  - label: PMのための生成AI活用ロードマップ
+    href: /learning-roadmaps/ai-for-pm/
+relatedCoursesHref: /courses/
+---
+
 # スコープ変更管理コンテキスト / Scope Change Context
 
 ---
@@ -110,6 +133,7 @@
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
+<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、スコープ変更・仕様変更の影響を整理してください。
 
@@ -163,6 +187,8 @@
 ※ 契約・納期・費用・責任範囲に関する最終判断は必ず人間が行ってください。
 ※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
 ```
+
+<!-- copy:end -->
 
 ---
 

@@ -1,3 +1,26 @@
+---
+id: fire-response-first-72h
+title: 炎上初動整理プロンプト
+slug: fire-response-first-72h
+category: 炎上対応
+roles:
+  - PM
+  - PMO
+  - 管理職
+tools:
+  - ChatGPT
+  - Claude
+difficulty: 中級
+summary: 炎上しそうなプロジェクトの初動72時間で確認すべき事実、関係者、リスク、対応方針を整理するプロンプトです。
+githubPath: contexts/FIRE_RESPONSE_FIRST_72H.md
+relatedRoadmaps:
+  - label: 未経験・新任PM向けロードマップ
+    href: /learning-roadmaps/pm-beginner/
+  - label: PMのための生成AI活用ロードマップ
+    href: /learning-roadmaps/ai-for-pm/
+relatedCoursesHref: /courses/
+---
+
 # 炎上初動72時間用コンテキスト / Fire Response - First 72 Hours Context
 
 ---
@@ -128,6 +151,7 @@ PM・上長・経営層が社内で決定すべき事項の一覧。
 
 ## Prompt Template（コピーして使えるプロンプトテンプレート）
 
+<!-- copy:start -->
 ```text
 # 炎上初動整理の依頼
 
@@ -184,6 +208,8 @@ PM・上長・経営層が社内で決定すべき事項の一覧。
 ※ AI出力は判断材料です。最終判断は人間が行ってください。
 ※ 顧客への説明・謝罪文は、必ず上長・法務が確認してください。
 ```
+
+<!-- copy:end -->
 
 ---
 
