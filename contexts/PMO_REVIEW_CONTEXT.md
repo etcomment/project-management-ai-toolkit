@@ -1,22 +1,4 @@
----
-id: pmo-review
-title: PMOレビュー用プロンプト
-slug: pmo-review
-category: PMOレビュー
-roles:
-  - PMO
-  - 管理職
-tools:
-  - ChatGPT
-  - Claude
-difficulty: 中級
-summary: 複数案件やプロジェクト状況をPMO視点でレビューし、リスクや支援ポイントを整理するプロンプトです。
-githubPath: contexts/PMO_REVIEW_CONTEXT.md
-relatedRoadmaps: []
-relatedCoursesHref: /courses/
----
-
-# PMO横断レビューコンテキスト / PMO Review Context
+﻿# PMO横断レビューコンテキスト / PMO Review Context
 
 ---
 
@@ -110,11 +92,10 @@ PMOが次のアクションとして確認・実施すべき事項の一覧。
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
-<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、複数案件を横断的にレビューしてください。
 
@@ -158,11 +139,10 @@ PMOが次のアクションとして確認・実施すべき事項の一覧。
 ※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
 ```
 
-<!-- copy:end -->
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

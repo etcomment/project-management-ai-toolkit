@@ -1,27 +1,4 @@
----
-id: status-report
-title: 週次進捗報告プロンプト
-slug: status-report
-category: 進捗報告
-roles:
-  - PM
-  - 開発リーダー
-tools:
-  - ChatGPT
-  - Claude
-  - Gemini
-difficulty: 初級
-summary: 進捗、課題、リスク、次アクションを整理し、週次報告のたたき台を作るためのプロンプトです。
-githubPath: contexts/STATUS_REPORT_CONTEXT.md
-relatedRoadmaps:
-  - label: 未経験・新任PM向けロードマップ
-    href: /learning-roadmaps/pm-beginner/
-  - label: PMのための生成AI活用ロードマップ
-    href: /learning-roadmaps/ai-for-pm/
-relatedCoursesHref: /courses/
----
-
-# 進捗報告用コンテキスト / Status Report Context
+﻿# 進捗報告用コンテキスト / Status Report Context
 
 ---
 
@@ -139,11 +116,10 @@ relatedCoursesHref: /courses/
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
 ### 【基本テンプレート】社内向け・顧客向け・上長向けをまとめて作成
 
-<!-- copy:start -->
 ```text
 # 進捗報告の作成依頼
 
@@ -194,7 +170,6 @@ relatedCoursesHref: /courses/
 ※ 顧客向け報告文は、そのまま送付しないでください。
 ```
 
-<!-- copy:end -->
 
 ---
 
@@ -292,7 +267,7 @@ relatedCoursesHref: /courses/
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

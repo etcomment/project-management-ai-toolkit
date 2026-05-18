@@ -1,4 +1,4 @@
-# 使い方ガイド / Usage Guide
+﻿# 使い方ガイド / Usage Guide
 
 ---
 
@@ -92,7 +92,7 @@
 - Input
 - Output
 - Caution
-- Prompt Template
+- 使用例（AIへの依頼例）
 
 ### 設定用ファイル（指示文）
 

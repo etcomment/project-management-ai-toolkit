@@ -1,27 +1,4 @@
----
-id: delay-recovery
-title: 遅延リカバリー検討プロンプト
-slug: delay-recovery
-category: 遅延リカバリー
-roles:
-  - PM
-  - 開発リーダー
-  - PMO
-tools:
-  - ChatGPT
-  - Claude
-difficulty: 中級
-summary: 遅延が発生したプロジェクトで、原因、影響、回復策、顧客説明方針を整理するプロンプトです。
-githubPath: contexts/DELAY_RECOVERY_CONTEXT.md
-relatedRoadmaps:
-  - label: 未経験・新任PM向けロードマップ
-    href: /learning-roadmaps/pm-beginner/
-  - label: PMのための生成AI活用ロードマップ
-    href: /learning-roadmaps/ai-for-pm/
-relatedCoursesHref: /courses/
----
-
-# 遅延リカバリー対応コンテキスト / Delay Recovery Context
+﻿# 遅延リカバリー対応コンテキスト / Delay Recovery Context
 
 ---
 
@@ -132,11 +109,10 @@ relatedCoursesHref: /courses/
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
-<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、遅延状況の整理とリカバリー方針を検討してください。
 
@@ -194,11 +170,10 @@ relatedCoursesHref: /courses/
 ※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
 ```
 
-<!-- copy:end -->
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

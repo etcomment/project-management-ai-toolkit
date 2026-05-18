@@ -1,28 +1,4 @@
----
-id: issue-risk
-title: 課題・リスク整理プロンプト
-slug: issue-risk
-category: 課題・リスク管理
-roles:
-  - PM
-  - PMO
-  - 開発リーダー
-tools:
-  - ChatGPT
-  - Claude
-  - Gemini
-difficulty: 初級
-summary: 課題とリスクを分けて整理し、優先順位、対応方針、エスカレーション要否を確認するためのプロンプトです。
-githubPath: contexts/ISSUE_RISK_CONTEXT.md
-relatedRoadmaps:
-  - label: 未経験・新任PM向けロードマップ
-    href: /learning-roadmaps/pm-beginner/
-  - label: PMのための生成AI活用ロードマップ
-    href: /learning-roadmaps/ai-for-pm/
-relatedCoursesHref: /courses/
----
-
-# 課題・リスク管理用コンテキスト / Issue & Risk Management Context
+﻿# 課題・リスク管理用コンテキスト / Issue & Risk Management Context
 
 ---
 
@@ -164,11 +140,10 @@ AIへの出力指示に以下の形式を指定できます。
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
 ### 【基本テンプレート】課題・リスクをまとめてレビューする
 
-<!-- copy:start -->
 ```text
 # 課題・リスクレビューの依頼
 
@@ -212,7 +187,6 @@ AIへの出力指示に以下の形式を指定できます。
 ※ AI出力は判断材料です。最終判断は人間が行ってください。
 ```
 
-<!-- copy:end -->
 
 ---
 
@@ -264,7 +238,7 @@ PM視点で指摘してください。
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

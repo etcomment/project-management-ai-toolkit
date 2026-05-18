@@ -1,10 +1,10 @@
-# Project Management AI Toolkit
+﻿# Project Management AI Toolkit
 
-PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code で使える AI Contexts、Prompt Template、Claude Code Skills、実務サンプルをまとめたAI活用ツールキットです。
+PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code で使える AI Contexts、使用例、Claude Code Skills、実務サンプルをまとめたAI活用ツールキットです。
 
 ## はじめての方へ
 
-このリポジトリは、PM・PMO・開発リーダーが ChatGPT / Gemini / Claude / Claude Code を実務で活用するための、AI Contexts、Prompt Template、Claude Code Skills、実務サンプルを含むAI活用ツールキットです。
+このリポジトリは、PM・PMO・開発リーダーが ChatGPT / Gemini / Claude / Claude Code を実務で活用するための、AI Contexts、使用例、Claude Code Skills、実務サンプルを含むAI活用ツールキットです。
 
 まず全体像を知りたい方は、公式サイトの紹介ページをご覧ください。
 
@@ -53,7 +53,7 @@ PM・PMO・開発リーダー向けに、ChatGPT / Gemini / Claude / Claude Code
 このリポジトリは、PM実務でAIを活用するための複数のコンポーネントで構成されています。
 
 ```text
-contexts/       → AI Contexts本体：AIに渡すPM業務の前提情報・判断軸・Prompt Template
+contexts/       → AI Contexts本体：AIに渡すPM業務の前提情報・判断軸・使用例
 instructions/   → 設定用指示文：ChatGPT / Gemini / Claude の設定欄にコピーする指示文
 docs/tools/     → ツール別ガイド：各AIツールの使い方ガイド
 examples/       → 実務サンプル：架空データによる利用例
@@ -146,7 +146,7 @@ Skill はドキュメントのみです。hooks、自動実行コマンド、MCP
 - `examples/project-risk-radar-example.md`
 - `examples/ai-output-governance-review-example.md`
 
-Claudeで利用する場合は、`contexts/` 各ファイル内の「Claude向け Prompt Template（XMLタグ版）」も参照してください。タスク、入力情報、制約、出力形式を分けて依頼できます。
+Claudeで利用する場合は、`contexts/` 各ファイル内の「Claude向け使用例（XMLタグ版）」も参照してください。タスク、入力情報、制約、出力形式を分けて依頼できます。
 
 ## リポジトリ構成
 
@@ -156,7 +156,7 @@ project-management-ai-toolkit/
 ├── LICENSE.md
 ├── .gitignore
 │
-├── contexts/           ← AI Contexts本体：PM業務の前提情報・Prompt Template
+├── contexts/           ← AI Contexts本体：PM業務の前提情報・使用例
 ├── instructions/       ← 設定用指示文：各AIツールの設定欄にコピーする指示文
 ├── examples/           ← 実務サンプル：架空データによる利用例
 │

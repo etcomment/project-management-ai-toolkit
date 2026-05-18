@@ -1,29 +1,4 @@
----
-id: project-health-check
-title: プロジェクトヘルスチェックプロンプト
-slug: project-health-check
-category: プロジェクト診断
-roles:
-  - PM
-  - PMO
-  - 開発リーダー
-  - 管理職
-tools:
-  - ChatGPT
-  - Claude
-  - Gemini
-difficulty: 初級
-summary: プロジェクト全体の状態を、進捗、課題、リスク、品質、体制、顧客対応の観点で確認するプロンプトです。
-githubPath: contexts/PROJECT_HEALTH_CHECK.md
-relatedRoadmaps:
-  - label: 未経験・新任PM向けロードマップ
-    href: /learning-roadmaps/pm-beginner/
-  - label: PMのための生成AI活用ロードマップ
-    href: /learning-roadmaps/ai-for-pm/
-relatedCoursesHref: /courses/
----
-
-# プロジェクトヘルスチェック用コンテキスト / Project Health Check Context
+﻿# プロジェクトヘルスチェック用コンテキスト / Project Health Check Context
 
 ---
 
@@ -151,9 +126,8 @@ PM・PMO・上長が社内で決定すべき事項の一覧。
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
-<!-- copy:start -->
 ```text
 # プロジェクトヘルスチェックの依頼
 
@@ -205,11 +179,10 @@ PM・PMO・上長が社内で決定すべき事項の一覧。
 ※ AI出力は判断材料です。最終判断は人間が行ってください。
 ```
 
-<!-- copy:end -->
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

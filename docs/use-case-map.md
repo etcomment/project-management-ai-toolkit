@@ -8,8 +8,8 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 
 - ChatGPT / Gemini / Claude / Claude Code で共通して使えます
 - このページでは `contexts/` 配下のコンテキストファイルを中心に案内します
-- `prompts/` ディレクトリは存在しません。用途別のプロンプトは各 `contexts/*.md` の `Prompt Template` に内包されています
-- まず自分の状況に合う `contexts/*.md` を選び、内包されている `Prompt Template` を活用してください
+- `prompts/` ディレクトリは存在しません。使用例（AIへの依頼例）は各 `contexts/*.md` の `使用例（このコンテキストを使った依頼例）` セクションに掲載されています
+- まず自分の状況に合う `contexts/*.md` を選び、使用例セクションを参考にAIへの依頼文を作成してください
 
 ---
 
@@ -97,7 +97,7 @@ PM業務の状況別に、使うべき `contexts/*.md` を整理するガイド�
 1. `contexts/PM_CONTEXT.md` の内容をチャットに貼り付ける
 2. 状況に応じた用途別 `contexts/*.md` を貼り付ける
 3. 案件情報を**マスキング・要約**して貼り付ける
-4. `contexts/*.md` の `Prompt Template` を参考に依頼文を作る
+4. `contexts/*.md` の使用例セクションを参考に依頼文を作る
 5. AI出力を人間が確認する
 
 ### 2. ChatGPT Projects / Claude Projects / Gems に事前設定する

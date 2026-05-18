@@ -1,4 +1,4 @@
-# セキュリティ・サプライチェーン点検レポート
+﻿# セキュリティ・サプライチェーン点検レポート
 
 ## 検査情報
 
@@ -19,7 +19,7 @@
 **配布用テンプレート・ドキュメント中心リポジトリ**
 
 実行系ファイル（shell スクリプト、JavaScript、TypeScript、Python、PowerShell 等）は一切存在しない。
-全コンテンツは `.md`（Markdown）ファイルのみで構成された、PM業務向けAI Contexts、Prompt Template、Claude Code Skills、実務サンプルを含むドキュメント中心のAI活用ツールキット。
+全コンテンツは `.md`（Markdown）ファイルのみで構成された、PM業務向けAI Contexts、使用例、Claude Code Skills、実務サンプルを含むドキュメント中心のAI活用ツールキット。
 
 ### ディレクトリ構成（公開対象）
 

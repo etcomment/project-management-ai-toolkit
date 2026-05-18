@@ -1,26 +1,4 @@
----
-id: meeting-minutes
-title: 会議メモから議事録作成プロンプト
-slug: meeting-minutes
-category: 会議・議事録
-roles:
-  - PM
-  - 開発リーダー
-  - エンジニア
-tools:
-  - ChatGPT
-  - Claude
-  - Gemini
-difficulty: 初級
-summary: 会議メモから決定事項、TODO、担当者、期限、確認事項を整理するプロンプトです。
-githubPath: contexts/MEETING_MINUTES_CONTEXT.md
-relatedRoadmaps:
-  - label: PMのための生成AI活用ロードマップ
-    href: /learning-roadmaps/ai-for-pm/
-relatedCoursesHref: /courses/
----
-
-# 議事録作成用コンテキスト / Meeting Minutes Context
+﻿# 議事録作成用コンテキスト / Meeting Minutes Context
 
 ---
 
@@ -121,11 +99,10 @@ relatedCoursesHref: /courses/
 
 ---
 
-## Prompt Template（コピーして使えるプロンプトテンプレート）
+## 使用例（このコンテキストを使った依頼例）
 
 以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
 
-<!-- copy:start -->
 ```text
 以下のコンテキストを前提として、会議メモから議事録・TODO一覧・次回確認事項を整理してください。
 
@@ -177,11 +154,10 @@ relatedCoursesHref: /courses/
 ※ AI出力は整理のたたき台です。顧客提出前・社内報告前に必ず人間が確認してください。
 ```
 
-<!-- copy:end -->
 
 ---
 
-## Claude向け Prompt Template（XMLタグ版）
+## Claude向け使用例（XMLタグ版）
 
 Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
 

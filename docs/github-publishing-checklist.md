@@ -1,4 +1,4 @@
-# GitHub Publishing Checklist
+﻿# GitHub Publishing Checklist
 
 このリポジトリをGitHubで公開・告知する前に確認するチェックリストです。
 
@@ -64,13 +64,13 @@ GitHubやSNSで共有された際に表示されるOGP画像です。
 英語版（推奨）：
 
 ```text
-AI context files, prompt templates, and Claude Code skills for PMs/PMOs. Supports ChatGPT, Gemini, Claude, and Claude Code.
+AI context files, usage examples, and Claude Code skills for PMs/PMOs. Supports ChatGPT, Gemini, Claude, and Claude Code.
 ```
 
 日本語版：
 
 ```text
-ChatGPT / Gemini / Claude / Claude Codeで使えるPM・PMO向けAI活用ツールキット。AI Contexts、Prompt Template、Claude Code Skills、実務サンプルを含む。
+ChatGPT / Gemini / Claude / Claude Codeで使えるPM・PMO向けAI活用ツールキット。AI Contexts、使用例、Claude Code Skills、実務サンプルを含む。
 ```
 
 ---
