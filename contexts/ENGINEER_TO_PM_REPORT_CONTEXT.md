@@ -1,208 +1,206 @@
-﻿# エンジニアからPMへの相談整理コンテキスト / Engineer to PM Report Context
+# Contexte de consultation d'ingénieur vers PM / Engineer to PM Report Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-開発リーダー・エンジニアが、技術課題・制約・影響・選択肢をPMに相談するための文面を整理するためのコンテキストです。技術的な問題をPMが理解しやすい形に整理し、判断依頼・選択肢提示の構成を補助します。
+Ce contexte permet d'organiser, avec l'aide de l'IA, la communication d'un responsable technique / ingénieur vers le PM sur les problèmes techniques, les contraintes, l'impact, les options et la demande de décision.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・文面のたたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas la décision du PM.** L'IA aide à structurer et à créer des brouillons d'information. La décision finale doit toujours être prise par un humain.
 
 > [!CAUTION]
-> ソースコード・認証情報・APIキー・パスワード・詳細な技術仕様をAIに入力しないでください。
-> 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-> 技術情報は概念・影響・リスクの観点で抽象化して入力してください。
+> Ne transmettez pas de code source, d'informations d'authentification, de clés API, de mots de passe ou de spécifications techniques détaillées à l'IA.
+> Ne transmettez pas de noms de clients, de sociétés, de personnes ou d'informations contractuelles à l'IA.
+> Les informations techniques doivent être résumées sous forme de concepts, d'impact et de risques.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (scénarios d'utilisation)
 
-- 技術的な問題をPMに報告・相談したいとき
-- PMに判断を依頼するための文面のたたき台を作りたいとき
-- 技術選択肢の比較をPMにわかりやすく提示したいとき
-- 技術制約が納期・品質に与える影響を整理して伝えたいとき
-- PMに相談すべき論点を整理したいとき
+- Pour signaler un problème technique au PM
+- Pour créer un brouillon de demande de décision au PM
+- Pour présenter clairement des options techniques au PM
+- Pour structurer l'impact des contraintes techniques sur les délais et la qualité
+- Pour organiser les points à discuter avec le PM
 
 ---
 
-## Input（AIに渡す情報）
+## Input (informations à transmettre à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles) :
 
 ```
-### 技術的な問題・困っていること（概念・影響の観点で記載。コードは含めないこと）
-（例：外部APIの仕様変更により既存の処理フローが使えなくなった など）
+### Problème technique / ce qui pose problème (du point de vue du concept et de l'impact ; ne pas inclure de code)
+(ex. : un changement de spécification d'une API externe rend le flux de traitement existant inutilisable)
 
-### 影響範囲
-（この問題によって影響を受ける機能・工程・納期・品質）
+### Portée de l'impact
+(Fonctionnalités, processus, délais, qualité concernées)
 
-### 選択肢
-（対応策として考えられる選択肢を箇条書きで）
+### Options
+(Les options envisageables sous forme de liste)
 
-### 判断してほしいこと
-（PMに判断・意思決定してほしい事項）
+### Ce sur quoi vous souhaitez que le PM décide
+(Éléments sur lesquels vous demandez une décision au PM)
 
-### 希望する対応・推奨案
-（エンジニア視点での推奨案とその理由）
+### Option recommandée et sa raison
+(Recommandation du point de vue de l'ingénieur et sa justification)
 
-### 技術的制約
-（技術・環境・スキル面での制約の概要）
+### Contraintes techniques
+(Aperçu des contraintes techniques, environnement, compétences)
 
-### 納期・品質への影響
-（各選択肢が納期・品質にどう影響するかの概要）
+### Impact sur les délais et la qualité
+(Aperçu de l'impact de chaque option sur les délais et la qualité)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. PM向け相談文（骨子）
+### 1. Consultation au PM (brouillon)
 
-PMが現状を把握し判断できるよう整理された相談文の骨子。
+Brouillon structuré permettant au PM de comprendre la situation et de décider.
 
-### 2. 論点整理
+### 2. Organisation des points de décision
 
-PMに判断してほしい論点の一覧。
+Liste des points sur lesquels le PM doit prendre une décision.
 
-### 3. 判断依頼の明確化
+### 3. Clarification de la demande de décision
 
-何を・いつまでに・どの粒度で判断してほしいかの整理。
+Clarification de ce qui doit être décidé, dans quel délai et avec quel niveau de détail.
 
-### 4. 選択肢の比較
+### 4. Comparaison des options
 
-各選択肢の概要・メリット・デメリット・リスクの比較表。
+Tableau comparatif des options : résumé, avantages, inconvénients, risques.
 
-### 5. 推奨案とその理由
+### 5. Option recommandée et sa raison
 
-エンジニア視点での推奨案と、その推奨理由。
+Option recommandée du point de vue de l'ingénieur et sa justification.
 
-### 6. リスク説明
+### 6. Explication des risques
 
-各選択肢・判断が遅れることによるリスクの整理。
+Organisation des risques liés au retard dans la décision ou au choix de chaque option.
 
-### 7. 次アクション
+### 7. Prochaines actions
 
-PMの判断を受けた後の次のアクションの案。
-
----
-
-## Caution（利用時の注意）
-
-- **ソースコード・認証情報・APIキー・パスワードをAIに入力しないでください。**
-- 技術情報は概念・影響・リスクの観点で抽象化して入力してください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- AI出力の相談文はたたき台です。実際の状況・関係性に合わせて人間が修正してください。
-- 納期・費用・責任範囲に関わる内容は特に慎重に確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+Options d'actions après la décision du PM.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Caution (précautions d'utilisation)
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+- **Ne transmettez pas de code source, d'informations d'authentification, de clés API, de mots de passe à l'IA.**
+- Les informations techniques doivent être résumées sous forme de concepts, d'impact et de risques.
+- Ne transmettez pas de noms de clients, de sociétés, de personnes ou d'informations contractuelles à l'IA.
+- Le texte de consultation est un brouillon. Modifiez-le selon la situation réelle et la relation.
+- Faites particulièrement attention aux éléments relatifs aux délais, aux coûts et aux responsabilités.
+- **L'IA ne remplace pas la décision du PM ou de l'ingénieur.** La décision finale doit toujours être prise par un humain.
+
+---
+
+## Exemple d'utilisation (template)
 
 ```text
-以下のコンテキストを前提として、技術課題をPM向けに整理してください。
+Basé sur ce contexte, veuillez structurer un problème technique à destination du PM.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ENGINEER_TO_PM_REPORT_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 相談内容（機密情報はマスキング済み・コードは含めないこと）
-
-### 技術的な問題・困っていること
-（記入）
-
-### 影響範囲
-（記入）
-
-### 選択肢
-（記入）
-
-### 判断してほしいこと
-（記入）
-
-### 希望する対応・推奨案
-（記入）
-
-### 技術的制約
-（記入）
-
-### 納期・品質への影響
-（記入）
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu de ENGINEER_TO_PM_REPORT_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Contenu de la consultation (informations confidentielles masquées ; ne pas inclure de code)
 
-1. PM向け相談文の骨子
-2. 論点の整理
-3. 判断依頼の明確化（何を・いつまでに・どの粒度で）
-4. 選択肢の比較表（概要・メリット・デメリット・リスク）
-5. 推奨案とその理由
-6. リスク説明
-7. PMの判断後の次アクション案
+### Problème technique / ce qui pose problème
+(Entrez)
 
-※ ソースコード・認証情報はAIに入力しないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+### Portée de l'impact
+(Entrez)
+
+### Options
+(Entrez)
+
+### Ce sur quoi vous souhaitez que le PM décide
+(Entrez)
+
+### Option recommandée et sa raison
+(Entrez)
+
+### Contraintes techniques
+(Entrez)
+
+### Impact sur les délais et la qualité
+(Entrez)
+
+---
+
+## Résultat attendu
+
+1. Brouillon de consultation au PM
+2. Organisation des points de décision
+3. Clarification de la demande de décision (quoi, quand, niveau de détail)
+4. Tableau comparatif des options
+5. Option recommandée et sa justification
+6. Explication des risques
+7. Prochaines actions après la décision du PM
+
+※ Ne transmettez pas de code source ou d'informations d'authentification à l'IA.
+※ Le résultat est un brouillon ; la décision finale doit toujours être prise par un humain.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下の技術的な相談内容を、PM向けの相談文・論点整理・判断依頼の形に整理してください。
+Organisez le contenu de consultation technique à destination du PM.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[ENGINEER_TO_PM_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de ENGINEER_TO_PM_REPORT_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【相談内容（機密情報はマスキング済み・コードは含めないこと）】
+【Contenu de la consultation (informations confidentielles masquées ; ne pas inclure de code)】
 
-### 技術的な問題・困っていること
-（記入）
+### Problème technique / ce qui pose problème
+(Entrez)
 
-### 影響範囲
-（記入）
+### Portée de l'impact
+(Entrez)
 
-### 選択肢
-（記入）
+### Options
+(Entrez)
 
-### 判断してほしいこと
-（記入）
+### Ce sur quoi vous souhaitez que le PM décide
+(Entrez)
 
-### 希望する対応・推奨案
-（記入）
+### Option recommandée et sa raison
+(Entrez)
 
-### 技術的制約
-（記入）
+### Contraintes techniques
+(Entrez)
 
-### 納期・品質への影響
-（記入）
+### Impact sur les délais et la qualité
+(Entrez)
 </input>
 <constraints>
-- ソースコード・認証情報・顧客名・個人名・会社名はAIに入力しないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 技術的な判断・設計判断の最終決定はエンジニア・PMが行う前提で出力してください。
+- Ne transmettez pas de code source, d'informations d'authentification, de noms de clients, de sociétés, de personnes ou d'informations contractuelles.
+- Les informations techniques doivent être résumées sous forme de concepts, d'impact et de risques.
+- Si des informations manquent, indiquez « (supposition) ». Prenez des décisions avec des informations insuffisantes uniquement si cela est nécessaire.
+- La décision finale de conception doit être prise par l'ingénieur et le PM.
 </constraints>
 <output_format>
-1. PM向け相談文の骨子
-2. 論点の整理
-3. 判断依頼の明確化（何を・いつまでに・どの粒度で）
-4. 選択肢の比較表（概要・メリット・デメリット・リスク）
-5. 推奨案とその理由
-6. PMの判断後の次アクション案
+1. Brouillon de consultation au PM
+2. Organisation des points de décision
+3. Clarification de la demande de décision
+4. Tableau comparatif des options
+5. Option recommandée et sa justification
+6. Explication des risques
+7. Prochaines actions
 </output_format>
 ```
