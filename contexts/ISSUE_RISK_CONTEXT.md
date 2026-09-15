@@ -1,50 +1,55 @@
-﻿# 課題・リスク管理用コンテキスト / Issue & Risk Management Context
+# Contexte de gestion des problèmes et risques / Issue & Risk Management Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-プロジェクトの課題一覧やリスク情報をAIに渡し、PM視点での抜け漏れ確認・分類・優先度の見直し・エスカレーション候補の抽出を補助してもらうためのコンテキストです。
+Pour aider le PM à vérifier s'il manque des éléments, classer, réviser la priorité et identifier des candidats à l'escalade dans la liste des problèmes et des risques d'un projet, en fournissant ces informations à l'IA.
 
-**AIはリスク評価や業務上の優先度判断を行うものではありません。** 出力はあくまで整理・分類の補助です。最終的な判断は必ず人間が行ってください。
+**L'IA ne prend pas les décisions d'évaluation des risques ni les décisions de priorité opérationnelle.** Les résultats sont uniquement un support d'organisation et de classification. La décision finale doit toujours être prise par un humain.
 
----
-
-## Use Case（このコンテキストを使う場面）
-
-- 課題リストの抜け漏れ・曖昧さを確認したいとき
-- 課題・リスクの優先度を見直したいとき
-- 担当者不明・期限不明の課題を洗い出したいとき
-- エスカレーションが必要な課題を判断する材料が欲しいとき
-- 顧客確認が必要な課題・リスクをまとめたいとき
+> [!CAUTION]
+> Ne transmettez pas d'informations personnelles, d'informations contractuelles, d'informations d'authentification ou de détails spécifiques de projets réels à l'IA.
+> Ne transmettez pas d'informations sur l'évaluation individuelle des personnes.
+> Les évaluations de risques, les décisions de priorité et les décisions d'escalade doivent être confirmées par un humain.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Case (scénarios d'utilisation)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Vérifier s'il manque des éléments dans la liste des problèmes
+- Réviser la priorité des problèmes et des risques
+- Identifier les problèmes sans responsable assigné ou sans date limite claire
+- Identifier les candidats à l'escalade
+- Organiser les problèmes et risques nécessitant une confirmation du client
+
+---
+
+## Input (informations à transmettre à l'IA)
+
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles et les données personnelles) :
 
 ```
-### 課題一覧
+### Liste des problèmes
 
-| No. | 課題・問題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 | 対応方針 |
+| No. | Contenu du problème / problème | Statut | Responsable (rôle) | Date limite | Portée de l'impact | Politique de réponse |
 |---|---|---|---|---|---|---|
 | 1 | | | | | | |
 | 2 | | | | | | |
 | 3 | | | | | | |
 
-### 未決事項（誰も対応していない事項）
+### Questions non résolues (éléments que personne n'a traités)
 -
 
-### 外部依存（顧客・外部ベンダー・外部API等の確認待ち）
+### Dépendances externes (attente de confirmation du client, du fournisseur externe, de l'API externe, etc.)
 -
 
-### 顧客確認待ちの事項
+### Questions nécessitant une confirmation du client
 -
 
-### リスク一覧（まだ課題化していないが、顕在化する可能性があるもの）
+### Liste des risques (risques qui pourraient se manifester mais qui ne sont pas encore devenus des problèmes)
 
-| No. | リスクの内容 | 発生確率（高/中/低） | 影響度（高/中/低） | 対応方針 |
+| No. | Contenu du risque | Probabilité (élevée / moyenne / faible) | Impact (élevé / moyen / faible) | Politique de réponse |
 |---|---|---|---|---|
 | 1 | | | | |
 | 2 | | | | |
@@ -52,238 +57,198 @@
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. 課題の分類
+### 1. Classification des problèmes
 
-以下の観点で課題を分類したもの。
+Classifiez selon les critères suivants :
 
-- 至急対応が必要（高影響・高緊急度）
-- 注意が必要（中影響・中緊急度）
-- 管理継続（低影響・低緊急度）
-- 判断不能（情報不足）
+- Nécessite une réponse immédiate (impact élevé, urgence élevée)
+- Attention nécessaire (impact moyen, urgence moyenne)
+- Gestion continue (impact faible, urgence faible)
+- Décision impossible (informations insuffisantes)
 
-### 2. 優先度の見直し
+### 2. Révision de la priorité
 
-現在の優先度に過不足がないか、PM視点での指摘。
+Identifiez si la priorité actuelle est appropriée, du point de vue du PM.
 
-### 3. 担当者不明の課題
+### 3. Problèmes sans responsable assigné
 
-担当が未設定・不明確な課題の一覧。
+Liste des problèmes dont le responsable n'est pas défini ou est peu clair.
 
-### 4. 期限不明の課題
+### 4. Problèmes sans date limite clairs
 
-期限が未設定・不明確な課題の一覧。
+Liste des problèmes dont la date limite n'est pas définie ou est peu claire.
 
-### 5. 影響範囲が曖昧な課題
+### 5. Problèmes à impact ambigu
 
-影響範囲が「不明」「未確認」「TBD」になっている課題の一覧。
+Liste des problèmes dont la portée de l'impact est « inconnue », « non confirmée » ou « TBD ».
 
-### 6. 表面化していないリスク
+### 6. Risques potentiels
 
-入力情報をもとに、PMが見落としている可能性があるリスクの指摘。
+Indiquez les risques que le PM pourrait avoir manqués, sur la base des informations fournies.
 
-### 7. エスカレーション候補
+### 7. Candidats à l'escalade
 
-以下のいずれかに該当する課題・リスクの一覧。
+Liste des problèmes / risques correspondant à l'une des conditions suivantes :
 
-- PMだけで判断できない重大な問題
-- 納期・品質・顧客関係に重大な影響を与える可能性がある
-- 社内リソース・体制の問題で、上長の判断が必要
+- Problème important qui ne peut pas être résolu par le PM seul
+- Peut avoir un impact majeur sur le délai, la qualité ou la relation avec le client
+- Problème de ressources ou d'organisation interne nécessitant une décision du supérieur
 
-### 8. 次アクション
+### 8. Prochaines actions
 
-直近で実施すべきアクションの一覧。
+Liste des actions à entreprendre dans un avenir immédiat.
 
 ---
 
-## 出力形式（表形式テンプレート）
+## Format de sortie (modèle de tableau)
 
-AIへの出力指示に以下の形式を指定できます。
+Vous pouvez spécifier le format de sortie suivant pour l'IA :
 
 ```text
-以下の形式で出力してください。
+Veuillez produire le résultat dans le format suivant.
 
-## 課題整理サマリー
+## Résumé de l'organisation des problèmes
 
-| 分類 | 件数 | 主な内容 |
+| Classification | Nombre | Contenu principal |
 |---|---|---|
-| 至急対応 | | |
-| 注意が必要 | | |
-| 管理継続 | | |
-| 担当者不明 | | |
-| 期限不明 | | |
+| Nécessite une réponse immédiate | | |
+| Attention nécessaire | | |
+| Gestion continue | | |
+| Sans responsable | | |
+| Sans date limite | | |
 
-## エスカレーション候補
+## Candidats à l'escalade
 
-| No. | 内容 | 理由 | 推奨する対応 |
+| No. | Contenu | Raison | Réponse recommandée |
 |---|---|---|---|
 | | | | |
 
-## 次アクション一覧
+## Liste des prochaines actions
 
-| 優先度 | アクション | 担当（役割） | 期限 |
+| Priorité | Action | Responsable (rôle) | Date limite |
 |---|---|---|---|
 | | | | |
 ```
 
 ---
 
-## Caution（利用時の注意）
+## Caution (précautions d'utilisation)
 
 > [!CAUTION]
-> AI出力の課題・リスク整理は、専門家によるリスク評価・監査・診断を代替しません。
+> L'organisation des problèmes et des risques par l'IA ne remplace pas une évaluation des risques par des experts, un audit ou un diagnostic.
 >
-> エスカレーション要否・対応優先度の最終判断は、必ず人間が行ってください。
+> Les décisions finales concernant la priorité, l'escalade et le traitement doivent toujours être prises par un humain.
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Ne transmettez pas d'informations personnelles, d'informations contractuelles, d'informations d'authentification ou de détails spécifiques de projets réels à l'IA.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
-
-### 【基本テンプレート】課題・リスクをまとめてレビューする
+## Exemple d'utilisation (template)
 
 ```text
-# 課題・リスクレビューの依頼
+# Demande de revue des problèmes et risques
 
-以下のコンテキストを前提として、課題・リスクをPM視点でレビューしてください。
+Sur la base de ce contexte, veuillez revoir les problèmes et risques du point de vue du PM.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu d'ISSUE_RISK_CONTEXT.md]
 
 ---
 
-## 課題・リスク情報（機密情報はマスキング済み）
+## Informations sur les problèmes et risques (informations confidentielles masquées)
 
-### 課題一覧
+### Liste des problèmes
 
-| No. | 課題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 |
+| No. | Contenu du problème | Statut | Responsable (rôle) | Date limite | Portée de l'impact |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 
-### リスク一覧
+### Questions non résolues
+-
 
-| No. | リスクの内容 | 発生確率 | 影響度 | 対応方針 |
+### Dépendances externes
+-
+
+### Questions nécessitant une confirmation du client
+-
+
+### Liste des risques
+
+| No. | Contenu du risque | Probabilité | Impact | Politique de réponse |
 |---|---|---|---|---|
 | 1 | | | | |
 
-### 顧客確認待ち・外部依存
--
-
 ---
 
-## 出力してほしいこと
+## Résultat attendu
 
-1. 担当者不明・期限不明・影響範囲が曖昧な課題の一覧
-2. 優先度の見直し（高/中/低の分類）
-3. 見落としている可能性があるリスク
-4. エスカレーション候補と理由
-5. 次アクション一覧（優先度・担当役割・期限）
+1. Classification des problèmes (y compris les problèmes sans responsable / sans date limite / à impact ambigu)
+2. Révision de la priorité
+3. Problèmes sans responsable / sans date limite / à impact ambigu
+4. Risques potentiels
+5. Candidats à l'escalade et raison
+6. Liste des prochaines actions (priorité, responsable, date limite)
 
-※ AI出力は判断材料です。最終判断は人間が行ってください。
-```
-
-
----
-
-### 【リスク洗い出し】入力情報から潜在リスクを抽出する
-
-```text
-以下のコンテキストを前提として、案件状況からリスクを洗い出してください。
-現在認識されているリスクに加え、見落としている可能性があるリスクを
-PM視点で指摘してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 案件状況（機密情報はマスキング済み）
-
-### プロジェクト概要
-- フェーズ：
-- 規模感：
-
-### 現在認識しているリスク
--
-
-### 課題一覧（ある場合）
--
-
-### 外部依存・顧客確認待ち
--
-
-### 体制・チームの状況
--
-
----
-
-## 出力してほしいこと
-
-1. 現在認識されているリスクの整理（発生確率・影響度・対応方針）
-2. 見落としている可能性があるリスク
-3. リスクの優先度分類（高/中/低）
-4. 対応方針が未定のリスクへの推奨アクション
-5. エスカレーションが必要なリスクの指摘
-
-※ AI出力は判断材料です。最終判断は人間が行ってください。
-※ 機密情報・個人情報・認証情報はAIに入力しないでください。
+※ Le résultat de l'IA est un support de décision. La décision finale doit toujours être prise par un humain.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下の課題・リスク情報をPM視点でレビューしてください。
-担当者不明・期限不明の課題、潜在リスク、エスカレーション候補を整理してください。
+Revoyez les problèmes et risques du point de vue du PM. Identifiez les problèmes sans responsable / sans date limite / à impact ambigu, les risques potentiels, les candidats à l'escalade et les prochaines actions.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu d'ISSUE_RISK_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【課題・リスク情報（機密情報はマスキング済み）】
+【Informations sur les problèmes et risques (informations confidentielles masquées)】
 
-### 課題一覧
+### Liste des problèmes
 
-| No. | 課題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 |
+| No. | Contenu du problème | Statut | Responsable (rôle) | Date limite | Portée de l'impact |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 
-### リスク一覧
+### Questions non résolues
+-
 
-| No. | リスクの内容 | 発生確率 | 影響度 | 対応方針 |
+### Dépendances externes
+-
+
+### Questions nécessitant une confirmation du client
+-
+
+### Liste des risques
+
+| No. | Contenu du risque | Probabilité | Impact | Politique de réponse |
 |---|---|---|---|---|
 | 1 | | | | |
-
-### 顧客確認待ち・外部依存
--
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に根拠がないリスクは断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Ne transmettez pas de noms de clients, de personnes, de sociétés, d'informations contractuelles ou d'informations d'authentification.
+- Les évaluations de risques et les décisions de priorité doivent être confirmées par un humain.
+- Si des informations manquent, indiquez « (supposition) ». 
+- L'IA est un support de décision. La décision finale doit toujours être prise par un humain.
 </constraints>
 <output_format>
-1. 課題分類（担当者不明・期限不明・影響範囲が曖昧なものを特定）
-2. 優先度の見直し（高/中/低）
-3. 潜在リスク（見落としている可能性があるもの）
-4. エスカレーション候補と理由
-5. 次アクション一覧（優先度・担当役割・期限）
+1. Classification des problèmes
+2. Révision de la priorité
+3. Problèmes sans responsable / sans date limite / à impact ambigu
+4. Risques potentiels
+5. Candidats à l'escalade et raison
+6. Liste des prochaines actions
 </output_format>
 ```
