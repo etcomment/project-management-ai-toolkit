@@ -1,218 +1,214 @@
-﻿# 議事録作成用コンテキスト / Meeting Minutes Context
+# Contexte de création de compte-rendu / Meeting Minutes Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-会議メモ・発言メモ・決定事項らしき内容・未決事項をAIに渡し、議事録・TODO一覧・次回確認事項の整理を補助してもらうためのコンテキストです。
+Ce contexte permet à l'IA d'organiser, à partir des notes de réunion, des déclarations orales, des décisions apparentes et des points en attente, un compte-rendu de réunion, une liste de tâches à faire et une liste de points à vérifier lors de la prochaine réunion.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas la décision du PM.** L'IA aide à structurer, classifier et créer des brouillons de compte-rendu. La décision finale doit toujours être prise par un humain.
 
 > [!CAUTION]
-> 参加者の実名・顧客名・社名・個人が特定できる情報はAIに入力しないでください。
-> 会議内容に契約情報・認証情報・機密情報が含まれる場合は、マスキングまたは除外してください。
+> Ne transmettez pas de noms réels de participants, de clients, de sociétés ou de personnes permettant une identification directe à l'IA.
+> Si le contenu de la réunion contient des informations contractuelles, d'authentification ou confidentielles, masquez-les ou excluez-les.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (scénarios d'utilisation)
 
-- 走り書きの会議メモから議事録のたたき台を作りたいとき
-- 発言内容から決定事項と未決事項を分けて整理したいとき
-- TODO一覧と担当者・期限を抽出したいとき
-- 次回確認すべき事項をまとめたいとき
-- 会議メモからリスク・懸念点を見つけたいとき
+- Créer un compte-rendu de réunion à partir de notes manuscrites
+- Séparer les décisions apparentes des points en attente dans le contenu des déclarations
+- Extraire une liste de tâches avec responsables et délais
+- Organiser les points à vérifier lors de la prochaine réunion
+- Identifier les risques ou points de vigilance à partir des notes de réunion
 
 ---
 
-## Input（AIに渡す情報）
+## Input (informations à transmettre à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles et les données personnelles) :
 
 ```
-### 会議の目的
-（例：週次定例、要件確認、レビュー会議、障害対応会議 など）
+### Objectif de la réunion
+(Exemple : réunion hebdomadaire, validation des exigences, revue de conception, réunion de gestion d'incident, etc.)
 
-### 会議種別
-（例：社内定例、顧客定例、社内レビュー、キックオフ など）
+### Type de réunion
+(Exemple : réunion interne régulière, réunion client régulière, revue interne, réunion de lancement, etc.)
 
-### 参加者の役割（実名は入力しないこと）
-（例：PM、開発リーダー、インフラ担当、顧客担当者A など）
+### Rôles des participants (sans les noms réels)
+(Exemple : PM, responsable développement, responsable infrastructure, contact client A, etc.)
 
-### 会議メモ・発言メモ（機密情報はマスキング済み）
-（箇条書き・メモ書きのまま貼り付けてよい）
+### Notes de réunion et déclarations orales (informations confidentielles masquées)
+(Listes à puces ou mémos bruts à copier tels quels)
 
-### 決定事項らしき内容
-（確定したと思われる事項を箇条書きで）
+### Contenu pouvant ressembler à une décision
+(Éléments qui semblent avoir été confirmés sous forme de liste à puces)
 
-### 未決事項
-（まだ決まっていない・保留になっている事項）
+### Points en attente
+(Éléments encore en discussion ou reportés)
 
-### TODOらしき内容
-（誰かが「やる」と言っていた・やるべきと思われる事項）
+### Contenu pouvant ressembler à une tâche
+(Éléments que quelqu'un a dit qu'il ferait ou qui semblent devoir être faits)
 
-### 次回確認したいこと
-（次回の会議で確認しようと思っていること）
+### Points à vérifier lors de la prochaine réunion
+(Éléments que vous souhaitez vérifier lors de la prochaine réunion)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. 会議サマリー
+### 1. Synthèse de la réunion
 
-会議全体の目的と結果の概要（3〜5行程度）。
+Vue d'ensemble de l'objectif et du résultat de la réunion (3 à 5 lignes environ).
 
-### 2. 決定事項
+### 2. Décisions prises
 
-会議で確定した事項の一覧。
+Liste des éléments confirmés lors de la réunion.
 
-### 3. 未決事項
+### 3. Points en attente
 
-まだ決まっていない・保留になっている事項の一覧。
+Liste des éléments encore en discussion ou reportés.
 
-### 4. TODO一覧
+### 4. Liste des tâches
 
-| No. | 作業内容 | 担当（役割） | 期限 | 備考 |
+| No. | Contenu de la tâche | Responsable (rôle) | Délai | Remarques |
 |---|---|---|---|---|
 
-### 5. 担当者不明のTODO
+### 5. Tâches sans responsable assigné
 
-担当が決まっていない・不明確なTODOの一覧。
+Liste des tâches dont le responsable n'est pas défini ou est peu clair.
 
-### 6. 次回確認事項
+### 6. Points à vérifier lors de la prochaine réunion
 
-次回の会議で確認すべき事項の一覧。
+Liste des éléments à vérifier lors de la prochaine réunion.
 
-### 7. リスク・懸念点
+### 7. Risques et points de vigilance
 
-会議メモから読み取れるリスクや懸念点の指摘。
-
----
-
-## Caution（利用時の注意）
-
-- **参加者の実名・顧客名・社名をAIに入力しないでください。** 役割（PM、顧客担当者A など）に置き換えてください。
-- AI出力の議事録はたたき台です。事実との齟齬がないか、必ず人間が確認してください。
-- 顧客提出用の議事録は、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- 機密情報・契約情報・認証情報が含まれる発言はAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+Identification des risques ou points de vigilance à partir des notes de réunion.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Caution (précautions d'utilisation)
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+- **Ne transmettez pas de noms réels de participants, de clients, de sociétés ou de personnes permettant une identification directe à l'IA.** Utilisez plutôt leurs rôles (PM, contact client A, etc.).
+- Le compte-rendu généré par l'IA est un brouillon. Vérifiez toujours la concordance avec les faits avant utilisation.
+- Le compte-rendu destiné au client ne doit pas être utilisé tel quel : il doit être vérifié et corrigé par un humain avant envoi.
+- Ne transmettez pas à l'IA de contenus incluant des informations contractuelles, d'authentification ou confidentielles.
+- **L'IA ne remplace pas la décision du PM.** La décision finale doit toujours être prise par un humain.
+
+---
+
+## Exemple d'utilisation (template)
 
 ```text
-以下のコンテキストを前提として、会議メモから議事録・TODO一覧・次回確認事項を整理してください。
+Basé sur ce contexte, organisez les notes de réunion en compte-rendu, liste de tâches et points à vérifier.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[MEETING_MINUTES_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 会議情報（機密情報はマスキング済み）
-
-### 会議の目的
-（記入）
-
-### 会議種別
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 会議メモ・発言メモ
-（記入）
-
-### 決定事項らしき内容
-（記入）
-
-### 未決事項
-（記入）
-
-### TODOらしき内容
-（記入）
-
-### 次回確認したいこと
-（記入）
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu de MEETING_MINUTES_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Informations sur la réunion (informations confidentielles masquées)
 
-1. 会議サマリー（3〜5行）
-2. 決定事項一覧
-3. 未決事項一覧
-4. TODO一覧（担当・期限・備考を含む）
-5. 担当者不明のTODO一覧
-6. 次回確認事項
-7. リスク・懸念点の指摘
+### Objectif de la réunion
+(Entrez)
 
-※ AI出力は整理のたたき台です。顧客提出前・社内報告前に必ず人間が確認してください。
+### Type de réunion
+(Entrez)
+
+### Rôles des participants (sans les noms réels)
+(Entrez)
+
+### Notes de réunion et déclarations orales
+(Entrez)
+
+### Contenu pouvant ressembler à une décision
+(Entrez)
+
+### Points en attente
+(Entrez)
+
+### Contenu pouvant ressembler à une tâche
+(Entrez)
+
+### Points à vérifier lors de la prochaine réunion
+(Entrez)
+
+---
+
+## Résultat attendu
+
+1. Synthèse de la réunion (3~5 lignes)
+2. Liste des décisions prises
+3. Liste des points en attente
+4. Liste des tâches (responsable, délai, remarques)
+5. Liste des tâches sans responsable assigné
+6. Points à vérifier lors de la prochaine réunion
+7. Risques et points de vigilance
+
+※ Le résultat de l'IA est un brouillon. La décision finale doit toujours être prise par un humain.
+※ La validation humaine est requise avant l'envoi au client ou le reporting interne.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下の会議メモから、議事録・決定事項・未決事項・TODO・次回確認事項を整理してください。
+Organisez les notes de réunion en compte-rendu, liste de tâches et points à vérifier lors de la prochaine réunion.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[MEETING_MINUTES_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de MEETING_MINUTES_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【会議情報（機密情報はマスキング済み）】
+【Informations sur la réunion (informations confidentielles masquées)】
 
-### 会議の目的
-（記入）
+### Objectif de la réunion
+(Entrez)
 
-### 会議種別
-（記入）
+### Type de réunion
+(Entrez)
 
-### 参加者の役割（実名は入力しないこと）
-（記入）
+### Rôles des participants (sans les noms réels)
+(Entrez)
 
-### 会議メモ・発言メモ
-（記入）
+### Notes de réunion et déclarations orales
+(Entrez)
 
-### 決定事項らしき内容
-（記入）
+### Contenu pouvant ressembler à une décision
+(Entrez)
 
-### 未決事項
-（記入）
+### Points en attente
+(Entrez)
 
-### TODOらしき内容
-（記入）
+### Contenu pouvant ressembler à une tâche
+(Entrez)
 
-### 次回確認したいこと
-（記入）
+### Points à vérifier lors de la prochaine réunion
+(Entrez)
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 契約・納期・費用に関する確約表現は含めないでください。
-- AI出力は整理のたたき台であり、顧客提出・社内報告前に人間が確認してください。
+- Ne transmettez pas de noms réels de participants, de clients, de sociétés ou de personnes permettant une identification directe à l'IA.
+- Les informations complémentaires manquantes doivent être indiquées « (supposition) ».
+- Les confirmations de délais, de coûts ou de dépenses doivent être validées par un humain.
+- Le compte-rendu destiné au client doit être vérifié et corrigé par un humain avant envoi.
 </constraints>
 <output_format>
-1. 会議サマリー（3〜5行）
-2. 決定事項一覧
-3. 未決事項一覧
-4. TODO一覧（担当役割・期限・備考）
-5. 担当者不明のTODO一覧
-6. 次回確認事項
-7. リスク・懸念点の指摘
+1. Synthèse de la réunion
+2. Liste des décisions prises
+3. Liste des points en attente
+4. Liste des tâches
+5. Liste des tâches sans responsable assigné
+6. Points à vérifier lors de la prochaine réunion
+7. Risques et points de vigilance
 </output_format>
 ```
