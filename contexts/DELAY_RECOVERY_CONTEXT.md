@@ -1,232 +1,107 @@
-﻿# 遅延リカバリー対応コンテキスト / Delay Recovery Context
+# Contexte de gestion des retards / Contexte de reprise après délai
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-遅延発生時に、遅延原因・影響範囲・リカバリー案・優先順位・顧客説明方針を整理するためのコンテキストです。遅延対応の初動と対応方針の検討を補助します。
+Ce contexte permet de structurer la situation, les impacts, les mesures de récupération, la hiérarchisation et les explications aux clients lorsqu'un retard se produit. Il aide à organiser l'intervention initiale et à examiner les politiques de réponse.
 
-**AIはPMの判断を代替しません。** AIは状況整理とリカバリー案の列挙を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas la décision du PM.** L'IA est un outil pour organiser et lister les options de récupération. La décision finale doit toujours être prise par un humain.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 納期や費用に関する確約・回答はAI出力をそのまま使わず、必ず人間が判断してください。
+> Ne transmettez pas d'informations confidentielles, de données personnelles, de données contractuelles ou d'informations d'authentification à l'IA.
+> Les expressions relatives aux délais et aux coûts doivent être confirmées par un humain avant utilisation.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (scénarios d'utilisation)
 
-- 遅延が発生・顕在化したときに状況を整理したいとき
-- リカバリー策の選択肢を洗い出したいとき
-- 顧客への遅延説明の骨子を作りたいとき
-- 社内エスカレーション資料の骨子を整理したいとき
-- 72時間以内の対応計画を立てたいとき
+- Organiser la situation lorsqu'un retard se produit ou devient évident
+- Lister les options de récupération lorsqu'un retard se produit
+- Créer un brouillon d'explication de retard au client
+- Structurer un matériel d'escalade interne
+- Planifier une intervention dans les 72 heures suivantes
 
 ---
 
-## Input（AIに渡す情報）
+## Input (informations à transmettre à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles et les données personnelles) :
 
 ```
-### 遅延している作業
-（遅延が発生している作業・機能・工程を箇条書きで）
+### Travaux retardés
+(Listez les travaux, fonctionnalités ou étapes en retard)
 
-### 遅延理由
-（遅延の原因として考えられることを箇条書きで）
+### Raison du retard
+(Listez les raisons possibles du retard)
 
-### 遅延日数・規模感
-（何日／何週間の遅延か、または影響の規模感）
+### Délai de retard / ampleur
+(Combien de jours ou de semaines de retard, ou ampleur de l'impact)
 
-### 残作業
-（現時点で残っている作業の一覧）
+### Travaux restants
+(Listez les travaux restants)
 
-### クリティカルパス
-（納期に直接影響する作業の流れ）
+### Chemin critique
+(Flux de travaux directement impactant les délais)
 
-### 使えるリソース
-（追加投入できる人・外部リソースの有無など）
+### Ressources disponibles
+(Personnes disponibles, ressources externes disponibles, etc.)
 
-### 変えられない納期・制約
-（顧客との合意や契約上、変えられない日程・制約）
+### Délais / contraintes inchangés
+(Dates / contraintes contractuelles qui ne peuvent pas être modifiées)
 
-### 顧客影響
-（遅延によって顧客・利用者に発生する影響）
+### Impact sur le client
+(Impact du retard sur le client, les utilisateurs)
 
-### すでに実施した対応
-（すでに対処済みのこと）
+### Actions déjà entreprises
+(Tout ce qui a déjà été fait pour faire face au retard)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. 遅延原因の整理
+### 1. Analyse des causes de retard
 
-直接原因・背景要因の分類と整理。
+Classification et organisation des causes directes et des facteurs contextuels.
 
-### 2. 影響範囲
+### 2. Analyse d'impact
 
-遅延によって影響を受ける作業・機能・関係者の範囲。
+Portée de l'impact sur les travaux, les fonctionnalités, les relations.
 
-### 3. リカバリー案
+### 3. Options de récupération
 
-遅延を回復するための選択肢（複数案）とそれぞれのトレードオフ。
+Plusieurs solutions de récupération et leurs compromis respectifs.
 
-### 4. 優先順位の整理
+### 4. Hiérarchisation des travaux restants
 
-残作業をどの順で対応すべきかの優先度案。
+Ordre de priorité pour les travaux restants.
 
-### 5. 削れる可能性がある作業
+### 5. Travaux potentiellement supprimés
 
-品質・納期のバランスを考慮したとき、一時的に範囲を絞れる可能性がある作業の指摘。
+Travaux potentiellement supprimés en cas de réévaluation de la qualité et des délais.
 
-### 6. 追加支援が必要な作業
+### 6. Travaux nécessitant une assistance supplémentaire
 
-外部リソース・上長支援が必要と思われる作業の指摘。
+Travaux nécessitant des ressources externes ou l'aide d'un senior.
 
-### 7. 顧客への説明案（骨子）
+### 7. Explications de retard au client (brouillon)
 
-遅延を顧客に説明する際の構成案・ポイント。
+Brouillon d'explication de la situation de retard au client.
 
-### 8. 社内エスカレーション案（骨子）
+### 8. Plan d'escalade interne (brouillon)
 
-上長・関係部門へのエスカレーション内容の構成案。
+Brouillon de plan d'escalade pour les seniors, les chefs de projet, etc.
 
-### 9. 次の24〜72時間の対応
+### 9. Actions à entreprendre dans les 24 à 72 heures
 
-直近で実施すべきアクションの一覧と優先順位。
-
----
-
-## Caution（利用時の注意）
-
-- **納期・費用・責任範囲に関する顧客への回答はAI出力をそのまま使わないでください。** 必ず人間・上長が確認・判断してください。
-- 顧客への遅延説明文はたたき台として活用し、最終的には人間が内容を確認・修正してから送付してください。
-- 個人の責任を特定するような内容はAIに入力しないでください。
-- 顧客名・社名・個人名・契約情報をAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+Liste des actions immédiates et prioritaires.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Caution (précautions d'utilisation)
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
-
-```text
-以下のコンテキストを前提として、遅延状況の整理とリカバリー方針を検討してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[DELAY_RECOVERY_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 遅延状況（機密情報はマスキング済み）
-
-### 遅延している作業
-（記入）
-
-### 遅延理由
-（記入）
-
-### 遅延日数・規模感
-（記入）
-
-### 残作業
-（記入）
-
-### クリティカルパス
-（記入）
-
-### 使えるリソース
-（記入）
-
-### 変えられない納期・制約
-（記入）
-
-### 顧客影響
-（記入）
-
-### すでに実施した対応
-（記入）
-
----
-
-## 出力してほしいこと
-
-1. 遅延原因の整理（直接原因・背景要因）
-2. 影響範囲
-3. リカバリー案（複数案・トレードオフを含む）
-4. 残作業の優先順位案
-5. 削れる可能性がある作業の指摘
-6. 追加支援が必要な作業の指摘
-7. 顧客向け遅延説明の骨子
-8. 社内エスカレーション案の骨子
-9. 次の24〜72時間で実施すべきアクション
-
-※ 納期・費用・責任範囲に関する判断は必ず人間が行ってください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
-```
-
-
----
-
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
-
-```text
-<task>
-以下の遅延状況について、遅延原因・影響範囲・リカバリー案・優先順位・顧客説明方針を整理してください。
-</task>
-<context>
-<pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
-</pm_context>
-<specific_context>
-[DELAY_RECOVERY_CONTEXT.md の内容をここに貼り付ける]
-</specific_context>
-</context>
-<input>
-【遅延状況（機密情報はマスキング済み）】
-
-### 遅延している作業
-（記入）
-
-### 遅延理由
-（記入）
-
-### 遅延日数・規模感
-（記入）
-
-### 残作業
-（記入）
-
-### 変えられない納期・制約
-（記入）
-
-### 顧客影響
-（記入）
-
-### すでに実施した対応
-（記入）
-</input>
-<constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 納期・費用・責任範囲に関する確約表現は含めないでください。
-- 顧客向け説明文のたたき台は、上長・関係者の確認が必要と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
-</constraints>
-<output_format>
-1. 遅延原因の整理（直接原因・背景要因）
-2. 影響範囲
-3. リカバリー案（複数案・トレードオフを含む）
-4. 残作業の優先順位案
-5. 顧客向け遅延説明の骨子（たたき台）
-6. 社内エスカレーション案の骨子
-7. 次の24〜72時間で実施すべきアクション
-</output_format>
-```
+- **Les réponses relatives aux délais, aux coûts et aux responsabilités doivent être confirmées par un humain et ne pas être utilisées telles quelles.**
+- **Le texte d'explication du retard au client est un brouillon ; la confirmation finale doit être validée par un humain avant envoi.**
+- **Ne transmettez pas d'informations personnellement identifiables, de données confidentielles, de données contractuelles ou d'informations d'authentification à l'IA.**
+- **Les décisions finales concernant la situation doivent toujours être prises par un humain.**

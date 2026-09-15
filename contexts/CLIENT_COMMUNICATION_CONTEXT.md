@@ -1,318 +1,107 @@
-﻿# 顧客コミュニケーション用コンテキスト / Client Communication Context
+# Contexte de communication client / Client Communication Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-顧客向けの説明文・メール・報告文のたたき台を、AIの補助で作成するためのコンテキストです。
+Contexte pour créer, avec l'aide de l'IA, des brouillons de communication client : explications, emails, rapports.
 
-状況の整理、相談文、遅延説明、選択肢の提示など、顧客とのコミュニケーションに必要な文面を整えることを目的としています。
+Objectif : structurer la situation, la consultation, l'explication du retard, la présentation des options, etc.
 
-**AI出力の文面は、そのまま顧客に送付しないでください。** 特に契約・納期・費用・責任範囲に関する表現は、必ず人間が確認・修正してから使用してください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- 顧客への状況説明メールを書きたいとき
-- 遅延・課題を顧客に相談・報告したいとき
-- 顧客に選択肢を提示したいとき
-- 打ち合わせ前に説明のポイントを整理したいとき
-- 顧客への連絡のトーン・表現を検討したいとき
-
----
-
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
-
-```
-### 顧客に伝えたい内容
--
-
-### 背景・経緯（なぜこの連絡が必要か）
--
-
-### 現在の状況
--
-
-### こちらの見解・立場
--
-
-### 顧客に相談・確認したいこと
--
-
-### 提示したい選択肢（ある場合）
-- 選択肢A：
-- 選択肢B：
-- 選択肢C（任意）：
-
-### 避けたい表現・トーン
-- （例：責任の所在を断定するような表現）
-- （例：謝罪が過度になる表現）
-- （例：顧客を責めるような表現）
-
-### 顧客との関係性・状況
-- 関係の緊張度：（例：通常・やや緊張・緊迫している）
-- コミュニケーションの経緯：（例：先週の定例で話題になった）
-- 顧客担当者の状況（役割ベースで記載）：
-```
-
----
-
-## Output（AIに期待する出力）
-
-### 1. 顧客向けメール案
-
-件名・本文・結びを含む顧客向けメールのたたき台。
-
-### 2. 状況説明文
-
-状況を簡潔に説明する文章のたたき台。
-
-### 3. 相談文
-
-顧客に選択肢を提示しながら相談するための文章のたたき台。
-
-### 4. 遅延説明文
-
-遅延の状況・影響・対応方針・顧客への影響を伝える文章のたたき台。
-
-### 5. 選択肢提示文
-
-顧客に複数の対応案を提示する文章のたたき台。
-
-### 6. 打ち合わせ前の説明メモ
-
-打ち合わせで伝えるポイントを整理したメモ。
-
----
-
-## Caution（利用時の注意）
+**L'IA ne remplace pas la décision du PM.** L'IA aide à organiser et à lister des options de récupération. La décision finale doit toujours être prise par un humain.
 
 > [!CAUTION]
-> **AI出力の顧客向け文面は、そのまま顧客に送付しないでください。**
->
-> 以下の内容が含まれる場合は、特に注意して人間が確認・修正してください。
->
-> - 契約・発注・受注・費用に関する表現
-> - 納期・スケジュールの確約・回答
-> - 責任・補償・賠償に関する表現
-> - 品質基準・合格基準に関する表現
->
-> これらは、案件の状況・契約条件・顧客との関係・社内の方針に合わせて、必ず人間が確認・修正してください。
->
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Ne transmettez pas directement au client les textes de l'IA. Vérifiez toujours les expressions relatives au contrat, aux délais, aux coûts et aux responsabilités.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Use Case (scénarios d'utilisation)
 
-### 【基本テンプレート】顧客向け文面のたたき台を作成する
-
-```text
-# 顧客向け文面作成の依頼
-
-以下のコンテキストを前提として、顧客向けの文面のたたき台を作成してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-
-[CLIENT_COMMUNICATION_CONTEXT.md の内容をここに貼り付ける]
+- Rédiger un email d'explication de la situation au client
+- Consulter / signaler un retard ou un problème au client
+- Présenter des options au client
+- Organiser les points d'explication avant une réunion
+- Réfléchir au ton et à l'expression de la communication
 
 ---
 
-## 今回の依頼内容（機密情報はマスキング済み）
+## Input (informations à transmettre à l'IA)
 
-### 顧客に伝えたい内容
--
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles) :
 
-### 背景・経緯
--
-
-### 現在の状況
--
-
-### こちらの見解
--
-
-### 顧客に相談したいこと
--
-
-### 提示したい選択肢（ある場合）
--
-
-### 避けたい表現
--
-
-### 顧客との関係性
--
-
----
-
-## 出力してほしいもの
-
-1. 顧客向けメール案（件名・本文・結び）
-2. 状況説明文
-3. 選択肢提示文（選択肢がある場合）
-4. 打ち合わせ前の説明メモ
-
----
-
-## 注意事項
-
-※ AI出力はたたき台です。そのまま顧客に送付しないでください。
-※ 契約・納期・費用・責任範囲に関する表現は、必ず人間が確認してください。
-※ 最終的な送付・報告は、担当者・上長が確認してから行ってください。
 ```
-
-
----
-
-### 【仕様確認】仕様・要件を顧客に確認するメールのたたき台
-
-```text
-以下のコンテキストを前提として、仕様確認メールのたたき台を作成してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[CLIENT_COMMUNICATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 依頼内容（機密情報はマスキング済み）
-
-### 確認したい仕様・要件の内容
+### Ce que vous souhaitez transmettre au client
 -
 
-### 確認が必要な背景・理由
+### Contexte / historique (pourquoi cette communication est nécessaire)
 -
 
-### 確認しないと影響が生じる作業
+### Situation actuelle
 -
 
-### 回答期限の希望（ある場合）
+### Votre point de vue / position
 -
 
----
+### Ce que vous souhaitez consulter / confirmer au client
+-
 
-## 出力してほしいもの
+### Options à présenter (le cas échéant)
+- Option A :
+- Option B :
+- Option C (facultatif) :
 
-1. 件名案
-2. 本文（確認事項を箇条書きで整理する）
-3. トーン：丁寧・協力的・確認をお願いするスタンス
+### Expressions / ton à éviter
+- (ex. : expressions qui affirment la responsabilité)
+- (ex. : expressions de désolé excessives)
+- (ex. : expressions qui blâment le client)
 
-※ 責任の断定・納期の確約表現は含めないでください。
-※ AI出力はたたき台です。そのまま送付しないでください。
-※ 機密情報・個人情報はAIに入力しないでください。
+### Relation / situation avec le client
+- Degré de tension : (ex. : normal / légèrement tendu / critique)
+- Historique de communication : (ex. : abordé lors de la réunion régulière de la semaine dernière)
+- Situation du contact client (par rôle) :
 ```
 
 ---
 
-### 【遅延相談】遅延を顧客に相談・説明するメールのたたき台
+## Output (résultat attendu de l'IA)
 
-```text
-以下のコンテキストを前提として、遅延を顧客に相談するメールのたたき台を作成してください。
-一方的な謝罪ではなく、状況説明と今後の対応方針を相談するトーンにしてください。
+### 1. Brouillon d'email au client
 
-## コンテキスト
+Brouillon d'email client incluant objet, corps et conclusion.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[CLIENT_COMMUNICATION_CONTEXT.md の内容をここに貼り付ける]
+### 2. Texte d'explication de la situation
 
----
+Texte concise expliquant la situation.
 
-## 遅延の状況（機密情報はマスキング済み）
+### 3. Texte de consultation
 
-### 遅延が発生している作業・マイルストーン
--
+Texte proposant des options au client.
 
-### 遅延日数・期間の見込み
--
+### 4. Texte d'explication du retard
 
-### 遅延の原因（顧客に説明できる範囲）
--
+Texte expliquant la situation du retard, l'impact, la politique de réponse et l'impact sur le client.
 
-### 顧客への影響
--
+### 5. Texte de présentation des options
 
-### こちらの対応方針・回復策
--
+Texte présentant plusieurs options de réponse au client.
 
-### 顧客に相談・確認したいこと
--
+### 6. Mémo d'explication avant la réunion
+
+Mémo structurant les points à transmettre lors de la réunion.
 
 ---
 
-## 出力してほしいもの
+## Caution (précautions d'utilisation)
 
-1. 件名案
-2. 本文（遅延の事実・影響・対応方針・顧客への相談）
-3. 選択肢を提示する場合は、選択肢の整理
-
-※ 責任の断定・補償・賠償に関する表現はAI出力に含めないでください。
-※ 納期に関する確約表現は、人間が確認してから記載してください。
-※ AI出力はたたき台です。上長確認後に送付してください。
-```
-
----
-
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
-
-```text
-<task>
-以下の状況をもとに、顧客向けの文面（メール・説明文・相談文）のたたき台を作成してください。
-状況整理、顧客向け文面、補足・注意点を含めて出力してください。
-</task>
-<context>
-<pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
-</pm_context>
-<specific_context>
-[CLIENT_COMMUNICATION_CONTEXT.md の内容をここに貼り付ける]
-</specific_context>
-</context>
-<input>
-【今回の依頼内容（機密情報はマスキング済み）】
-
-### 顧客に伝えたい内容
--
-
-### 背景・経緯
--
-
-### 現在の状況
--
-
-### こちらの見解
--
-
-### 顧客に相談したいこと
--
-
-### 提示したい選択肢（ある場合）
--
-
-### 避けたい表現
--
-
-### 顧客との関係性
--
-</input>
-<constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 契約・納期・費用・責任範囲・補償に関する表現は断定しないでください。
-- 「法的に問題ない」「契約上問題ない」とは断定しないでください。
-- AI出力は判断材料であり、最終的な送付・提出は人間が確認・修正してから行ってください。
-</constraints>
-<output_format>
-1. 状況整理（背景・顧客への影響・論点）
-2. 顧客向けメール案（件名・本文・結び）
-3. 選択肢提示文（選択肢がある場合）
-4. 補足・注意点（人間が確認すべき事項）
-</output_format>
-```
+> [!CAUTION]
+> **Le texte client généré par l'IA ne doit pas être envoyé directement au client.**
+>
+> Vérifiez particulièrement les expressions relatives aux éléments suivants :
+> - Expressions relatives au contrat, au bon de commande, aux coûts
+> - Confirmations de délais et d'horaires
+> - Expressions relatives à la responsabilité, à la compensation, aux dommages
+> - Expressions relatives aux normes de qualité et aux critères d'acceptation
+>
+> Ces éléments doivent toujours être confirmés et corrigés par un humain, adaptés à la situation du cas, aux conditions du contrat et à la politique interne.
+>
+> Ne transmettez pas d'informations confidentielles, de données personnelles, de informations de contrat ou d'informations d'authentification à l'IA.
