@@ -1,252 +1,249 @@
-﻿# 炎上初動72時間用コンテキスト / Fire Response - First 72 Hours Context
+# Contexte de réponse initiale aux incidents — 72 heures / Fire Response - First 72 Hours Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-プロジェクトでトラブル・炎上が発生した際の **初動72時間** において、事実・影響・対応方針を整理するためのコンテキストです。
+Ce contexte permet d'organiser les faits, les impacts et la stratégie de réponse lors des **72 premières heures** suivant la survenue d'un incident ou d'une crise dans un projet.
 
-パニックになりがちな初動で、AIに情報の整理を補助してもらうことで、**何から手を付けるべきか** を明確にすることを目的としています。
+Lors des premières heures, qui peuvent facilement provoquer de la panique, l'IA aide à structurer les informations afin de clarifier **par quoi commencer**.
 
-**原因追及よりも先に、事実・影響・選択肢・次アクションを整理します。**
+**Il faut d'abord organiser les faits, les impacts, les options et les prochaines actions, avant de rechercher les causes.**
 
-**AIは危機対応の判断を行うものではありません。** 出力はあくまで整理・分類の補助です。最終的な判断・意思決定は必ず人間が行ってください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- 本番障害・重大バグが発生したとき
-- 顧客からクレームや重大なフィードバックがあったとき
-- 納期超過・重大な遅延が確実になったとき
-- プロジェクトの継続に関わる重大な問題が発生したとき
-- 体制崩壊・主要メンバーの離脱が発生したとき
+**L'IA ne prend pas les décisions de gestion de crise.** Les résultats sont uniquement un support d'organisation et de classification. La décision finale doit toujours être prise par un humain.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Case (scénarios d'utilisation)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Lorsqu'un incident sur environnement de production ou un bug majeur survient
+- Lorsqu'un client formule une réclamation ou un retour d'expérience grave
+- Lorsqu'un dépassement de délai ou un retard important est certain
+- Lorsqu'un problème majeur menace la poursuite du projet
+- Lorsqu'une crise d'équipe survient ou qu'un membre clé quitte le projet
 
-**分からない項目は「不明」と記載してください。**
+---
+
+## Input (informations à transmettre à l'IA)
+
+Après avoir chargé ce contexte, transmettez les informations suivantes (en masquant les données confidentielles).
+
+**Indiquez « inconnu » pour les informations non disponibles.**
 
 ```
-### 何が起きたか（事象の概要）
+### Ce qui s'est produit (résumé de l'incident)
 -
 
-### いつ発生したか
-- 発生日時（または発覚日時）：
-- 現在から何時間経過しているか：
+### Quand l'incident est-il survenu ?
+- Date et heure de l'incident (ou de sa découverte) :
+- Nombre d'heures écoulées depuis le début :
 
-### 誰が関係しているか（役割ベースで記載。実名・会社名は避ける）
-- 顧客側：
-- 社内：
-- 外部（ベンダー・パートナー等）：
+### Personnes concernées (indiquez les rôles, sans les noms propres ni le nom des sociétés)
+- Côté client :
+- Côté interne :
+- Côté externe (fournisseur, partenaire, etc.) :
 
-### 顧客への影響
-- 影響を受けているユーザー・顧客（役割・規模感で記載）：
-- 業務上の影響（システム停止・データ問題・遅延等）：
-- 顧客の現在の状況（連絡済み・未連絡・怒っている等）：
+### Impact sur le client
+- Utilisateurs / clients affectés (indiquez le rôle et l'ampleur) :
+- Impact opérationnel (arrêt du système, problème de données, retard, etc.) :
+- Situation actuelle du client (déjà contacté, non contacté, mécontent, etc.) :
 
-### 社内への影響
-- チームへの影響：
-- 他プロジェクト・他案件への影響：
-- 上長・経営層への報告状況：
+### Impact sur l'organisation interne
+- Impact sur l'équipe :
+- Impact sur les autres projets / dossiers :
+- Niveau actuel de notification auprès des supérieurs et de la direction :
 
-### 現在分かっている事実
+### Faits actuellement confirmés
 -
 
-### まだ分かっていないこと
+### Informations encore inconnues
 -
 
-### すでに実施した対応
+### Réponses déjà engagées
 -
 
-### 期限や制約
-- 顧客からの回答期限：
-- 社内の報告期限：
-- 法的・契約上の期限（ある場合）：
+### Délais et contraintes
+- Délai de réponse du client :
+- Délai de notification interne :
+- Délais légaux ou contractuels (le cas échéant) :
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. 事実と推測の切り分け
+### 1. Séparation des faits et des hypothèses
 
-入力情報を「確認済みの事実」と「推測・未確認」に分類したもの。
+Classement des informations fournies entre « faits confirmés » et « hypothèses / informations non confirmées ».
 
-### 2. 影響範囲の整理
+### 2. Organisation de l'impact
 
-顧客・社内・外部への影響を整理した一覧。
+Liste des impacts sur le client, l'organisation interne et les parties externes.
 
-### 3. 今日中に確認すべきこと
+### 3. Points à vérifier aujourd'hui
 
-**今日中（24時間以内）** に確認・決定すべき事項の優先順位付き一覧。
+Liste priorisée des éléments à vérifier et à décider **aujourd'hui (dans les 24 heures)**.
 
-### 4. 顧客に伝えるべきこと
+### 4. Informations à transmettre au client
 
-顧客への初動説明・報告に含めるべき要素の整理。
+Éléments à inclure dans l'explication initiale ou le compte rendu au client.
 
-（文面の確定は必ず人間が行うこと）
+(La formulation finale doit toujours être validée par un humain.)
 
-### 5. 社内で決めるべきこと
+### 5. Décisions à prendre en interne
 
-PM・上長・経営層が社内で決定すべき事項の一覧。
+Liste des décisions à prendre en interne par le PM, le responsable hiérarchique ou la direction.
 
-### 6. 初動対応リスト
+### 6. Liste des actions de réponse initiale
 
-今すぐ着手すべきアクションのチェックリスト。
+Check-list des actions à engager immédiatement.
 
-### 7. 72時間以内の対応計画
+### 7. Plan de réponse sur 72 heures
 
-72時間以内に完了すべき対応の時系列計画（案）。
+Proposition de planning chronologique des actions à mener dans les 72 heures.
 
-### 8. エスカレーション要否
+### 8. Nécessité d'une escalade
 
-以下の観点でエスカレーション要否を判断する材料を提示。
+Éléments permettant d'apprécier la nécessité d'une escalade selon les critères suivants :
 
-- 上長・PMOへの報告要否
-- 経営層への報告要否
-- 法務・顧問への確認要否
-- 顧客上位層への報告要否
+- Faut-il informer le responsable hiérarchique ou le PMO ?
+- Faut-il informer la direction ?
+- Faut-il demander un avis juridique ?
+- Faut-il informer les interlocuteurs de haut niveau chez le client ?
 
 ---
 
-## Caution（利用時の注意）
+## Caution (précautions d'utilisation)
 
 > [!CAUTION]
-> AI出力の炎上対応整理は、危機管理の専門家や法律の専門家の助言を代替しません。
+> L'organisation de la réponse à la crise produite par l'IA ne remplace pas l'avis d'un spécialiste de la gestion de crise ou d'un juriste.
 >
-> **顧客への説明・謝罪・補償に関する表現は、AI出力をそのまま使わず、必ず上長・法務・担当者が確認してください。**
+> **Les explications, excuses ou propositions d'indemnisation destinées au client ne doivent pas être utilisées telles quelles : elles doivent être vérifiées par le responsable hiérarchique, le service juridique ou le responsable du dossier.**
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Ne transmettez pas à l'IA de données confidentielles, de données personnelles, d'informations contractuelles ou d'informations d'authentification.
 >
-> 本番環境のログ・エラー詳細・ソースコード・認証情報を入力しないでください。
+> Ne transmettez pas à l'IA les journaux de l'environnement de production, les détails des erreurs, le code source ou les informations d'authentification.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Exemple d'utilisation
 
 ```text
-# 炎上初動整理の依頼
+# Demande d'organisation de la réponse initiale à un incident
 
-以下のコンテキストを前提として、現在のトラブル状況を整理してください。
-原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先してください。
+Sur la base de ce contexte, organisez la situation actuelle de l'incident.
+Il faut privilégier l'organisation des faits, des impacts, des options et des prochaines actions plutôt que la recherche de la cause.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 
-[FIRE_RESPONSE_FIRST_72H.md の内容をここに貼り付ける]
-
----
-
-## 現在の状況（機密情報はマスキング済み）
-
-### 何が起きたか
--
-
-### いつ発生したか
--
-
-### 顧客への影響
--
-
-### 社内への影響
--
-
-### 現在分かっている事実
--
-
-### まだ分かっていないこと
--
-
-### すでに実施した対応
--
-
-### 期限・制約
--
+[Collez ici le contenu de FIRE_RESPONSE_FIRST_72H.md]
 
 ---
 
-## 出力してほしいこと
+## Situation actuelle (informations confidentielles masquées)
 
-1. 事実と推測の切り分け
-2. 影響範囲の整理
-3. 今日中（24時間以内）に確認すべきこと
-4. 顧客に伝えるべき内容の骨子
-5. 社内で決めるべきこと
-6. 初動対応チェックリスト
-7. 72時間以内の対応計画（案）
-8. エスカレーション要否と推奨
+### Ce qui s'est produit
+-
 
-※ AI出力は判断材料です。最終判断は人間が行ってください。
-※ 顧客への説明・謝罪文は、必ず上長・法務が確認してください。
+### Quand l'incident est-il survenu ?
+-
+
+### Impact sur le client
+-
+
+### Impact sur l'organisation interne
+-
+
+### Faits actuellement confirmés
+-
+
+### Informations encore inconnues
+-
+
+### Réponses déjà engagées
+-
+
+### Délais et contraintes
+-
+
+---
+
+## Résultat attendu
+
+1. Séparation des faits et des hypothèses
+2. Organisation de l'impact
+3. Points à vérifier aujourd'hui (dans les 24 heures)
+4. Éléments à transmettre au client
+5. Décisions à prendre en interne
+6. Actions de réponse initiale
+7. Plan de réponse sur 72 heures
+8. Nécessité d'une escalade et recommandation
+
+※ Le résultat de l'IA est un support de décision. La décision finale doit toujours être prise par un humain.
+※ Les explications et excuses destinées au client doivent être vérifiées par le responsable hiérarchique et le service juridique.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下のトラブル状況について、炎上初動72時間の対応を整理してください。
-原因追及より先に、事実・影響・未確認事項・初動対応を整理することを優先してください。
+Organisez la réponse initiale sur 72 heures à cette situation d'incident.
+Il faut privilégier l'organisation des faits, des impacts, des informations non confirmées et des actions initiales plutôt que la recherche de la cause.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[FIRE_RESPONSE_FIRST_72H.md の内容をここに貼り付ける]
+[Collez ici le contenu de FIRE_RESPONSE_FIRST_72H.md]
 </specific_context>
 </context>
 <input>
-【現在の状況（機密情報はマスキング済み）】
+【Situation actuelle (informations confidentielles masquées)】
 
-### 何が起きたか
+### Ce qui s'est produit
 -
 
-### いつ発生したか
+### Quand l'incident est-il survenu ?
 -
 
-### 顧客への影響
+### Impact sur le client
 -
 
-### 社内への影響
+### Impact sur l'organisation interne
 -
 
-### 現在分かっている事実
+### Faits actuellement confirmés
 -
 
-### まだ分かっていないこと
+### Informations encore inconnues
 -
 
-### すでに実施した対応
+### Réponses déjà engagées
 -
 
-### 期限・制約
+### Délais et contraintes
 -
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 事実と推測を明確に区別し、推測には「（推測）」と明示してください。
-- 原因・責任の断定、補償・賠償への言及はしないでください。
-- 顧客向け説明文・謝罪文のたたき台は、上長・法務の確認が必要と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Ne transmettez pas de noms de clients, de personnes, de sociétés, d'informations contractuelles ou d'informations d'authentification.
+- Distinguez clairement les faits et les hypothèses, et indiquez « (hypothèse) » pour toute information hypothétique.
+- N'affirmez pas les causes ou la responsabilité, et ne mentionnez aucune indemnisation ou réparation.
+- Indiquez que le brouillon d'explication ou d'excuse destiné au client doit être vérifié par le responsable hiérarchique et le service juridique.
+- Le résultat de l'IA est un support de décision. La décision finale doit toujours être prise par un humain.
 </constraints>
 <output_format>
-1. 事実と推測の切り分け
-2. 影響範囲の整理（顧客・社内）
-3. 今日中（24時間以内）に確認すべきこと
-4. 顧客に伝えるべき内容の骨子（たたき台）
-5. 社内で決めるべきこと
-6. 初動対応チェックリスト
-7. 72時間以内の対応計画（案）
-8. エスカレーション要否と推奨
+1. Séparation des faits et des hypothèses
+2. Organisation de l'impact (client, organisation interne)
+3. Points à vérifier aujourd'hui (dans les 24 heures)
+4. Éléments à transmettre au client (brouillon)
+5. Décisions à prendre en interne
+6. Actions de réponse initiale
+7. Plan de réponse sur 72 heures
+8. Nécessité d'une escalade et recommandation
 </output_format>
 ```
