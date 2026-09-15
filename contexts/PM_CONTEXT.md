@@ -1,202 +1,198 @@
-﻿# PM業務共通コンテキスト / PM Context
+# Contexte commun des activités du PM / PM Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-このコンテキストは、AIにPM業務の基本的な前提と観点を伝えるためのファイルです。
+Ce fichier sert à transmettre à l'IA les principes de base et les points de vue des activités du PM.
 
-ChatGPT / Gemini / Claude などのAIに読み込ませることで、PM・PMO・開発リーダーが業務状況の整理、課題分析、報告文の作成などを依頼しやすくなります。
+En le fournissant à des IA comme ChatGPT, Gemini, Claude, le PM, le PMO ou le responsable de développement peuvent plus facilement demander l'organisation des situations, l'analyse des problèmes, la création de rapports, etc.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- プロジェクト状況をAIにレビューしてもらいたいとき
-- 進捗報告・課題整理・リスク分析をAIに補助してもらいたいとき
-- 顧客向け説明文のたたき台をAIに作ってもらいたいとき
-- 炎上・トラブル初動の整理をAIに手伝ってもらいたいとき
+**L'IA ne remplace pas la décision du PM.** L'IA est un outil d'aide à l'organisation, à la classification et à la création de brouillons. La décision finale doit toujours être prise par un humain.
 
 ---
 
-## Input（このコンテキストと一緒に渡す情報）
+## Use Case (scénarios d'utilisation)
 
-このコンテキストを読み込ませた上で、以下のような情報を（機密情報をマスキングして）渡してください。
-
-- プロジェクトの概要と現在のフェーズ
-- 現在の進捗状況
-- 発生している課題
-- 認識しているリスク
-- 顧客・関係者の状況
-- 直近の出来事・会議内容（個人名・顧客名をマスキングすること）
-- PM として悩んでいること・相談したいこと
+- Pour demander à l'IA d'examiner la situation du projet
+- Pour demander de l'aide sur le rapport d'avancement, l'organisation des problèmes et l'analyse des risques
+- Pour demander la création d'un brouillon d'explication au client
+- Pour demander l'organisation initiale d'un incident ou d'un problème
 
 ---
 
-## Output（AIに期待する出力）
+## Input (informations à transmettre avec ce contexte)
 
-このコンテキストを前提にAIに依頼すると、以下のような出力を得ることができます。
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles) :
 
-- 状況の整理・要約
-- 課題・リスクの分類と優先度案
-- 見落とし可能性のある観点の指摘
-- 報告文・説明文のたたき台
-- 次アクションの候補
-
-出力はあくまで **たたき台・整理材料** です。案件状況・契約条件・顧客との関係に合わせて、必ず人間が確認・修正してください。
-
----
-
-## PM業務の主要な観点（AIへの前提情報）
-
-AIに以下の観点を前提として持たせるためのコンテキストです。
-
-### 1. 進捗管理
-
-- プロジェクトの計画に対する実績の把握
-- 遅延の兆候を早期に捉える
-- 遅延が発生している場合は、影響範囲・原因・回復策を整理する
-- マイルストーンや納期に対するリスクを評価する
-
-### 2. 課題管理
-
-- 発生している課題を一覧化し、担当者・期限・ステータスを明確にする
-- 未対応・担当者不明・期限不明の課題を見落とさない
-- 課題の影響範囲と優先度を整理する
-- 課題が未解決のまま放置されていないかを確認する
-
-### 3. リスク管理
-
-- 現在顕在化しているリスクに加え、潜在的なリスクも洗い出す
-- リスクの発生確率・影響度・対応方針を整理する
-- 外部依存（顧客確認待ち・外部ベンダー・API仕様確定待ち等）を把握する
-- リスクがエスカレーションに値するかを判断する材料を整える
-
-### 4. 顧客コミュニケーション
-
-- 顧客への報告・連絡・相談を適切なタイミングで行う
-- 顧客の期待値と実際の状況のズレを早期に把握する
-- 顧客確認待ちの事項を管理し、回答期限を設ける
-- 顧客への説明文は、事実・状況・選択肢・次アクションを明確にする
-
-### 5. スコープ管理
-
-- プロジェクトのスコープ（範囲）に変更や追加がないかを確認する
-- スコープ膨張（スコープクリープ）の兆候を早期に発見する
-- スコープ変更が発生する場合は、契約・納期・費用への影響を整理する
-
-### 6. 品質管理
-
-- テスト工程での不具合件数・未解決件数・修正状況を把握する
-- 品質リスク（テスト期間の不足・テスト要員の不足・仕様の曖昧さ等）を整理する
-- リリース前に確認すべき品質基準を明確にする
-
-### 7. エスカレーション
-
-- 以下の状況では、エスカレーションを検討する材料を整える
-  - 納期・品質・コストに重大なリスクが生じている
-  - 顧客との関係が悪化する兆候がある
-  - PMだけでは判断できない問題が発生している
-  - 社内の体制・リソースに問題が発生している
+- Aperçu du projet et phase actuelle
+- Avancement actuel
+- Problèmes en cours
+- Risques identifiés
+- Situation du client et des parties prenantes
+- Événements récents et contenu des réunions (en masquant les noms personnels et ceux du client)
+- Ce qui vous préoccupe ou ce sur quoi vous souhaitez consulter en tant que PM
 
 ---
 
-## Caution（利用時の注意）
+## Output (résultat attendu de l'IA)
+
+En demandant sur la base de ce contexte, vous pouvez obtenir :
+
+- Organisation et résumé de la situation
+- Classification des problèmes et risques, et proposition de priorité
+- Identification des points potentiellement manqués
+- Brouillons de rapports et explications
+- Propositions d'actions futures
+
+Le résultat est uniquement un **brouillon ou un matériau d'organisation**. Confirmez et corrigez toujours avec un humain en fonction des conditions du projet, du contrat et de la relation avec le client.
+
+---
+
+## Principaux points de vue des activités du PM (informations préalables pour l'IA)
+
+Ce contexte sert à fournir à l'IA les points de vue suivants comme informations préalables.
+
+### 1. Gestion de l'avancement
+
+- Vérifier la progression réelle par rapport au plan du projet
+- Identifier rapidement les signes de retard
+- En cas de retard, organiser la portée de l'impact, la cause et la stratégie de récupération
+- Évaluer les risques par rapport aux jalons et aux délais
+
+### 2. Gestion des problèmes
+
+- Lister clairement les problèmes, leurs responsables, leurs délais et leurs statuts
+- Ne pas manquer les problèmes non traités, sans responsable ou sans date limite
+- Organiser la portée et la priorité des problèmes
+- Vérifier que les problèmes non résolus ne sont pas laissés sans action
+
+### 3. Gestion des risques
+
+- Identifier non seulement les risques actuels mais aussi les risques potentiels
+- Organiser la probabilité d'occurrence, l'impact et la politique de réponse des risques
+- Comprendre les dépendances externes (attente de confirmation du client, du fournisseur externe, de la spécification de l'API, etc.)
+- Préparer les éléments permettant de juger si un risque justifie une escalade
+
+### 4. Communication avec le client
+
+- Effectuer les rapports, notifications et consultations au client au bon moment
+- Identifier rapidement l'écart entre les attentes du client et la réalité
+- Gérer les éléments en attente de confirmation du client et fixer des délais de réponse
+- Rendre claires les explications au client : faits, situation, options, prochaines actions
+
+### 5. Gestion du périmètre (scope)
+
+- Vérifier s'il y a des modifications ou des ajouts au périmètre du projet
+- Identifier rapidement les signes d'élargissement du périmètre (scope creep)
+- En cas de modification du périmètre, organiser l'impact sur le contrat, le délai et le coût
+
+### 6. Gestion de la qualité
+
+- Comprendre le nombre d'anomalies, le nombre d'anomalies non résolues et l'état des corrections dans la phase de test
+- Organiser les risques de qualité (manque de temps de test, manque de personnel de test, ambiguïté des spécifications, etc.)
+- Clarifier les critères de qualité à vérifier avant la mise en production
+
+### 7. Escalade
+
+- Préparer les éléments permettant d'envisager une escalade dans les situations suivantes :
+  - Risques importants sur le délai, la qualité ou le coût
+  - Signes de détérioration de la relation avec le client
+  - Problème que le PM ne peut pas résoudre seul
+  - Problème au niveau de l'organisation ou des ressources internes
+
+---
+
+## Caution (précautions d'utilisation)
 
 > [!CAUTION]
-> このコンテキストを利用してAIが出力した内容は、PMの業務判断、顧客への回答、契約判断、法務判断、納期回答を代替しません。
+> Les contenus produits par l'IA sur la base de ce contexte ne remplacent pas la décision du PM, la réponse au client, la décision contractuelle, la décision juridique ou la réponse concernant le délai.
 >
-> AI出力は必ず人間が確認・修正してから利用してください。
+> Confirmez et corrigez toujours le contenu produit par l'IA avec un humain avant de l'utiliser.
 >
-> 機密情報・個人情報・契約情報・認証情報（APIキー、パスワード等）はAIサービスに入力しないでください。
+> Ne transmettez pas d'informations confidentielles, de données personnelles, d'informations contractuelles ou d'informations d'authentification (clés API, mots de passe, etc.) au service d'IA.
 >
-> 入力情報に含まれない事項をAIが一般知識で補完した場合は「（推測）」と表示されます。判断に十分な情報がない場合は「この情報だけでは判断できません」と明記されます。
+> Lorsque l'IA complète des éléments non inclus dans les informations d'entrée à l'aide de connaissances générales, cela est indiqué par la mention « (supposition) ». En cas d'informations insuffisantes pour un jugement, cela est indiqué par « ces informations seules ne permettent pas de juger ».
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、コンテキストファイルと案件情報を貼り付けて使用してください。
+## Exemple d'utilisation (template)
 
 ```text
-# コンテキスト
+# Contexte
 
-あなたはPM業務を支援するAIアシスタントです。
-以下のコンテキストを前提として、PM視点でプロジェクト状況を整理・分析してください。
+Vous êtes un assistant IA assistant le travail du PM.
+Sur la base du contexte suivant, organisez et analysez la situation du projet du point de vue du PM.
 
-## PM業務の基本前提
+## Préalables de base du travail du PM
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 
 ---
 
-## 今回の依頼
+## Demande actuelle
 
-以下の案件情報をPM視点で整理してください。
+Voici les informations sur le projet actuel. Organisez-les du point de vue du PM et présentez la situation.
 
-【案件の概要と状況（機密情報はマスキング済み）】
-- プロジェクト概要：
-- 現在のフェーズ：
-- 現在の進捗：
-- 発生している課題：
-- 認識しているリスク：
-- 顧客・関係者の状況：
-- PMとして悩んでいること：
+【Aperçu et situation du projet (informations confidentielles masquées)】
+- Aperçu du projet :
+- Phase actuelle :
+- Avancement actuel :
+- Problèmes en cours :
+- Risques identifiés :
+- Situation du client et des parties prenantes :
+- Problèmes ou préoccupations en tant que PM :
 
-## 出力してほしいこと
+## Résultat attendu
 
-1. 状況の要約
-2. 現在の危険度（高・中・低）と理由
-3. 主要な懸念点
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+1. Résumé de la situation
+2. Niveau de danger actuel (élevé / moyen / faible) et raison
+3. Principaux points de préoccupation
+4. Risques potentiellement manqués
+5. Éléments à confirmer avec le client
+6. Éléments à décider en interne
+7. Actions à entreprendre dans les 24 à 72 heures
 
-※ AI出力は判断材料です。最終判断は人間が行ってください。
+※ Le résultat de l'IA est un support de décision. La décision finale doit être prise par un humain.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下の案件情報をPM視点で整理・分析してください。
-状況要約、危険度、主要課題、見落としリスク、顧客確認事項、社内判断事項、次アクションを出力してください。
+Organisez et analysez la situation du projet du point de vue du PM sur la base des informations fournies.
+Fournissez le résumé de la situation, le niveau de danger, les principaux problèmes, les risques potentiellement manqués, les éléments à confirmer avec le client, les éléments à décider en interne et les actions à entreprendre.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 </context>
 <input>
-【案件の概要と状況（機密情報はマスキング済み）】
-- プロジェクト概要：
-- 現在のフェーズ：
-- 現在の進捗：
-- 発生している課題：
-- 認識しているリスク：
-- 顧客・関係者の状況：
-- PMとして悩んでいること：
+【Aperçu et situation du projet (informations confidentielles masquées)】
+- Aperçu du projet :
+- Phase actuelle :
+- Avancement actuel :
+- Problèmes en cours :
+- Risques identifiés :
+- Situation du client et des parties prenantes :
+- Problèmes ou préoccupations en tant que PM :
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 判断に十分な情報がない場合は「情報不足」または「この情報だけでは判断できません」と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Ne transmettez pas de noms de clients, de personnes, de sociétés, d'informations contractuelles ou d'informations d'authentification.
+- Indiquez « (supposition) » pour les éléments non inclus dans les informations d'entrée.
+- Indiquez « informations insuffisantes » ou « ces informations seules ne permettent pas de juger » en cas d'informations insuffisantes.
+- Le résultat de l'IA est un support de décision. La décision finale doit être prise par un humain.
 </constraints>
 <output_format>
-1. 状況の要約
-2. 現在の危険度（高・中・低）と理由
-3. 主要な懸念点
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+1. Résumé de la situation
+2. Niveau de danger actuel (élevé / moyen / faible) et raison
+3. Principaux points de préoccupation
+4. Risques potentiellement manqués
+5. Éléments à confirmer avec le client
+6. Éléments à décider en interne
+7. Actions à entreprendre dans les 24 à 72 heures
 </output_format>
 ```
