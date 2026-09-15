@@ -1,279 +1,273 @@
-﻿# 見積前提整理コンテキスト / Estimation Context
+# Contexte d'organisation des estimations / Estimation Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (objectif de ce contexte)
 
-見積前に、要件メモ・前提条件・不明点・制約条件・除外範囲・不確実性を整理するためのコンテキストです。見積作業に入る前の確認事項の洗い出しと、見積前提の整理を補助します。
+Avant de fournir un devis, ce contexte permet d'organiser les notes de exigences, les hypothèses, les points inconnus, les contraintes, la portée non incluse et l'incertitude. Il aide à vérifier les conditions préalables et à organiser la demande de confirmation au client.
 
-**AIはPMの判断を代替しません。また、AIに見積金額や契約条件の判断をさせないでください。** AIは見積前提・確認事項の整理補助に留めてください。
+**L'IA ne remplace pas la décision du PM.** ** Ne demandez pas à l'IA de calculer ou de valider des montants ou des conditions contractuelles. ** L'IA ne sert qu'à organiser les conditions préalables et à lister les éléments à vérifier.
 
 > [!CAUTION]
-> 見積金額・契約条件・認証情報・実在する案件の詳細情報はAIに入力しないでください。
-> 顧客名・社名・個人名をAIに入力しないでください。
-> 見積・費用判断・契約に関する最終決定は必ず人間が行ってください。
+> Ne transmettez pas de montants, de conditions contractuelles, d'informations d'authentification ou de détails précis d'études réelles à l'IA.
+> Ne transmettez pas de noms de clients, de sociétés ou de personnes.
+> Les décisions finales concernant le devis, les coûts et les contrats doivent toujours être prises par un humain.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (scénarios d'utilisation)
 
-- 見積作成の前に前提条件と不明点を整理したいとき
-- 要件メモから不確実性・リスクを洗い出したいとき
-- 除外範囲・対象外にすべき範囲を整理したいとき
-- 追加見積になる条件を事前に整理したいとき
-- 顧客への確認質問リストを作りたいとき
+- Organiser les conditions préalables et les points inconnus avant de commencer le devis
+- Identifier les incertitudes et les risques à partir des notes de exigences
+- Organiser les éléments à exclure de la portée du devis
+- Organiser les conditions qui entraîneraient un devis supplémentaire
+- Créer une liste de questions à poser au client
 
 ---
 
-## Input（AIに渡す情報）
+## Input (informations à transmettre à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles et les données personnelles) :
 
 ```
-### 要件メモ・顧客要望の概要
-（機能・要件のメモ。ソースコード・認証情報は含めないこと）
+### Notes de exigences / résumé des demandes du client
+(Notes sur les fonctions / exigences. Ne pas inclure de code source ou d'informations d'authentification)
 
-### 前提条件として確認しているもの
-（現時点で前提として置いている条件を箇条書きで）
+### Conditions préalables confirmées
+(Listez les éléments que vous considérez comme étant des conditions préalables)
 
-### 不明点・未確認事項
-（要件・仕様・環境・体制などで未確認の事項）
+### Points inconnus / non confirmés
+(Éléments non confirmés concernant les exigences, les spécifications, l'environnement, l'équipe, etc.)
 
-### 制約条件
-（納期・体制・技術スタック・予算感など、制約として認識しているもの）
+### Contraintes
+(Délais, ressources disponibles, pile technologique, budget estimatif, etc.)
 
-### 対象外にしたい範囲
-（スコープから除外したい・すべきと考えている範囲）
+### Scope non souhaité
+(Éléments à envelopper ou non dans la portée du projet)
 
-### 類似案件・参考情報（抽象化した情報のみ）
-（類似案件での傾向・工数感など、特定情報を除いた抽象的な参考情報）
+### Études similaires / informations de référence (informations abstraites uniquement)
+(Tendances / estimées d'études similaires, sans informations spécifiques)
 
-### 納期・体制の制約
-（納期の目安・使えるリソースの概要）
+### Contraintes de délais / ressources
+(Délais estimés, résumé des ressources disponibles)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (résultat attendu de l'IA)
 
-### 1. 見積前提のまとめ
+### 1. Synthèse des conditions préalables du devis
 
-現時点での見積前提条件の整理。
+Regrouper les conditions préalables actuelles du devis.
 
-### 2. 不確実性・リスクの整理
+### 2. Organisation des incertitudes et des risques
 
-見積に影響しうる不確実要素・リスクの一覧。
+Liste des éléments d'incertitude et de risque pouvant impacter le devis.
 
-### 3. 確認すべき質問一覧
+### 3. Liste des questions à poser au client
 
-顧客・発注者に確認が必要な質問の一覧。
+Liste des questions à confirmer avec le client.
 
-### 4. 除外範囲の整理
+### 4. Organisation de la portée non incluse
 
-スコープから除外すべき・すべきでない範囲の整理。
+Organisation des éléments à exclure ou non de la portée du devis, avec justification.
 
-### 5. 追加見積になる条件
+### 5. Conditions entraînant un devis supplémentaire
 
-この条件が加わったら追加見積が必要になる、という条件の整理。
+Conditions qui nécessiteraient un devis supplémentaire si elles devaient être ajoutées.
 
-### 6. リスクを含めた見積検討のメモ
+### 6. Notes pour la réflexion incluant le risque
 
-不確実性・リスクを踏まえた見積検討のための観点メモ（金額判断はAIに求めない）。
+Notes pour la réflexion sur les incertitudes et les risques (ne demandez pas à l'IA de calculer un montant).
 
-### 7. 顧客に確認すべき事項のまとめ
+### 7. Synthèse des éléments à confirmer avec le client avant l'envoi du devis
 
-見積提出前に顧客・発注者に確認すべき事項の一覧。
-
----
-
-## Caution（利用時の注意）
-
-- **見積金額・契約条件の判断をAIに求めないでください。** AIは見積前提・確認事項の整理補助に留めてください。
-- 実在する案件の見積書・契約書の内容はAIに入力しないでください。
-- 顧客名・社名・個人名・認証情報はAIに入力しないでください。
-- AI出力の見積前提・確認事項は、必ず人間が実情と照らし合わせて確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+Liste des éléments à confirmer avec le client avant l'envoi du devis.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Caution (précautions d'utilisation)
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+- **Ne demandez pas à l'IA de calculer ou de valider des montants ou des conditions contractuelles. ** L'IA ne sert qu'à organiser les conditions préalables et à vérifier les éléments.
+- Ne transmettez pas les contenus devisés, contractuels ou des projets réels à l'IA.
+- Ne transmettez pas de noms de clients, de sociétés ou de personnes ou d'informations d'authentification.
+- Vérifiez toujours les éléments de sortie de l'IA contre la réalité.
+- **L'IA ne remplace pas la décision du PM.** La décision finale doit toujours être prise par un humain.
 
-### 【基本テンプレート】見積前提を整理する
+---
+
+## Exemple d'utilisation (template)
 
 ```text
-以下のコンテキストを前提として、見積前の前提条件と確認事項を整理してください。
+Basé sur ce contexte, organisez les conditions préalables du devis et les points à vérifier.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 見積前情報（機密情報はマスキング済み）
-
-### 要件メモ・顧客要望の概要
-（記入）
-
-### 前提条件として確認しているもの
-（記入）
-
-### 不明点・未確認事項
-（記入）
-
-### 制約条件
-（記入）
-
-### 対象外にしたい範囲
-（記入）
-
-### 類似案件・参考情報（抽象化した情報のみ）
-（記入）
-
-### 納期・体制の制約
-（記入）
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu d'ESTIMATION_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Informations préalables (informations confidentielles masquées)
 
-1. 見積前提のまとめ
-2. 不確実性・リスクの整理
-3. 確認すべき質問一覧（顧客向け）
-4. 除外範囲の整理
-5. 追加見積になる条件の整理
-6. リスクを含めた見積検討のための観点メモ
-7. 見積提出前に確認すべき事項のまとめ
+### Notes de exigences / résumé des demandes du client
+(Entrez)
 
-※ 見積金額・契約条件の判断はAIに求めないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+### Conditions préalables confirmées
+(Entrez)
+
+### Points inconnus / non confirmés
+(Entrez)
+
+### Contraintes
+(Entrez)
+
+### Scope non souhaité
+(Entrez)
+
+### Études similaires / informations de référence (informations abstraites uniquement)
+(Entrez)
+
+### Contraintes de délais / ressources
+(Entrez)
+
+---
+
+## Résultat attendu
+
+1. Synthèse des conditions préalables du devis
+2. Organisation des incertitudes et des risques
+3. Questions à poser au client
+4. Organisation de la portée non incluse
+5. Conditions entraînant un devis supplémentaire
+6. Notes de réflexion incluant le risque
+7. Éléments à confirmer avec le client avant l'envoi du devis
+
+※ Ne demandez pas à l'IA de calculer ou de valider des montants ou des conditions contractuelles.
+※ La décision finale du devis doit toujours être prise par un humain.
 ```
 
 ---
 
-### 【不明点洗い出し】見積に影響する不明点を整理する
+### Exemple: identification des incertitudes impactant le devis
 
 ```text
-以下のコンテキストを前提として、見積に影響する不明点を洗い出してください。
+Basé sur ce contexte, identifiez les incertitudes impactant le devis.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 要件・状況情報（機密情報はマスキング済み）
-
-### 要件メモ・顧客要望の概要
-（記入）
-
-### 現時点での不明点
-（記入）
-
-### 類似案件・参考情報（抽象化した情報のみ）
-（記入）
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu d'ESTIMATION_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Informations sur le projet (informations confidentielles masquées)
 
-1. 見積に影響する不明点の一覧（内容・影響度・確認相手の役割）
-2. 確認が取れるまで見積に着手しないほうがよい事項
-3. 仮定を置いて見積を進める場合のリスクの整理
-4. 不明点の確認優先度案
+### Notes de exigences / résumé des demandes du client
+(Entrez)
 
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
-※ 見積金額・契約条件はAIに入力しないでください。
+### Incertitudes actuelles
+(Entrez)
+
+### Études similaires / informations de référence (informations abstraites uniquement)
+(Entrez)
+
+---
+
+## Résultat attendu
+
+1. Incertitudes impactant le devis (probabilité d'impact, gravité)
+2. Éléments pour lesquels il vaut mieux attendre d'avoir une confirmation avant de commencer le devis
+3. Risques si un devis est établi sur des hypothèses
+4. Priorité de vérification des incertitudes
+
+※ La décision finale du devis doit toujours être prise par un humain.
+※ Ne transmettez pas d'informations confidentielles ou d'informations d'authentification.
 ```
 
 ---
 
-### 【除外範囲整理】スコープから除外すべき範囲を整理する
+### Exemple: organisation de la portée non incluse
 
 ```text
-以下のコンテキストを前提として、見積スコープから除外すべき範囲を整理してください。
+Basé sur ce contexte, organisez les éléments à exclure de la portée du devis.
 
-## コンテキスト
+## Contexte
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## スコープ情報（機密情報はマスキング済み）
-
-### 要件・機能の概要
-（記入）
-
-### 対象外にしたいと考えている範囲
-（記入）
-
-### 顧客要望の中で曖昧な部分
-（記入）
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu d'ESTIMATION_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Informations sur la portée (informations confidentielles masquées)
 
-1. 除外範囲の整理（除外すべき理由を含む）
-2. 除外すると顧客に影響が出る可能性がある事項の指摘
-3. 顧客に事前確認すべき除外範囲
-4. 追加見積になる条件の整理
+### Notes de exigences / résumé des demandes du client
+(Entrez)
 
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
-※ 機密情報・個人情報・認証情報はAIに入力しないでください。
+### Éléments à ne pas inclure dans le devis
+(Entrez)
+
+### Elements flous des demandes du client
+(Entrez)
+
+---
+
+## Résultat attendu
+
+1. Organisation des éléments à exclure (avec justification)
+2. Impacts potentiels sur le client si ces éléments sont exclus
+3. Questions à poser au client avant de finaliser la portée
+4. Conditions entraînant un devis supplémentaire
+
+※ La décision finale du devis doit toujours être prise par un humain.
+※ Ne transmettez pas d'informations confidentielles ou d'informations d'authentification.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Exemple d'utilisation pour Claude (version XML)
 
 ```text
 <task>
-以下の見積前情報をもとに、前提条件・不確実性・顧客確認事項・見積に含めるべき観点を整理してください。
+Organisez les conditions préalables du devis, les incertitudes, les questions à poser au client et les éléments à exclure de la portée.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
+[Collez ici le contenu d'ESTIMATION_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【見積前情報（機密情報はマスキング済み）】
+【Informations préalables (informations confidentielles masquées)】
 
-### 要件メモ・顧客要望の概要
-（記入）
+### Notes de exigences / résumé des demandes du client
+(Entrez)
 
-### 前提条件として確認しているもの
-（記入）
+### Conditions préalables confirmées
+(Entrez)
 
-### 不明点・未確認事項
-（記入）
+### Points inconnus / non confirmés
+(Entrez)
 
-### 制約条件
-（記入）
+### Contraintes
+(Entrez)
 
-### 対象外にしたい範囲
-（記入）
+### Scope non souhaité
+(Entrez)
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 具体的な金額・工数の断定はしないでください（不確実性を明示してください）。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 最終的な見積・契約・費用判断は人間が行う前提で出力してください。
+- Ne transmettez pas de noms de clients, de personnes, de sociétés, d'informations contractuelles ou d'informations d'authentification.
+- Ne calculez ou ne validez pas de montants ou de conditions contractuelles.
+- Si des informations manquent, indiquez « (supposition) ». 
+- La décision finale du devis doit être prise par un humain.
 </constraints>
 <output_format>
-1. 前提条件の整理（確認済み・未確認の区別）
-2. 不確実性・リスクの高い箇所
-3. 顧客に確認すべき事項一覧
-4. 見積もりに含めるべき観点の整理
-5. スコープ除外候補と顧客影響の指摘
+1. Synthèse des conditions préalables
+2. Incertitudes et risques
+3. Questions à poser au client
+4. Portée non incluse
+5. Conditions entraînant un frais supplémentaire
 </output_format>
 ```
