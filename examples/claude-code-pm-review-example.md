@@ -1,265 +1,265 @@
-# Claude CodeでPMレビューSkillを使う — 実用サンプル
+# Utilisation de la compétence de revue PM dans Claude Code — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-Claude Codeを使って、プロジェクトのリポジトリ内ファイル（README、Issue一覧、進捗メモ、仕様メモ）をPM視点でレビューする場面を想定しています。
+Ce scénario illustre l'utilisation de Claude Code pour réaliser un audit méthodologique sous l'angle du management de projet (PM) à partir des fichiers présents dans le dépôt du projet (README, backlog d'Issues, notes d'avancement, fiches de spécifications).
 
-`.claude/skills/pm-review/SKILL.md` をPMレビューの観点として参照させ、状況を整理させる例です。
+Le modèle exploite les directives de `.claude/skills/pm-review/SKILL.md` pour ausculter l'état réel d'avancement et les risques opérationnels.
 
-> **注意：** このサンプルはClaude Codeへのプロンプト例を示すものです。hooks・コマンド・MCP設定・自動実行・自動コミット・自動デプロイは含まれていません。
+> **Avertissement :** Cet exemple fournit des modèles de prompts pour Claude Code. Il ne comporte aucun hook, aucune commande d'automatisation, aucune configuration MCP, aucun commit automatique et aucun mécanisme de déploiement automatisé.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `.claude/skills/pm-review/SKILL.md`
 - `contexts/PM_CONTEXT.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
-**架空のリポジトリ README 概要（抜粋）：**
-
-```
-# サンプル案件 開発リポジトリ
-
-## プロジェクト概要
-社内向け業務管理システムの新規開発。
-フェーズ1として管理機能・レポート機能・外部連携機能を開発中。
-
-## 現在のフェーズ
-開発中盤（全体70%進捗）
-
-## 次回リリース予定
-第14週末（残り3.5週間）
-```
-
-**架空のIssue一覧（抜粋）：**
+**Extrait du README fictif du dépôt de développement :**
 
 ```
-Issue #12: 外部連携機能 - 実装完了
-  - ステータス：クローズ
-  - 担当：開発担当者
+# Dépôt de développement - Projet Alpha
 
-Issue #18: 外部連携機能 - 単体テスト
-  - ステータス：オープン
-  - 担当：開発担当者
-  - 期限：記載なし
+## Présentation du projet
+Développement d'un progiciel interne de gestion opérationnelle.
+Phase 1 : modules d'administration, reporting analytique et interfaces externes.
 
-Issue #21: テスト設計書の作成
-  - ステータス：オープン
-  - 担当：未定
-  - 期限：今週末
+## Phase actuelle
+Milieu de phase de développement (70% d'avancement global)
 
-Issue #24: 結合テスト（外部連携先対応）
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
-
-Issue #27: リリース判定会議 日程調整
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
-
-Issue #30: バグ管理表の整備
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
+## Prochaine échéance de mise en production
+Fin de la Semaine 14 (délai restant : 3,5 semaines)
 ```
 
-**進捗メモ（抜粋）：**
+**Extrait du backlog fictif des Issues GitHub :**
 
 ```
-第10週 進捗メモ
-- 外部連携機能の基本実装は完了した
-- 単体テストはまだ
-- テスト設計書、担当者がようやく決まった。今週着手予定
-- リリース日まであと3.5週間。間に合うか不安
-- 顧客担当者Aからの追加要望（一括エクスポートなど）が来ているが方針未決
+Issue #12 : Module flux externes - Développement nominal achevé
+  - Statut : Clôturée
+  - Responsable : Développeur référent
+
+Issue #18 : Module flux externes - Recette unitaire
+  - Statut : Ouverte
+  - Responsable : Développeur référent
+  - Échéance : Non renseignée
+
+Issue #21 : Élaboration du plan de conception des tests
+  - Statut : Ouverte
+  - Responsable : Non assigné
+  - Échéance : Fin de semaine courante
+
+Issue #24 : Tests d'intégration (interfaçage avec système partenaire)
+  - Statut : Non démarrée
+  - Responsable : Non assigné
+  - Échéance : Non définie
+
+Issue #27 : Comité de validation Go/No-Go - Fixation de la date
+  - Statut : Non démarrée
+  - Responsable : Non assigné
+  - Échéance : Non définie
+
+Issue #30 : Déploiement du registre de suivi des anomalies (Bug Tracker)
+  - Statut : Non démarrée
+  - Responsable : Non assigné
+  - Échéance : Non définie
 ```
 
-**仕様メモ（抜粋）：**
+**Notes d'avancement (extraits) :**
 
 ```
-データ連携仕様 v1.1（確定）
-- 項目X：今回スコープ外
-- 項目Y：簡略化対応（詳細メモは顧客担当者Aから受領待ち）
-- 項目Z：当初仕様で進める
+Semaine 10 - Notes d'avancement interne :
+- Le socle de code des flux externes est finalisé
+- Les tests unitaires ne sont pas encore exécutés
+- Rédacteur du plan de tests enfin désigné cette semaine. Démarrage prévu
+- Plus que 3,5 semaines avant la mise en production. Forte tension sur les délais
+- Le client pousse des demandes d'évolution (export groupé, etc.) : arbitrage non tranché
 ```
 
-**顧客確認待ち事項（抜粋）：**
+**Spécifications techniques (extraits) :**
 
 ```
-- 項目Yの詳細仕様メモ（顧客担当者Aから送付予定・未着）
-- 追加要望（一括エクスポート等）の優先度・費用合意
-- リリース判定会議の日程
+Spécifications des flux de données v1.1 (Validées) :
+- Rubrique X : déscopée de cette version
+- Rubrique Y : intégration simplifiée (note de cadrage client en attente de réception)
+- Rubrique Z : maintien des spécifications nominales
 ```
 
-**次回リリース予定：**
+**Points en attente de retour client (Blockers) :**
 
 ```
-第14週末（残り3.5週間）
-顧客が社内告知済みのため、納期変更は困難
+- Note de cadrage détaillée sur la rubrique Y (toujours non reçue)
+- Hiérarchisation et accord budgétaire sur les demandes additionnelles (export groupé)
+- Date ferme du comité Go/No-Go de mise en production
+```
+
+**Contrainte d'échéance :**
+
+```
+Fin de la Semaine 14 (3,5 semaines restantes)
+Date annoncée en interne par la direction du client : décalage calendaire proscrit
 ```
 
 ---
 
-## Prompt
+## Modèles de Prompts
 
-Claude Codeに対して以下のように依頼します：
+Exemples d'instructions à soumettre à Claude Code :
 
-### 通常版
+### Version standard
 
 ```text
-.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
-このリポジトリの現在の状況をPM視点でレビューしてください。
+Après avoir analysé les directives de .claude/skills/pm-review/SKILL.md et de contexts/PM_CONTEXT.md,
+réalise un audit méthodologique de l'état d'avancement de ce projet sous l'angle du management de projet.
 
-レビュー対象：
-- このファイル（README）
-- Issueリスト
-- 進捗メモ
-- 仕様メモ
-- 顧客確認待ち事項
+Périmètre analysé :
+- Ce fichier README
+- La liste des Issues
+- Les notes d'avancement
+- Les notes de spécifications
+- Les points en attente de retour client
 
-以下の観点で整理してください。
-1. 状況要約
-2. 危険度（低・中・高・緊急）
-3. 主要リスク
-4. PMが次に確認すべきこと
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次アクション（優先順位付き）
+Structure ton analyse selon les axes suivants :
+1. Synthèse de situation
+2. Niveau de criticité (Faible / Modéré / Élevé / Critique)
+3. Principaux risques projet
+4. Points de contrôle immédiats pour le Chef de Projet
+5. Clarifications et arbitrages à obtenir du client
+6. Décisions managériales internes à trancher
+7. Plan d'actions prioritaires
 ```
 
-### Claude向けXMLタグ版
+### Version structurée en balises XML (recommandée pour Claude)
 
 ```text
 <task>
-.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
-このリポジトリの現在の状況をPM視点でレビューしてください。
+Après avoir analysé les directives de .claude/skills/pm-review/SKILL.md et de contexts/PM_CONTEXT.md,
+réalise un audit méthodologique de l'état d'avancement de ce projet sous l'angle du management de projet.
 </task>
 <input>
-レビュー対象：
-- このファイル（README）
-- Issueリスト
-- 進捗メモ
-- 仕様メモ
-- 顧客確認待ち事項
+Périmètre analysé :
+- Ce fichier README
+- La liste des Issues
+- Les notes d'avancement
+- Les notes de spécifications
+- Les points en attente de retour client
 </input>
 <constraints>
-- 入力情報に根拠がない指摘は断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- 納期・費用・責任範囲の判断は断定しないでください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- N'affirme aucun fait qui ne soit explicitement étayé par les données d'entrée.
+- Qualifie expressément toute déduction non vérifiée de « (Hypothèse / Conlecture) ».
+- Ne formule aucun engagement définitif sur les délais, les coûts ou les responsabilités juridiques.
+- Rappelle que cette restitution constitue une aide à la décision soumise à validation humaine préalable.
 </constraints>
 <output_format>
-1. 状況要約
-2. 危険度（低・中・高・緊急）と理由
-3. 主要リスク
-4. PMが次に確認すべきこと
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次アクション（優先順位付き）
+1. Synthèse de situation
+2. Niveau de criticité (Faible / Modéré / Élevé / Critique) et justification
+3. Principaux risques projet
+4. Points de contrôle immédiats pour le Chef de Projet
+5. Clarifications et arbitrages à obtenir du client
+6. Décisions managériales internes à trancher
+7. Plan d'actions prioritaires
 </output_format>
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
-
----
-
-### 1. 状況要約
-
-サンプル案件は開発中盤で全体70%進捗。外部連携機能の実装は完了したが、単体テスト・結合テストが未着手。テスト設計書は今週着手予定だが担当者が先週まで未定だった。リリースまで3.5週間で、テスト工程の圧縮リスクが高い。顧客からの追加要望・仕様詳細待ちが複数あり、方針が決まっていない事項が多い。
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 2. 危険度
+### 1. Synthèse de situation
 
-**高**
-
-- 残り3.5週間でテスト設計・単体テスト・結合テスト・受入テスト・リリース判定をこなす必要がある
-- 担当者・期限が未定のIssueが複数存在する
-- 顧客確認待ち事項が未解決のまま開発が進んでいる
+Le Projet Alpha affiche 70% d'avancement théorique au milieu du développement. Si l'écriture du code des flux externes est terminée, la recette unitaire et les tests d'intégration restent à faire. Le plan de tests vient seulement d'être pris en charge alors que l'échéance finale est dans 3,5 semaines, créant un risque majeur d'écrasement de la phase de qualification. Plusieurs points bloquants client (spécifications de Y, arbitrage des demandes d'évolution, date du comité Go/No-Go) restent ouverts.
 
 ---
 
-### 3. 主要リスク
+### 2. Niveau de criticité
 
-| # | リスク | 理由 |
+**Élevé (High)**
+
+- L'enchaînement conception des tests → recette unitaire → tests d'intégration → homologation → Go/No-Go doit être réalisé en 3,5 semaines
+- Plusieurs Issues fondamentales n'ont ni responsable ni date butoir
+- Des prérequis techniques et de cadrage client demeurent non résolus
+
+---
+
+### 3. Principaux risques projet
+
+| # | Risque | Justification opérationnelle |
 |---|---|---|
-| 1 | テスト期間の圧縮 | テスト設計書がこれから着手で、結合テストまでの工程が詰まっている |
-| 2 | 担当者・期限不明のIssueが多数 | Issue #21・#24・#27・#30 が担当者未定または期限未定 |
-| 3 | 顧客確認待ち事項の未解決 | 仕様詳細・追加要望の方針・リリース判定日程がすべて未確定 |
-| 4 | 追加要望の受け入れ判断が未決 | 追加要望への対応可否・費用合意が決まらないまま期限が近づいている |
-| 5 | バグ管理表が未整備 | テスト開始後の不具合管理ができない状態になっている |
+| 1 | Compression de la fenêtre de qualification | Le plan de tests démarre à peine ; les étapes de recette risquent d'être bâclées pour tenir la date |
+| 2 | Carence de pilotage sur les Issues clés | Les Issues #21, #24, #27 et #30 n'ont pas de responsable ou d'échéance fixée |
+| 3 | Blocages décisionnels côté client | Flou persistant sur la note Y, les demandes d'évolution et la date du comité décisionnel |
+| 4 | Dérive de périmètre non maîtrisée | Demandes d'export groupé non arbitrées risquant de polluer le sprint final |
+| 5 | Défaut de gestion de la qualité | Absence de registre centralisé des anomalies à la veille des tests |
 
 ---
 
-### 4. PMが次に確認すべきこと
+### 4. Points de contrôle immédiats pour le Chef de Projet
 
-- Issue #21（テスト設計書）の担当者・完成期限を確定
-- Issue #24（結合テスト）・#27（リリース判定）・#30（バグ管理表）の担当者・期限を確定
-- 追加要望（一括エクスポート等）への対応方針を上長と合意
-- テスト全体のスケジュールを再計算し、残り3.5週間で現実的かを確認
-
----
-
-### 5. 顧客に確認すべきこと
-
-- 項目Yの詳細仕様メモをいつ送付してもらえるか
-- 追加要望の優先度・費用合意の意向
-- リリース判定会議の日程確認（上長への確認結果の共有依頼）
+- Verrouiller l'assignation et la date d'achèvement de l'Issue #21 (plan de tests)
+- Affecter un responsable et une échéance sur les Issues #24 (intégration), #27 (Go/No-Go) et #30 (Bug Tracker)
+- Valider avec la direction la posture vis-à-vis des demandes d'évolution
+- Réévaluer le rétroplanning global pour vérifier la faisabilité physique des 3,5 semaines
 
 ---
 
-### 6. 社内で決めるべきこと
+### 5. Clarifications et arbitrages à obtenir du client
 
-- 追加要望を受け入れるか・費用をどう扱うかの上長承認
-- テスト期間が足りない場合のリカバリー方針（リソース追加・スコープ絞り込みなど）
-- バグ管理表の運用ルール・フォーマット
+- Date ferme d'envoi de la note de cadrage sur la rubrique Y
+- Confirmation formelle du report des demandes d'évolution à une version ultérieure
+- Fixation de la date du comité de décision Go/No-Go de mise en production
 
 ---
 
-### 7. 次アクション（優先順位付き）
+### 6. Décisions managériales internes à arbitrer
 
-| 優先度 | アクション | 担当 |
+- Décision d'arbitrage sur l'acceptation ou le refus des évolutions et tarification éventuelle
+- Dispositif de repli si la durée de test s'avère insuffisante (renfort temporaire ou allègement ciblé)
+- Validation des modalités et de l'outil de gestion des anomalies
+
+---
+
+### 7. Plan d'actions prioritaires
+
+| Priorité | Action opérationnelle | Responsable |
 |---|---|---|
-| 最高 | Issue #21 担当者・期限確定 | PM担当者 |
-| 最高 | テスト全体スケジュールの再計算 | PM担当者・開発リーダー |
-| 高 | 顧客担当者Aへのリリース判定日程調整依頼 | PM担当者 |
-| 高 | 追加要望の対応方針を上長と合意 | PM担当者 |
-| 高 | 項目Y仕様メモの受領フォローアップ | PM担当者 |
-| 中 | Issue #24・#30 の担当者・期限確定 | PM担当者 |
-| 中 | バグ管理表の整備 | 開発リーダー |
+| **P1 - Critique** | Assignation ferme et échéance sur l'Issue #21 (plan de tests) | Chef de Projet |
+| **P1 - Critique** | Recalcul du rétroplanning détaillé de qualification | Chef de Projet / Lead Tech |
+| **P2 - Haute** | Relance formelle du client sur la date du comité Go/No-Go | Chef de Projet |
+| **P2 - Haute** | Arbitrage interne de direction sur les demandes d'évolution | Chef de Projet |
+| **P2 - Haute** | Relance sur la note technique Y | Chef de Projet |
+| **P3 - Moyenne** | Cadrage des Issues #24 et #30 | Chef de Projet |
+| **P3 - Moyenne** | Déploiement du registre de suivi des anomalies | Lead Tech |
 
 ---
 
-## Human Review Points
+## Points de contrôle humain (Human Review Points)
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
+Avant toute prise de décision, contrôlez impérativement :
 
-- 状況要約が実際のリポジトリ・プロジェクトの状況と一致しているか
-- 危険度の判断が実際の制約（納期・体制・顧客状況）を踏まえているか
-- 次アクションの優先順位が実際の判断と合っているか
-- AIが指摘していない、自分だけが知っているリスクや背景情報がないか確認する
-- 担当者欄を実際の担当者に修正してから利用する
+- La conformité de l'analyse avec la réalité concrète de votre environnement de travail
+- La justesse de la qualification de criticité au regard des marges de négociation avec le client
+- La faisabilité réelle de l'ordonnancement des actions prioritaires
+- La prise en compte des éléments non écrits (dynamique d'équipe, sensibilité politique du client)
+- La mise à jour nominative des acteurs réels dans les plans d'actions
 
 ---
 
-## Caution
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Les données de cet exemple sont purement fictives.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Anonymisez l'intégralité des informations sensibles avant de solliciter un modèle d'IA.
 >
-> **AI出力は業務判断の代替ではありません。** 顧客提出・社内報告・納期回答・費用判断に使用する場合は、必ず担当者が内容を確認してください。
+> **L'IA ne prend pas de décisions opérationnelles ou contractuelles.** Tout engagement de délai, de budget ou de périmètre requiert la décision d'un responsable humain.
 >
-> Claude Codeを使う場合でも、hooks・コマンド・MCP設定・自動実行・自動コミット・自動デプロイは設定しないでください。AIによる自動操作は本サンプルの対象外です。
+> Lors de l'utilisation de Claude Code, veillez à ne jamais configurer de hooks exécutables, de commandes non vérifiées ou de mécanismes d'action automatisés non supervisés.

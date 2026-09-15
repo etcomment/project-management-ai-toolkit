@@ -1,51 +1,51 @@
 ---
 name: New context request
-about: 新しいPM向けAIコンテキストファイルを提案する
+about: Proposer un nouveau fichier de contexte IA pour la gestion de projet
 title: "[New Context]: "
 labels: new-context
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **Cette Issue est publique. N'y inscrivez JAMAIS de clés d'API, de mots de passe, de tokens, de noms de clients, de données nominatives, de raisons sociales, de noms de projets, de clauses contractuelles ou d'informations confidentielles internes.**
+> En cas d'enjeu de sécurité, référez-vous à [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 追加したいユースケース
+## Cas d'usage opérationnel ciblé
 
-<!-- どのような業務場面で使いたいか説明してください -->
+<!-- Décrivez dans quelle situation de gestion de projet ce contexte serait utilisé -->
 
-## 想定利用者
+## Profils d'utilisateurs cibles
 
-<!-- 誰がこのコンテキストを使うか説明してください（PM / PMO / 開発リーダー など） -->
+<!-- Précisez qui utilisera ce contexte (ex. : Chef de projet / PMO / Lead Tech / Scrum Master) -->
 
-## AIに渡す Input
+## Données d'entrée (Input) fournies à l'IA
 
-<!-- どのような情報をAIに渡すか説明してください（架空の例で構いません） -->
+<!-- Décrivez quelles informations seraient fournies à l'IA (utilisez un exemple fictif) -->
 
-## AIに期待する Output
+## Livrable attendu de l'IA (Output)
 
-<!-- AIにどのような出力を期待するか説明してください -->
+<!-- Décrivez la structure et le contenu du livrable attendu de l'IA -->
 
-## 関連する既存ファイル（任意）
+## Fichiers existants connexes (optionnel)
 
-<!-- 既存のcontexts/やprompts/に近いファイルがあれば記載してください -->
+<!-- Mentionnez d'éventuels fichiers proches existant dans contexts/ ou prompts/ -->
 
-## なぜ新規ファイルが必要か
+## Justification du besoin d'un nouveau fichier
 
-<!-- 既存ファイルで対応できない理由を説明してください -->
+<!-- Expliquez pourquoi les contextes et prompts existants ne couvrent pas ce besoin -->
 
-## 安全上の注意点（任意）
+## Points de vigilance sécuritaire (optionnel)
 
-<!-- 提案するコンテキストに安全性上の配慮が必要な点があれば記載してください -->
+<!-- Indiquez tout aspect exigeant une attention particulière en matière de confidentialité ou de gouvernance -->
 
 ---
 
-## Safety checklist
+## Liste de contrôle de sécurité (Safety checklist)
 
-投稿前に以下を確認してください。
+Vérifiez les points suivants avant de soumettre :
 
-- [ ] このIssueに実案件情報・機密情報を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
-- [ ] hooks、shell script、MCP設定、GitHub Actionsの追加を要求していません
+- [ ] Cette Issue ne contient aucune donnée issue de projets réels ni information confidentielle
+- [ ] Aucune clé d'API, mot de passe, token ou identifiant d'authentification n'est inclus
+- [ ] Aucune demande d'ajout de hooks, scripts shell, configurations MCP ou GitHub Actions n'est formulée

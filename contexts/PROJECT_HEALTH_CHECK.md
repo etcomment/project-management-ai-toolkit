@@ -1,241 +1,233 @@
-﻿# プロジェクトヘルスチェック用コンテキスト / Project Health Check Context
+# Contexte de bilan de santé projet / Project Health Check Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-プロジェクトの現在の状態を、PM視点で多角的にレビューするためのコンテキストです。
+Ce contexte fournit une grille de lecture multidimensionnelle pour évaluer l'état de santé opérationnel d'un projet sous l'angle du pilotage (PM/PMO).
 
-進捗・課題・リスク・顧客状況・体制・品質などの情報をAIに渡すことで、見落としや死角を発見する補助に活用できます。
+En transmettant à l'IA les éléments d'avancement, points de blocage, risques, dynamique client, capacité de l'équipe et indicateurs de qualité, vous disposez d'un appui d'analyse pour détecter les angles morts, biais de perception et signaux faibles de dérive.
 
-**AIはプロジェクト診断・監査を行うものではありません。** 出力内容は必ず人間が確認し、実際の案件状況に合わせて判断してください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- プロジェクト全体の状況を定期的にレビューしたいとき
-- 「なんとなく不安」な状況を言語化・整理したいとき
-- 月次・週次の状況確認に使いたいとき
-- 上長・関係者への説明前に状況を整理したいとき
-- プロジェクトが炎上しそうな予兆を確認したいとき
+**L'IA ne réalise ni audit formel ni certification de projet.** Les résultats constituent une aide à l'analyse : ils doivent être rigoureusement confrontés au terrain et validés par le chef de projet.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Case (Cas d'usage)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Réaliser une revue périodique à 360° de la santé globale du projet.
+- Objectiver, formuler et structurer un sentiment diffus de dérive ou d'inquiétude.
+- Préparer les revues d'avancement mensuelles ou hebdomadaires.
+- Structurer le dossier de cadrage avant un point d'étape avec la direction ou le client.
+- Détecter les signaux précurseurs d'une crise ou d'un dérapage projet.
 
-必須ではありませんが、項目が多いほど精度の高い整理が期待できます。
+---
+
+## Input (Informations à fournir à l'IA)
+
+Après avoir chargé ce contexte, transmettez les éléments ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et nominatives).
+
+Ces rubriques ne sont pas toutes obligatoires, mais la pertinence de l'analyse dépend directement de la complétude des éléments fournis :
 
 ```
-### プロジェクト概要
-- プロジェクトの目的・背景：
-- 主な成果物：
-- 現在のフェーズ：（例：要件定義・設計・開発・テスト・リリース準備）
-- 全体のスケジュール（マスキング済み）：
-- 規模感：（例：小規模・中規模・大規模）
+### Synthèse du projet
+- Finalité et contexte du projet :
+- Livrables majeurs :
+- Phase actuelle : (ex. : Cadrage/Spécifications, Conception, Développement, Recette/Qualification, Déploiement)
+- Calendrier directeur / Jalons clés (anonymisé) :
+- Envergure / Périmètre : (ex. : Petit, Moyen, Grand projet)
 
-### 現在の進捗
-- 全体進捗（%）：
-- 今週・今月の完了事項：
-- マイルストーンの達成状況：
-- 遅延が発生している作業（あれば）：
+### Avancement réel
+- Taux d'avancement global (%) :
+- Réalisations / Tâches achevées sur la période (semaine/mois) :
+- Statut de franchissement des jalons :
+- Tâches ou chantiers en retard (le cas échéant) :
 
-### 課題
-- 現在発生している課題（担当者名は「担当者A」等に置換）：
-- 未解決の課題：
-- 担当者不明の課題：
-- 期限不明の課題：
+### Points de blocage (Issues)
+- Incidents / Bloquants actifs (utiliser des rôles ou alias : « Développeur A ») :
+- Points ouverts non arbitrés :
+- Tâches sans responsable identifié :
+- Points d'action sans échéance explicite :
 
-### リスク
-- 認識しているリスク：
-- 外部依存（顧客確認待ち・外部ベンダー・外部APIの仕様待ち等）：
-- 対応方針が決まっていないリスク：
+### Registre des risques
+- Risques majeurs identifiés :
+- Dépendances externes (attente d'arbitrage client, validation de tiers, livraison d'API partenaire, etc.) :
+- Risques sans plan de contingence ni stratégie de mitigation :
 
-### 顧客・ステークホルダーの状況
-- 顧客確認待ちの事項：
-- 顧客側の担当者・体制の状況（名前は「顧客担当者A」等に置換）：
-- 顧客の期待値・要望：
-- 顧客とのコミュニケーション上の懸念：
+### Contexte Client & Parties Prenantes
+- Décisions / Validations en attente côté client :
+- Disponibilité et posture de l'équipe cliente (nommer « Représentant Client A ») :
+- Exigences, attentes fortes ou irritants exprimés :
+- Risques ou points d'attention dans la communication client :
 
-### 体制・チームの状況
-- 現在の体制（役割ベースで記載）：
-- 体制上の懸念（メンバーの稼働・スキル・欠員等）：
+### Équipe & Capacité opérationnelle
+- Dimensionnement de l'équipe (par rôle opérationnel) :
+- Tensions RH / Staffing (surcharge, charge/capacité, déficit d'expertise, congés/départs) :
 
-### 品質の状況
-- テスト状況（フェーズ・不具合件数等）：
-- 品質上の懸念：
+### Qualité & Dette technique
+- État des tests / qualification (campagnes en cours, volumétrie des anomalies bloquantes/majeures) :
+- Risques ou dérives constatés sur la qualité des livrables :
 
-### 直近の会議・出来事のメモ
-- 直近の定例・会議の要点（個人名・顧客名をマスキング）：
-- 最近発生した特記事項：
+### Faits marquants récents & Comptes rendus
+- Synthèse des derniers comités ou échanges formels (noms et entités masqués) :
+- Événements exceptionnels ou incidents survenus récemment :
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-このコンテキストを前提にAIに依頼すると、以下のような出力を得ることができます。
+Lorsque vous soumettez votre demande avec ce contexte, l'IA structure sa restitution selon les volets suivants :
 
-### 1. 状況要約
+### 1. Synthèse de situation
+Condensé exécutif de la situation du projet en 3 à 5 phrases percutantes.
 
-プロジェクトの現在の状況を、3〜5文で要約したもの。
+### 2. Niveau de criticité opérationnelle
+Évaluation synthétique selon 4 niveaux :
 
-### 2. 危険度
-
-以下の4段階で評価します。
-
-| 危険度 | 目安 |
+| Niveau | Critères d'appréciation |
 |---|---|
-| 🔴 高（要即対応） | 納期・品質・顧客関係に重大なリスクが迫っている |
-| 🟡 中（注意が必要） | 複数の懸念事項があり、放置すると悪化する可能性がある |
-| 🟢 低（概ね順調） | 課題はあるが管理範囲内 |
-| ⬜ 判断不能 | 入力情報が不足している |
+| 🔴 Critique (Action immédiate) | Risque imminent de rupture sur les délais, le budget, la qualité ou la relation client |
+| 🟡 Sous vigilance (Attention requise) | Multiples signaux d'alerte ; dégradation probable sans intervention corrective rapide |
+| 🟢 Nominal (Sous contrôle) | Difficultés ordinaires maîtrisées dans le cadre du pilotage courant |
+| ⬜ Non déterminable | Données d'entrée insuffisantes pour poser un diagnostic fiable |
 
-### 3. 主要な懸念点
+### 3. Points d'attention prioritaires
+Hiérarchisation par ordre d'urgence des alertes et anomalies requérant un traitement immédiat.
 
-現在の状況で特に注意すべき懸念点を、優先度順に列挙したもの。
+### 4. Angles morts et risques sous-estimés
+Mise en lumière des risques induits ou des zones de fragilité implicites non formalisées par l'équipe.
 
-### 4. 見落としている可能性があるリスク
+### 5. Demandes d'arbitrage à soumettre au Client
+Liste des clarifications, validations et décisions à obtenir formellement du client.
 
-入力情報をもとに、PMが見落としている可能性があるリスクを提示したもの。
+### 6. Décisions internes à trancher
+Arbitrages organisationnels, techniques ou budgétaires à acter en interne (PM, PMO, Direction).
 
-### 5. 顧客に確認すべきこと
-
-顧客に対して確認・説明すべき事項の一覧。
-
-### 6. 社内で決めるべきこと
-
-PM・PMO・上長が社内で決定すべき事項の一覧。
-
-### 7. 次の24〜72時間でやるべきこと
-
-直近で実施すべきアクションの優先順位付き一覧。
+### 7. Plan d'action à 24–72 heures
+Plan d'actions prioritaires et opérationnelles pour reprendre la maîtrise sous 1 à 3 jours.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
 > [!CAUTION]
-> このコンテキストを利用してAIが出力した内容は、プロジェクト診断・監査・専門家の助言を代替しません。
+> Les sorties générées à partir de ce contexte ne constituent en aucun cas un audit légal, une certification qualité ou un conseil d'expert habilité.
 >
-> AI出力は必ず人間が確認・修正してから利用してください。
+> Tout contenu doit impérativement être revu, validé et ajusté par un responsable humain avant d'être exploité ou communiqué.
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Ne saisissez aucune donnée confidentielle, nominative, contractuelle ou d'authentification dans les outils d'IA.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
 ```text
-# プロジェクトヘルスチェックの依頼
+# Demande de bilan de santé projet (Health Check)
 
-以下のコンテキストを前提として、プロジェクトの現状をPM視点でヘルスチェックしてください。
+En vous appuyant sur les contextes de référence ci-dessous, réalisez une revue de santé complète du projet selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 
-[PROJECT_HEALTH_CHECK.md の内容をここに貼り付ける]
-
----
-
-## 案件の現状（機密情報はマスキング済み）
-
-### プロジェクト概要
-- プロジェクトの目的：
-- 現在のフェーズ：
-- 全体スケジュール：
-
-### 進捗
-- 全体進捗：
-- 完了した作業：
-- 遅延している作業：
-
-### 課題・リスク
-- 発生している課題：
-- 認識しているリスク：
-- 顧客確認待ち：
-
-### 体制・品質
-- 体制上の懸念：
-- 品質上の懸念：
-
-### 直近の出来事
+[Coller ici le contenu de PROJECT_HEALTH_CHECK.md]
 
 ---
 
-## 出力してほしいこと
+## Données de situation du projet (Données strictement anonymisées)
 
-1. 状況要約
-2. 危険度（🔴高 / 🟡中 / 🟢低）と理由
-3. 主要な懸念点（優先度順）
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+### Synthèse du projet
+- Finalité du projet :
+- Phase actuelle :
+- Calendrier directeur :
 
-※ AI出力は判断材料です。最終判断は人間が行ってください。
+### Avancement
+- Taux d'avancement global :
+- Livrables achevés :
+- Chantiers en retard :
+
+### Points de blocage & Risques
+- Incidents / Bloquants actifs :
+- Risques majeurs identifiés :
+- Arbitrages client en attente :
+
+### Équipe & Qualité
+- Tensions sur le staffing / charge :
+- Alertes qualité / anomalies :
+
+### Événements récents
+
+---
+
+## Livrables attendus
+
+1. Synthèse de situation
+2. Niveau de criticité (🔴 Critique / 🟡 Sous vigilance / 🟢 Nominal) et justification
+3. Points d'attention prioritaires (par ordre de criticité)
+4. Angles morts et risques sous-estimés
+5. Demandes d'arbitrage à soumettre au Client
+6. Décisions internes à trancher
+7. Plan d'action à 24–72 heures
+
+※ Les sorties constituent une base d'aide à la décision : l'arbitrage final revient exclusivement à un responsable humain.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour un traitement optimal avec Claude, utilisez la structure balisée suivante :
 
 ```text
 <task>
-以下のプロジェクト状況をPM視点でヘルスチェックしてください。
-危険度、主要な懸念点、見落としリスク、顧客確認事項、社内判断事項、次の24〜72時間のアクションを出力してください。
+Réalisez une revue de santé (Health Check) de la situation projet ci-dessous avec une perspective Chef de Projet.
+Restituez le niveau de criticité, les points d'attention majeurs, les risques sous-estimés, les arbitrages client/internes et le plan d'action immédiat sous 24 à 72h.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[PROJECT_HEALTH_CHECK.md の内容をここに貼り付ける]
+[Coller ici le contenu de PROJECT_HEALTH_CHECK.md]
 </specific_context>
 </context>
 <input>
-【プロジェクトの現状（機密情報はマスキング済み）】
+【Données de situation du projet (Données strictement anonymisées)】
 
-### プロジェクト概要
-- プロジェクトの目的：
-- 現在のフェーズ：
-- 全体スケジュール：
+### Synthèse du projet
+- Finalité du projet :
+- Phase actuelle :
+- Calendrier directeur :
 
-### 進捗
-- 全体進捗：
-- 完了した作業：
-- 遅延している作業：
+### Avancement
+- Taux d'avancement global :
+- Livrables achevés :
+- Chantiers en retard :
 
-### 課題・リスク
-- 発生している課題：
-- 認識しているリスク：
-- 顧客確認待ち：
+### Points de blocage & Risques
+- Incidents / Bloquants actifs :
+- Risques majeurs identifiés :
+- Arbitrages client en attente :
 
-### 体制・品質
-- 体制上の懸念：
-- 品質上の懸念：
+### Équipe & Qualité
+- Tensions sur le staffing / charge :
+- Alertes qualité / anomalies :
 
-### 直近の出来事
+### Événements récents
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 判断に十分な情報がない場合は「情報不足」または「この情報だけでは判断できません」と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Considérez les données fournies comme strictement anonymisées (noms propres, raisons sociales et données contractuelles exclus).
+- Si vous complétez des informations manquantes, mentionnez expressément « (Hypothèse) ».
+- En cas d'informations insuffisantes pour statuer, indiquez « Données insuffisantes » ou « Les éléments fournis ne permettent pas de trancher ».
+- Formulez les réponses sous forme d'aide à la décision, l'arbitrage final revenant au responsable humain.
 </constraints>
 <output_format>
-1. 状況要約
-2. 危険度（🔴高 / 🟡中 / 🟢低）と理由
-3. 主要な懸念点（優先度順）
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+1. Synthèse de situation
+2. Niveau de criticité (🔴 Critique / 🟡 Sous vigilance / 🟢 Nominal) et justification
+3. Points d'attention prioritaires (par ordre de criticité)
+4. Angles morts et risques sous-estimés
+5. Demandes d'arbitrage à soumettre au Client
+6. Décisions internes à trancher
+7. Plan d'action à 24–72 heures
 </output_format>
 ```

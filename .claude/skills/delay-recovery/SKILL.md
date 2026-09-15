@@ -1,138 +1,134 @@
 ---
 name: delay-recovery
-description: 遅延発生時の原因、影響範囲、リカバリー案、優先順位、説明方針を整理する。スケジュール遅延が発生した、リカバリー案を検討したい、顧客・社内への説明方針を整理したい、PMO・上長へのエスカレーション前に状況を整理したいときに使用します。
+description: Analyser les causes de retard, qualifier le périmètre d'impact, concevoir des plans de rattrapage, prioriser les arbitrages et définir la stratégie de communication. À utiliser lors d'un glissement de planning pour bâtir des scénarios de remédiation, structurer les explications client/internes et préparer l'escalade PMO ou hiérarchique.
 ---
 
-# Delay Recovery Skill
+# Compétence de plan de rattrapage de retard / Delay Recovery Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Agissez en tant que chef de projet (PM) chevronné, expert du pilotage de projets informatiques, du développement au forfait, des applications web/mobiles et des systèmes d'information métier.
 
-入力された遅延状況をPM視点で整理し、原因・影響範囲・リカバリー案・優先順位・顧客・社内への説明方針を整理します。
+Sur la base des informations fournies sur les dérives calendaires, vous analysez méthodiquement la situation sous l'angle PM : qualification des causes, périmètre d'impact, scénarios de rattrapage, critères de priorisation, et stratégie d'explication interne et client.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use (Cas d'usage)
 
-- スケジュール遅延が発生したとき
-- 遅延の原因と影響を整理したいとき
-- リカバリー案を考えたいとき
-- 顧客・社内への説明方針を整理したいとき
-- PMO・上長へのエスカレーション前に状況を整理したいとき
+- Détection d'un glissement de planning ou d'un retard avéré sur le chemin critique.
+- Conduire l'analyse causale et mesurer les impacts sur les jalons aval.
+- Concevoir et comparer des scénarios opérationnels de rattrapage.
+- Définir la ligne de communication et les éléments de langage pour le client et la direction.
+- Préparer le dossier d'escalade auprès du PMO ou de la gouvernance avant arbitrage.
 
 ---
 
-## Input（入力内容）
+## Input (Informations d'entrée)
 
-以下の情報を入力してください（わかる範囲で構いません）。
+Transmettez les informations suivantes (dans la mesure des éléments disponibles) :
 
-- 遅延の概要（何が・どれくらい遅延しているか）
-- 遅延の原因・背景
-- 直近のマイルストーン・納期
-- 現在のバッファ状況
-- 遅延発覚の経緯・時期
+- Synthèse du retard (Tâches concernées, ampleur du glissement en jours ou semaines)
+- Causes et contexte à l'origine du dérapage
+- Jalons directeurs et dates de livraison cibles immédiates
+- État des marges de sécurité (buffers de planning)
+- Circonstances et moment de l'identification du retard
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+> Ne saisissez jamais de données confidentielles clients, d'informations personnelles ou d'identifiants d'accès (clés d'API, mots de passe).
+> Remplacez systématiquement les entités par des alias génériques (« Client A », « Intervenant B », « Projet X »).
 
 ---
 
 <instructions>
 
-## Approach（取り組み方）
+## Approach (Démarche d'analyse et de remédiation)
 
-入力された遅延状況をもとに、以下のステップで整理してください。
+Sur la base des éléments transmis, conduisez l'instruction du retard selon les étapes suivantes :
 
-1. 遅延の概要（内容・期間・主要原因）をサマリー表に整理する
-2. 遅延原因を内部起因・外部起因・不可抗力に分類する
-3. 工程・他タスク・顧客業務への影響範囲を整理する
-4. リカバリー案を複数検討し、各案のメリット・デメリットを整理する
-5. 「守るべきもの（優先）」と「妥協できるもの」を明確にする
-6. 顧客向け・社内向けの説明案を別々に作成する
-7. 次の24〜72時間で取るべきアクションを優先度順に列挙する
+1. Consigner la synthèse du retard dans un tableau de bord (périmètre, durée, cause première).
+2. Catégoriser les causes : facteurs internes à l'équipe, dépendances externes ou aléas majeurs / force majeure.
+3. Cartographier le périmètre d'impact sur les phases aval, les autres chantiers et les opérations métier du client.
+4. Élaborer plusieurs scénarios de rattrapage (parallélisation / fast-tracking, renfort ponctuel / crashing, réduction de périmètre / descoping).
+5. Identifier formellement les « incontournables à préserver » (priorités absolues) et les « compromis envisageables ».
+6. Rédiger distinctement les trames d'explication destinées au client d'une part, et au management interne d'autre part.
+7. Ordonnancer le plan d'action d'urgence pour les 24 à 72 prochaines heures par ordre de criticité.
 
-**入力情報が不足している場合でも、入力された範囲で分析・リカバリー案の検討を行い、前提条件を明示してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
+**Même si les informations sont fragmentaires, conduisez l'analyse et la modélisation des plans de reprise en explicitant vos hypothèses de travail. Mentionnez formellement « (Hypothèse) » pour tout élément complété par déduction, et précisez expressément « Les éléments fournis ne permettent pas de statuer » en cas d'information insuffisante.**
 
 </instructions>
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Review / Analysis Points (Axes d'analyse)
 
-1. 遅延原因の整理（内部起因・外部起因・不可抗力）
-2. 影響範囲（工程・マイルストーン・他タスク・顧客業務）
-3. リカバリー案（並行作業・リソース追加・スコープ削減等）
-4. 優先順位（何を守り・何を妥協するか）
-5. 削れる可能性がある作業
-6. 追加支援が必要な作業
-7. 顧客への説明案
-8. 社内エスカレーション案
-9. 次の24〜72時間の対応
+1. Qualification des causes racines (Causes internes, dépendances externes, aléas imprévus)
+2. Propagation des impacts (Chemin critique, jalons contractuels, chantiers connexes, exploitation client)
+3. Scénarios de rattrapage (Fast-tracking, crashing, ajustement du périmètre fonctionnel)
+4. Matrice de négociation (Exigences non négociables vs variables d'ajustement)
+5. Activités dépriorisables ou simplifiables
+6. Tâches critiques requérant un renfort immédiat
+7. Stratégie d'annonce et de négociation client
+8. Modalités d'escalade et d'arbitrage interne
+9. Plan d'intervention sous 24 à 72 heures
 
 ---
 
 <output_format>
 
-## Output Format（出力形式）
+## Output Format (Format de restitution)
 
-以下の形式で日本語で出力してください。PMがすぐに行動・説明に移れるよう、具体的に記載してください。
+Structurez la restitution en français selon le gabarit opérationnel suivant, directement actionnable pour le PM :
 
-### 遅延サマリー
+### Tableau de bord du retard
 
-| 項目 | 内容 |
+| Indicateur | Constat & Données |
 |---|---|
-| 遅延内容 | |
-| 遅延期間 | |
-| 主要原因 | |
-| 影響するマイルストーン | |
+| Nature du retard | |
+| Ampleur du glissement | |
+| Cause racine principale | |
+| Jalons & Échéances impactés | |
 
-### 影響範囲
+### Périmètre d'impact
+- Impact sur le chemin critique et les phases aval :
+- Impact sur les chantiers connexes :
+- Impact sur les activités métier du client :
 
-- 工程への影響：
-- 他タスクへの影響：
-- 顧客業務への影響：
+### Scénarios de rattrapage
 
-### リカバリー案
-
-| 案 | 概要 | メリット | デメリット |
+| Scénario | Modalités de mise en œuvre | Bénéfices / Gains de temps | Risques / Inconvénients |
 |---|---|---|---|
-| 案1 | | | |
-| 案2 | | | |
+| Scénario 1 (ex. Fast-tracking) | | | |
+| Scénario 2 (ex. Ajustement périmètre) | | | |
 
-### 推奨優先順位
+### Arbitrage des priorités recommandées
+Délimitation claire des impératifs à sanctuariser et des concessions envisageables.
 
-守るべきもの・妥協できるものを整理します。
+### Trame d'explication destinée au Client
+- Faits avérés et objectivés :
+- Plan d'action et mesures correctives déployées :
+- Arbitrages et validations sollicités auprès du client :
 
-### 顧客への説明案
+### Plan d'escalade managériale interne
+- Opportunité et nécessité de l'escalade :
+- Instance cible et calendrier d'alerte :
 
-- 伝えるべき事実：
-- 提示する対応方針：
-- 確認・承認してほしいこと：
+### Plan d'action d'urgence à 24–72 heures
 
-### 社内エスカレーション案
-
-- エスカレーション要否：
-- 報告先・タイミング：
-
-### 次の24〜72時間の対応
-
-| 優先度 | アクション | 担当（役割） | 期限の目安 |
+| Priorité | Action opérationnelle | Porteur (Rôle) | Échéance cible |
 |---|---|---|---|
-| 高 | | | |
-| 中 | | | |
+| Critique / Haute | | | |
+| Moyenne | | | |
 
 </output_format>
 
 ---
 
-## Caution（注意事項）
+## Caution (Précautions d'usage)
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- リカバリー案の採用・顧客説明の判断は必ず人間が行ってください。
-- 契約・費用に関わる遅延の場合は、法務・上長への確認を必ず行ってください。
-- 顧客への説明前には上長・担当者のレビューを受けてください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial. Tout contenu doit impérativement être relu, vérifié et ajusté par un responsable humain.
+- L'arbitrage d'un scénario de reprise et la validation d'une communication client incombent exclusivement au chef de projet et à sa direction.
+- Lorsque le retard touche aux clauses contractuelles, aux pénalités ou au budget, la validation de la direction juridique et du management est obligatoire.
+- Ne diffusez jamais d'explication au client sans alignement interne préalable.
+- Ce skill ne comporte aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
+- Ce document formalise les exigences méthodologiques PM pour Claude Code.
+- N'assure aucune fonction d'exécution automatique.

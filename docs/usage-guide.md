@@ -1,170 +1,170 @@
-﻿# 使い方ガイド / Usage Guide
+# Guide d'utilisation / Usage Guide
 
 ---
 
-## はじめに
+## Introduction
 
-本リポジトリ「project-management-ai-toolkit」は、プロジェクトマネージャー・PMO・開発リーダーが、ChatGPT / Gemini / Claude / Claude Code を PM 業務で活用するためのAI活用ツールキットです。
+Le présent dépôt « project-management-ai-toolkit » est une boîte à outils méthodologique conçue pour permettre aux chefs de projet (PM), PMO et leaders techniques d'exploiter la puissance de ChatGPT, Gemini, Claude et Claude Code dans leurs missions quotidiennes de pilotage.
 
-このガイドでは、リポジトリの使い方と、目的別のファイル選び方を説明します。
+Ce guide explicite les modalités d'utilisation du dépôt et la sélection des fichiers selon vos objectifs opérationnels.
 
 ---
 
-## 利用フロー
+## Processus d'utilisation
 
 ```
-[1] READMEを読む
+[1] Consulter le README
         │
         v
-[2] DISCLAIMER / ai-safety を確認
+[2] Vérifier le DISCLAIMER et le guide ai-safety
         │
         v
-[3] PM_CONTEXT.md を確認
+[3] Prendre connaissance de PM_CONTEXT.md
         │
         v
-[4] 目的に合う contexts/*.md を選ぶ
+[4] Sélectionner le fichier contexts/*.md adapté à votre besoin
         │
-        ├─ 進捗報告        → STATUS_REPORT_CONTEXT.md
-        ├─ 課題・リスク    → ISSUE_RISK_CONTEXT.md
-        ├─ 顧客説明        → CLIENT_COMMUNICATION_CONTEXT.md
-        ├─ 炎上初動        → FIRE_RESPONSE_FIRST_72H.md
-        └─ その他          → 下記「用途別のファイル選び」を参照
-        │
-        v
-[5] 案件情報をマスキング
+        ├─ Rapport d'avancement     → STATUS_REPORT_CONTEXT.md
+        ├─ Incidents & Risques      → ISSUE_RISK_CONTEXT.md
+        ├─ Restitution Client       → CLIENT_COMMUNICATION_CONTEXT.md
+        ├─ Gestion de crise (72h)   → FIRE_RESPONSE_FIRST_72H.md
+        └─ Autres cas d'usage       → Se référer au tableau ci-dessous
         │
         v
-[6] AIに入力
+[5] Anonymiser et masquer les données du projet
         │
         v
-[7] AI出力を人間が確認・修正
+[6] Soumettre la requête à l'IA
+        │
+        v
+[7] Relire, ajuster et valider humainement le résultat
 ```
 
 > [!IMPORTANT]
-> AI出力は業務判断の代替ではありません。最終的には必ず人間が確認・修正してください。
-> 機密情報・個人情報・認証情報はAIサービスに入力しないでください。
+> Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial ou légal. Tout livrable doit impérativement être relu, vérifié et validé par un responsable humain.
+> Ne saisissez jamais d'informations confidentielles, de données personnelles ou d'identifiants techniques dans les services d'IA.
 
 ---
 
-## まず読むべきファイル
+## Fichiers fondamentaux à lire en priorité
 
-| ファイル | 内容 |
+| Fichier | Objet |
 |---|---|
-| [README.md](../README.md) | リポジトリ全体の概要・Quick Start |
-| [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) | 免責事項・AI出力の限界・機密情報の取り扱い |
-| [docs/ai-safety.md](ai-safety.md) | AIに入力してよい情報・危険な入力例・安全な使い方 |
-| [contexts/PM_CONTEXT.md](../contexts/PM_CONTEXT.md) | PM業務の共通前提コンテキスト |
+| [README.md](../README.md) | Présentation générale du référentiel et démarrage rapide (Quick Start) |
+| [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) | Clause de non-responsabilité, limites opérationnelles de l'IA et règles de confidentialité |
+| [docs/ai-safety.md](ai-safety.md) | Données autorisées, exemples d'entrées proscrites et bonnes pratiques de sécurité |
+| [contexts/PM_CONTEXT.md](../contexts/PM_CONTEXT.md) | Socle commun et cadre de référence méthodologique des pratiques PM |
 
 ---
 
-## 用途別のファイル選び
+## Sélection des fichiers par cas d'usage
 
-「自分の状況ではどのファイルを使えばよいか」を素早く確認したい場合は、[docs/use-case-map.md](use-case-map.md) を参照してください。
+Pour identifier en un coup d'œil le fichier correspondant à votre situation actuelle, consultez [docs/use-case-map.md](use-case-map.md).
 
-| 目的 | コンテキストファイル |
+| Objectif visé | Fichier de contexte associé |
 |---|---|
-| プロジェクト全体のヘルスチェック | `contexts/PROJECT_HEALTH_CHECK.md` |
-| 進捗報告の作成 | `contexts/STATUS_REPORT_CONTEXT.md` |
-| 課題・リスクの整理 | `contexts/ISSUE_RISK_CONTEXT.md` |
-| 顧客向け説明文の作成 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 炎上・トラブル初動の整理 | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| 会議メモから議事録・TODOを作る | `contexts/MEETING_MINUTES_CONTEXT.md` |
-| 週次定例のアジェンダを作る | `contexts/WEEKLY_MEETING_CONTEXT.md` |
-| 仕様変更・スコープ変更を整理する | `contexts/SCOPE_CHANGE_CONTEXT.md` |
-| 遅延時のリカバリー方針を整理する | `contexts/DELAY_RECOVERY_CONTEXT.md` |
-| 品質問題の原因と対策を整理する | `contexts/QUALITY_ISSUE_CONTEXT.md` |
-| 振り返り・ポストモーテムを作る | `contexts/RETROSPECTIVE_CONTEXT.md` |
-| ステークホルダー報告を整理する | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
-| 見積前提・不確実性を整理する | `contexts/ESTIMATION_CONTEXT.md` |
-| PMO視点で案件横断レビューをする | `contexts/PMO_REVIEW_CONTEXT.md` |
-| 開発リーダーからPMへの相談を整理する | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
+| Réaliser le bilan de santé 360° du projet (Health Check) | `contexts/PROJECT_HEALTH_CHECK.md` |
+| Rédiger le rapport d'avancement périodique | `contexts/STATUS_REPORT_CONTEXT.md` |
+| Structurer le registre des incidents et des risques | `contexts/ISSUE_RISK_CONTEXT.md` |
+| Préparer une note d'explication ou d'arbitrage pour le client | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| Gérer les premières 72h d'une crise opérationnelle majeure | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| Transformer des notes de réunion en compte rendu et plan d'actions (TODO) | `contexts/MEETING_MINUTES_CONTEXT.md` |
+| Établir l'ordre du jour d'une réunion hebdomadaire (Timeboxing) | `contexts/WEEKLY_MEETING_CONTEXT.md` |
+| Analyser l'impact d'un changement de périmètre (Scope Change) | `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| Concevoir un plan de rattrapage face à une dérive calendaire | `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| Instruire l'analyse causale et le plan d'action d'un incident qualité | `contexts/QUALITY_ISSUE_CONTEXT.md` |
+| Conduire une rétrospective Agile ou un post-mortem (REX) | `contexts/RETROSPECTIVE_CONTEXT.md` |
+| Cadrer le reporting stratégique destiné aux décideurs | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
+| Formaliser les hypothèses de chiffrage et l'analyse d'incertitude | `contexts/ESTIMATION_CONTEXT.md` |
+| Mener une revue transversale de portefeuille multi-projets PMO | `contexts/PMO_REVIEW_CONTEXT.md` |
+| Structurer une remontée d'alerte technique vers le chef de projet | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
 
 ---
 
-## ファイルの種類
+## Typologie des ressources
 
-### コンテキスト本体
+### Fiches de contexte opérationnelles (Contexts)
 
-`contexts/` 配下のファイルは、全てのAIツール共通の中核コンポーネントです。各ファイルには以下が含まれています。
+Les fichiers situés sous `contexts/` forment le cœur universel de la boîte à outils. Chaque fichier intègre :
 
-- Purpose
-- Use Case
-- Input
-- Output
-- Caution
-- 使用例（AIへの依頼例）
+- Purpose (Objectif)
+- Use Case (Cas d'usage)
+- Input (Données à fournir)
+- Output (Livrables attendus)
+- Caution (Précautions d'usage)
+- Exemples d'utilisation (Requêtes types prêtes à l'emploi)
 
-### 設定用ファイル（指示文）
+### Fichiers de configuration (Instructions)
 
-AIツールの設定欄にコピーして使う指示文です。`instructions/` 配下にあります。
+Gabarits de prompts système destinés à être configurés directement dans vos interfaces d'IA, situés sous `instructions/` :
 
-| ファイル | 用途 |
+| Fichier | Destination |
 |---|---|
-| `instructions/chatgpt-project-instructions.md` | ChatGPT Projects の Instructions 欄 |
-| `instructions/custom-gpt-instructions.md` | カスタムGPT の Instructions 欄 |
-| `instructions/gemini-instructions.md` | Gems の指示欄 |
-| `instructions/claude-project-instructions.md` | Claude Projects の指示欄 |
+| `instructions/chatgpt-project-instructions.md` | Paramètres Instructions de ChatGPT Projects |
+| `instructions/custom-gpt-instructions.md` | Champ Instructions des Custom GPTs de ChatGPT |
+| `instructions/gemini-instructions.md` | Champ Instructions des Gems de Google Gemini |
+| `instructions/claude-project-instructions.md` | Instructions de projet de Claude Projects |
 
-### 人間が読むガイド
+### Guides d'outillage pour l'utilisateur
 
-`docs/tools/` 配下のファイルが人間向けのツール別ガイドです。
+Les documents regroupés sous `docs/tools/` fournissent des guides pas à pas pour chaque plateforme.
 
 ---
 
-## AIツール別の使い分け
+## Modalités d'utilisation par plateforme d'IA
 
 ### ChatGPT
 
-- コンテキストファイルの内容を貼り付けて、案件状況を添えて依頼する
-- プロジェクト機能に `instructions/chatgpt-project-instructions.md` を設定すると便利
-- 詳細：[docs/tools/chatgpt.md](tools/chatgpt.md)
+- Collez le contenu du fichier de contexte souhaité dans la conversation, suivi des données anonymisées de votre projet.
+- Pour gagner en efficacité, configurez `instructions/chatgpt-project-instructions.md` dans votre projet ChatGPT.
+- Guide détaillé : [docs/tools/chatgpt.md](tools/chatgpt.md)
 
 ### Gemini
 
-- コンテキストファイルの内容を冒頭に貼り付けて依頼する
-- Gems を作成する場合は `instructions/gemini-instructions.md` を参考にする
-- 詳細：[docs/tools/gemini.md](tools/gemini.md)
+- Collez le fichier de contexte en préambule de votre invite dans Gemini.
+- Pour configurer un Gem personnalisé, appuyez-vous sur `instructions/gemini-instructions.md`.
+- Guide détaillé : [docs/tools/gemini.md](tools/gemini.md)
 
 ### Claude
 
-- Claude Projects の「プロジェクト指示」に `instructions/claude-project-instructions.md` を設定すると便利
-- 長文コンテキストを渡す場合は、不要な情報を省いてから貼り付ける
-- 詳細：[docs/tools/claude.md](tools/claude.md)
+- Configurez les instructions de projet dans Claude Projects à l'aide de `instructions/claude-project-instructions.md`.
+- Pour les contextes volumineux, épurez les informations non indispensables avant soumission.
+- Guide détaillé : [docs/tools/claude.md](tools/claude.md)
 
 ### Claude Code
 
-- `.claude/skills/` 配下に用途別 PM 実務 Skill がある
-- プロジェクトの README、Issue、仕様メモをPM視点でレビューする用途に使う
-- hooks や自動実行は含まない
-- 詳細：[docs/tools/claude-code.md](tools/claude-code.md)
+- Dispose d'un ensemble de compétences dédiées regroupées sous `.claude/skills/`.
+- Permet d'auditer les README, backlogs d'issues et spécifications directement en ligne de commande sous l'angle PM.
+- Ne comporte aucun hook ni script d'exécution automatique non sollicité.
+- Guide détaillé : [docs/tools/claude-code.md](tools/claude-code.md)
 
 ---
 
-## AIに入力する前のマスキング手順
+## Protocole d'anonymisation avant transmission à l'IA
 
-業務情報をAIに渡す前に、必ず以下を確認・実施してください。
+Avant de soumettre la moindre information relative à un projet, appliquez rigoureusement les étapes suivantes :
 
-### Step 1. 入力してよい情報かを確認する
+### Étape 1. Contrôle d'éligibilité des données
 
-- 顧客情報、個人情報、契約情報、認証情報が含まれていないか確認する
-- NDA・顧客契約・社内規程で外部送信が禁止されている情報でないかを確認する
+- Vérifier l'absence absolue de données clients nominatives, coordonnées personnelles, clauses contractuelles confidentielles ou identifiants.
+- S'assurer que les informations ne sont pas couvertes par un accord de confidentialité (NDA) strict ou des politiques internes interdisant l'usage de services tiers.
 
-### Step 2. マスキングする
+### Étape 2. Masquage et pseudonymisation
 
-| 置き換え前（例） | 置き換え後（例） |
+| Donnée réelle (Exemple) | Donnée anonymisée à saisir |
 |---|---|
-| 株式会社〇〇（顧客名） | 顧客A |
-| 田中 太郎（担当者名） | 担当者A |
-| api_key_xxxxxxxxxx | （削除） |
-| 見積金額：3,500万円 | 見積金額：数千万円規模 |
+| Société Alpha (Nom du client) | Client A |
+| Jean Dupont (Chef de projet client) | Intervenant A / Responsable Client |
+| api_key_xxxxxxxxxx | [SUPPRIMÉ] |
+| Montant du contrat : 350 000 € | Budget : Ordre de grandeur de plusieurs centaines de k€ |
 
-### Step 3. 要約・抽象化する
+### Étape 3. Synthèse et abstraction
 
-具体的な数値や詳細が不要な場合は、要約・抽象化してから入力してください。
+Si la mention de chiffres ou de métriques précises n'est pas indispensable à l'analyse, remplacez-les par des tendances qualitatives ou des ordres de grandeur macroscopiques.
 
 ---
 
-## ファイル構成の全体像
+## Architecture générale du référentiel
 
 ```
 project-management-ai-toolkit/
@@ -172,7 +172,7 @@ project-management-ai-toolkit/
 ├── LICENSE.md
 ├── .gitignore
 │
-├── contexts/                          ← コンテキストファイル（主役）
+├── contexts/                          ← Fiches de contexte méthodologiques (Composant central)
 │   ├── PM_CONTEXT.md
 │   ├── PROJECT_HEALTH_CHECK.md
 │   ├── STATUS_REPORT_CONTEXT.md
@@ -190,13 +190,13 @@ project-management-ai-toolkit/
 │   ├── PMO_REVIEW_CONTEXT.md
 │   └── ENGINEER_TO_PM_REPORT_CONTEXT.md
 │
-├── instructions/                      ← 設定用・コピー用指示文
+├── instructions/                      ← Instructions de configuration système prêtes à l'emploi
 │   ├── chatgpt-project-instructions.md
 │   ├── custom-gpt-instructions.md
 │   ├── gemini-instructions.md
 │   └── claude-project-instructions.md
 │
-├── examples/                          ← 架空データによる利用例
+├── examples/                          ← Exemples d'application sur données fictives
 │   ├── README.md
 │   ├── project-health-check-example.md
 │   ├── status-report-example.md
@@ -208,7 +208,7 @@ project-management-ai-toolkit/
 │   └── claude-code-pm-review-example.md
 │
 ├── docs/
-│   ├── usage-guide.md                 ← このファイル
+│   ├── usage-guide.md                 ← Présent guide d'utilisation
 │   ├── ai-safety.md
 │   ├── use-case-map.md
 │   ├── github-publishing-checklist.md
@@ -245,18 +245,18 @@ project-management-ai-toolkit/
 
 ---
 
-## サンプルで使い方を確認する
+## Prise en main par les exemples
 
-具体的な入力例・プロンプト例・期待する出力例を確認したい場合は、`examples/` 配下を参照してください。
+Pour visualiser des cas concrets de requêtes, de données saisies et de restitutions attendues, consultez le répertoire `examples/`.
 
 > [!IMPORTANT]
-> すべてのサンプルは架空データです。実在する顧客情報・案件情報・個人情報は含みません。
-> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認してください。
+> L'intégralité des exemples repose sur des données strictement fictives. Ils ne comportent aucune référence à des clients, projets ou personnes réels.
+> Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial et doivent être validés par un responsable humain.
 
 ---
 
-## 公式サイト
+## Éditeur du projet
 
-このリポジトリは株式会社テックエイドが公開しています。
+Ce référentiel est édité et maintenu par TechAide Inc.
 
 https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit

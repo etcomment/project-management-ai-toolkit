@@ -1,228 +1,216 @@
-﻿# スコープ変更管理コンテキスト / Scope Change Context
+# Contexte de gestion des changements de périmètre / Scope Change Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-仕様変更・スコープ変更・追加要望を整理し、影響範囲・工数・納期・費用・確認事項を洗い出すためのコンテキストです。変更要望への対応方針を検討するための整理補助に使用します。
+Ce contexte permet d'analyser et de cadrer les évolutions de spécifications, demandes de changement de périmètre (Change Requests) et demandes d'ajouts fonctionnels. Il apporte une aide méthodologique pour objectiver les écarts par rapport au périmètre initial, qualifier les impacts (charges, délais, coûts, adhérences techniques) et identifier les arbitrages indispensables.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・論点の抽出を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet.** L'IA est un outil de structuration et d'instruction des points d'arbitrage. Les engagements fermes et les arbitrages contractuels relèvent impérativement de la responsabilité humaine.
 
 > [!CAUTION]
-> 契約条件・見積金額・法的責任範囲に関する記述はAIに入力しないでください。
-> 顧客名・社名・個人名・認証情報はAIに入力しないでください。
+> Ne saisissez jamais de montants financiers contractuels, de chiffrages de devis fermes ou de clauses de responsabilité juridique dans les outils d'IA.
+> N'introduisez aucun nom de client, raison sociale, nom de collaborateur ou clé d'authentification.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- 顧客から仕様変更・追加要望が来たときに影響範囲を整理したいとき
-- 当初スコープとの差分を明確にしたいとき
-- 工数・納期・費用への影響を整理したいとき
-- 顧客に確認すべき事項を洗い出したいとき
-- 選択肢を整理して顧客・上長に提示したいとき
+- Structurer l'analyse d'impact d'une demande d'évolution ou d'un changement de spécifications client.
+- Matérialiser précisément l'écart (delta) entre le périmètre contractuel initial (baseline) et la nouvelle demande.
+- Évaluer les répercussions prévisibles sur la charge (J/H), les jalons de livraison et le budget.
+- Identifier la liste des questions et clarifications indispensables à soumettre au client.
+- Bâtir des scénarios d'arbitrage contrastés (avec avantages et inconvénients) à soumettre aux comités de pilotage ou à la direction.
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et nominatives) :
 
 ```
-### 変更要望
-（顧客・関係者から出た変更・追加要望の内容を箇条書きで）
+### Demande de changement / Expression du besoin
+(Description synthétique du changement sollicité par le client ou les parties prenantes)
 
-### 変更が出た背景
-（なぜこの変更要望が出たか、判明している理由）
+### Contexte et justification du changement
+(Motivations métier, contraintes réglementaires ou opportunités à l'origine de la demande)
 
-### 当初スコープ
-（当初合意していた範囲の概要）
+### Périmètre initial de référence (Baseline)
+(Périmètre fonctionnel initialement contractualisé et convenu)
 
-### 追加になりそうな作業
-（変更対応で新たに発生しそうな作業）
+### Travaux supplémentaires induits
+(Nouvelles tâches techniques ou fonctionnelles générées par cette évolution)
 
-### 影響しそうな機能・範囲
-（変更によって影響を受ける可能性がある機能・範囲）
+### Modules et fonctionnalités impactés
+(Adhérences techniques, composants d'architecture ou processus métier affectés)
 
-### 納期制約
-（変更前の納期・変更後の希望納期など）
+### Contraintes calendaires / Échéances
+(Date d'effet souhaitée, jalon de livraison cible et flexibilité du calendrier)
 
-### 費用制約
-（変更に関して認識している費用上の制約）
+### Contraintes budgétaires
+(Cadre budgétaire d'ensemble ou contraintes de coûts identifiées)
 
-### 顧客に確認したいこと
-（変更対応前に顧客に確認が必要な事項）
+### Points à clarifier avec le client
+(Questions ouvertes et hypothèses nécessitant une validation formelle du client)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 変更内容の整理
+### 1. Synthèse de la demande de changement
+Formalisation claire et synthétique du besoin exprimé et de sa portée.
 
-変更要望の内容をわかりやすく整理したもの。
+### 2. Matrice d'écart avec le périmètre initial (Delta d'engagement)
+Tableau comparatif entre la référence contractuelle initiale et la demande révisée.
 
-### 2. 当初スコープとの差分
+### 3. Matrice d'impact fonctionnel et technique
+Cartographie des modules, interfaces, flux et lots de travaux affectés par l'évolution.
 
-当初スコープと変更後の差分の一覧。
+### 4. Estimation d'impact sur les charges de réalisation
+Qualification de la charge prévisible (chiffrage d'effort préliminaire, zones d'incertitude et besoins d'expertise).
 
-### 3. 影響範囲
+### 5. Analyse d'impact sur le chemin critique et les délais
+Évaluation des dérives calendaires potentielles et identification des jalons nécessitant un réordonnancement.
 
-変更によって影響を受ける可能性がある機能・工程・関係者の範囲。
+### 6. Impacts économiques et modèles de facturation
+Identification des postes générateurs de surcoûts (sans formuler de chiffrage financier définitif).
 
-### 4. 工数影響
+### 7. Demandes de clarification pour le Client
+Liste exhaustive des arbitrages et réponses techniques/fonctionnelles attendus du client avant tout engagement.
 
-変更による工数の増減の概算（確認事項があれば指摘する）。
+### 8. Scénarios d'arbitrage opérationnels
+Propositions d'options (ex. : intégration au forfait avec décalage de date, dépriorisation d'autres fonctionnalités, report en phase ultérieure/V2) avec bilan bénéfices/risques.
 
-### 5. 納期影響
-
-変更による納期への影響の概算と、調整が必要な可能性の指摘。
-
-### 6. 費用影響
-
-変更による追加費用が発生しうるポイントの整理（金額判断はAIに求めない）。
-
-### 7. 顧客に確認すべきこと
-
-変更対応前に顧客・発注者に確認が必要な事項の一覧。
-
-### 8. 提示する選択肢
-
-対応方針として検討できる選択肢と、それぞれのメリット・デメリット。
-
-### 9. エスカレーション要否
-
-上長・法務・契約担当へのエスカレーションが必要と思われる点の指摘。
+### 9. Opportunité d'escalade managériale
+Identification des points de tension justifiant la saisine du directeur de projet, de la direction commerciale ou du département juridique.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **契約・納期・費用・責任範囲に関する判断はAI出力をそのまま使わないでください。** 必ず人間・上長、必要に応じて法務が確認してください。
-- 顧客に提示する変更対応案・追加見積・納期回答は、AI出力をたたき台として、必ず人間が確認・修正してから送付してください。
-- 顧客名・社名・個人名・契約書の記載をAIに入力しないでください。
-- 機密情報・認証情報・ソースコードをAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Interdiction formelle d'engager la société sur les délais, les prix ou le périmètre sur la seule base des sorties de l'IA.** Ces éléments doivent impérativement être validés par le chef de projet, la direction commerciale et la direction de production.
+- Les propositions d'avenants, devis complémentaires ou notifications de replanification destinés au client doivent être relus, modifiés et approuvés par un responsable qualifié.
+- Ne renseignez aucun nom propre de client, d'entreprise ou de clauses contractuelles confidentielles.
+- **Les livrables de l'IA ne valent pas avenant contractuel.**
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce modèle, renseignez les informations du changement de périmètre et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、スコープ変更・仕様変更の影響を整理してください。
+Sur la base des contextes de référence ci-dessous, instruisez cette demande de changement de périmètre / de spécifications selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[SCOPE_CHANGE_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 変更情報（機密情報はマスキング済み）
-
-### 変更要望
-（記入）
-
-### 変更が出た背景
-（記入）
-
-### 当初スコープ
-（記入）
-
-### 追加になりそうな作業
-（記入）
-
-### 影響しそうな機能・範囲
-（記入）
-
-### 納期制約
-（記入）
-
-### 費用制約
-（記入）
-
-### 顧客に確認したいこと
-（記入）
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de SCOPE_CHANGE_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Fiche de changement de périmètre (Données anonymisées)
 
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響
-5. 納期影響
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべき事項一覧
-8. 対応方針の選択肢とメリット・デメリット
-9. エスカレーションが必要な点の指摘
+### Demande de changement
+(Renseigner)
 
-※ 契約・納期・費用・責任範囲に関する最終判断は必ず人間が行ってください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
+### Contexte et justification du changement
+(Renseigner)
+
+### Périmètre initial de référence
+(Renseigner)
+
+### Travaux supplémentaires induits
+(Renseigner)
+
+### Modules et fonctionnalités impactés
+(Renseigner)
+
+### Contraintes calendaires
+(Renseigner)
+
+### Contraintes budgétaires
+(Renseigner)
+
+### Points à clarifier avec le client
+(Renseigner)
+
+---
+
+## Livrables attendus
+
+1. Synthèse de la demande de changement
+2. Matrice d'écart avec le périmètre initial
+3. Matrice d'impact fonctionnel et technique
+4. Estimation d'impact sur les charges (J/H)
+5. Analyse d'impact sur le chemin critique et les délais
+6. Postes de coûts et impacts économiques induits
+7. Demandes de clarification pour le client
+8. Scénarios d'arbitrage et bilan bénéfices/risques
+9. Éléments nécessitant une escalade managériale ou commerciale
+
+※ L'arbitrage final sur les délais, le coût et le périmètre contractuel relève exclusivement de la responsabilité humaine.
+※ Les sorties de l'IA constituent une base d'instruction interne qui doit être validée avant toute communication externe.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure balisée suivante assure une instruction méthodique :
 
 ```text
 <task>
-以下のスコープ変更・仕様変更について、影響範囲・工数・納期・費用・確認事項を整理してください。
-対応方針の選択肢とエスカレーション要否も含めて出力してください。
+Pour la demande d'évolution ou de changement de périmètre ci-dessous, qualifiez le périmètre d'impact, les charges prévisibles, les incidences calendaires et budgétaires, formulez les scénarios d'arbitrage et identifiez les besoins d'escalade.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[SCOPE_CHANGE_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de SCOPE_CHANGE_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【変更情報（機密情報はマスキング済み）】
+【Fiche de changement de périmètre (Données anonymisées)】
 
-### 変更要望
-（記入）
+### Demande de changement
+(Renseigner)
 
-### 変更が出た背景
-（記入）
+### Contexte et justification du changement
+(Renseigner)
 
-### 当初スコープ
-（記入）
+### Périmètre initial de référence
+(Renseigner)
 
-### 追加になりそうな作業
-（記入）
+### Travaux supplémentaires induits
+(Renseigner)
 
-### 影響しそうな機能・範囲
-（記入）
+### Modules et fonctionnalités impactés
+(Renseigner)
 
-### 納期制約
-（記入）
+### Contraintes calendaires
+(Renseigner)
 
-### 顧客に確認したいこと
-（記入）
+### Points à clarifier avec le client
+(Renseigner)
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 契約・発注金額・法的責任範囲に関する記述はAIに入力しないでください。
-- 工数・納期・費用への影響は断定せず、「影響が生じうる」として整理してください。
-- 最終判断は契約・納期・費用・責任範囲を踏まえて人間が行う前提で出力してください。
+- Considérez les données fournies comme rigoureusement anonymisées (exclure tout nom propre ou élément d'identification).
+- Ne saisissez aucun montant de contrat ou engagement contractuel ferme.
+- Ne formulez pas d'estimation de charge comme une certitude absolue ; mentionnez « impacts prévisibles soumis à confirmation technique ».
+- Formulez les réponses sous forme d'aide à la décision, l'arbitrage final revenant au responsable humain.
 </constraints>
 <output_format>
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響（概算・不確実性を明記）
-5. 納期影響が生じうるポイント
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべき事項一覧
-8. 対応方針の選択肢とメリット・デメリット
-9. エスカレーションが必要な点の指摘
+1. Synthèse de la demande de changement
+2. Matrice d'écart avec le périmètre initial
+3. Matrice d'impact fonctionnel et technique
+4. Estimation d'impact sur les charges (avec mention des incertitudes)
+5. Points de vigilance sur le respect des délais
+6. Postes générateurs de surcoûts
+7. Demandes de clarification pour le client
+8. Scénarios d'arbitrage et balance avantages/inconvénients
+9. Points nécessitant un arbitrage hiérarchique ou contractuel
 </output_format>
 ```

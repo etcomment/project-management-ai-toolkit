@@ -1,235 +1,226 @@
-﻿# 品質問題対応コンテキスト / Quality Issue Context
+# Contexte de gestion des incidents qualité / Quality Issue Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-不具合・レビュー漏れ・テスト不足・品質問題の原因と対策を整理するためのコンテキストです。事象の整理・原因分析・再発防止策の検討・報告文の骨子作成を補助します。
+Ce contexte structure l'analyse des anomalies critiques, défauts passés à travers les mailles de relecture, insuffisances de couverture de test et non-conformités qualité. Il apporte un support méthodologique pour caractériser l'incident, conduire l'analyse causale (causes directes et facteurs contributifs), définir le plan d'actions correctives et préventives (CAPA) et préparer la trame de communication.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet.** L'IA est un outil d'aide à la structuration, à l'analyse et à la formalisation de bases de travail. La prise de décision finale relève impérativement de la responsabilité humaine.
 
 > [!CAUTION]
-> ソースコード・認証情報・詳細な技術仕様をAIに入力しないでください。
-> 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-> 障害報告・原因報告・謝罪文はAI出力をそのまま使わず、必ず人間・上長・必要に応じて法務が確認してください。
+> Ne transmettez jamais de code source, d'identifiants techniques, de mots de passe ou de spécifications confidentielles aux outils d'IA.
+> N'introduisez aucun nom de client, raison sociale, nom de collaborateur ou élément contractuel.
+> Ne diffusez jamais directement les rapports d'incident, notes explicatives ou communications officielles générées par l'IA sans relecture, ajustement et validation par le management et, si nécessaire, la direction juridique.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- 不具合・品質問題が発生したときに事象と原因を整理したいとき
-- 直接原因と背景要因を区別して整理したいとき
-- 再発防止策を検討したいとき
-- 顧客向け報告文のたたき台を作りたいとき
-- 社内改善アクションを整理したいとき
+- Structurer l'analyse factuelle d'une anomalie majeure ou d'un incident de production.
+- Distinguer rigoureusement les causes techniques directes (déclencheurs) des causes organisationnelles sous-jacentes (facteurs contributifs).
+- Élaborer un plan d'actions préventives et correctives pour neutraliser la récurrence.
+- Rédiger la trame d'un rapport d'incident ou d'une note de synthèse pour le client.
+- Définir le plan d'amélioration interne des processus de développement et de qualification.
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données techniques sensibles et nominatives) :
 
 ```
-### 発生した不具合・品質問題
-（事象の概要を箇条書きで。ソースコード・認証情報は含めないこと）
+### Description de l'anomalie / Incident qualité constaté
+(Synthèse factuelle des manifestations du problème. Exclure tout code source et identifiant technique)
 
-### 発見タイミング
-（いつ・誰が・どのような状況で発見したか）
+### Circonstances de détection
+(Quand, par qui, dans quel environnement et dans quelles conditions l'incident a été mis en évidence)
 
-### 影響範囲
-（影響を受ける機能・利用者・業務の範囲）
+### Périmètre d'impact
+(Fonctionnalités altérées, volumétrie ou profils d'utilisateurs touchés, processus métier impactés)
 
-### 暫定対応
-（すでに実施した暫定対応・応急処置）
+### Mesures conservatoires / Solutions de contournement immédiates (Workaround)
+(Mesures d'urgence et palliatifs déjà déployés)
 
-### 原因と考えられること
-（現時点での原因仮説を箇条書きで）
+### Hypothèses causales identifiées
+(Hypothèses techniques et fonctionnelles actuelles sur l'origine du dysfonctionnement)
 
-### レビュー状況
-（コードレビュー・設計レビューがどのように行われていたか）
+### Processus de relecture & Revue par les pairs
+(Modalités selon lesquelles les revues de conception et de code ont été conduites sur le périmètre)
 
-### テスト状況
-（テスト計画・実施状況・テストカバレッジの概要）
+### Dispositif et couverture de test
+(Stratégie de test appliquée, types de tests exécutés, couverture et résultats lors de la recette)
 
-### 再発懸念
-（同様の問題が他の箇所でも発生しうると考えている根拠）
+### Risque de propagation / Récurrence
+(Éléments laissant craindre que l'anomalie puisse affecter d'autres modules ou fonctionnalités)
 
-### 顧客影響
-（顧客・利用者への具体的な影響と、現在の顧客の状況）
+### Impact Client & Utilisateur final
+(Conséquences opérationnelles subies par le client ou les usagers, niveau de criticité perçu)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 事象整理
+### 1. Caractérisation factuelle de l'incident
+Synthèse chronologique de l'incident, de ses manifestations et des conditions de son identification.
 
-発生した事象の概要と発見経緯の整理。
+### 2. Causes directes (Déclencheurs techniques)
+Identification de la défaillance technique ou fonctionnelle immédiate à l'origine de l'anomalie.
 
-### 2. 直接原因
+### 3. Facteurs contributifs et causes profondes (Root Cause Analysis)
+Analyse des défaillances sous-jacentes : gouvernance, exigences, processus de revue, environnement ou outillage.
 
-事象を直接引き起こした原因の整理。
+### 4. Synthèse des mesures conservatoires
+Bilan des actions d'urgence déployées, gains immédiats et limites opérationnelles associées.
 
-### 3. 背景要因
+### 5. Solution pérenne et plan de remédiation
+Description des correctifs d'ingénierie nécessaires pour traiter définitivement la cause racine.
 
-直接原因の背後にあるプロセス・体制・環境上の要因。
+### 6. Plan de prévention et non-récurrence
+Mesures correctives structurelles sur les processus, la qualité du code, les grilles de relecture, l'automatisation des tests et l'organisation.
 
-### 4. 暫定対応のまとめ
+### 7. Synthèse des impacts client
+Évaluation objective des préjudices opérationnels et état de la relation client.
 
-実施済みの暫定対応と、その効果・限界の整理。
+### 8. Plan d'amélioration interne
+Axes de progrès identifiés pour l'équipe de réalisation et l'organisation d'ingénierie.
 
-### 5. 恒久対応案
-
-根本的な修正・解決のために必要な対応の整理。
-
-### 6. 再発防止策
-
-プロセス・レビュー・テスト・体制の観点からの再発防止策案。
-
-### 7. 顧客影響のまとめ
-
-顧客・利用者への影響範囲と現在の状況の整理。
-
-### 8. 社内改善策
-
-組織・チームレベルでの改善が必要なポイント。
-
-### 9. 報告文の構成案
-
-顧客・上長への報告文を作成する際の構成と含めるべき要素。
+### 9. Trame de rapport d'incident (Post-Mortem / REX)
+Structure type et arguments clés à intégrer dans la note de restitution destinée au client ou à la gouvernance.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **障害報告・原因報告・謝罪文はAI出力をそのまま使わないでください。** 必ず人間・上長、必要に応じて法務が確認・修正してから送付してください。
-- ソースコード・認証情報・詳細な技術仕様はAIに入力しないでください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- 個人の責任を特定・断定するような内容はAIに求めないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Ne diffusez jamais un rapport d'incident ou une communication de crise générée par l'IA sans validation managériale et juridique préalable.**
+- Excluez impérativement tout extrait de code source, identifiant d'API, mot de passe ou architecture sensible.
+- N'indiquez aucun nom de client, entreprise ou personne physique.
+- Ne sollicitez jamais l'IA pour imputer la faute à un collaborateur ou désigner un responsable individuel.
+- **Les livrables de l'IA ne valent pas arbitrage juridique ou contractuel.**
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce modèle, renseignez les données de l'incident et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、品質問題の原因と対策を整理してください。
+Sur la base des contextes de référence ci-dessous, analysez cet incident qualité et proposez les mesures correctives selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[QUALITY_ISSUE_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 品質問題の情報（機密情報はマスキング済み）
-
-### 発生した不具合・品質問題
-（記入）
-
-### 発見タイミング
-（記入）
-
-### 影響範囲
-（記入）
-
-### 暫定対応
-（記入）
-
-### 原因と考えられること
-（記入）
-
-### レビュー状況
-（記入）
-
-### テスト状況
-（記入）
-
-### 再発懸念
-（記入）
-
-### 顧客影響
-（記入）
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de QUALITY_ISSUE_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Fiche incident qualité (Données anonymisées)
 
-1. 事象整理
-2. 直接原因の整理
-3. 背景要因の整理
-4. 暫定対応のまとめ
-5. 恒久対応案
-6. 再発防止策（プロセス・レビュー・テスト・体制の観点で）
-7. 顧客影響のまとめ
-8. 社内改善策
-9. 顧客・上長向け報告文の構成案
+### Description de l'anomalie / Incident qualité constaté
+(Renseigner)
 
-※ 障害報告・謝罪文はAI出力をそのまま使わず、必ず人間・上長・法務が確認してください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
+### Circonstances de détection
+(Renseigner)
+
+### Périmètre d'impact
+(Renseigner)
+
+### Mesures conservatoires
+(Renseigner)
+
+### Hypothèses causales identifiées
+(Renseigner)
+
+### Processus de relecture
+(Renseigner)
+
+### Dispositif et couverture de test
+(Renseigner)
+
+### Risque de propagation / Récurrence
+(Renseigner)
+
+### Impact Client & Utilisateur final
+(Renseigner)
+
+---
+
+## Livrables attendus
+
+1. Caractérisation factuelle de l'incident
+2. Causes directes
+3. Facteurs contributifs et organisationnels
+4. Synthèse des mesures conservatoires
+5. Solution pérenne et plan de remédiation
+6. Plan de prévention et non-récurrence (processus, revues, tests, organisation)
+7. Synthèse des impacts client
+8. Plan d'amélioration interne
+9. Trame de rapport d'incident pour le client et le management
+
+※ Tout projet de communication ou de rapport d'incident doit impérativement être validé par un humain, le management et les services compétents.
+※ Les sorties de l'IA constituent une base de travail : l'arbitrage et la validation finale relèvent exclusivement de l'humain.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure balisée suivante garantit une restitution rigoureuse :
 
 ```text
 <task>
-以下の品質問題について、事象整理・原因分析・対策・再発防止策・顧客影響をPM視点で整理してください。
+Analysez l'incident qualité ci-dessous avec une perspective Chef de Projet : caractérisation des faits, analyse causale, mesures palliatives, solution pérenne, plan de non-récurrence et projet de note de synthèse.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[QUALITY_ISSUE_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de QUALITY_ISSUE_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【品質問題の情報（機密情報はマスキング済み）】
+【Fiche incident qualité (Données anonymisées)】
 
-### 発生した不具合・品質問題
-（記入）
+### Description de l'anomalie / Incident qualité constaté
+(Renseigner)
 
-### 発見タイミング
-（記入）
+### Circonstances de détection
+(Renseigner)
 
-### 影響範囲
-（記入）
+### Périmètre d'impact
+(Renseigner)
 
-### 暫定対応
-（記入）
+### Mesures conservatoires
+(Renseigner)
 
-### 原因と考えられること
-（記入）
+### Hypothèses causales identifiées
+(Renseigner)
 
-### レビュー状況
-（記入）
+### Processus de relecture
+(Renseigner)
 
-### テスト状況
-（記入）
+### Dispositif et couverture de test
+(Renseigner)
 
-### 顧客影響
-（記入）
+### Impact Client & Utilisateur final
+(Renseigner)
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 責任の断定・補償・賠償への言及はしないでください。
-- 障害報告・謝罪文のたたき台は、上長・法務の確認が必要と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Traitez l'ensemble des éléments comme strictement anonymisés (noms propres, raisons sociales et données contractuelles exclus).
+- Si vous complétez des informations manquantes, mentionnez expressément « (Hypothèse) ».
+- Ne mentionnez aucun engagement formel de responsabilité, indemnisation ou compensation financière.
+- Précisez formellement que le projet de rapport d'incident requiert l'arbitrage du management et du département juridique.
+- Formulez les réponses sous forme d'aide à la décision, l'arbitrage final revenant au responsable humain.
 </constraints>
 <output_format>
-1. 事象整理
-2. 直接原因・背景要因の整理
-3. 暫定対応のまとめ
-4. 恒久対応案
-5. 再発防止策
-6. 顧客影響のまとめ
-7. 顧客・上長向け報告文の構成案（たたき台）
+1. Caractérisation factuelle de l'incident
+2. Causes directes et facteurs contributifs profonds
+3. Synthèse des mesures conservatoires
+4. Solution pérenne et plan de remédiation
+5. Plan de prévention et non-récurrence
+6. Synthèse des impacts client
+7. Trame de rapport d'incident (Post-Mortem) pour le client et le management
 </output_format>
 ```

@@ -1,102 +1,102 @@
-﻿# PM・AI活用 学習ロードマップ
+# Feuille de route d'apprentissage PM & IA / Learning Roadmap
 
 ---
 
-## このページの目的
+## Finalité de ce document
 
-このページでは、リポジトリ内のAI Contextsを使ったあとに、どのPM実務・AI活用テーマを学ぶとよいかを整理します。
+Ce document structure le parcours de montée en compétences en gestion de projet (PM) et en intégration opérationnelle de l'IA générative après prise en main des contextes du répertoire `contexts/`.
 
-AI Contextsはそれぞれの業務場面で役立ちますが、「なぜその観点で整理するのか」「どの順番で考えるべきか」を体系的に理解することで、より実務に活かしやすくなります。
+Si les fichiers de contexte apportent une aide immédiate face aux urgences du terrain, la maîtrise des concepts sous-jacents (« Pourquoi analyser sous cet angle ? », « Quel enchaînement logique adopter ? ») permet de décupler l'impact professionnel du chef de projet.
 
 ---
 
-## 新任PM向けロードマップ
+## Parcours pour nouveaux chefs de projet (Junior PM)
 
-| ステップ | 学ぶテーマ | 関連するAI Contexts |
+| Étape | Thématique de perfectionnement | Contextes IA associés |
 |---|---|---|
-| 1 | プロジェクト全体像の把握 | `contexts/PROJECT_HEALTH_CHECK.md` |
-| 2 | 進捗報告 | `contexts/STATUS_REPORT_CONTEXT.md` |
-| 3 | 課題・リスク管理 | `contexts/ISSUE_RISK_CONTEXT.md` |
-| 4 | 顧客説明 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 5 | 炎上予防・初動対応 | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| 6 | 生成AIを使ったPM業務の補助 | `contexts/PM_CONTEXT.md`（共通前提） |
+| 1 | Vision globale et diagnostic de santé du projet | `contexts/PROJECT_HEALTH_CHECK.md` |
+| 2 | Pilotage de l'avancement et reporting périodique | `contexts/STATUS_REPORT_CONTEXT.md` |
+| 3 | Maîtrise des incidents et gestion des risques | `contexts/ISSUE_RISK_CONTEXT.md` |
+| 4 | Communication client et négociation d'arbitrages | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| 5 | Prévention des crises et conduite des premières 72h | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| 6 | Pilotage assisté par IA et ingénierie de prompts PM | `contexts/PM_CONTEXT.md` (Socle de référence) |
 
-**体系的に学びたい場合**
+**Pour approfondir de manière structurée :**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- En cas d'hésitation sur votre plan de formation : effectuez le [Diagnostic de formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour bénéficier des tarifs préférentiels formateur : consultez la [Page des coupons](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour explorer l'ensemble des programmes : consultez le [Catalogue des formations](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## 開発リーダー・PL向けロードマップ
+## Parcours pour Leaders Techniques & Chefs de Projet Technique (Tech Leads / PL)
 
-| ステップ | 学ぶテーマ | 関連するAI Contexts |
+| Étape | Thématique de perfectionnement | Contextes IA associés |
 |---|---|---|
-| 1 | PMへの相談の型 | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
-| 2 | 仕様変更・スコープ変更の伝え方 | `contexts/SCOPE_CHANGE_CONTEXT.md` |
-| 3 | 課題・リスクの整理 | `contexts/ISSUE_RISK_CONTEXT.md` |
-| 4 | ステークホルダーへの説明 | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
-| 5 | PM基礎 | `contexts/PM_CONTEXT.md`（共通前提） |
-| 6 | AIを使った報告・整理の補助 | `contexts/STATUS_REPORT_CONTEXT.md` |
+| 1 | Structuration des remontées d'alertes vers le PM | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` |
+| 2 | Formulation et impact des changements de périmètre | `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| 3 | Formalisation des points durs et registre des risques | `contexts/ISSUE_RISK_CONTEXT.md` |
+| 4 | Restitution technique auprès des parties prenantes | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` |
+| 5 | Fondamentaux de la gestion de projet et gouvernance | `contexts/PM_CONTEXT.md` (Socle de référence) |
+| 6 | Préparation assistée des notes et synthèses techniques | `contexts/STATUS_REPORT_CONTEXT.md` |
 
-**体系的に学びたい場合**
+**Pour approfondir de manière structurée :**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- En cas d'hésitation sur votre plan de formation : effectuez le [Diagnostic de formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour bénéficier des tarifs préférentiels formateur : consultez la [Page des coupons](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour explorer l'ensemble des programmes : consultez le [Catalogue des formations](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## PMO・支援者向けロードマップ
+## Parcours pour PMO & Directeurs de Projet
 
-| ステップ | 学ぶテーマ | 関連するAI Contexts |
+| Étape | Thématique de perfectionnement | Contextes IA associés |
 |---|---|---|
-| 1 | 状況整理 | `contexts/PROJECT_HEALTH_CHECK.md` |
-| 2 | 課題・リスクの見える化 | `contexts/ISSUE_RISK_CONTEXT.md`、`contexts/PMO_REVIEW_CONTEXT.md` |
-| 3 | 会議・議事録・報告の整理 | `contexts/MEETING_MINUTES_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md` |
-| 4 | ステークホルダー向け説明 | `contexts/STAKEHOLDER_REPORT_CONTEXT.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 5 | AI活用ルールとレビュー観点 | `contexts/PM_CONTEXT.md`（共通前提） |
+| 1 | Bilan de santé opérationnel et diagnostic d'alerte | `contexts/PROJECT_HEALTH_CHECK.md` |
+| 2 | Visibilité consolidée des risques et des incidents | `contexts/ISSUE_RISK_CONTEXT.md`, `contexts/PMO_REVIEW_CONTEXT.md` |
+| 3 | Structuration des comités, décisions et reporting | `contexts/MEETING_MINUTES_CONTEXT.md`, `contexts/STATUS_REPORT_CONTEXT.md` |
+| 4 | Reporting stratégique pour les comités de direction | `contexts/STAKEHOLDER_REPORT_CONTEXT.md`, `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| 5 | Gouvernance de l'IA et grilles d'audit qualité | `contexts/PM_CONTEXT.md` (Socle de référence) |
 
-**体系的に学びたい場合**
+**Pour approfondir de manière structurée :**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- En cas d'hésitation sur votre plan de formation : effectuez le [Diagnostic de formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour bénéficier des tarifs préférentiels formateur : consultez la [Page des coupons](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour explorer l'ensemble des programmes : consultez le [Catalogue des formations](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## 生成AI活用向けロードマップ
+## Parcours de maîtrise de l'IA Générative en Gestion de Projet
 
-| ステップ | 学ぶテーマ | 関連するAI Contexts |
+| Étape | Thématique de perfectionnement | Contextes IA associés |
 |---|---|---|
-| 1 | AIに渡す前提情報の整理 | `contexts/PM_CONTEXT.md` |
-| 2 | 機密情報・個人情報のマスキング | [`docs/ai-safety.md`](ai-safety.md) |
-| 3 | PM業務別AI Contextsの使い分け | [`docs/use-case-map.md`](use-case-map.md) |
-| 4 | AI出力のレビュー | 各 `contexts/*.md` の Human Review Points |
-| 5 | チームで使う場合の注意点 | [`docs/ai-safety.md`](ai-safety.md) |
+| 1 | Cadrage méthodologique et contextualisation des prompts | `contexts/PM_CONTEXT.md` |
+| 2 | Anonymisation, sécurité des données et gestion des PII | [`docs/ai-safety.md`](ai-safety.md) |
+| 3 | Sélection des contextes selon les cas d'usage métiers | [`docs/use-case-map.md`](use-case-map.md) |
+| 4 | Relecture critique et contrôle qualité des sorties IA | Points de validation humaine dans chaque `contexts/*.md` |
+| 5 | Gouvernance et déploiement collaboratif en équipe | [`docs/ai-safety.md`](ai-safety.md) |
 
-**体系的に学びたい場合**
+**Pour approfondir de manière structurée :**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- En cas d'hésitation sur votre plan de formation : effectuez le [Diagnostic de formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour bénéficier des tarifs préférentiels formateur : consultez la [Page des coupons](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour explorer l'ensemble des programmes : consultez le [Catalogue des formations](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## 関連情報
+## Ressources et liens complémentaires
 
-- このリポジトリは、PM業務でAIを使うための無料コンテキスト集です。
-- 体系的に学びたい方は、[テックエイド公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)の学習ロードマップ・関連講座情報も参考にしてください。
+- Ce dépôt GitHub met à disposition des contextes méthodologiques libres pour enrichir votre pratique professionnelle.
+- Pour suivre un cursus structuré, appuyez-vous sur les programmes complets et parcours de formation sur le [site officiel de TechAide](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit).
 
-継続して学びたい方・更新情報を受け取りたい方は、PM・AI活用ラボへ。
+Pour poursuivre vos apprentissages et échanger avec vos pairs, rejoignez le Laboratoire PM & IA :
 
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報・PM実務Tips・AI活用例の共有）
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（自分に合う講座がわからない場合）
-- [Udemy講座一覧](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（体系的に学びたい場合）
+- [Accéder au Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Actualités, retours d'expérience et bonnes pratiques PM)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Identifier les modules adaptés à votre niveau)
+- [Catalogue des formations Udemy](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Cursus complets certifiants)
 
 > [!IMPORTANT]
-> コミュニティへの投稿時は、会社名・顧客名・個人情報・機密情報を含めないでください。
-> 個別案件の詳細相談、機密情報を含む相談、環境依存の技術サポートは対象外です。
+> Lors de vos contributions sur les espaces d'échange, ne publiez jamais de noms de sociétés, clients, collaborateurs ou données confidentielles.
+> Le support ne traite aucun cas d'affaire particulier ni assistance technique liée à des infrastructures privées.
 >
-> 詳細は [docs/community.md](community.md) を参照してください。
+> Pour le détail des règles, consultez [docs/community.md](community.md).

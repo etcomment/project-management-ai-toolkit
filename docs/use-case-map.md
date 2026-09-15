@@ -1,202 +1,202 @@
-﻿# Use Case Map / ユースケースマップ
+# Cartographie des cas d'usage / Use Case Map
 
 ---
 
-## このファイルの目的
+## Finalité de ce guide
 
-PM業務の状況別に、使うべき `contexts/*.md` を整理するガイドです。
+Ce guide vous oriente vers les fichiers `contexts/*.md` adaptés à chaque situation opérationnelle de gestion de projet (PM).
 
-- ChatGPT / Gemini / Claude / Claude Code で共通して使えます
-- このページでは `contexts/` 配下のコンテキストファイルを中心に案内します
-- `prompts/` ディレクトリは存在しません。使用例（AIへの依頼例）は各 `contexts/*.md` の `使用例（このコンテキストを使った依頼例）` セクションに掲載されています
-- まず自分の状況に合う `contexts/*.md` を選び、使用例セクションを参考にAIへの依頼文を作成してください
+- Utilisable indifféremment avec ChatGPT, Gemini, Claude et Claude Code.
+- Ce guide est centré sur les fichiers de contexte du répertoire `contexts/`.
+- Il n'existe pas de répertoire `prompts/` séparé : les modèles de requêtes et exemples concrets sont directement intégrés dans la section `Exemples d'utilisation (Requêtes types)` de chaque fichier `contexts/*.md`.
+- Sélectionnez d'abord le fichier `contexts/*.md` correspondant à votre besoin, puis appuyez-vous sur sa section d'exemples pour calibrer votre consigne.
 
 ---
 
-## まず全体像
+## Schéma d'orientation générale
 
 ```text
-今困っていること
+Besoin immédiat
 │
-├─ プロジェクト全体を見たい
+├─ Évaluer la santé globale du projet
 │    └─ contexts/PROJECT_HEALTH_CHECK.md
 │
-├─ 報告文を作りたい
-│    ├─ 進捗報告
+├─ Rédiger un rapport ou une communication
+│    ├─ Rapport d'avancement (Status Report)
 │    │    └─ contexts/STATUS_REPORT_CONTEXT.md
-│    └─ 上長・経営層向け
+│    └─ Restitution Direction / Comex
 │         └─ contexts/STAKEHOLDER_REPORT_CONTEXT.md
 │
-├─ 課題・リスクを整理したい
-│    ├─ 課題管理
+├─ Structurer les incidents et maîtriser les risques
+│    ├─ Registre des incidents & risques
 │    │    └─ contexts/ISSUE_RISK_CONTEXT.md
-│    └─ 複数案件横断
+│    └─ Revue multi-projets transversale
 │         └─ contexts/PMO_REVIEW_CONTEXT.md
 │
-├─ 顧客対応が必要
-│    ├─ 説明文・相談文
+├─ Gérer la relation et la communication Client
+│    ├─ Notes d'explication et demandes d'arbitrage
 │    │    └─ contexts/CLIENT_COMMUNICATION_CONTEXT.md
-│    ├─ 仕様変更
+│    ├─ Demandes d'évolution de périmètre (Scope Change)
 │    │    └─ contexts/SCOPE_CHANGE_CONTEXT.md
-│    └─ 炎上初動
+│    └─ Gestion de crise (Premières 72 heures)
 │         └─ contexts/FIRE_RESPONSE_FIRST_72H.md
 │
-├─ 会議・振り返りを整理したい
-│    ├─ 会議メモ・TODO
+├─ Structurer les réunions et capitaliser le REX
+│    ├─ Comptes rendus & Plan d'actions (TODO)
 │    │    └─ contexts/MEETING_MINUTES_CONTEXT.md
-│    └─ 振り返り・ポストモーテム
+│    └─ Rétrospective & Post-mortem
 │         └─ contexts/RETROSPECTIVE_CONTEXT.md
 │
-├─ 見積・品質・遅延を整理したい
-│    ├─ 見積前提
+├─ Chiffrages, qualité et plans de rattrapage
+│    ├─ Hypothèses de chiffrage & Incertitudes
 │    │    └─ contexts/ESTIMATION_CONTEXT.md
-│    ├─ 品質問題
+│    ├─ Incidents qualité & Défauts
 │    │    └─ contexts/QUALITY_ISSUE_CONTEXT.md
-│    └─ 遅延リカバリー
+│    └─ Plan de rattrapage de retard
 │         └─ contexts/DELAY_RECOVERY_CONTEXT.md
 │
-└─ 開発現場からPMへ相談したい
+└─ Remontée d'alerte de l'équipe technique vers le PM
      └─ contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md
 ```
 
 ---
 
-## 状況別ファイル選び
+## Matrice de sélection par situation opérationnelle
 
-| 困っていること | 使うAI Contexts | 次に学ぶとよいテーマ |
+| Situation / Problématique | Contexte IA à mobiliser | Domaine de compétences associé |
 |---|---|---|
-| プロジェクト全体が危ないか確認したい | `contexts/PROJECT_HEALTH_CHECK.md` | プロジェクト全体像の把握・状況整理 |
-| 週次進捗報告を作りたい | `contexts/STATUS_REPORT_CONTEXT.md` | 進捗管理・報告スキル |
-| 課題管理表の抜け漏れを確認したい | `contexts/ISSUE_RISK_CONTEXT.md` | 課題管理・リスク管理 |
-| 顧客向けの説明文を作りたい | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 顧客対応・合意形成 |
-| 炎上初動を整理したい | `contexts/FIRE_RESPONSE_FIRST_72H.md` | 炎上予防・初動対応 |
-| 会議メモから議事録を作りたい | `contexts/MEETING_MINUTES_CONTEXT.md` | 会議ファシリテーション・議事録管理 |
-| 仕様変更の影響を整理したい | `contexts/SCOPE_CHANGE_CONTEXT.md` | スコープ管理・変更管理 |
-| 遅延リカバリーを考えたい | `contexts/DELAY_RECOVERY_CONTEXT.md` | スケジュール管理・リカバリー計画 |
-| 品質問題の対策を考えたい | `contexts/QUALITY_ISSUE_CONTEXT.md` | 品質管理・再発防止 |
-| 振り返り・ポストモーテムを整理したい | `contexts/RETROSPECTIVE_CONTEXT.md` | 振り返り・継続改善 |
-| ステークホルダー向け報告を整理したい | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | ステークホルダー管理・説明責任 |
-| 見積前提・不確実性を整理したい | `contexts/ESTIMATION_CONTEXT.md` | 見積精度向上・不確実性マネジメント |
-| PMOとして複数案件を見たい | `contexts/PMO_REVIEW_CONTEXT.md` | PMO運営・案件横断管理 |
-| エンジニアからPMへ相談したい | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | エンジニア向けビジネススキル・PL準備 |
+| Vérifier si la santé globale du projet est compromise | `contexts/PROJECT_HEALTH_CHECK.md` | Diagnostic global de projet & Bilan de santé |
+| Rédiger le rapport d'avancement hebdomadaire | `contexts/STATUS_REPORT_CONTEXT.md` | Pilotage de l'avancement & Reporting |
+| Auditer l'exhaustivité du registre des incidents et des risques | `contexts/ISSUE_RISK_CONTEXT.md` | Gestion des incidents & Maîtrise des risques |
+| Rédiger une note d'explication ou d'arbitrage pour le client | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | Relation client & Négociation d'arbitrages |
+| Gérer les premières 72h d'une crise opérationnelle majeure | `contexts/FIRE_RESPONSE_FIRST_72H.md` | Gestion de crise projet & Stabilisation |
+| Transformer des notes de séance en compte rendu opérationnel | `contexts/MEETING_MINUTES_CONTEXT.md` | Animation de réunion & Relevé de décisions |
+| Qualifier l'impact d'une demande de changement de spécifications | `contexts/SCOPE_CHANGE_CONTEXT.md` | Gestion du périmètre (Scope) & Change Management |
+| Élaborer un plan de rattrapage suite à une dérive calendaire | `contexts/DELAY_RECOVERY_CONTEXT.md` | Pilotage du planning & Fast-tracking / Crashing |
+| Instruire les causes et la remédiation d'un défaut qualité critique | `contexts/QUALITY_ISSUE_CONTEXT.md` | Assurance qualité, CAPA & Analyse causale |
+| Structurer le bilan de fin de projet ou de sprint (REX) | `contexts/RETROSPECTIVE_CONTEXT.md` | Amélioration continue, KPT & Post-mortem |
+| Préparer une note de synthèse exécutive pour la Direction | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | Gestion des parties prenantes & Reporting stratégique |
+| Cadrer les hypothèses de chiffrage et les marges d'aléa | `contexts/ESTIMATION_CONTEXT.md` | Chiffrage d'effort & Maîtrise de l'incertitude |
+| Piloter transversalement un portefeuille multi-projets PMO | `contexts/PMO_REVIEW_CONTEXT.md` | Pilotage PMO & Gouvernance de portefeuille |
+| Remonter une alerte technique de l'équipe vers le chef de projet | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | Communication technique-métier & Posture Lead Dev |
 
-**次の行動**
+**Ressources complémentaires :**
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で学習テーマを確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+- Pour évaluer votre profil et vos priorités d'apprentissage : [Diagnostic de formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour accéder aux offres et réductions formateur : [Coupons de formation](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- Pour consulter le catalogue complet des cursus : [Catalogue des formations](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## AIツール別の使い方
+## Modalités d'exploitation selon les outils d'IA
 
-### 1. 通常チャットで使う
+### 1. Utilisation dans une interface de chat standard
 
-どのAIツールでも、以下の手順で使えます。
+Quel que soit l'outil utilisé (ChatGPT, Claude, Gemini), appliquez la démarche suivante :
 
-1. `contexts/PM_CONTEXT.md` の内容をチャットに貼り付ける
-2. 状況に応じた用途別 `contexts/*.md` を貼り付ける
-3. 案件情報を**マスキング・要約**して貼り付ける
-4. `contexts/*.md` の使用例セクションを参考に依頼文を作る
-5. AI出力を人間が確認する
+1. Coller le contenu de référence de `contexts/PM_CONTEXT.md` dans la conversation.
+2. Coller le fichier `contexts/*.md` correspondant à votre cas d'usage.
+3. Insérer les données de votre projet en veillant à les **anonymiser et les synthétiser**.
+4. Formuler votre consigne en vous appuyant sur la section d'exemples du fichier de contexte.
+5. Procéder systématiquement à la relecture et à la validation humaine du résultat.
 
-### 2. ChatGPT Projects / Claude Projects / Gems に事前設定する
+### 2. Configuration permanente (ChatGPT Projects / Claude Projects / Gems)
 
-事前にプロジェクト設定にコンテキストを登録しておくと、毎回貼り付ける手間を省けます。
+Préconfigurer ces contextes dans les paramètres de vos projets ou assistants personnalisés évite les copier-coller répétitifs :
 
-| ツール | 設定参考ファイル |
+| Plateforme | Fichier d'instructions recommandé |
 |---|---|
 | ChatGPT | `instructions/chatgpt-project-instructions.md` |
-| Gemini（Gems） | `instructions/gemini-instructions.md` |
+| Gemini (Gems) | `instructions/gemini-instructions.md` |
 | Claude Projects | `instructions/claude-project-instructions.md` |
 
-各ツール向けの設定ガイドは、`docs/tools/chatgpt.md`、`docs/tools/gemini.md`、`docs/tools/claude.md` を参照してください。
+Pour les guides d'installation pas à pas, consultez `docs/tools/chatgpt.md`, `docs/tools/gemini.md` et `docs/tools/claude.md`.
 
-### 3. Claude Code Skill と組み合わせる
+### 3. Combinaison avec les Skills Claude Code
 
-Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と組み合わせることができます。
+Si vous utilisez Claude Code en environnement terminal, combinez les contextes avec les compétences du répertoire `.claude/skills/`.
 
-詳細は次セクションを参照してください。
+Reportez-vous à la section suivante pour le détail des associations.
 
 ---
 
-## Claude Code Skill と組み合わせる場合
+## Matrice de correspondance avec les Skills Claude Code
 
-### まず使う
+### Point d'entrée recommandé
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| どのContextを使うべきか診断したい | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
+| Diagnostiquer le besoin et choisir le bon contexte | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
 
-### リスクを見つける
+### Détection et anticipation des risques
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| 表面化していないリスクを確認したい | `.claude/skills/project-risk-radar/SKILL.md` |
-| 課題・リスクレビュー | `.claude/skills/issue-risk-review/SKILL.md` |
+| Détecter les signaux faibles et risques latents | `.claude/skills/project-risk-radar/SKILL.md` |
+| Auditer les points de blocage et les risques | `.claude/skills/issue-risk-review/SKILL.md` |
 
-### 判断する
+### Prise de décision et arbitrage
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| PM判断を整理したい | `.claude/skills/pm-decision-support/SKILL.md` |
+| Structurer un arbitrage managérial complexe | `.claude/skills/pm-decision-support/SKILL.md` |
 
-### 伝える
+### Communication et restitution
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| 相手別の伝え方を整理したい | `.claude/skills/stakeholder-strategy/SKILL.md` |
-| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
-| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
+| Adapter la stratégie de communication par acteur | `.claude/skills/stakeholder-strategy/SKILL.md` |
+| Préparer une note ou un courriel client | `.claude/skills/client-communication/SKILL.md` |
+| Structurer le rapport d'avancement périodique | `.claude/skills/status-report/SKILL.md` |
 
-### AI出力を確認する
+### Gouvernance et contrôle des livrables IA
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| AI出力を実務利用前に確認したい | `.claude/skills/ai-output-governance-review/SKILL.md` |
+| Auditer une sortie IA avant diffusion opérationnelle | `.claude/skills/ai-output-governance-review/SKILL.md` |
 
-### 会議・変更・遅延を整理する
+### Réunions, changements et gestion des dérives
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
-| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
-| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
+| Rédiger le compte rendu et le relevé d'actions | `.claude/skills/meeting-minutes/SKILL.md` |
+| Qualifier un changement de périmètre (Change Request) | `.claude/skills/scope-change-review/SKILL.md` |
+| Bâtir un plan de rattrapage de retard | `.claude/skills/delay-recovery/SKILL.md` |
+| Conduire les 72 premières heures d'une crise | `.claude/skills/fire-response-first-72h/SKILL.md` |
 
-### 汎用レビュー・ヘルスチェック
+### Revues transversales et bilans de santé
 
-| 目的 | Claude Code Skill |
+| Objectif visé | Skill Claude Code associé |
 |---|---|
-| 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
-| プロジェクトヘルスチェック | `.claude/skills/project-health-check/SKILL.md` |
+| Revue globale 360° du projet sous l'angle PM | `.claude/skills/pm-review/SKILL.md` |
+| Bilan de santé périodique (Health Check) | `.claude/skills/project-health-check/SKILL.md` |
 
 > [!NOTE]
-> `.claude/skills/` は実行系ではありません。hooks、command、MCP設定、自動実行は含みません。
-> PM実務の観点をClaude Codeに伝えるためのドキュメントです。
+> Le répertoire `.claude/skills/` ne contient aucun script exécutable, hook, commande CLI, configuration MCP ou automatisation d'arrière-plan.
+> Il s'agit exclusivement de documentation méthodologique guidant le raisonnement de Claude Code.
 
 ---
 
-## 安全上の注意
+## Règles impératives de sécurité
 
 > [!CAUTION]
-> - 実案件情報をそのまま入力しないでください
-> - 顧客名・個人名・会社名・契約情報・認証情報は必ずマスキングしてください
-> - AI出力は業務判断の代替ではありません
-> - 顧客提出・社内報告・契約判断・納期回答には必ず人間が確認してください
+> - Ne saisissez jamais de données d'affaires brutes non filtrées.
+> - Masquez et anonymisez systématiquement : noms de clients, noms de personnes physiques, raisons sociales, clauses contractuelles et identifiants techniques.
+> - Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial ou légal.
+> - Tout document destiné à un client, à la direction ou engageant les délais et coûts requiert impérativement une validation humaine préalable.
 
-詳細は [docs/ai-safety.md](ai-safety.md) および [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) を参照してください。
-
----
-
-## 学習ロードマップ
-
-AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的に学ぶとよいかについては、[docs/learning-roadmap.md](learning-roadmap.md) を参照してください。
+Pour plus de précisions, consultez [docs/ai-safety.md](ai-safety.md) ainsi que [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md).
 
 ---
 
-## 関連情報
+## Parcours de montée en compétences
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（全体像を知りたい方）
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（用途に合う講座を探したい方）
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報を受け取りたい方）
+Pour approfondir les méthodes de gestion de projet et l'intégration avancée de l'IA dans votre pratique professionnelle, consultez le document [docs/learning-roadmap.md](learning-roadmap.md).
+
+---
+
+## Liens utiles
+
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Vue d'ensemble)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Trouver la formation adaptée)
+- [Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit) (Communauté et actualités)

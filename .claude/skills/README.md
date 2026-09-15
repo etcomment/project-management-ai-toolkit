@@ -1,87 +1,87 @@
-# Claude Code Skills for PM × AI
+# Claude Code Skills pour PM × IA
 
-このディレクトリには、PM業務とAI活用を支援するClaude Code向けSkillを配置しています。
+Ce répertoire regroupe les compétences (skills) conçues pour Claude Code afin d'assister les missions de gestion de projet (PM) et le pilotage assisté par IA.
 
-各Skillは **Markdownドキュメントのみ** です。hooks、command、shell script、MCP設定、GitHub Actions、自動コミット、自動デプロイは含みません。
+Chaque skill est constitué **exclusivement de documentation Markdown**. Il ne comporte aucun hook, commande exécutable, script shell, configuration MCP, GitHub Action, commit automatique ni déploiement automatisé.
 
 ---
 
-## まず使う
+## Point d'entrée recommandé
 
-迷ったときや、自分の状況に合うContextやSkillを選びたいときは、ここから始めてください。
+En cas d'hésitation ou pour sélectionner le contexte et le skill les plus pertinents selon votre situation, commencez par ici :
 
 - **`pm-ai-diagnosis/SKILL.md`**
-  - PM課題・AI活用課題を切り分け、使うべきContextやSkillを案内する
-  - **最初に使うならこのSkillが起点です**
+  - Qualifier la problématique PM / le cas d'usage IA et orienter vers le bon contexte ou skill
+  - **Constitue le point de départ naturel pour démarrer**
 
 ---
 
-## リスクを見つける
+## Détection et anticipation des risques
 
 - **`project-risk-radar/SKILL.md`**
-  - 進捗メモ・課題一覧・会議メモから、表面化していないリスクを検知する
+  - Détecter les risques implicites et les signaux faibles à partir des notes d'avancement, listes d'incidents et comptes rendus
 - **`issue-risk-review/SKILL.md`**
-  - 課題・リスクの抜け漏れ、担当者不明、期限不明を確認する
+  - Déceler les omissions dans les points de blocage et risques, identifier les tâches sans responsable ou sans échéance
 
 ---
 
-## 判断する
+## Prise de décision et arbitrage
 
 - **`pm-decision-support/SKILL.md`**
-  - エスカレーション、顧客説明、方針選択などのPM判断を構造化する
+  - Structurer les arbitrages du chef de projet : escalades, argumentaires client, scénarios alternatifs
 
 ---
 
-## 伝える
+## Communication et restitution
 
 - **`stakeholder-strategy/SKILL.md`**
-  - 顧客・上長・開発チーム・経営層など、相手別の伝え方を整理する
+  - Adapter la stratégie de communication selon la cible : client, hiérarchie, équipe de réalisation, direction générale
 - **`client-communication/SKILL.md`**
-  - 顧客向け説明文・相談文・報告文のたたき台を作成する
+  - Préparer des projets de notes explicatives, demandes d'arbitrage et communications formelles destinées aux clients
 - **`status-report/SKILL.md`**
-  - 社内向け・顧客向け・上長向けの進捗報告を整理する
+  - Structurer les rapports d'avancement hebdomadaires/mensuels (formats interne, client et direction)
 
 ---
 
-## AI出力を確認する
+## Contrôle qualité et gouvernance des livrables IA
 
 - **`ai-output-governance-review/SKILL.md`**
-  - AI出力を実務利用する前に、断定表現・機密情報・契約リスクを確認する
+  - Auditer les sorties générées par l'IA avant diffusion : ton péremptoire, fuites d'informations confidentielles, engagements contractuels abusifs
 
 ---
 
-## 会議・変更・遅延を整理する
+## Gestion des réunions, du périmètre et des dérives
 
 - **`meeting-minutes/SKILL.md`**
-  - 会議メモから議事録・決定事項・TODO・次回確認事項を整理する
+  - Structurer les notes de réunion en comptes rendus opérationnels : décisions actées, plans d'action (TODO), points à clarifier
 - **`scope-change-review/SKILL.md`**
-  - 仕様変更・スコープ変更の影響範囲・工数・納期・費用を整理する
+  - Analyser l'impact des demandes de changement de périmètre (Change Requests) : charges, délais, coûts, adhérences
 - **`delay-recovery/SKILL.md`**
-  - 遅延発生時の原因・影響範囲・リカバリー案・説明方針を整理する
+  - Cadrer les plans de rattrapage en cas de dérive calendaire : causes, impacts, scénarios de reprise et stratégie de communication
 - **`fire-response-first-72h/SKILL.md`**
-  - 炎上初動72時間で事実・影響・未確認事項・初動対応を整理する
+  - Conduire les 72 premières heures d'une crise projet : faits avérés, impacts, zones d'ombre et plan d'action d'urgence
 
 ---
 
-## 汎用レビュー・ヘルスチェック
+## Revues transversales et bilans de santé
 
 - **`pm-review/SKILL.md`**
-  - PM視点でプロジェクト状況・Issue・進捗・課題・リスク・次アクションをレビューする
+  - Revue globale 360° du projet sous l'angle PM : avancement, incidents (issues), risques, plan d'action immédiat
 - **`project-health-check/SKILL.md`**
-  - プロジェクト全体の健全度を定期確認し、危険度・リスク・次アクションを整理する
+  - Évaluer périodiquement la santé globale du projet, objectiver le niveau de criticité et prioriser les actions
 
 ---
 
-## 注意事項
+## Précautions impératives
 
-- 各Skillはドキュメントのみです。実行系の自動化機能は提供しません
-- AI出力は業務判断・契約判断・法務判断・納期判断・品質判断の代替ではありません
-- 出力内容は必ず人間が確認・修正してから利用してください
-- 顧客名・個人名・会社名・契約情報・認証情報・議事録全文・本番コードを入力しないでください
-- 業務情報を使う場合は、匿名化・要約化・マスキングしてください
-- hooks / command / shell script / MCP設定 / GitHub Actions / 自動コミット / 自動デプロイは含みません
+- Chaque skill est strictement documentaire et ne fournit aucune automatisation exécutable.
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial, contractuel, juridique, calendaire ou qualité.
+- Tout contenu produit doit impérativement être relu, vérifié et ajusté par un responsable humain avant diffusion.
+- Ne saisissez jamais de noms de clients, noms de personnes physiques, raisons sociales, données contractuelles, clés d'API, comptes rendus intégraux non filtrés ou code de production.
+- Si vous utilisez des informations de projets réels, veillez à les anonymiser, les synthétiser et les masquer rigoureusement.
+- Ne contient aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
 
-関連ドキュメント：
+Documents associés :
 - [`docs/ai-safety.md`](../../docs/ai-safety.md)
 - [`docs/use-case-map.md`](../../docs/use-case-map.md)
 - [`docs/tools/claude-code.md`](../../docs/tools/claude-code.md)

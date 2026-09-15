@@ -1,116 +1,115 @@
-# セキュリティポリシー / Security Policy
+# Politique de sécurité / Security Policy
 
 ---
 
-## 1. このリポジトリのセキュリティ方針
+## 1. Politique de sécurité de ce dépôt
 
-本リポジトリ「project-management-ai-toolkit」は、PM業務向けのAI Contexts、Prompt Template、Claude Code Skills、実務サンプルを提供するものです。
+Le présent dépôt « project-management-ai-toolkit » propose des contextes IA, des modèles de prompts (Prompt Templates), des compétences Claude Code (Claude Code Skills) et des cas d'usage réels adaptés aux missions de gestion de projet (PM).
 
-以下のセキュリティ方針に基づいて管理・運用しています。
-
----
-
-## 2. このリポジトリに含まれないもの
-
-本リポジトリには、以下を意図的に含めていません。
-
-- 実行可能な hooks
-- shell スクリプト / PowerShell スクリプト
-- GitHub Actions ワークフロー
-- MCP設定ファイル
-- package.json / workflow ファイル
-- APIキー・トークン・パスワード・認証情報
-- 自動コミット・自動デプロイの仕組み
-- 外部サービスへの自動通信を行う設定
-
-Claude Code 向けの Skill サンプル（`.claude/skills/` 配下に複数の Skillを含む）は、PMレビューの考え方を示すサンプルドキュメントであり、実行系の自動化機能は提供しません。
+Sa maintenance et son administration reposent sur les principes de sécurité décrits ci-après.
 
 ---
 
-## 3. Issue / Pull Request での注意事項
+## 2. Éléments exclus par conception de ce dépôt
 
-本リポジトリの Issue や Pull Request に、以下の情報を投稿しないでください。
+Ce dépôt n'intègre délibérément aucun des composants suivants :
 
-- 個人情報（氏名、メールアドレス、電話番号等）
-- 顧客情報・顧客企業名
-- APIキー・アクセストークン・パスワード・認証情報
-- 契約情報・機密情報
-- 社内の未公開情報
+- Hooks exécutables
+- Scripts shell (.sh) ou scripts PowerShell (.ps1)
+- Workflows GitHub Actions
+- Fichiers de configuration de serveurs MCP
+- Fichiers package.json ou définitions de workflows
+- Clés d'API, jetons d'accès, mots de passe ou informations d'authentification
+- Dispositifs de commit ou de déploiement automatisés
+- Configurations établissant des flux réseau sortants automatisés vers des services tiers
 
-**誤って機密情報を含むコメントを投稿した場合は、公開 Issue に追記せず、速やかにリポジトリ管理者に連絡してください。**
-
----
-
-## 4. セキュリティ上の懸念を発見した場合
-
-本リポジトリのファイルに以下のような問題を発見した場合は、公開 Issue には書かずに、下記の方法でご連絡ください。
-
-- 機密情報・個人情報が誤って含まれている可能性がある
-- 危険な記述・脆弱なサンプルが含まれている
-- その他、セキュリティ上の懸念がある
-
-**連絡先：**
-
-株式会社テックエイド
-公式サイト：https://techaide.jp/contact/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit
-
-（公式サイトのお問い合わせフォームよりご連絡ください。公開 Issue やコメントに機密情報・セキュリティ懸念の詳細を書かないでください。）
+Les modèles de compétences pour Claude Code (situés dans le répertoire `.claude/skills/`) sont des guides méthodologiques montrant comment structurer une revue PM assistée par IA, et ne fournissent aucune fonctionnalité d'exécution automatisée.
 
 ---
 
-## 5. 利用者へのお願い
+## 3. Règles applicables aux Issues et Pull Requests
 
-本リポジトリのコンテキストやプロンプトを生成AIサービスで利用する場合は、以下を守ってください。
+Ne publiez en aucun cas les informations suivantes dans les Issues ou Pull Requests de ce dépôt :
 
-- 顧客情報・個人情報・契約情報・認証情報・APIキー・パスワードを入力しないこと
-- 所属組織の情報セキュリティ規程を確認すること
-- 顧客との契約・NDAの内容を確認すること
-- 利用するAIサービスの利用規約・プライバシーポリシー・データ利用条件を確認すること
+- Données à caractère personnel (nom, prénom, adresse e-mail, numéro de téléphone, etc.)
+- Informations clients ou dénominations sociales d'entreprises clientes
+- Clés d'API, tokens d'accès, mots de passe ou secrets d'authentification
+- Données contractuelles ou informations confidentielles d'affaires
+- Informations internes d'entreprise non publiques
 
-詳細は [docs/ai-safety.md](../docs/ai-safety.md) を参照してください。
-
----
-
-## 6. 設定ファイル・外部スクリプトの安全な取り扱いについて
-
-本リポジトリ自体には実行可能ファイル・hooks・自動実行設定は含まれていません。
-ただし、他のリポジトリや外部の設定ファイル（`.claude/settings.json`、`.vscode/tasks.json`、`package.json` 等）を参照・導入する際には、以下の点に注意してください。
-（2026年時点で、npm サプライチェーン攻撃・Claude Code hooks 悪用・VS Code tasks 悪用などの手法が報告されています。）
-
-### `.claude/settings.json` の hooks について
-
-- 本リポジトリは `.claude/settings.json` を配布しません。hooks は含まれていません。
-- **他のリポジトリや外部サンプルの `.claude/settings.json` を導入する場合は、`hooks` の内容を必ず確認してください。**
-- `PreToolUse` / `PostToolUse` / `SessionStart` 等の hooks に、curl / wget / powershell / npm / npx / bash / python を含む記述がある場合は、導入前に内容を精査してください。
-- `.claude/settings.local.json` はローカル個人設定ファイルです。コミット・共有しないでください。
-
-### `.vscode/tasks.json` の自動実行について
-
-- 本リポジトリは `.vscode/tasks.json` を配布しません。
-- **他のリポジトリの `.vscode/tasks.json` を導入する場合は、`runOn: folderOpen` や自動実行タスクの内容を必ず確認してください。**
-- 信頼できないタスクをワークスペースに追加しないでください。
-
-### 外部スクリプト・パッケージの実行について
-
-- **`npx <パッケージ名>` や `npm exec` は、バージョン固定・lockfile 管理されていない場合、悪意あるコードを実行するリスクがあります。**
-- `curl URL | sh` / `wget URL | sh` / `Invoke-WebRequest` で取得したスクリプトを即時実行することは避けてください。
-- 信頼できないソースの `package.json` を `npm install` する前に、`postinstall` / `preinstall` / `prepare` スクリプトを確認してください。
-
-### GitHub Actions について
-
-- `pull_request_target` を使用するワークフローには、PR由来コードの権限昇格リスクがあります。
-- `actions/cache` の `restore-keys` は、信頼済みキャッシュの汚染リスクに注意してください。
-- `id-token: write` は必要最小限の job にのみ付与してください。
+**En cas de publication accidentelle d'une donnée sensible dans un commentaire, ne complétez pas l'Issue publique et contactez immédiatement les administrateurs du dépôt.**
 
 ---
 
-## 7. 関連文書
+## 4. Signalement d'une vulnérabilité ou d'un incident de sécurité
 
-- 免責事項：[docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md)
-- 利用規約：[docs/legal/TERMS.md](../docs/legal/TERMS.md)
-- AI利用時の安全ガイド：[docs/ai-safety.md](../docs/ai-safety.md)
+Si vous décelez l'une des anomalies suivantes dans les fichiers du dépôt, n'ouvrez pas d'Issue publique et prévenez-nous par le canal mentionné ci-dessous :
+
+- Présence suspectée d'une information confidentielle ou d'une donnée personnelle
+- Présence d'instructions dangereuses ou d'un exemple présentant une vulnérabilité
+- Tout autre motif d'inquiétude lié à la sécurité
+
+**Point de contact :**
+
+TechAide Inc. (TechAide Inc.)  
+Site web : https://techaide.jp/contact/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit
+
+*(Veuillez nous contacter via le formulaire de contact du site officiel. Ne mentionnez aucun détail confidentiel ou vulnérabilité dans une Issue ou un commentaire public.)*
 
 ---
 
-*株式会社テックエイド*
+## 5. Recommandations aux utilisateurs
+
+Lorsque vous exploitez les contextes et prompts de ce référentiel au sein d'un service d'IA générative, appliquez scrupuleusement les consignes suivantes :
+
+- N'y soumettez jamais d'informations clients, de données personnelles, de clauses contractuelles, d'identifiants, de clés d'API ou de mots de passe
+- Vérifiez la conformité avec la politique de sécurité des systèmes d'information (PSSI) de votre organisation
+- Vérifiez les clauses de confidentialité (NDA) et stipulations contractuelles conclues avec vos clients
+- Examinez les conditions d'utilisation, la politique de confidentialité et la politique d'exploitation des données de la plateforme d'IA utilisée
+
+Pour plus de précisions, reportez-vous au guide [docs/ai-safety.md](../docs/ai-safety.md).
+
+---
+
+## 6. Précautions relatives aux fichiers de configuration et scripts externes
+
+Ce dépôt ne contient en lui-même aucun fichier exécutable, hook ou tâche planifiée automatique.  
+Cependant, lors de l'importation ou de l'analyse de fichiers de configuration provenant de dépôts tiers (`.claude/settings.json`, `.vscode/tasks.json`, `package.json`, etc.), la plus grande vigilance s'impose (des vecteurs d'attaque sur la chaîne d'approvisionnement npm, le détournement des hooks Claude Code et l'automatisation VS Code tasks ayant été documentés en 2026).
+
+### À propos des hooks dans `.claude/settings.json`
+
+- Ce dépôt ne distribue aucun fichier `.claude/settings.json`. Il ne comporte aucun hook.
+- **Si vous adoptez le `.claude/settings.json` d'un dépôt tiers, examinez impérativement la totalité de la section `hooks`.**
+- Si les hooks `PreToolUse`, `PostToolUse` ou `SessionStart` invoquent curl, wget, powershell, npm, npx, bash ou python, analysez minutieusement la chaîne de traitement avant exécution.
+- Le fichier `.claude/settings.local.json` est un fichier de préférences locales strictement personnel : ne le commitez jamais et ne le partagez pas.
+
+### À propos de l'exécution automatique dans `.vscode/tasks.json`
+
+- Ce dépôt ne distribue pas de fichier `.vscode/tasks.json`.
+- **Si vous importez le `.vscode/tasks.json` d'un autre projet, inspectez scrupuleusement les tâches configurées avec `runOn: folderOpen` ou planifiées au démarrage.**
+- N'ajoutez aucune tâche non éprouvée à votre espace de travail.
+
+### À propos de l'exécution de scripts ou packages externes
+
+- **Les commandes `npx <package>` ou `npm exec` non épinglées à une version stricte ou dépourvues de fichier de verrouillage (lockfile) peuvent exécuter du code malveillant à votre insu.**
+- Proscrivez formellement l'exécution directe de scripts téléchargés à la volée via `curl URL | sh`, `wget URL | sh` ou `Invoke-WebRequest`.
+- Examinez les scripts `postinstall`, `preinstall` et `prepare` avant d'exécuter `npm install` sur un `package.json` issu d'une source non vérifiée.
+
+### À propos de GitHub Actions
+
+- L'utilisation du déclencheur `pull_request_target` dans les workflows expose à des risques d'élévation de privilèges via du code issu de PR externes.
+- Prenez garde aux risques d'empoisonnement de cache avec la directive `restore-keys` de l'action `actions/cache`.
+- N'attribuez la permission `id-token: write` qu'aux jobs qui le requièrent strictement.
+
+---
+
+## 7. Documents associés
+
+- Clause de non-responsabilité : [docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md)
+- Conditions d'utilisation : [docs/legal/TERMS.md](../docs/legal/TERMS.md)
+- Guide de sécurité pour l'IA : [docs/ai-safety.md](../docs/ai-safety.md)
+
+---
+
+*TechAide Inc. (TechAide Co., Ltd.)*  
 *https://techaide.jp/*

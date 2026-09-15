@@ -1,48 +1,48 @@
 ---
 name: Improvement request
-about: ドキュメントやコンテキストの改善を提案する
+about: Proposer une amélioration d'un document ou d'un fichier de contexte
 title: "[Improvement]: "
 labels: enhancement
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **Cette Issue est publique. N'y inscrivez JAMAIS de clés d'API, de mots de passe, de tokens, de noms de clients, de données nominatives, de raisons sociales, de noms de projets, de clauses contractuelles ou d'informations confidentielles internes.**
+> En cas d'enjeu de sécurité, référez-vous à [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 改善したい内容
+## Nature de l'amélioration souhaitée
 
-<!-- 何を改善したいか簡潔に説明してください -->
+<!-- Décrivez succinctement ce que vous souhaitez améliorer -->
 
-## 対象ファイル
+## Fichier concerné
 
-<!-- 改善対象のファイルのパスを記載してください -->
-例: `prompts/status-report.md`
+<!-- Indiquez le chemin du fichier cible -->
+Exemple : `prompts/status-report.md`
 
-## 背景
+## Contexte et justification
 
-<!-- なぜこの改善が必要か、どのような状況で不足を感じたかを説明してください（機密情報を含まない範囲で） -->
+<!-- Expliquez pourquoi cette amélioration est nécessaire et dans quelle situation opérationnelle un manque a été constaté (sans divulguer d'informations confidentielles) -->
 
-## 提案内容
+## Proposition détaillée
 
-<!-- 改善案を具体的に説明してください -->
+<!-- Décrivez concrètement votre proposition d'amélioration -->
 
-## 期待する効果
+## Effets bénéfiques attendus
 
-<!-- この改善によって何が良くなるか説明してください -->
+<!-- Expliquez la valeur ajoutée apportée par cette modification -->
 
-## 安全上の懸念（任意）
+## Enjeux de sécurité ou de conformité (optionnel)
 
-<!-- 改善案に安全性・機密情報保護の観点での懸念がある場合は記載してください -->
+<!-- Si la proposition comporte des considérations particulières relatives à la sécurité ou à la confidentialité des données, mentionnez-les ici -->
 
 ---
 
-## Safety checklist
+## Liste de contrôle de sécurité (Safety checklist)
 
-投稿前に以下を確認してください。
+Vérifiez les points suivants avant de soumettre :
 
-- [ ] このIssueに機密情報を含めていません
-- [ ] 実在する顧客名・個人名・会社名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
+- [ ] Cette Issue ne contient aucune information confidentielle
+- [ ] Aucun nom réel de client, individu, entreprise ou projet n'est mentionné
+- [ ] Aucune clé d'API, mot de passe, token ou identifiant d'authentification n'est inclus

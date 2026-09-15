@@ -1,216 +1,207 @@
-﻿# ステークホルダー報告コンテキスト / Stakeholder Report Context
+# Contexte de communication et reporting aux parties prenantes / Stakeholder Report Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-上長・経営層・顧客責任者・PMOなどのステークホルダー向けに、案件状況・重要課題・判断事項を整理するためのコンテキストです。エグゼクティブサマリー・論点整理・意思決定依頼の構成を補助します。
+Ce contexte structure le reporting stratégique et opérationnel destiné aux parties prenantes clés : direction de département, comité de direction (Comex/Codir), directeurs de compte, référents côté client et PMO. Il fournit un cadre pour élaborer des synthèses exécutives percutantes, formaliser les points d'arbitrage et cadrer les demandes formelles de décision ou de soutien.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・構成案の作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet.** L'IA est un outil de structuration et de formalisation d'aide à la décision. La validation finale relève impérativement de la responsabilité humaine.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 経営判断・顧客上位層への報告内容はAI出力をそのまま使わず、必ず人間が確認・修正してください。
+> Ne transmettez aucun nom de client, raison sociale, identifiant de connexion ou élément contractuel confidentiel aux outils d'IA.
+> Ne diffusez jamais directement une note de cadrage stratégique ou un dossier de décision généré par l'IA sans relecture, vérification et validation préalable par un responsable qualifié.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- 上長・経営層向けの案件状況報告を整理したいとき
-- 重要な判断を上位者に依頼する文面のたたき台を作りたいとき
-- 顧客責任者向けの報告骨子を整理したいとき
-- PMOへの報告・相談内容を整理したいとき
-- 支援依頼・エスカレーション内容を整理したいとき
+- Préparer un flash report exécutif pour le management ou la direction générale.
+- Formuler une demande formelle d'arbitrage ou de décision stratégique à soumettre aux décideurs.
+- Structurer l'ordre du jour et la note de cadrage pour un comité de pilotage (Copil) client.
+- Cadrer les éléments d'alerte et de reporting destinés au PMO.
+- Formaliser une demande d'appui, de déblocage de ressources ou un dossier d'escalade.
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et nominatives) :
 
 ```
-### 報告先の立場
-（例：部門長、経営層、顧客責任者、PMO など）
+### Profil des destinataires / Instance de reporting
+(ex. : Directeur de pôle, Comité de direction, Directeur de projet client, PMO)
 
-### 案件状況
-（現在のフェーズ・進捗・全体的な状況の概要）
+### Situation synthétique du projet
+(Phase actuelle, niveau d'avancement global et dynamique générale du projet)
 
-### 重要な課題
-（現在発生している・懸念される主要課題を箇条書きで）
+### Points de blocage et alertes critiques (Issues)
+(Incidents majeurs actuels ou difficultés émergentes nécessitant une visibilité)
 
-### 主要リスク
-（顕在化しているリスク・潜在リスクを箇条書きで）
+### Registre des risques majeurs
+(Risques avérés et risques latents pesant sur les objectifs du projet)
 
-### 判断が必要な事項
-（ステークホルダーに判断・承認してもらう必要がある事項）
+### Points nécessitant un arbitrage ou une décision
+(Décisions opérationnelles, contractuelles ou budgétaires à trancher par l'instance)
 
-### 支援してほしい事項
-（ステークホルダーに支援・介入をお願いしたい事項）
+### Demandes d'appui ou d'intervention
+(Actions de soutien, déblocage de moyens ou interventions managériales attendues)
 
-### 報告期限
-（報告・送付のデッドライン）
+### Échéance de communication
+(Date et heure de restitution ou de diffusion du reporting)
 
-### 次回までの対応方針
-（PM側で対応予定のアクションと方針）
+### Trajectoire et plan d'action PM
+(Mesures déjà engagées et orientations prévues par l'équipe projet d'ici la prochaine échéance)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. エグゼクティブサマリー
+### 1. Synthèse exécutive (Executive Summary)
+Flash report de haut niveau permettant aux décideurs d'appréhender la situation en 1 à 2 minutes (3 à 5 lignes percutantes).
 
-報告先が1〜2分で現状を把握できる概要（3〜5行程度）。
+### 2. État d'avancement et situation opérationnelle
+Synthèse objective du franchissement des jalons, de la tenue du planning et de la dynamique globale.
 
-### 2. 現在の状況
+### 3. Principaux points d'attention (Focus thématique)
+Explicitation des blocages critiques, de leurs causes profondes et de leurs répercussions concrètes.
 
-案件のフェーズ・進捗・全体的な状況の整理。
+### 4. Dossier de décision et points d'arbitrage
+Formulation précise des options d'arbitrage soumises à la validation formelle des parties prenantes.
 
-### 3. 主要な論点
+### 5. Demande formelle de soutien
+Expression claire des leviers managériaux ou organisationnels sollicités auprès de l'instance.
 
-現在の最重要課題と、その背景・影響の整理。
+### 6. Cartographie des risques et mesures d'atténuation
+Tableau de synthèse des risques résiduels et stratégie de maîtrise portée par le chef de projet.
 
-### 4. 意思決定が必要な事項
-
-ステークホルダーに判断・承認を求める事項の整理。
-
-### 5. 支援依頼
-
-ステークホルダーに支援・介入をお願いしたい事項の整理。
-
-### 6. リスクと対応方針
-
-主要リスクとPM側の対応方針・見通しの整理。
-
-### 7. 次回までのアクション
-
-報告者（PM）が次回までに実施するアクションの一覧。
+### 7. Feuille de route d'ici le prochain point d'étape
+Liste des engagements et actions opérationnelles pris par le chef de projet pour la période à venir.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **経営判断・顧客上位層への報告はAI出力をそのまま使わないでください。** 必ず人間が内容を確認・修正してから送付してください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- 機密情報・認証情報はAIに入力しないでください。
-- 納期・費用・責任範囲に関する記述は特に慎重に確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Ne transmettez jamais de communication exécutive issue de l'IA sans validation humaine.** Toute communication destinée au management ou aux décideurs clients doit être rigoureusement revue et ajustée.
+- Ne renseignez aucun nom propre de client, d'entreprise ou de données personnelles.
+- N'introduisez aucun élément contractuel ou financier confidentiel.
+- Pesez rigoureusement les termes touchant aux engagements de délais, de coûts ou de responsabilités.
+- **Les livrables de l'IA constituent une aide à la préparation et non une décision managériale.**
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce modèle, renseignez les éléments de situation et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、ステークホルダー向けの報告内容を整理してください。
+Sur la base des contextes de référence ci-dessous, préparez une note de reporting stratégique destinée aux parties prenantes selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[STAKEHOLDER_REPORT_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 報告情報（機密情報はマスキング済み）
-
-### 報告先の立場
-（記入）
-
-### 案件状況
-（記入）
-
-### 重要な課題
-（記入）
-
-### 主要リスク
-（記入）
-
-### 判断が必要な事項
-（記入）
-
-### 支援してほしい事項
-（記入）
-
-### 報告期限
-（記入）
-
-### 次回までの対応方針
-（記入）
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de STAKEHOLDER_REPORT_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Données de reporting (Données strictement anonymisées)
 
-1. エグゼクティブサマリー（3〜5行）
-2. 現在の状況の整理
-3. 主要な論点（課題・背景・影響）
-4. 意思決定が必要な事項の整理
-5. 支援依頼内容の整理
-6. リスクと対応方針
-7. 次回までのアクション一覧
+### Profil des destinataires
+(Renseigner)
 
-※ 経営判断・顧客上位層への報告はAI出力をそのまま使わず、必ず人間が確認してください。
-※ AI出力は整理のたたき台です。送付前に必ず人間が確認・修正してください。
+### Situation synthétique du projet
+(Renseigner)
+
+### Points de blocage et alertes critiques
+(Renseigner)
+
+### Registre des risques majeurs
+(Renseigner)
+
+### Points nécessitant un arbitrage ou une décision
+(Renseigner)
+
+### Demandes d'appui ou d'intervention
+(Renseigner)
+
+### Échéance de communication
+(Renseigner)
+
+### Trajectoire et plan d'action PM
+(Renseigner)
+
+---
+
+## Livrables attendus
+
+1. Synthèse exécutive (Executive Summary - 3 à 5 lignes)
+2. État d'avancement et situation opérationnelle
+3. Principaux points d'attention (blocages, causes, impacts)
+4. Dossier de décision et points d'arbitrage
+5. Demande formelle de soutien
+6. Cartographie des risques et mesures d'atténuation
+7. Feuille de route d'ici le prochain point d'étape
+
+※ Toute communication destinée à la gouvernance requiert une validation humaine préalable.
+※ Les sorties constituent une base de travail : l'arbitrage final relève exclusivement de la responsabilité humaine.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure balisée suivante garantit une restitution calibrée :
 
 ```text
 <task>
-以下の案件状況をもとに、ステークホルダー向けの報告内容を整理してください。
-エグゼクティブサマリー、論点整理、意思決定依頼事項、次アクションを含めて出力してください。
+Sur la base des éléments projet ci-dessous, préparez la note de communication destinée aux parties prenantes : synthèse exécutive, analyse des points clés, arbitrages requis, demandes d'appui et prochaines actions.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[STAKEHOLDER_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de STAKEHOLDER_REPORT_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【報告情報（機密情報はマスキング済み）】
+【Données de reporting (Données strictement anonymisées)】
 
-### 報告先の立場
-（記入）
+### Profil des destinataires
+(Renseigner)
 
-### 案件状況
-（記入）
+### Situation synthétique du projet
+(Renseigner)
 
-### 重要な課題
-（記入）
+### Points de blocage et alertes critiques
+(Renseigner)
 
-### 主要リスク
-（記入）
+### Registre des risques majeurs
+(Renseigner)
 
-### 判断が必要な事項
-（記入）
+### Points nécessitant un arbitrage ou une décision
+(Renseigner)
 
-### 支援してほしい事項
-（記入）
+### Demandes d'appui ou d'intervention
+(Renseigner)
 
-### 次回までの対応方針
-（記入）
+### Trajectoire et plan d'action PM
+(Renseigner)
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 経営判断・契約・費用・責任範囲に関する事項は断定しないでください。
-- 経営層・顧客上位層への報告内容は、必ず人間が確認・修正してから使用してください。
+- Considérez les données fournies comme rigoureusement anonymisées (exclure tout nom propre ou élément d'identification).
+- Si vous complétez des informations manquantes, mentionnez expressément « (Hypothèse) ».
+- Ne formulez aucune affirmation péremptoire sur des questions de droit, de budget contractuel ou de responsabilité juridique.
+- Précisez que la note doit obligatoirement faire l'objet d'une validation humaine avant diffusion aux décideurs.
 </constraints>
 <output_format>
-1. エグゼクティブサマリー（3〜5行）
-2. 現在の状況の整理
-3. 主要な論点（課題・背景・影響）
-4. 意思決定が必要な事項の整理
-5. 支援依頼内容の整理
-6. リスクと対応方針
-7. 次回までのアクション一覧
+1. Synthèse exécutive (3 à 5 lignes)
+2. État d'avancement et situation opérationnelle
+3. Principaux points d'attention (blocages, causes, impacts)
+4. Dossier de décision et points d'arbitrage
+5. Demande formelle de soutien
+6. Cartographie des risques et mesures d'atténuation
+7. Feuille de route d'ici le prochain point d'étape
 </output_format>
 ```

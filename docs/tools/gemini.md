@@ -1,186 +1,186 @@
-# Gemini 使い方ガイド
+# Guide d'utilisation de Google Gemini / Gemini Usage Guide
 
-Gemini で本リポジトリを活用するためのガイドです。
+Guide pratique pour exploiter le présent référentiel avec Google Gemini.
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・契約情報・認証情報（APIキー・パスワード等）は、Gemini に入力しないでください。
-> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
+> Ne saisissez jamais de données clients réelles, informations personnelles, clauses contractuelles ou identifiants d'accès (clés d'API, mots de passe) dans Gemini.
+> Les livrables de l'IA ne remplacent pas l'arbitrage managérial. Tout contenu produit doit impérativement être relu, vérifié et ajusté par un responsable humain.
 
 ---
 
-## `contexts/` — AI Contexts本体
+## `contexts/` — Composant central (AI Contexts)
 
-コンテキスト本体は `contexts/` 配下にあります。各コンテキストファイルには、AIに渡す前提情報・判断軸・Prompt Template が含まれています。
+Le cœur méthodologique réside dans le répertoire `contexts/`. Chaque fichier rassemble les prérequis métier, les critères d'arbitrage et les modèles d'invites (Prompt Templates).
 
-設定用ファイル（指示文）は `instructions/` 配下にあります。
+Les gabarits d'instructions pour les paramètres système se trouvent sous `instructions/`.
 
 ---
 
-## 使用する設定用ファイル
+## Fichiers de configuration système à utiliser
 
-| ファイル | 設定先 |
+| Fichier | Emplacement de configuration |
 |---|---|
-| `instructions/gemini-instructions.md` | Gems の指示欄 / チャット冒頭 |
+| `instructions/gemini-instructions.md` | Champ Instructions des Gems / Préambule d'une invite |
 
-このファイルは「AIツールの設定欄にコピーして使う指示文」です。人間が読むガイドではありません。
+Ce fichier fournit les directives prêtes à l'emploi à intégrer dans les paramètres d'instructions d'un Gem.
 
 ---
 
-## 利用パターン
+## Modes d'exploitation
 
-### 通常チャットで使う場合
+### Option 1 : Utilisation dans une conversation standard
 
-1. `contexts/PM_CONTEXT.md` の内容をコピーする
-2. Gemini で新しいチャットを開く
-3. チャットの冒頭にコンテキストの内容を貼り付ける
-4. 用途別コンテキスト（`contexts/*.md`）と案件情報（マスキング済み）を続けて入力する
-5. AI出力を人間が確認する
+1. Copier le contenu de `contexts/PM_CONTEXT.md`.
+2. Ouvrir une nouvelle conversation dans Gemini.
+3. Coller le contenu du contexte en tête de message.
+4. Ajouter à la suite le fichier de contexte thématique (`contexts/*.md`) et les informations anonymisées de votre projet.
+5. Procéder à la validation humaine du résultat.
 
 ```text
-以下のコンテキストを前提として振る舞ってください。
-そのうえで、[依頼内容] を整理してください。
+Vous agirez en vous conformant strictement au contexte méthodologique ci-dessous.
+Merci de structurer les éléments suivants : [Objet de votre demande].
 
-【PM_CONTEXT.md の内容】
-[PM_CONTEXT.md の内容をここに貼り付ける]
+【Cadre de référence PM_CONTEXT.md】
+[Coller ici le contenu de PM_CONTEXT.md]
 
-【追加コンテキスト】
-[用途別コンテキストファイルの内容をここに貼り付ける]
+【Contexte thématique additionnel】
+[Coller ici le contenu du fichier de contexte adapté]
 
-【案件状況（機密情報はマスキング済み）】
-[案件の状況をここに記入する]
+【Situation du projet (Données strictement anonymisées)】
+[Renseigner ici les informations du projet]
 ```
 
-### Gems で使う場合
+### Option 2 : Configuration dans les Gems de Gemini
 
-1. Gemini で新しい Gem を作成する
-2. Gem の「指示」欄に `instructions/gemini-instructions.md` の内容を貼り付ける
-3. 必要に応じて `contexts/PM_CONTEXT.md` などをチャット冒頭に追加する
-4. 案件情報（マスキング済み）と用途別コンテキストを入力して依頼する
+1. Créer un nouveau Gem dans Gemini via la fonctionnalité « Gems ».
+2. Coller le texte de `instructions/gemini-instructions.md` dans le champ « Instructions ».
+3. Si nécessaire, insérer le socle commun `contexts/PM_CONTEXT.md` au début de vos échanges.
+4. Transmettre directement les informations projets anonymisées et le contexte thématique.
 
 > [!NOTE]
-> Google Workspace でご利用の場合は、組織のデータ利用ポリシーおよびGems機能の利用可否を事前に確認してください。
+> En cas d'utilisation au sein d'un compte d'entreprise Google Workspace, vérifiez au préalable la politique de sécurité des données de votre organisation et les droits d'activation de la fonctionnalité Gems.
 
 ---
 
-## 利用フロー
+## Schéma récapitulatif du flux de travail
 
 ```text
-Geminiで使う
+Exploitation avec Gemini
 │
-├─ 通常チャット
-│    └─ contexts/*.md をチャットに貼り付ける
+├─ Conversation standard
+│    └─ Coller contexts/*.md en en-tête de la conversation
 │
-└─ Gems
-     └─ instructions/gemini-instructions.md を設定する
+└─ Gemini Gems
+     └─ Paramétrer instructions/gemini-instructions.md
 
-共通の流れ：
-PM_CONTEXT.md → 用途別 contexts/*.md → マスキングして入力 → AI出力を人間が確認
+Démarche méthodologique commune :
+PM_CONTEXT.md → Fichier thématique contexts/*.md → Données anonymisées → Validation humaine
 ```
 
 ---
 
-## 用途別コンテキストの選び方
+## Sélection des contextes thématiques par cas d'usage
 
-| 目的 | コンテキストファイル |
+| Cas d'usage | Fichier de contexte associé |
 |---|---|
-| プロジェクトヘルスチェック | `contexts/PROJECT_HEALTH_CHECK.md` |
-| 進捗報告 | `contexts/STATUS_REPORT_CONTEXT.md` |
-| 課題・リスク整理 | `contexts/ISSUE_RISK_CONTEXT.md` |
-| 顧客向け説明文 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 炎上初動 | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| 議事録・TODO | `contexts/MEETING_MINUTES_CONTEXT.md` |
+| Bilan de santé global du projet | `contexts/PROJECT_HEALTH_CHECK.md` |
+| Rapport d'avancement périodique | `contexts/STATUS_REPORT_CONTEXT.md` |
+| Registre des incidents et risques | `contexts/ISSUE_RISK_CONTEXT.md` |
+| Communication et argumentaire client | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| Gestion de crise (Premières 72h) | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| Compte rendu de réunion & Relevé de décisions | `contexts/MEETING_MINUTES_CONTEXT.md` |
 
-詳細は [docs/use-case-map.md](../use-case-map.md) を参照してください。
-
----
-
-## Google Workspace 利用時の注意
-
-Google Workspace 環境で Gemini を使う場合は、以下を事前に確認してください。
-
-- 組織の AI 利用ポリシー
-- データの外部送信に関する制限
-- Gems 機能の利用可否
-
-不明な場合は、IT管理部門・情報セキュリティ担当に確認してください。
+Pour une vue exhaustive des correspondances, consultez [docs/use-case-map.md](../use-case-map.md).
 
 ---
 
-## 入力前のマスキング例
+## Précautions spécifiques aux environnements Google Workspace
 
-| 置き換え前（例） | 置き換え後（例） |
+Lors de l'utilisation de Gemini dans un environnement professionnel Google Workspace, vérifiez impérativement :
+
+- La charte interne d'utilisation de l'intelligence artificielle
+- Les règles d'habilitation pour la transmission de données vers des services tiers
+- La disponibilité et les autorisations de création de Gems personnalisés
+
+En cas d'incertitude, rapprochez-vous de votre direction informatique (DSI) ou de votre responsable de la sécurité (RSSI).
+
+---
+
+## Exemples d'anonymisation avant saisie
+
+| Donnée réelle (À proscrire) | Formulation anonymisée conforme |
 |---|---|
-| 株式会社〇〇（顧客名） | 顧客A |
-| 田中 太郎（担当者名） | 担当者A |
-| api_key_xxxxxxxxxx | （削除） |
-| 見積金額：3,500万円 | 見積金額：数千万円規模 |
-| プロジェクト名：〇〇システム刷新 | プロジェクトX |
+| Société Alpha Solutions (Client) | Client A |
+| Jean Dupont (Chef de projet client) | Intervenant A / Responsable Client |
+| api_key_xxxxxxxxxx | [SUPPRIMÉ] |
+| Montant contractuel : 350 000 € | Budget : Ordre de grandeur de plusieurs centaines de k€ |
+| Projet Refonte Système Métier | Projet X |
 
 ---
 
-## 利用例（架空データ）
+## Cas pratique illustratif (Données fictives)
 
-以下は架空データを使った利用例です。
+Exemple d'application concrète sur des données simulées :
 
-### 例：プロジェクトヘルスチェック
+### Scénario : Bilan de santé projet (Health Check)
 
-**使用するファイル**
+**Ressources mobilisées**
 - `contexts/PM_CONTEXT.md`
 - `contexts/PROJECT_HEALTH_CHECK.md`
 
-**Sanitized Input（架空データ）**
+**Données d'entrée anonymisées (Données fictives)**
 
 ```
-【案件概要】
-- 種別：Webアプリ開発（受託）
-- フェーズ：設計・開発並行フェーズ
-- 全体進捗：45%
+【Synthèse du projet】
+- Typologie : Développement d'une application Web métier (au forfait)
+- Phase : Conception détaillée et début de réalisation en parallèle
+- Avancement global : 45%
 
-【状況】
-- 画面設計の承認が顧客側の都合で2週間遅延している
-- テスト担当が未アサインで、テスト計画が未作成
-- 顧客から機能追加の要望が3件あり、見積・調整が未実施
+【Situation constatée】
+- La validation des spécifications d'écrans accuse 2 semaines de retard du fait du client
+- Les ressources de recette ne sont pas encore affectées, plan de test non formalisé
+- Le client a formulé 3 demandes d'ajouts fonctionnels sans arbitrage budgétaire
 ```
 
-**Prompt**
+**Modèle de requête (Prompt)**
 
 ```
-以下のコンテキストを前提として振る舞ってください。
-プロジェクト状況をPM視点でヘルスチェックし、
-危険度（高・中・低）、主要な懸念点、次アクションを整理してください。
+Vous agirez en vous conformant aux contextes de référence ci-dessous.
+Réalisez une revue de santé (Health Check) selon une perspective Chef de Projet.
+Restituez le niveau de criticité (Critique / Sous vigilance / Nominal), les risques majeurs et le plan d'action immédiat.
 
-[PM_CONTEXT.md の内容]
-[PROJECT_HEALTH_CHECK.md の内容]
+[Contenu de PM_CONTEXT.md]
+[Contenu de PROJECT_HEALTH_CHECK.md]
 
-【現在の案件状況（架空データ）】
-（上記 Sanitized Input を貼り付ける）
+【Situation du projet (Données anonymisées)】
+(Coller ici les données d'entrée ci-dessus)
 ```
 
-**Human Review Points**
-- 危険度の判断が実際の案件感覚と一致しているか確認する
-- 次アクションの優先順位が現場状況に合っているか調整する
-- AI出力をそのまま顧客提出・社内報告に使わない
+**Points de contrôle humain (Human Review)**
+- Vérifier la cohérence de la note de criticité au regard des enjeux du compte.
+- Réajuster la priorisation opérationnelle des actions proposées.
+- Ne jamais diffuser la réponse générée directement au client ou en comité sans relecture et validation humaine préalable.
 
 ---
 
-## 出力確認チェックリスト
+## Checklist de validation des résultats
 
-- [ ] 出力内容が実際の案件状況と一致している
-- [ ] 顧客・社内の関係性に合ったトーン・表現になっている
-- [ ] 契約・費用・責任範囲に関する表現が正確である
-- [ ] 顧客提出前に上長・担当者のレビューを受けている
-
----
-
-## 関連ドキュメント
-
-- [docs/ai-safety.md](../ai-safety.md) — AIに入力してよい情報・安全な使い方
-- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — 免責事項
+- [ ] L'analyse est rigoureusement conforme à la réalité du projet
+- [ ] Le registre d'expression et la tonalité respectent la relation client et interne
+- [ ] Aucune formulation péremptoire n'engage imprudemment les délais, coûts ou responsabilités
+- [ ] Le document a fait l'objet d'une validation par un responsable habilité avant transmission
 
 ---
 
-## 関連情報
+## Documents associés
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [docs/ai-safety.md](../ai-safety.md) — Règles de sécurité et données autorisées
+- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — Clause de non-responsabilité
+
+---
+
+## Liens utiles
+
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

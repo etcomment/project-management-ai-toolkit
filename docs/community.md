@@ -1,57 +1,57 @@
-﻿# PM・AI活用ラボについて
+# À propos du Laboratoire PM & IA / PM - AI Lab
 
-PM・AI活用ラボは、PM業務とAI活用を学び続けるための無料コミュニティです。
-
----
-
-## このコミュニティで扱うこと
-
-- PM業務でのAI活用Tips
-- AI Contextsやサンプルの更新情報
-- 学習ロードマップ
-- 関連するブログ記事・講座情報
-- PM・PMO・開発リーダー向けの学習テーマ
+Le Laboratoire PM & IA est un espace communautaire gratuit dédié à l'apprentissage continu des pratiques de gestion de projet (PM) et de l'intégration opérationnelle de l'intelligence artificielle.
 
 ---
 
-## 対象者
+## Thématiques abordées
 
-- PM / PMO
-- 開発リーダー
-- PMを目指すエンジニア
-- AIを業務に取り入れたいIT人材
-- テックエイドのUdemy講座で学んでいる方
-
----
-
-## 対象外のこと
-
-- 個別案件の詳細相談
-- 機密情報を含む相談
-- 顧客名、会社名、個人情報を含む投稿
-- 環境依存の技術サポート
-- 契約・法務・税務・労務の専門判断
+- Bonnes pratiques et retours d'expérience sur l'usage de l'IA dans les missions de PM
+- Mises à jour des contextes d'IA (AI Contexts), compétences (Skills) et exemples pratiques
+- Parcours de montée en compétences et feuilles de route d'apprentissage
+- Articles de fond, publications techniques et actualités des formations
+- Modules de perfectionnement pour chefs de projet, PMO et leaders techniques
 
 ---
 
-## 参加前の注意
+## Public visé
+
+- Chefs de projet (PM) et responsables PMO
+- Leaders techniques (Tech Leads, Scrum Masters, Lead Devs)
+- Ingénieurs et développeurs évoluant vers des responsabilités de pilotage de projet
+- Professionnels de l'IT souhaitant intégrer l'IA dans leurs processus de travail
+- Participants aux cursus et formations de TechAide
+
+---
+
+## Périmètre d'exclusion (Ce qui n'est pas traité)
+
+- Conseil personnalisé ou instruction confidentielle sur des affaires spécifiques
+- Questions ou cas pratiques exposant des données confidentielles
+- Publications mentionnant des noms de clients, sociétés réelles ou données personnelles
+- Support technique lié à des environnements d'infrastructure particuliers
+- Avis ou consultations juridiques, fiscales, contractuelles ou de droit social
+
+---
+
+## Précautions impératives avant participation
 
 > [!IMPORTANT]
-> 会社名、顧客名、個人情報、機密情報は投稿しないでください。
+> Ne publiez jamais de noms d'entreprises, noms de clients, données personnelles ou informations sensibles/confidentielles.
 >
-> AI出力をそのまま実務判断に使わないでください。
+> Les contenus et suggestions de l'IA ne doivent en aucun cas être appliqués en production sans validation et discernement humain.
 
 ---
 
-## 参加ページ
+## Rejoindre la communauté
 
-[PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+[Accéder au Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
 
 ---
 
-## 関連情報
+## Ressources associées
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [学習ロードマップ](learning-roadmap.md)
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [公式サイト](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Feuille de route d'apprentissage](learning-roadmap.md)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Site officiel de TechAide](https://techaide.jp/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

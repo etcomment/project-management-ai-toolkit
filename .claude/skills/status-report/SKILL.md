@@ -1,122 +1,122 @@
 ---
 name: status-report
-description: 進捗情報を社内向け・顧客向け・上長向けに整理する。週次・月次の進捗報告を作成したい、社内報告と顧客報告を使い分けたい、上長への簡潔なサマリーが必要なとき、リスクを明示した状況共有が必要なときに使用します。
+description: Structurer les données d'avancement pour générer des rapports de situation (Status Reports) adaptés aux formats interne, client et synthèse direction. À utiliser pour formaliser les suivis hebdomadaires ou mensuels, adapter le registre de langue entre interne et externe, et partager les risques avec clarté.
 ---
 
-# Status Report Skill
+# Compétence de rapport d'avancement / Status Report Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Agissez en tant que chef de projet (PM) chevronné, expert du pilotage de projets informatiques, du développement au forfait, des applications web/mobiles et des systèmes d'information métier.
 
-入力された今週・今月の進捗情報をPM視点で整理し、社内向け・顧客向け・上長向けの報告文を作成します。
+Sur la base des éléments d'avancement de la période (semaine/mois) transmis, vous structurez des rapports de situation précis, rigoureux et calibrés selon chaque audience : communication interne, reporting client et note de synthèse pour la direction.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use (Cas d'usage)
 
-- 週次・月次の進捗報告を作成したいとき
-- 社内報告と顧客報告で使い分けたいとき
-- 上長への簡潔なサマリーを作成したいとき
-- リスクを明示した形で状況を共有したいとき
+- Rédiger les rapports d'avancement périodiques (hebdomadaires ou mensuels).
+- Décliner un même état d'avancement selon les exigences de transparence interne et les subtilités du reporting client.
+- Produire un condensé exécutif percutant pour le management ou la direction générale.
+- Formaliser une mise à jour transparente de la cartographie des risques et des points de blocage.
 
 ---
 
-## Input（入力内容）
+## Input (Informations d'entrée)
 
-以下の情報を入力してください（わかる範囲で構いません）。
+Transmettez les informations suivantes (dans la mesure des éléments disponibles) :
 
-- 報告対象期間
-- 完了したこと
-- 進行中のこと（進捗率や状態も）
-- 遅延・課題・懸念事項
-- 次週・来月の予定
-- リスク・確認待ち事項
+- Période couverte par le rapport
+- Travaux et livrables achevés
+- Tâches en cours de réalisation (taux d'avancement et statut)
+- Retards, points de blocage (issues) et alertes
+- Objectifs et planning de la période suivante
+- Risques résiduels et validations en attente
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+> Ne saisissez jamais de données confidentielles clients, d'informations personnelles ou d'identifiants d'accès (clés d'API, mots de passe).
+> Remplacez systématiquement les entités par des alias génériques (« Client A », « Intervenant B », « Projet X »).
 
 ---
 
 <instructions>
 
-## Approach（取り組み方）
+## Approach (Démarche de structuration du rapport)
 
-入力された情報をもとに、以下のステップで報告文を作成してください。
+Sur la base des éléments d'avancement transmis, produisez les versions du rapport selon les étapes suivantes :
 
-1. 完了・進行中・未着手の状態を整理し、全体進捗を把握する
-2. 遅延・バッファ消費・リスクの有無を確認する
-3. 社内向け（リスク・課題を率直に記載）と顧客向け（トーンを配慮し、確認事項を明確化）で表現を使い分ける
-4. 上長向けには3行以内で要点を凝縮する
-5. リスク一覧を影響度・対応方針とともに整理する
+1. Qualifier l'état d'avancement des tâches (Achevé / En cours / Non engagé) pour objectiver la trajectoire globale.
+2. Évaluer les dérives calendaires, l'érosion des marges (buffers) et la réalité des risques opérationnels.
+3. Adapter le registre d'expression : version interne (transparence totale sur les blocages et difficultés) vs version client (orientée livrables, valeur et actions attendues du client).
+4. Condenser l'essentiel pour la direction en un flash report exécutif de 3 lignes maximum.
+5. Dresser la cartographie des risques en associant à chacun son niveau d'impact et sa stratégie de remédiation.
 
-**入力された情報をもとに、確認を求めることなく報告文のたたき台を直接作成してください。情報が不足している項目は「（要確認）」と記載してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
+**Générez directement les projets de texte sans solliciter de confirmations préalables. Apposez la mention « (À confirmer) » pour toute donnée manquante. Mentionnez « (Hypothèse) » pour toute déduction générale, et indiquez expressément « Les éléments fournis ne permettent pas de statuer » en cas de données insuffisantes pour trancher.**
 
 </instructions>
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Review / Analysis Points (Axes d'analyse)
 
-1. 完了・進行・未着手の状態整理
-2. 遅延・バッファ消費の有無
-3. 顧客向けにトーン調整が必要な箇所（課題・遅延の表現を柔らかくする等）
-4. リスク・課題の表現方法（社内 vs 顧客）
-5. 次アクションの明確化
+1. Structuration factuelle de l'avancement (Terminé / En cours / En attente)
+2. Détection des dérives calendaires et consommation des marges de sécurité
+3. Calibrage diplomatique de la version client (formulation constructive des difficultés)
+4. Traitement différencié des risques et blocages (Interne vs Client)
+5. Précision opérationnelle du plan d'actions pour la période suivante
 
 ---
 
 <output_format>
 
-## Output Format（出力形式）
+## Output Format (Format de restitution)
 
-以下の形式で日本語で出力してください。たたき台として直接使える形で作成し、人間が調整しやすいよう補足・注意点も添えてください。
+Structurez la restitution en français selon la trame suivante, prête à servir de support de travail et facilement ajustable par le chef de projet :
 
-### 【社内向け】進捗報告
+### 【Format Interne】Rapport d'avancement opérationnel
 
-**全体状況：**
+**Situation globale du projet :**
 
-**完了事項：**
+**Livrables & Tâches achevés :**
 
-**進行中：**
+**Chantiers en cours :**
 
-**課題・懸念：**
+**Points de blocage & Difficultés :**
 
-**次週の予定：**
-
----
-
-### 【顧客向け】進捗報告
-
-**全体状況：**
-
-**完了事項：**
-
-**今後の予定：**
-
-**確認・相談事項：**
+**Priorités de la semaine suivante :**
 
 ---
 
-### 【上長向け】サマリー（3行以内）
+### 【Format Client】Communication d'avancement
+
+**Synthèse de la période :**
+
+**Réalisations & Livrables validés :**
+
+**Prochains jalons & Calendrier prévisionnel :**
+
+**Validations & Arbitrages attendus du Client :**
 
 ---
 
-### リスク一覧
+### 【Format Direction】Synthèse exécutive (3 lignes maximum)
 
-| リスク | 影響 | 対応方針 |
+---
+
+### Registre des risques résiduels
+
+| Risque identifié | Périmètre d'impact | Stratégie de remédiation / Plan d'action |
 |---|---|---|
+| | | |
 
 </output_format>
 
 ---
 
-## Caution（注意事項）
+## Caution (Précautions d'usage)
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 顧客提出前には必ず上長・担当者のレビューを受けてください。
-- トーン・表現は案件・顧客の関係性に合わせて必ず調整してください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial. Tout contenu doit impérativement être relu, vérifié et ajusté par un responsable humain.
+- Avant toute communication au client, soumettez systématiquement le rapport à la validation du directeur de projet.
+- Pesez rigoureusement les formulations relatives aux délais et aux responsabilités.
+- Ce skill ne comporte aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
+- N'assure aucune fonction d'exécution automatique.

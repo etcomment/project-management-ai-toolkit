@@ -1,212 +1,206 @@
-﻿# 振り返り・ポストモーテムコンテキスト / Retrospective Context
+# Contexte de rétrospective et de post-mortem / Retrospective Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-プロジェクト完了後・トラブル後・スプリント後などの振り返りやポストモーテムを整理するためのコンテキストです。Keep / Problem / Try の整理・根本原因の分析・再発防止策・教訓のまとめを補助します。
+Ce contexte structure la conduite des bilans de projet, des post-mortems post-incident et des rétrospectives de sprint. Il apporte un support méthodologique pour formaliser la grille KPT (Keep / Problem / Try), conduire l'analyse des causes racines, définir les plans d'actions préventives et capitaliser les enseignements (REX - retour d'expérience).
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet.** L'IA est un outil de structuration, de catégorisation et de préparation de bases de travail. La prise de décision finale relève impérativement de la responsabilité humaine.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・認証情報はAIに入力しないでください。
-> 個人の評価・責任を特定するような内容はAIに求めないでください。
+> Ne saisissez aucun nom de client, raison sociale, identifiant de connexion ou nom de personne physique dans les outils d'IA.
+> N'utilisez en aucun cas l'IA pour évaluer la performance individuelle ou désigner des responsabilités personnelles.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- プロジェクト完了後の振り返りを整理したいとき
-- スプリント後のレトロスペクティブの準備・整理をしたいとき
-- トラブル・障害後のポストモーテムをまとめたいとき
-- 根本原因を整理して再発防止策を検討したいとき
-- 次のプロジェクトへの教訓をまとめたいとき
+- Formaliser le bilan de fin de projet (revue de clôture).
+- Préparer et animer la rétrospective à l'issue d'un sprint Agile/Scrum.
+- Rédiger le rapport de post-mortem après une crise ou un incident majeur en production.
+- Conduire l'analyse causale et bâtir un plan de prévention solide.
+- Capitaliser les bonnes pratiques et les leçons apprises pour les chantiers futurs.
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et nominatives) :
 
 ```
-### プロジェクトの結果・成果
-（プロジェクトの概要・成果・結果の概要）
+### Résultats et livrables du projet
+(Synthèse des objectifs atteints, livrables produits et bilan global)
 
-### うまくいったこと
-（良かった点・成功要因を箇条書きで）
+### Points forts et réussites (Keep)
+(Pratiques efficaces, réussites collectives et facteurs clés de succès)
 
-### 問題が起きたこと
-（課題・トラブル・失敗した点を箇条書きで）
+### Difficultés et dysfonctionnements rencontrés (Problem)
+(Points de blocage, incidents, retards et écueils constatés)
 
-### 時系列（主要なイベント）
-（プロジェクト・スプリント・障害の主要なイベントの流れ）
+### Chronologie des faits marquants
+(Enchaînement chronologique des événements clés du projet, du sprint ou de l'incident)
 
-### 関係者の反応
-（顧客・チームメンバー・上長などの反応の概要）
+### Retours des parties prenantes
+(Perceptions et retours exprimés par le client, l'équipe de réalisation et le management)
 
-### 改善したいこと
-（次回に向けて改善したいプロセス・体制・作業方法）
+### Axes d'amélioration souhaités (Try)
+(Processus, pratiques d'ingénierie ou organisation à faire évoluer pour la suite)
 
-### 再発防止したいこと
-（繰り返したくない問題・失敗パターン）
+### Écueils à éliminer définitivement
+(Erreurs de cadrage ou défaillances à ne plus reproduire)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 振り返りサマリー
+### 1. Synthèse exécutive du bilan
+Résumé percutant du déroulement du projet, du sprint ou de la gestion de crise (3 à 5 lignes).
 
-プロジェクト・スプリント・障害全体の振り返り概要（3〜5行程度）。
+### 2. Matrice KPT (Keep / Problem / Try)
 
-### 2. Keep / Problem / Try
-
-| 分類 | 内容 |
+| Catégorie | Description & Analyse |
 |---|---|
-| Keep（続けること） | |
-| Problem（問題だったこと） | |
-| Try（次回試みること） | |
+| Keep (À conserver) | Pratiques performantes à pérenniser |
+| Problem (Dysfonctionnements) | Difficultés, frictions et faiblesses constatées |
+| Try (À expérimenter) | Pistes d'amélioration concrètes à tester au prochain cycle |
 
-### 3. 根本原因の整理
+### 3. Analyse causale (Causes racines)
+Distinction rigoureuse entre les symptômes visibles, les causes directes et les causes profondes (processus, gouvernance, compétences).
 
-問題の直接原因と、その背後にある根本原因の整理。
+### 4. Plan de remédiation et non-récurrence
+Actions préventives concrètes et directement actionnables ciblant les causes racines identifiées.
 
-### 4. 再発防止策
+### 5. Enseignements clés et bonnes pratiques (REX)
+Capitalisation des leçons apprises et standards méthodologiques à diffuser à l'organisation.
 
-根本原因に対応した再発防止策の案。
+### 6. Plan d'actions de l'équipe
+Feuille de route des chantiers d'amélioration interne portés par l'équipe projet.
 
-### 5. 次回への教訓
-
-プロジェクト全体から学べる教訓・ベストプラクティスのまとめ。
-
-### 6. チーム改善アクション
-
-チームとして取り組むべき改善アクションの一覧。
-
-### 7. 次プロジェクトへの引き継ぎ事項
-
-次のプロジェクトに引き継ぐべきナレッジ・注意事項・前提条件。
+### 7. Éléments de transition vers les projets futurs
+Directives, alertes et prérequis techniques/organisationnels à transmettre aux équipes reprenant le périmètre.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **個人の評価・責任を特定するような出力はAIに求めないでください。** 振り返りはプロセス・体制の改善を目的とします。
-- 顧客名・社名・個人名はAIに入力しないでください。役割（PM、開発リーダー、顧客担当者A など）に置き換えてください。
-- AI出力の振り返り資料はたたき台です。チームで議論・確認してから活用してください。
-- 顧客提出用のポストモーテムレポートは、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Interdiction formelle de rechercher l'imputation de fautes individuelles.** La rétrospective vise l'amélioration continue des processus, des outils et du collectif.
+- Ne renseignez aucun nom propre de client, société ou individu. Utilisez des dénominations par rôle (PM, Lead Dev, Représentant Client A).
+- Les livrables de l'IA constituent une trame de travail : ils doivent être discutés, challengés et validés collectivement par l'équipe.
+- Ne transmettez jamais de rapport de post-mortem généré par l'IA à un client sans relecture, vérification et validation par le management.
+- **Les sorties de l'IA ne remplacent pas le jugement professionnel humain.**
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce modèle, renseignez les données du bilan et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、振り返り・ポストモーテムの内容を整理してください。
+Sur la base des contextes de référence ci-dessous, structurez les éléments de notre rétrospective / post-mortem selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[RETROSPECTIVE_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 振り返り情報（機密情報はマスキング済み）
-
-### プロジェクトの結果・成果
-（記入）
-
-### うまくいったこと
-（記入）
-
-### 問題が起きたこと
-（記入）
-
-### 時系列（主要なイベント）
-（記入）
-
-### 関係者の反応
-（記入）
-
-### 改善したいこと
-（記入）
-
-### 再発防止したいこと
-（記入）
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de RETROSPECTIVE_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Données de la rétrospective (Données strictement anonymisées)
 
-1. 振り返りサマリー（3〜5行）
-2. Keep / Problem / Try の整理
-3. 根本原因の整理
-4. 再発防止策
-5. 次回への教訓・ベストプラクティス
-6. チーム改善アクション一覧
-7. 次プロジェクトへの引き継ぎ事項
+### Résultats et livrables du projet
+(Renseigner)
 
-※ 個人の評価・責任の特定には使わないでください。
-※ AI出力は整理のたたき台です。チームで確認してから活用してください。
+### Points forts et réussites
+(Renseigner)
+
+### Difficultés et dysfonctionnements rencontrés
+(Renseigner)
+
+### Chronologie des faits marquants
+(Renseigner)
+
+### Retours des parties prenantes
+(Renseigner)
+
+### Axes d'amélioration souhaités
+(Renseigner)
+
+### Écueils à éliminer définitivement
+(Renseigner)
+
+---
+
+## Livrables attendus
+
+1. Synthèse exécutive du bilan (3 à 5 lignes)
+2. Matrice Keep / Problem / Try
+3. Analyse causale et causes racines
+4. Plan de remédiation et non-récurrence
+5. Enseignements clés et bonnes pratiques (REX)
+6. Plan d'actions de l'équipe
+7. Éléments de transition vers les projets futurs
+
+※ Ne pas utiliser pour évaluer la performance individuelle ou rechercher des coupables.
+※ Les sorties constituent une base de travail : l'équipe projet doit impérativement les valider.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure balisée suivante assure un cadrage rigoureux :
 
 ```text
 <task>
-以下の振り返り情報をもとに、Keep / Problem / Try、根本原因、再発防止策、次への教訓を整理してください。
+Sur la base des données de rétrospective ci-dessous, formalisez la matrice Keep / Problem / Try, analysez les causes profondes, déterminez le plan de non-récurrence et formalisez le retour d'expérience (REX).
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[RETROSPECTIVE_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de RETROSPECTIVE_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【振り返り情報（機密情報はマスキング済み）】
+【Données de la rétrospective (Données strictement anonymisées)】
 
-### プロジェクトの結果・成果
-（記入）
+### Résultats et livrables du projet
+(Renseigner)
 
-### うまくいったこと
-（記入）
+### Points forts et réussites
+(Renseigner)
 
-### 問題が起きたこと
-（記入）
+### Difficultés et dysfonctionnements rencontrés
+(Renseigner)
 
-### 時系列（主要なイベント）
-（記入）
+### Chronologie des faits marquants
+(Renseigner)
 
-### 関係者の反応
-（記入）
+### Retours des parties prenantes
+(Renseigner)
 
-### 改善したいこと
-（記入）
+### Axes d'amélioration souhaités
+(Renseigner)
 
-### 再発防止したいこと
-（記入）
+### Écueils à éliminer définitivement
+(Renseigner)
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 個人の評価・責任の特定には使わないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は整理のたたき台であり、チームで確認してから活用してください。
+- Considérez les données fournies comme rigoureusement anonymisées (exclure tout nom propre ou élément d'identification).
+- N'utilisez en aucun cas les résultats pour évaluer individuellement des collaborateurs.
+- Si vous complétez des informations manquantes, mentionnez explicitement « (Hypothèse) ».
+- Formulez les réponses sous forme de base de travail collaborative, à faire valider par l'équipe et son management.
 </constraints>
 <output_format>
-1. 振り返りサマリー（3〜5行）
-2. Keep / Problem / Try の整理
-3. 根本原因の整理
-4. 再発防止策
-5. 次回への教訓・ベストプラクティス
-6. チーム改善アクション一覧
-7. 次プロジェクトへの引き継ぎ事項
+1. Synthèse exécutive du bilan (3 à 5 lignes)
+2. Matrice Keep / Problem / Try
+3. Analyse causale et causes racines
+4. Plan de remédiation et non-récurrence
+5. Enseignements clés et bonnes pratiques (REX)
+6. Plan d'actions de l'équipe
+7. Éléments de transition vers les projets futurs
 </output_format>
 ```

@@ -1,23 +1,23 @@
-# PM × AI 診断の利用例
+# Diagnostic PM × IA — Exemple pratique d'utilisation
 
-## このサンプルの目的
+## Objectif de ce cas pratique
 
-このサンプルは、`.claude/skills/pm-ai-diagnosis/SKILL.md` を使って、PM課題・AI活用課題・コミュニケーション課題を切り分ける例です。
+Cet exemple illustre l'utilisation de la compétence `.claude/skills/pm-ai-diagnosis/SKILL.md` pour catégoriser et résoudre méthodiquement les enjeux de gestion de projet (PM), les défis d'adoption de l'IA et les difficultés de communication avec les parties prenantes.
 
 > [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
+> L'ensemble des données est strictement fictif. Aucun nom réel de client, d'entreprise, d'individu ou de projet n'y figure.  
+> Pour toute utilisation sur un projet réel, veillez à anonymiser et synthétiser vos données au préalable.
 
 > [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+> Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial. Toute décision finale relève de la responsabilité exclusive du chef de projet.
 
 ---
 
-## 使用するSkill
+## Compétence (Skill) mobilisée
 
 - `.claude/skills/pm-ai-diagnosis/SKILL.md`
 
-## 関連Context
+## Fichiers de contexte associés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/PROJECT_HEALTH_CHECK.md`
@@ -27,91 +27,92 @@
 
 ---
 
-## 入力例
+## Exemples d'entrées (Input)
 
-### 通常版
+### Version standard
 
 ```text
-.claude/skills/pm-ai-diagnosis/SKILL.md の内容を前提として、
-以下の状況に合うContextとSkillを案内してください。
-【状況】
-現在、開発フェーズ中盤です。
-開発作業は進んでいますが、顧客確認待ちの仕様が複数あり、週次報告で何をどの粒度で伝えるべきか迷っています。
-課題管理表には課題が10件ありますが、担当者と期限が未設定のものもあります。
-AIを使って状況を整理したいのですが、どのContextを使えばよいか分かりません。
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+En te basant sur le contenu de .claude/skills/pm-ai-diagnosis/SKILL.md,
+indique-moi les contextes et compétences les plus adaptés pour traiter la situation ci-dessous.
+
+【Situation opérationnelle】
+Nous sommes actuellement en milieu de phase de développement.
+Les développements avancent, mais plusieurs spécifications en attente de validation client restent bloquées. J'hésite sur le niveau de détail et la posture à adopter dans le rapport d'avancement hebdomadaire.
+Le registre des alertes compte 10 problèmes recensés, dont certains sans responsable ni échéance définis.
+Je souhaite utiliser l'IA pour remettre de l'ordre dans ce pilotage, mais j'ignore quel fichier de contexte exploiter en priorité.
+※ Les noms de clients, d'entreprises et données sensibles ont été rigoureusement anonymisés.
 ```
 
-### Claude向けXMLタグ版
+### Version structurée en balises XML (recommandée pour Claude)
 
 ```text
 <task>
-.claude/skills/pm-ai-diagnosis/SKILL.md の内容を前提として、
-以下の状況に合うContextとSkillを案内してください。
+En te basant sur le contenu de .claude/skills/pm-ai-diagnosis/SKILL.md,
+indique-moi les contextes et compétences les plus adaptés pour traiter la situation ci-dessous.
 </task>
 <input>
-【状況】
-現在、開発フェーズ中盤です。
-開発作業は進んでいますが、顧客確認待ちの仕様が複数あり、週次報告で何をどの粒度で伝えるべきか迷っています。
-課題管理表には課題が10件ありますが、担当者と期限が未設定のものもあります。
-AIを使って状況を整理したいのですが、どのContextを使えばよいか分かりません。
+【Situation opérationnelle】
+Nous sommes actuellement en milieu de phase de développement.
+Les développements avancent, mais plusieurs spécifications en attente de validation client restent bloquées. J'hésite sur le niveau de détail et la posture à adopter dans le rapport d'avancement hebdomadaire.
+Le registre des alertes compte 10 problèmes recensés, dont certains sans responsable ni échéance définis.
+Je souhaite utiliser l'IA pour remettre de l'ordre dans ce pilotage, mais j'ignore quel fichier de contexte exploiter en priorité.
 </input>
 <constraints>
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
-- 判断に必要な情報が不足している場合は「情報不足」と明記してください。
-- 推奨するContextとSkillの理由を明示してください。
+- Toutes les données nominatives et sensibles ont été préalablement anonymisées.
+- En cas d'informations manquantes pour étayer le diagnostic, mentionne expressément « Données insuffisantes ».
+- Explicite systématiquement la justification opérationnelle de chaque contexte ou compétence recommandé.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Restitution attendue de l'IA (Expected Output)
 
-以下のような観点で出力されることを期待します。
+La restitution attendue doit structurer la réflexion selon les axes suivants :
 
-### 診断結果サマリー
+### Synthèse du diagnostic
 
-- PM課題、AI活用課題、コミュニケーション課題が分けて整理される
-- 最初に使うべきContextが提示される
-- 併用するとよいSkillが提示される
+- Ventilation claire entre problématiques PM pures, freins d'usage de l'IA et défis de communication
+- Identification du contexte IA prioritaire à instancier en premier
+- Recommandation des compétences Claude Code à activer en synergie
 
-### 課題の分類
+### Typologie et ventilation des problématiques
 
-| 分類 | 内容 | 優先度 |
+| Typologie | Nature de l'enjeu | Niveau de priorité |
 |---|---|---|
-| PM課題 | 顧客確認待ちの仕様が複数あり、課題管理表にも担当者・期限未設定のものがある | 高 |
-| AI活用課題 | どのContextを使えばよいか判断できていない | 中 |
-| コミュニケーション課題 | 週次報告で顧客へ何を伝えるべきか迷っている | 高 |
+| **Enjeu PM** | Spécifications en souffrance côté client ; registre des problèmes comportant des points sans responsable ni échéance | Haute |
+| **Enjeu d'usage de l'IA** | Difficulté à sélectionner le contexte adapté à la problématique immédiate | Moyenne |
+| **Enjeu de communication** | Incertitude sur le niveau de granularité et la posture diplomatique dans le rapport hebdomadaire | Haute |
 
-### まず使うべきContext
+### Contextes prioritaires à exploiter
 
-| 優先度 | Context | 使う理由 |
+| Priorité | Fichier de contexte | Justification opérationnelle |
 |---|---|---|
-| 高 | `contexts/ISSUE_RISK_CONTEXT.md` | 担当者・期限未設定の課題を整理するため |
-| 高 | `contexts/STATUS_REPORT_CONTEXT.md` | 週次報告を社内向け・顧客向けに分けるため |
-| 中 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 顧客確認待ち事項の伝え方を整理するため |
+| **Haute** | `contexts/ISSUE_RISK_CONTEXT.md` | Pour assainir le registre des problèmes et assigner responsables et échéances fermes |
+| **Haute** | `contexts/STATUS_REPORT_CONTEXT.md` | Pour calibrer distinctement le rapport d'avancement interne et la note client |
+| **Moyenne** | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | Pour formaliser des relances fermes sans heurter la relation partenariale |
 
-### 併用するとよいSkill
+### Compétences (Skills) à mobiliser en complément
 
-| 優先度 | Skill | 使う理由 |
+| Priorité | Compétence | Justification opérationnelle |
 |---|---|---|
-| 高 | `issue-risk-review` | 課題管理表の抜け漏れを確認するため |
-| 高 | `status-report` | 週次報告を整理するため |
-| 中 | `stakeholder-strategy` | 顧客・社内への伝え分けを整理するため |
+| **Haute** | `issue-risk-review` | Pour auditer et fiabiliser la couverture du tableau des problèmes |
+| **Haute** | `status-report` | Pour structurer la synthèse exécutive et le flash report hebdomadaire |
+| **Moyenne** | `stakeholder-strategy` | Pour adapter le discours selon les profils d'interlocuteurs (direction vs opérationnels) |
 
 ---
 
-## Human Review Points
+## Points de contrôle humain (Human Review Points)
 
-- 診断結果が実際の案件状況と合っているか
-- AIが推奨したContextが目的に合っているか
-- 顧客提出・社内報告に使う前に人間が内容を確認したか
-- 機密情報・個人情報が含まれていないか
+- Le diagnostic reflète-t-il la dynamique réelle et les urgences du projet ?
+- Les contextes préconisés répondent-ils directement aux goulots d'étranglement constatés ?
+- Un chef de projet a-t-il relu et adapté les livrables avant toute diffusion interne ou client ?
+- Aucune information confidentielle ou nominative n'a-t-elle été injectée par inadvertance ?
 
 ---
 
-## 次に確認するとよいページ
+## Ressources complémentaires recommandées
 
-- `docs/use-case-map.md`
-- `docs/learning-roadmap.md`
-- `docs/ai-safety.md`
+- Cartographie des cas d'usage : `docs/use-case-map.md`
+- Parcours d'apprentissage : `docs/learning-roadmap.md`
+- Consignes de sécurité et gouvernance : `docs/ai-safety.md`

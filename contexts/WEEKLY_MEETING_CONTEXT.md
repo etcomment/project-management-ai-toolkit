@@ -1,216 +1,211 @@
-﻿# 週次定例会議コンテキスト / Weekly Meeting Context
+# Contexte de réunion hebdomadaire d'avancement / Weekly Meeting Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-週次定例会のアジェンダ・確認順序・事前準備・会議後TODOを整理するためのコンテキストです。顧客定例・社内定例どちらにも使用できます。
+Ce contexte structure la préparation et le suivi des réunions hebdomadaires d'avancement (points de synchronisation interne ou comités opérationnels clients). Il fournit un cadre méthodologique pour bâtir un ordre du jour équilibré, prioriser l'examen des sujets, identifier les prérequis de préparation et consolider le plan d'actions (relevé de décisions / TODO) post-réunion.
 
-**AIはPMの判断を代替しません。** AIはアジェンダ作成・準備リスト・TODO整理の補助ツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet.** L'IA est un outil de structuration, de cadrage des ordres du jour et de formalisation des plans d'action. La prise de décision finale relève impérativement de la responsabilité humaine.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 機密性の高い内容は役割・状況の概要に置き換えてから入力してください。
+> Ne transmettez aucun nom de client, raison sociale, nom de collaborateur ou élément contractuel confidentiel aux outils d'IA.
+> Substituez systématiquement les données sensibles par des rôles et des dénominations génériques.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- 顧客定例のアジェンダを事前に準備したいとき
-- 社内定例の確認順序と所要時間を整理したいとき
-- 前回宿題の確認リストを作りたいとき
-- 会議後のTODOを整理したいとき
-- 定例で確認すべきリスクを洗い出したいとき
+- Préparer l'ordre du jour (agenda) d'un point hebdomadaire client ou interne.
+- Déterminer le séquençage optimal des échanges et le calibrage du temps de parole (Timeboxing).
+- Établir la revue d'avancement des actions actées lors de la séance précédente.
+- Consolider le plan d'actions opérationnel (relevé de décisions / TODO) immédiatement après la séance.
+- Identifier en amont les risques et arbitrages sensibles à mettre sur la table.
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et nominatives) :
 
 ```
-### 会議の目的
-（例：顧客との週次進捗確認、社内チーム状況共有 など）
+### Finalité de la réunion
+(ex. : Point hebdomadaire d'avancement avec le client, synchronisation interne de l'équipe de développement)
 
-### 参加者の役割（実名は入力しないこと）
-（例：PM、開発リーダー、インフラ担当、顧客担当者A など）
+### Rôles des participants (aucun nom réel)
+(ex. : PM, Lead Dev, Ingénieur DevOps, Référent Fonctionnel Client A, etc.)
 
-### 現在の進捗
-（完了していること・進行中のこと・遅延していることを箇条書きで）
+### Avancement opérationnel
+(Synthèse des travaux achevés, en cours et en retard sous forme de puces)
 
-### 確認したい課題
-（会議で確認したい課題・問題を箇条書きで）
+### Points durs et blocages à instruire
+(Difficultés techniques, fonctionnelles ou organisationnelles à trancher en séance)
 
-### 顧客に相談したいこと（顧客定例の場合）
-（顧客の判断・確認が必要な事項を箇条書きで）
+### Demandes d'arbitrage client (en cas de point client)
+(Questions ouvertes nécessitant un arbitrage ou une validation formelle du client)
 
-### 前回からの宿題・持ち越し事項
-（前回決まったはずのTODOや、前回確認待ちになっていた事項）
+### Actions en suspens de la séance précédente
+(État d'avancement des engagements et tâches actés lors du précédent point)
 
-### 今回決めたいこと
-（この会議で必ず結論を出したい事項を箇条書きで）
+### Objectifs d'arbitrage de la séance
+(Décisions impératives devant être formellement arrêtées au terme de la réunion)
 
-### 会議時間（分）
-（例：60分、90分 など）
+### Durée planifiée (en minutes)
+(ex. : 45 min, 60 min, 90 min)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 会議アジェンダ
+### 1. Ordre du jour de la réunion (Agenda)
 
-| No. | 議題 | 目的 | 想定時間 | 担当（役割） |
+| N° | Sujet / Thématique | Objectif visé | Durée estimée | Porteur (Rôle) |
 |---|---|---|---|---|
 
-### 2. 確認順序と想定時間配分
+### 2. Séquençage et allocation du temps (Timeboxing)
+Hiérarchisation des priorités d'instruction et recommandations de cadencement pour tenir la durée impartie.
 
-議題の優先順と、各議題の推奨所要時間。
+### 3. Checklist de préparation en amont
+Inventaire des éléments à réunir avant la séance : indicateurs, démonstrations, documents de cadrage ou pré-alignements.
 
-### 3. 事前準備リスト
+### 4. Revue des actions antérieures
+Grille de suivi des engagements pris lors de la séance précédente pour s'assurer du débouclage effectif.
 
-会議前に準備すべき資料・確認事項・送付物の一覧。
+### 5. Relevé d'actions et décisions (TODO post-réunion)
 
-### 4. 前回宿題の確認リスト
-
-前回会議からの宿題・持ち越し事項の確認リスト。
-
-### 5. 会議後TODO一覧
-
-| No. | 作業内容 | 担当（役割） | 期限 | 備考 |
+| N° | Intitulé de l'action / Décision | Responsable (Rôle) | Échéance | Remarques & Critères d'acceptation |
 |---|---|---|---|---|
 
-### 6. 次回持ち越し事項
+### 6. Points reportés / Ajournements
+Identification des questions n'ayant pu être tranchées et nécessitant une séance ad hoc ou une instruction complémentaire.
 
-今回確認できなかった・持ち越しになりそうな事項の一覧。
-
-### 7. 会議で確認すべきリスク
-
-現在の状況から見えるリスク・懸念点で、この会議で確認・共有すべきもの。
+### 7. Risques critiques à instruire en séance
+Identification des risques émergents à partager impérativement lors du point d'étape.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **顧客名・社名・個人名をAIに入力しないでください。** 役割や「顧客担当者A」などに置き換えてください。
-- AI出力のアジェンダはたたき台です。実際の案件状況・関係者の状況に合わせて人間が修正してください。
-- 顧客に送付するアジェンダは、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Ne saisissez aucun nom réel de client, de société ou d'individu.** Utilisez des rôles génériques (« Représentant Client A », « PM »).
+- L'ordre du jour généré est un cadre de travail : adaptez-le à la dynamique réelle de vos interlocuteurs.
+- Ne diffusez jamais un ordre du jour ou un compte rendu au client sans vérification et validation par le chef de projet.
+- **Les livrables de l'IA ne valent pas procès-verbal contractuel.**
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce modèle, renseignez les éléments de cadrage de la réunion et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、週次定例会のアジェンダと事前準備リストを整理してください。
+Sur la base des contextes de référence ci-dessous, élaborez l'ordre du jour et la checklist de préparation de notre point hebdomadaire selon une perspective Chef de Projet.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[WEEKLY_MEETING_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 会議情報（機密情報はマスキング済み）
-
-### 会議の目的
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 現在の進捗
-（記入）
-
-### 確認したい課題
-（記入）
-
-### 顧客に相談したいこと
-（記入）
-
-### 前回からの宿題・持ち越し事項
-（記入）
-
-### 今回決めたいこと
-（記入）
-
-### 会議時間
-（記入）
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de WEEKLY_MEETING_CONTEXT.md]
 
 ---
 
-## 出力してほしいこと
+## Cadrage de la réunion (Données strictement anonymisées)
 
-1. 会議アジェンダ（議題・目的・想定時間・担当役割）
-2. 確認順序と時間配分
-3. 事前準備リスト
-4. 前回宿題の確認リスト
-5. 会議後TODO一覧
-6. 次回持ち越し事項
-7. 会議で確認すべきリスク
+### Finalité de la réunion
+(Renseigner)
 
-※ AI出力は整理のたたき台です。顧客提出前・社内報告前に必ず人間が確認してください。
+### Rôles des participants (aucun nom réel)
+(Renseigner)
+
+### Avancement opérationnel
+(Renseigner)
+
+### Points durs et blocages à instruire
+(Renseigner)
+
+### Demandes d'arbitrage client
+(Renseigner)
+
+### Actions en suspens de la séance précédente
+(Renseigner)
+
+### Objectifs d'arbitrage de la séance
+(Renseigner)
+
+### Durée planifiée
+(Renseigner)
+
+---
+
+## Livrables attendus
+
+1. Ordre du jour (Sujet, Objectif, Durée, Porteur)
+2. Séquençage et timeboxing recommandé
+3. Checklist de préparation en amont
+4. Revue des actions de la séance précédente
+5. Trame du relevé d'actions post-réunion (TODO)
+6. Traitement des points potentiellement ajournés
+7. Risques critiques à partager en séance
+
+※ Les sorties constituent une base de travail : validation humaine obligatoire avant toute communication.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure balisée suivante garantit une parfaite délimitation des consignes :
 
 ```text
 <task>
-以下の情報をもとに、週次定例会のアジェンダと事前準備リストを整理してください。
+Sur la base des informations ci-dessous, structurez l'ordre du jour et la préparation de la réunion hebdomadaire d'avancement.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[WEEKLY_MEETING_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de WEEKLY_MEETING_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【会議情報（機密情報はマスキング済み）】
+【Cadrage de la réunion (Données strictement anonymisées)】
 
-### 会議の目的
-（記入）
+### Finalité de la réunion
+(Renseigner)
 
-### 参加者の役割（実名は入力しないこと）
-（記入）
+### Rôles des participants (aucun nom réel)
+(Renseigner)
 
-### 現在の進捗
-（記入）
+### Avancement opérationnel
+(Renseigner)
 
-### 確認したい課題
-（記入）
+### Points durs et blocages à instruire
+(Renseigner)
 
-### 顧客に相談したいこと
-（記入）
+### Demandes d'arbitrage client
+(Renseigner)
 
-### 前回からの宿題・持ち越し事項
-（記入）
+### Actions en suspens de la séance précédente
+(Renseigner)
 
-### 今回決めたいこと
-（記入）
+### Objectifs d'arbitrage de la séance
+(Renseigner)
 
-### 会議時間
-（記入）
+### Durée planifiée
+(Renseigner)
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は整理のたたき台であり、顧客提出・社内報告前に人間が確認してください。
+- Considérez l'ensemble des participants et organisations comme strictement anonymisés.
+- Mentionnez « (Hypothèse) » pour tout élément complété par déduction.
+- Le livrable constitue un support préparatoire devant impérativement être validé par le chef de projet avant diffusion.
 </constraints>
 <output_format>
-1. 会議アジェンダ（議題・目的・想定時間・担当役割）
-2. 確認順序と時間配分
-3. 事前準備リスト
-4. 前回宿題の確認リスト
-5. 会議後TODO一覧
-6. 次回持ち越し事項
-7. 会議で確認すべきリスク
+1. Ordre du jour (Thématique, Objectif, Durée, Porteur)
+2. Séquençage et cadrage temporel (Timeboxing)
+3. Checklist des éléments à réunir avant séance
+4. Revue des engagements de la séance précédente
+5. Trame du plan d'actions (Relevé de décisions / TODO)
+6. Identification des points d'ajournement probables
+7. Risques majeurs à instruire en séance
 </output_format>
 ```

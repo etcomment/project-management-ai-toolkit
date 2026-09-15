@@ -1,121 +1,117 @@
-# 利用規約 / Terms of Use
+# Conditions d'utilisation / Terms of Use
 
-最終更新：2026年5月
-
----
-
-## 1. 目的
-
-本利用規約は、株式会社テックエイド（以下「当社」）が公開するリポジトリ「project-management-ai-toolkit」（以下「本資料」）の利用条件を定めるものです。
-
-本資料は、プロジェクトマネージャー・PMO・開発リーダーが生成AIをPM業務で活用するための、AI Contexts、Prompt Template、Claude Code Skills、設定用指示文、利用ガイド、実務サンプルを提供することを目的としています。
+Dernière mise à jour : Mai 2026
 
 ---
 
-## 2. 利用者の責任
+## 1. Objet
 
-本資料を利用する方（以下「利用者」）は、以下を理解し、自己の責任のもとで利用するものとします。
+Les présentes Conditions d'Utilisation régissent les modalités d'accès et d'usage du dépôt « project-management-ai-toolkit » (ci-après désigné « les Présentes Ressources »), édité et mis à disposition par TechAide Inc. (ci-après désignée « la Société »).
 
-- 本資料はPM業務の参考資料であり、業務上の意思決定を代替しないこと
-- 業務で利用する前に、必ず内容を確認し、案件状況・契約条件・社内規程に合わせて修正すること
-- AI出力は人間が確認し、修正してから利用すること
-- 顧客提出文書、報告書、契約関連文書、見積、納期回答、障害報告などに利用する場合は、特に慎重に確認すること
+Ces ressources ont pour objet de fournir aux chefs de projet (PM), PMO et leaders techniques des contextes d'IA (AI Contexts), des modèles de requêtes (Prompt Templates), des compétences Claude Code (Skills), des instructions de configuration système, des guides méthodologiques et des cas pratiques pour faciliter l'adoption opérationnelle de l'IA générative.
 
 ---
 
-## 3. 禁止事項
+## 2. Responsabilité de l'utilisateur
 
-利用者は以下の行為を行ってはなりません。
+Toute personne physique ou morale accédant aux Présentes Ressources ou les exploitant (ci-après désignée « l'Utilisateur ») reconnaît et accepte expressément ce qui suit :
 
-### 3-1. 機密情報・個人情報の取り扱い
-
-- 顧客名・個人名・会社名・契約情報・個人情報・認証情報（APIキー、パスワード、トークン等）を、外部のAIサービスに入力する行為（所属組織の規程・NDA・契約に反する形での入力）
-
-### 3-2. 違法行為・不正行為への利用
-
-- 本資料を、違法行為・不正行為・契約違反・社内規程違反につながる目的で利用する行為
-
-### 3-3. 再配布・商業利用に関する禁止行為
-
-- 当社の書面による許可なく、本資料を再販売する行為
-- 当社の書面による許可なく、本資料を有料教材・有料サービス・有料ツールに組み込む行為
-- 当社の書面による許可なく、本資料を自社商品・自社コンテンツとして再配布する行為
-
-### 3-4. 表示に関する禁止行為
-
-- 本資料の著作権表示・出典表示を削除する行為
-- 本資料が当社の公式コンテンツであるかのような誤認を招く表示をする行為（改変版を公開する場合、改変版であること・当社公式版ではないことを明示すること）
+- Les Présentes Ressources constituent des guides et des canevas de travail indicatifs et ne se substituent en aucun cas aux décisions et arbitrages professionnels.
+- Avant toute mise en œuvre opérationnelle, l'Utilisateur doit impérativement relire, vérifier et ajuster les contenus au contexte spécifique de ses projets, à ses clauses contractuelles et à ses politiques d'entreprise.
+- Tout livrable produit par une IA doit faire l'objet d'une vérification et d'une validation humaine préalable.
+- Une rigueur absolue s'impose lors de l'exploitation de ces contenus pour la rédaction de documents destinés aux clients, de notes de reporting, de pièces contractuelles, de devis, d'engagements calendaires ou de rapports d'incidents.
 
 ---
 
-## 4. 許可される利用
+## 3. Usages prohibés
 
-以下の利用は許可されます。
+L'Utilisateur s'engage formellement à ne pas accomplir les actes suivants :
 
-- 個人学習・自己研鑽のための利用
-- 所属組織内でのプロジェクト管理業務への参照利用
-- 本資料を改変して社内利用すること（社内での非公開利用）
-- 改変版を公開・再配布する場合は、出典（本リポジトリのURL）を明示し、株式会社テックエイド公式版ではないことを明記すること
+### 3-1. Traitement de données confidentielles et personnelles
+- Saisir des noms de clients, noms de personnes physiques, raisons sociales, clauses contractuelles, données à caractère personnel ou identifiants de sécurité (clés d'API, mots de passe, tokens d'authentification) dans un service d'IA externe en violation de la réglementation, du secret professionnel, d'un accord de confidentialité (NDA) ou de la charte de sécurité de son organisation.
+
+### 3-2. Usages illicites ou contraires à la déontologie
+- Utiliser les Présentes Ressources à des fins frauduleuses, illicites, déloyales ou constitutives d'une rupture contractuelle.
+
+### 3-3. Restrictions commerciales et de redistribution
+- Revendre les Présentes Ressources, en tout ou partie, sans autorisation écrite préalable de la Société.
+- Intégrer les Présentes Ressources dans des formations payantes, services marchands ou outils logiciels payants sans accord écrit exprès de la Société.
+- Redistribuer ou publier les Présentes Ressources en les présentant unilatéralement comme ses propres créations ou produits propriétaires.
+
+### 3-4. Mentions de paternité et loyauté
+- Supprimer, altérer ou masquer les mentions de réserve, de droit d'auteur ou de paternité figurant dans les Présentes Ressources.
+- Présenter une version modifiée ou dérivée de telle sorte qu'elle puisse être confondue avec la version officielle éditée par la Société (toute version dérivée rendue publique doit mentionner explicitement son caractère dérivé et non officiel).
 
 ---
 
-## 利用可否の早見表
+## 4. Usages autorisés
 
-| 利用内容 | 可否 | 補足 |
+Sous réserve du respect des présentes conditions, sont expressément autorisés :
+
+- L'usage à des fins de formation personnelle et de montée en compétences individuelle.
+- La consultation et l'utilisation interne pour les activités de gestion de projet au sein de l'organisation de l'Utilisateur.
+- L'adaptation, la modification et la personnalisation des fichiers pour un usage interne et privé au sein de l'entreprise.
+- La publication ou redistribution de versions modifiées, à la condition expresse de mentionner clairement la source d'origine (URL du présent dépôt GitHub) et d'indiquer explicitement qu'il s'agit d'une version dérivée non officielle ne liant pas TechAide Inc.
+
+---
+
+## Matrice récapitulative des droits d'usage
+
+| Cas d'usage | Autorisation | Conditions particulières |
 |---|---|---|
-| 個人学習で使う | 可 | 自己研鑽目的で利用可能 |
-| 社内のPM業務で参照する | 可 | 非公開の社内利用は可能 |
-| 社内向けに改変して使う | 可 | 社内での非公開利用に限る |
-| 出典を明記して改変版を公開する | 条件付き可 | 出典URL明示・公式版ではないことを明記する必要あり |
-| 無断で再販売する | 不可 | 禁止 |
-| 有料教材・有料サービスに組み込む | 原則不可 | 当社の書面による事前許可が必要 |
-| 著作権表示を削除する | 不可 | 禁止 |
+| Auto-formation et apprentissage individuel | Autorisée | Usage personnel libre |
+| Utilisation interne pour la gestion de projet en entreprise | Autorisée | Usage interne non public |
+| Adaptation et modification pour usage interne | Autorisée | Strictement limité au périmètre interne |
+| Publication d'une version modifiée avec citation de la source | Autorisée sous conditions | Citation obligatoire de l'URL d'origine et mention explicite de version non officielle |
+| Revente directe non autorisée | Interdite | Proscription totale |
+| Intégration dans des supports ou outils payants | Prohibée par défaut | Requiert un accord écrit préalable de la Société |
+| Suppression des mentions de paternité | Interdite | Proscription totale |
 
-※この表は利用条件の概要です。詳細は各セクションおよび [LICENSE.md](../../LICENSE.md) を確認してください。
-
----
-
-## 5. 非保証
-
-本資料の内容の正確性・完全性・有用性・最新性・特定目的への適合性について、当社は保証しません。
-
-詳細は [docs/legal/DISCLAIMER.md](DISCLAIMER.md) を参照してください。
+*Ce tableau constitue une synthèse indicative. Veuillez vous référer aux stipulations détaillées ci-dessus ainsi qu'au fichier [LICENSE.md](../../LICENSE.md).*
 
 ---
 
-## 6. 損害賠償責任の限定
+## 5. Absence de garantie
 
-本資料の利用により生じた損害について、当社は、法令上許される範囲において、当社の故意または重大な過失がある場合を除き、責任を負いかねます。
+La Société ne formule aucune garantie quant à l'exactitude, l'exhaustivité, la pertinence opérationnelle, l'actualité ou l'adéquation des Présentes Ressources à un objectif spécifique.
 
----
-
-## 7. AIサービス利用時の確認事項
-
-本資料のコンテキストやプロンプトを生成AIサービスで利用する場合は、以下を事前に確認してください。
-
-- 利用するAIサービスの利用規約
-- 利用するAIサービスのプライバシーポリシー
-- 利用するAIサービスのデータ利用条件（入力データが学習に利用されるか否か等）
-- 所属組織の情報セキュリティ規程
-- 顧客との契約・NDAの内容
+Pour plus de précisions, reportez-vous à la clause de non-responsabilité : [docs/legal/DISCLAIMER.md](DISCLAIMER.md).
 
 ---
 
-## 8. 準拠法・管轄
+## 6. Limitation de responsabilité
 
-本利用規約は日本法に準拠します。
-
-本利用規約に関する紛争については、当社所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。
+Dans la mesure permise par la législation en vigueur, la Société décline toute responsabilité pour tout préjudice direct ou indirect résultant de l'utilisation ou de l'exploitation des Présentes Ressources, sauf en cas de dol ou de faute lourde légalement imputable à la Société.
 
 ---
 
-## 9. 関連文書
+## 7. Précautions relatives aux services d'IA tiers
 
-- 免責事項：[docs/legal/DISCLAIMER.md](DISCLAIMER.md)
-- ライセンス：[LICENSE.md](../../LICENSE.md)
-- セキュリティポリシー：[.github/SECURITY.md](../../.github/SECURITY.md)
+En cas d'exploitation des contextes et invites avec des plateformes d'IA générative, l'Utilisateur doit contrôler au préalable :
+
+- Les Conditions Générales d'Utilisation (CGU) de la plateforme d'IA retenue
+- La politique de confidentialité de l'éditeur de l'IA
+- Les conditions de traitement des données (notamment si les données soumises sont utilisées pour l'entraînement des modèles)
+- La politique de sécurité informatique (PSSI) de son organisation
+- Les engagements contractuels et clauses de confidentialité (NDA) conclus avec ses clients
 
 ---
 
-*株式会社テックエイド*
+## 8. Droit applicable et attribution de juridiction
+
+Les présentes Conditions d'Utilisation sont régies et interprétées conformément au droit japonais.
+
+Tout litige relatif à l'interprétation, la validité ou l'exécution des présentes sera soumis à la compétence exclusive des tribunaux compétents du ressort du siège social de la Société en première instance.
+
+---
+
+## 9. Documents associés
+
+- Clause de non-responsabilité : [docs/legal/DISCLAIMER.md](DISCLAIMER.md)
+- Licence logicielle : [LICENSE.md](../../LICENSE.md)
+- Politique de sécurité : [.github/SECURITY.md](../../.github/SECURITY.md)
+
+---
+
+*TechAide Inc.*  
 *https://techaide.jp/*

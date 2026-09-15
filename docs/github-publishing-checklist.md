@@ -1,81 +1,75 @@
-﻿# GitHub Publishing Checklist
+# Checklist de publication GitHub / GitHub Publishing Checklist
 
-このリポジトリをGitHubで公開・告知する前に確認するチェックリストです。
-
----
-
-## このファイルの目的
-
-GitHub公開時の設定漏れ・情報漏洩・方針逸脱を防ぐためのチェックリストです。
-
-リポジトリの公開準備から告知前の確認まで、手順に沿って確認してください。
+Cette checklist réunit l'ensemble des points de contrôle à valider avant de rendre ce dépôt public ou d'en assurer la communication officielle.
 
 ---
 
-## 公開準備フロー
+## Finalité de ce document
+
+Ce document vise à prévenir toute omission de paramétrage, fuite d'informations sensibles ou non-respect de la ligne éditoriale lors de la publication du dépôt sur GitHub.
+
+Suivez méthodiquement ces étapes depuis la préparation technique jusqu'au lancement de la communication.
+
+---
+
+## Processus de mise en ligne
 
 ```text
-GitHub公開準備
+Préparation de la publication GitHub
 │
-├─ README表示確認
-├─ Description設定
-├─ Website設定
-├─ Topics設定
-├─ Social Preview設定
-├─ Issue / PR Template確認
-├─ 機密情報混入チェック
-└─ 告知準備
+├─ Vérification du rendu du README
+├─ Configuration du champ Description
+├─ Configuration du lien Website
+├─ Définition des Topics (tags)
+├─ Configuration de l'image Social Preview (OGP)
+├─ Vérification des templates d'Issues et de PR
+├─ Contrôle d'absence de données confidentielles
+└─ Validation des supports de communication
 ```
 
 ---
 
-## GitHub画面で設定する項目
+## Éléments à configurer sur l'interface GitHub
 
-GitHubのリポジトリページ右上「About」欄の歯車アイコンから設定できます。
+Ces paramètres se configurent depuis la page d'accueil du dépôt GitHub, via l'icône d'engrenage de la section « About » (en haut à droite) :
 
 ### About / Description
-
-リポジトリの一言説明です。検索・SNS共有時に表示されます。
+Description concise du dépôt, affichée dans les résultats de recherche et lors des partages sur les réseaux sociaux.
 
 ### Website
+URL du site officiel de référence ou de la page de présentation de la boîte à outils.
 
-公式サイトやリポジトリ紹介ページのURLを設定します。
-
-### Topics
-
-リポジトリのタグです。GitHubの検索・探索機能に影響します。
+### Topics (Tags)
+Mots-clés thématiques favorisant l'indexation et la découvrabilité sur GitHub.
 
 ### Social Preview
+Image Open Graph (OGP) affichée lors du partage du lien du dépôt sur les réseaux sociaux ou messageries.
 
-GitHubやSNSで共有された際に表示されるOGP画像です。
+### Pin repository (Épinglage)
+Épingler le dépôt sur le profil de l'organisation ou de l'utilisateur pour maximiser sa visibilité.
 
-### Pin repository
-
-プロフィールページに表示したい場合は、リポジトリをピン留めします。
-
-### README表示確認
-
-リポジトリのトップページでREADME.mdが正しく表示されているか確認します。
+### Contrôle du rendu du README
+Vérifier la lisibilité, le bon formatage des tableaux et la validité des liens sur la page d'accueil du dépôt.
 
 ---
 
-## 推奨 Description
+## Recommandations pour le champ Description
 
-英語版（推奨）：
+Version anglaise (recommandée pour la visibilité internationale) :
 
 ```text
 AI context files, usage examples, and Claude Code skills for PMs/PMOs. Supports ChatGPT, Gemini, Claude, and Claude Code.
 ```
 
-日本語版：
+Version française :
 
 ```text
-ChatGPT / Gemini / Claude / Claude Codeで使えるPM・PMO向けAI活用ツールキット。AI Contexts、使用例、Claude Code Skills、実務サンプルを含む。
+Boîte à outils IA pour chefs de projet et PMO compatible ChatGPT, Gemini, Claude et Claude Code. Inclut contextes IA, compétences Claude Code et cas réels.
 ```
 
 ---
 
-## 推奨 Website
+## Recommandation pour le champ Website
 
 ```text
 https://techaide.jp/
@@ -83,7 +77,7 @@ https://techaide.jp/
 
 ---
 
-## 推奨 Topics
+## Topics (Tags) recommandés
 
 ```text
 project-management
@@ -96,50 +90,50 @@ claude-code
 ai-context
 prompt-engineering
 engineering-management
-japanese
+french
 ```
 
 ---
 
-## Social Preview
+## Image d'aperçu pour les réseaux sociaux (Social Preview)
 
-GitHubやSNSで共有されたときに表示されるOGP画像です。
+Image OGP s'affichant lors du partage du dépôt sur GitHub, X (Twitter), LinkedIn, Slack, etc. :
 
-- 画像を設定すると、GitHub・X・Slack等での共有時に見え方が改善されます
-- 文字は短くシンプルにする
-- リポジトリ名と一言説明を入れる
-- 顧客情報・個人情報・認証情報は含めない
-- `assets/social-preview.svg` がある場合は、それを下書きとして使えます
-- GitHub画面で設定するには、必要に応じてPNG形式に変換して使用してください
+- Améliore considérablement le taux de clic et la visibilité des partages.
+- Privilégier un graphisme épuré avec des textes courts et percutants.
+- Faire figurer le nom du dépôt et son sous-titre de positionnement.
+- Ne faire figurer aucune donnée confidentielle, nom propre ou secret technique.
+- Si le fichier `assets/social-preview.svg` est présent, utilisez-le comme base graphique.
+- Convertir en format PNG pour téléversement dans les paramètres GitHub.
 
-設定場所：リポジトリの Settings > General > Social preview
-
----
-
-## 公開前チェック
-
-リポジトリを公開する前に、以下を確認してください。
-
-- [ ] READMEの表示崩れがない
-- [ ] `prompts/` ディレクトリが再作成されていない
-- [ ] `contexts/` が主役として説明されている
-- [ ] 免責・安全注意が維持されている
-- [ ] Issue / PR テンプレートがある
-- [ ] 実行系ファイルが追加されていない
-- [ ] APIキー、パスワード、トークンが含まれていない
-- [ ] 実在する顧客名・会社名・個人名・案件名が含まれていない
-- [ ] Claude Code Skillにhooks、command、MCP設定、自動実行が含まれていない
-- [ ] Udemy導線が過剰に増えていない
+Emplacement : Settings > General > Social preview sur GitHub.
 
 ---
 
-## 告知前チェック
+## Contrôles impératifs avant publication publique
 
-SNS・ブログ・note等で告知する前に、以下を確認してください。
+Avant de basculer le dépôt en visibilité publique, validez les points suivants :
 
-- [ ] GitHub About欄が設定されている
-- [ ] Websiteが設定されている
-- [ ] Topicsが設定されている
-- [ ] Social Previewが設定されている
-- [ ] README冒頭で何のリポジトリか分かる
-- [ ] 自社ブログ・X・note等で紹介する場合、リポジトリの目的と免責を誤解なく説明している
+- [ ] Le rendu du README.md est impeccable et sans rupture de mise en page
+- [ ] Aucun répertoire `prompts/` n'a été recréé (les exemples restent intégrés dans chaque contexte)
+- [ ] Le répertoire `contexts/` est clairement identifié comme le composant central
+- [ ] Les mentions de non-responsabilité et les consignes de sécurité IA sont bien présentes
+- [ ] Les modèles d'Issues et de Pull Requests sont configurés et fonctionnels
+- [ ] Aucun script exécutable non contrôlé n'a été introduit
+- [ ] Aucune clé d'API, mot de passe, token ou certificat n'est présent dans l'historique git
+- [ ] Aucun nom de client réel, raison sociale, nom de collaborateur ou projet confidentiel ne subsiste
+- [ ] Les compétences Claude Code ne comportent aucun hook, commande CLI, configuration MCP ou déclenchement automatique
+- [ ] Les liens promotionnels vers les formations restent mesurés et pertinents
+
+---
+
+## Contrôles préalables avant communication externe
+
+Avant toute annonce sur les réseaux sociaux, blogs ou plateformes professionnelles :
+
+- [ ] La section About de GitHub est dûment complétée
+- [ ] Le lien Website pointe vers la bonne URL
+- [ ] Les Topics sont renseignés
+- [ ] L'image Social Preview est active et s'affiche correctement
+- [ ] L'en-tête du README explicite immédiatement la finalité de la boîte à outils
+- [ ] Les articles de présentation ou posts de lancement rappellent clairement les limites opérationnelles de l'IA et la clause de non-responsabilité

@@ -1,58 +1,58 @@
-# 進捗報告作成 — 実用サンプル
+# Élaboration d'un rapport d'avancement (Status Report) — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-今週の作業状況から、社内向け・顧客向けの進捗報告を作成する場面を想定しています。
+Ce scénario illustre la rédaction d'un rapport d'avancement hebdomadaire (Flash report) destiné à la fois au management interne et au client.
 
-週次で発生する報告文の作成をAIに補助させる例です。
+L'objectif est d'exploiter l'IA pour synthétiser les réalisations hebdomadaires, formaliser les retards et produire des déclinaisons adaptées aux différentes parties prenantes.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
 ```
-案件名：サンプル案件
-報告対象週：第8週
-報告先：社内上長、顧客担当者A
+Projet : Projet Alpha (Fictif)
+Semaine de reporting : Semaine 8 (S8)
+Destinataires : Direction de projet interne, Contact client A
 
-【今週完了した作業】
-- 画面設計（一覧画面、詳細画面）のレビュー完了
-- DB設計書 v1.1 の修正対応完了
-- 外部連携機能の基本実装（単体テスト未実施）
+【Réalisations achevées cette semaine】
+- Revue de conception des écrans (vues liste et détail) finalisée
+- Intégration des retours sur le modèle de données (Dossier d'architecture DB v1.1) finalisée
+- Développement du socle des interfaces externes achevé (tests unitaires non exécutés)
 
-【未完了の作業（今週予定だったが持ち越し）】
-- 外部連携機能の単体テスト（来週前半に実施予定）
-- テスト設計書の初版作成（来週中に着手予定）
+【Tâches non finalisées (reportées sur le cycle suivant)】
+- Recette unitaire des interfaces externes (reportée en début de semaine prochaine)
+- Version initiale du plan de conception des tests (démarrage prévu courant semaine prochaine)
 
-【遅延している作業】
-- 外部連携機能：当初予定より1週間遅延
-  遅延理由：仕様確認待ちで開発が一時停止していた
+【Chantiers en dérive / retard】
+- Interfaces externes : 1 semaine de retard sur le planning initial
+  Cause racine : développement mis en attente en raison d'arbitrages de spécifications non tranchés
 
-【課題】
-- 顧客担当者Aからのデータ仕様確認が未回答（先週から持ち越し）
-- バックエンドI/F定義の認識齟齬について、今週の打ち合わせで一部解消したが、まだ1点未確定
+【Points de blocage (Issues)】
+- Demande d'arbitrage sur les spécifications de données auprès du contact client A restée sans réponse (en attente depuis S7)
+- Divergence technique sur les interfaces backend partiellement levée lors du point de cadrage hebdomadaire, 1 point restant en suspens
 
-【リスク】
-- テスト設計が未着手のまま進むと、後半工程の圧迫リスクあり
-- 外部連携先との結合テスト調整が未完了
+【Risques identifiés】
+- Absence d'initialisation des plans de tests risquant de comprimer la phase aval de validation
+- Absence de calage du calendrier des tests d'intégration avec l'opérateur du système externe
 
-【顧客確認待ち】
-- データ仕様確認（回答期限を今週末に設定して催促済み）
+【Attentes et arbitrages client (Blockers)】
+- Validation des spécifications de flux de données (relance effectuée avec date limite fixée à cette fin de semaine)
 
-【来週の予定】
-- 外部連携機能の単体テスト実施
-- テスト設計書 初版作成
-- 週次定例（顧客担当者Aとの打ち合わせ）
-- バックエンドI/F定義の残り1点を確定させる
+【Planning et engagements de la semaine suivante】
+- Exécution des tests unitaires sur les interfaces externes
+- Rédaction du premier jet du plan de conception des tests
+- Comité d'avancement hebdomadaire avec le contact client A
+- Arbitrage final sur le dernier point d'interface backend
 ```
 
 ---
@@ -60,132 +60,133 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、進捗報告を作成してください。
+Après avoir intégré les fichiers de contexte ci-dessous, rédige les rapports d'avancement à partir des données de la semaine.
 
-【読み込むファイル】
+【Fichiers de contexte】
 - contexts/PM_CONTEXT.md
 - contexts/STATUS_REPORT_CONTEXT.md
 
-【進捗情報】
-（上記の Sanitized Input を貼り付ける）
+【Données d'avancement】
+(Coller les données d'entrée anonymisées ci-dessus)
 
-以下の報告を作成してください。
-1. 社内向け進捗報告（上長向け）
-2. 顧客向け進捗報告
-3. 上長向けサマリー（3行以内）
-4. リスク付き報告（リスクを明示した版）
-5. 次アクション一覧
+Produis les livrables suivants :
+1. Rapport d'avancement pour le management interne (Direction de projet)
+2. Rapport d'avancement pour le client
+3. Synthèse managériale exécutive pour la direction (3 lignes maximum)
+4. Tableau de bord des risques qualifié
+5. Plan d'actions immédiates (Next Actions)
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
-
----
-
-### 1. 社内向け進捗報告（上長向け）
-
-**件名：** サンプル案件 第8週 進捗報告
-
-**全体状況：**
-今週は画面設計レビューおよびDB設計書の修正対応が完了しました。外部連携機能は基本実装が完了しましたが、仕様確認待ちによる遅延が1週間発生しており、回復に向けた対応を進めています。
-
-**完了事項：**
-- 画面設計（一覧画面・詳細画面）レビュー完了
-- DB設計書 v1.1 修正対応完了
-- 外部連携機能 基本実装完了
-
-**持ち越し事項：**
-- 外部連携機能 単体テスト（来週前半実施予定）
-- テスト設計書 初版作成（来週中着手予定）
-
-**遅延・懸念事項：**
-- 外部連携機能が1週間遅延中。顧客仕様確認の回答次第で今週末から回復開始予定
-- テスト設計未着手。後半工程の圧迫を防ぐため来週早期に着手する
-
-**顧客確認待ち：**
-- データ仕様確認（回答期限：今週末）
-
-**来週予定：**
-外部連携機能の単体テスト、テスト設計書初版作成、週次定例対応
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 2. 顧客向け進捗報告
+### 1. Rapport d'avancement pour le management interne (Direction de projet)
 
-**件名：** 【サンプル案件】第8週 進捗ご報告
+**Objet :** Projet Alpha — Rapport d'avancement Semaine 8
 
-担当者A様
+**Situation globale :**
+Cette semaine, la revue de conception des écrans et la mise à jour du dossier d'architecture de données ont été menées à bien. Le socle des interfaces externes a été développé, mais accuse un retard d'une semaine consécutif à l'attente de validations de spécifications. Un plan d'absorption est enclenché dès la levée du blocage.
 
-いつもお世話になっております。
-今週の進捗についてご報告いたします。
+**Réalisations achevées :**
+- Validation de la revue de conception des écrans (listes et détails)
+- Approbation du dossier d'architecture de données v1.1
+- Finalisation du socle de code des flux externes
 
-**今週の完了事項：**
-- 画面設計（一覧画面・詳細画面）のレビューが完了しました
-- DB設計書の修正対応が完了しました
-- 外部連携機能の基本実装が完了しました
+**Restes à faire reportés :**
+- Recette unitaire des flux externes (planifiée début S9)
+- Élaboration du plan de conception des tests (démarrage planifié courant S9)
 
-**来週の予定：**
-- 外部連携機能の単体テストを実施します
-- テスト設計書の初版を作成します
-- 週次定例にてご確認いただきたい点があります
+**Dérives et points d'attention :**
+- Retard d'une semaine sur les interfaces externes. Reprise du nominal tributaire du retour client attendu en fin de semaine.
+- Conception des tests non initiée : lancement prioritaire en début de S9 pour sécuriser le chemin critique des recettes.
 
-**ご確認のお願い：**
-先週よりご確認をお願いしているデータ仕様について、今週末までにご回答いただけますと幸いです。
-ご回答が遅れますと、後続作業のスケジュールに影響が生じる可能性があります。
+**Arbitrages en attente côté client :**
+- Validation formelle des spécifications de données (échéance fixée à cette fin de semaine).
 
-引き続きどうぞよろしくお願いいたします。
-
----
-
-### 3. 上長向けサマリー（3行以内）
-
-外部連携機能が1週間遅延中。顧客仕様確認の回答を今週末に期待しており、来週から回復予定。テスト設計未着手のリスクに対し、来週早期に着手予定。
+**Priorités de la semaine prochaine :**
+Exécution des tests unitaires des flux externes, initialisation du plan de tests, tenue du comité d'avancement hebdomadaire.
 
 ---
 
-### 4. リスク付き報告
+### 2. Rapport d'avancement pour le client
 
-| リスク | 影響度 | 対応状況 |
+**Objet :** 【Projet Alpha】Point d'avancement hebdomadaire — Semaine 8
+
+Madame, Monsieur [Contact A],
+
+Veuillez trouver ci-dessous l'état d'avancement des travaux pour cette Semaine 8.
+
+**Avancées de la semaine :**
+- Les revues de conception des écrans (écrans listes et fiches détaillées) ont été finalisées avec succès.
+- La mise à jour des spécifications techniques de bases de données a été intégrée.
+- Le développement initial du module d'interfaçage externe est achevé.
+
+**Objectifs pour la semaine prochaine :**
+- Réalisation de la recette unitaire des modules d'interfaçage.
+- Structuration initiale du plan de tests de recette.
+- Alignement sur les derniers arbitrages techniques lors de notre comité hebdomadaire.
+
+**Points d'attention et arbitrages requis :**
+Concernant la validation des spécifications de flux de données soumises la semaine passée, nous vous remercions de bien vouloir nous confirmer votre accord d'ici la fin de cette semaine.
+Ce retour conditionne directement le maintien de la trajectoire des étapes ultérieures.
+
+Restant à votre entière disposition,
+
+Cordialement,
+
+---
+
+### 3. Synthèse managériale exécutive pour la direction (3 lignes max)
+
+Retard d'une semaine enregistré sur les interfaces externes en raison d'un arbitrage client en suspens, attendu en fin de semaine pour rétablissement du nominal. Lancement prioritaire des plans de tests planifié dès la semaine prochaine afin d'annihiler tout risque d'étranglement sur la phase aval.
+
+---
+
+### 4. Tableau de bord des risques qualifié
+
+| Risque | Niveau d'impact | Dispositif de maîtrise / Plan d'action |
 |---|---|---|
-| 外部連携機能の遅延継続 | 高：後工程に連鎖する可能性あり | 顧客への回答期限設定済み。来週から回復予定 |
-| テスト設計未着手 | 高：後半工程を圧迫するリスク | 来週着手予定。担当者・スケジュールを確定させる必要あり |
-| 外部連携先との結合テスト未調整 | 中：日程調整が遅れると全体に影響 | 来週以降に調整開始予定 |
+| Persistance du retard sur les flux externes | Élevé : risque de propagation sur le chemin critique | Échéance formelle notifiée au client. Dispositif de rattrapage activable dès réception |
+| Retard dans l'initialisation du plan de tests | Élevé : compression de la phase de qualification aval | Démarrage ferme semaine prochaine, ressources et rétroplanning à verrouiller |
+| Absence de coordination des tests avec le système tiers | Modéré : risque de décalage des jalons d'intégration | Enclenchement de la synchronisation des calendriers dès la semaine prochaine |
 
 ---
 
-### 5. 次アクション一覧
+### 5. Plan d'actions immédiates (Next Actions)
 
-| # | アクション | 担当 | 期限 |
+| # | Action | Responsable | Échéance |
 |---|---|---|---|
-| 1 | 顧客担当者Aへのデータ仕様確認フォローアップ | PM担当者 | 今週末 |
-| 2 | 外部連携機能 単体テスト実施 | 開発担当者 | 来週前半 |
-| 3 | テスト設計書 着手・担当者確定 | PM担当者・開発リーダー | 来週中 |
-| 4 | バックエンドI/F定義の残1点確定 | 開発リーダー | 来週定例にて |
-| 5 | 外部連携先との結合テスト日程調整開始 | PM担当者 | 来週中 |
+| 1 | Relance et sécurisation du retour du Contact client A sur les spécifications | Chef de Projet | Fin de semaine en cours |
+| 2 | Exécution des tests unitaires sur les interfaces externes | Équipe Dev | Première moitié de S9 |
+| 3 | Lancement de la conception du plan de tests et cadrage des ressources | Chef de Projet / Lead Tech | Courant S9 |
+| 4 | Arbitrage final sur le dernier point d'interface backend | Lead Développeur | Comité d'avancement S9 |
+| 5 | Calage du calendrier des tests d'intégration avec le partenaire tiers | Chef de Projet | Courant S9 |
 
 ---
 
-## Human Review Points
+## Points de contrôle humain (Human Review Points)
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
+Avant toute émission opérationnelle, le chef de projet doit vérifier scrupuleusement :
 
-- 顧客向けメール文のトーン・敬語表現が実際の顧客との関係性に合っているか
-- 遅延の説明が実際の経緯・合意内容と一致しているか
-- 顧客への確認催促の表現が適切か（強すぎる・弱すぎる表現になっていないか）
-- リスク表の影響度・対応状況が実態を反映しているか
-- 次アクションの担当者欄を実際の担当者名に修正したか
-- 社内報告の内容が上長の期待するレベルの情報量になっているか
+- L'adéquation du ton et des formules de politesse du message client avec la culture partenariale en vigueur
+- L'exactitude factuelle de la justification du retard vis-à-vis des comptes rendus de comités antérieurs
+- Le dosage de l'injonction sur les relances client (éviter l'agressivité tout en soulignant avec fermeté l'impact sur les délais)
+- La cohérence de la criticité des risques et la viabilité des actions de remédiation
+- L'affectation nominative effective des responsables sur le tableau des actions
+- L'adéquation du niveau de synthèse interne avec les attentes spécifiques de la direction
 
 ---
 
-## Caution
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Les données de cet exemple sont strictement fictives. Aucun nom réel de client, de projet ou de personne physique n'est mentionné.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Toute donnée réelle doit impérativement être anonymisée et débarrassée de toute information confidentielle avant soumission à l'IA.
 >
-> **AI出力は業務判断の代替ではありません。** 顧客提出・社内報告に使用する場合は、必ず担当者が内容を確認・修正してから送付してください。
+> **Les livrables de l'IA ne se substituent pas à la responsabilité managériale.** Le chef de projet demeure seul garant de l'exactitude des informations transmises aux parties prenantes.

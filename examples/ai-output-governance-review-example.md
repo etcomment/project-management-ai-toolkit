@@ -1,23 +1,23 @@
-# AI Output Governance Review の利用例
+# Revue de gouvernance des livrables IA (AI Output Governance Review) — Exemple pratique
 
-## このサンプルの目的
+## Objectif de ce cas pratique
 
-このサンプルは、`.claude/skills/ai-output-governance-review/SKILL.md` を使って、AIが作成した顧客向け文面を実務利用前にレビューする例です。
+Cet exemple illustre l'utilisation de la compétence `.claude/skills/ai-output-governance-review/SKILL.md` pour auditer et sécuriser un projet de communication client rédigé par une IA avant toute émission formelle.
 
 > [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
+> L'ensemble des données est strictement fictif. Aucun nom réel de client, d'entreprise, d'individu ou de projet n'y figure.  
+> Pour toute utilisation sur un projet réel, veillez à anonymiser et synthétiser vos données au préalable.
 
 > [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+> Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial. Toute décision finale relève de la responsabilité exclusive du chef de projet.
 
 ---
 
-## 使用するSkill
+## Compétence (Skill) mobilisée
 
 - `.claude/skills/ai-output-governance-review/SKILL.md`
 
-## 関連Context
+## Fichiers de contexte associés
 
 - `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
@@ -25,87 +25,89 @@
 
 ---
 
-## 入力例
+## Exemples d'entrées (Input)
 
-### 通常版
+### Version standard
 
 ```text
-.claude/skills/ai-output-governance-review/SKILL.md の内容を前提として、
-以下の顧客向け文面に、危険な断定表現、機密情報、確認漏れ、契約・納期・責任範囲への踏み込みがないかレビューしてください。
-【レビュー対象文面】
-現時点では納期への影響はありません。
-外部API仕様が確定次第、予定通り実装を進めます。
-追加要望についても、現在のスケジュール内で対応可能です。
-品質面も問題ありませんので、予定通りリリースできます。
-【利用目的】
-顧客向け進捗報告のたたき台
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+En te basant sur les directives de .claude/skills/ai-output-governance-review/SKILL.md,
+analyse le projet de message client ci-dessous et identifie toute formulation péremptoire risquée, divulgation confidentielle, absence de vérification préalable ou engagement inconsidéré sur les délais, les coûts et le périmètre contractuel.
+
+【Projet de message à auditer】
+À ce jour, il n'y a aucun impact sur la date de livraison.
+Dès que les spécifications de l'API externe seront validées, nous déploierons l'implémentation comme prévu.
+Concernant vos demandes complémentaires, nous serons en mesure de les intégrer dans le calendrier actuel.
+La qualité est également sous contrôle, la mise en production s'effectuera sans encombre à la date prévue.
+
+【Contexte d'utilisation】
+Brouillon pour le rapport d'avancement hebdomadaire transmis au client
+※ Noms d'acteurs, de clients et de sociétés rigoureusement anonymisés.
 ```
 
-### Claude向けXMLタグ版
+### Version structurée en balises XML (recommandée pour Claude)
 
 ```text
 <task>
-.claude/skills/ai-output-governance-review/SKILL.md の内容を前提として、
-以下の顧客向け文面に、危険な断定表現、機密情報、確認漏れ、契約・納期・責任範囲への踏み込みがないかレビューしてください。
+En te basant sur les directives de .claude/skills/ai-output-governance-review/SKILL.md,
+analyse le projet de message client ci-dessous et identifie toute formulation péremptoire risquée, divulgation confidentielle, absence de vérification préalable ou engagement inconsidéré sur les délais, les coûts et le périmètre contractuel.
 </task>
 <input>
-【レビュー対象文面】
-現時点では納期への影響はありません。
-外部API仕様が確定次第、予定通り実装を進めます。
-追加要望についても、現在のスケジュール内で対応可能です。
-品質面も問題ありませんので、予定通りリリースできます。
-【利用目的】
-顧客向け進捗報告のたたき台
+【Projet de message à auditer】
+À ce jour, il n'y a aucun impact sur la date de livraison.
+Dès que les spécifications de l'API externe seront validées, nous déploierons l'implémentation comme prévu.
+Concernant vos demandes complémentaires, nous serons en mesure de les intégrer dans le calendrier actuel.
+La qualité est également sous contrôle, la mise en production s'effectuera sans encombre à la date prévue.
+
+【Contexte d'utilisation】
+Brouillon pour le rapport d'avancement hebdomadaire transmis au client
 </input>
 <constraints>
-- 顧客提出前提の文面として、安全性・表現・確認漏れをレビューしてください。
-- 「法的に安全」「契約上問題ない」とは断定しないでください。
-- 必要に応じて上長・法務・関係者への確認が必要と明記してください。
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+- Évalue la communication en considérant qu'elle sera remise directement au client (exigences maximales de sécurité juridique et de prudence).
+- N'affirme jamais de manière péremptoire qu'un texte est « parfaitement conforme sur le plan légal » ou « sans risque contractuel ».
+- Rappelle expressément la nécessité de validations hiérarchiques ou juridiques lorsque la situation le commande.
+- Les données sensibles ont été préalablement masquées.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Restitution attendue de l'IA (Expected Output)
 
-### レビュー結果サマリー
+### Synthèse de la revue de gouvernance
 
-| 判定 | 内容 |
+| Critère | Évaluation |
 |---|---|
-| そのまま使えるか | 要修正 |
-| 主な理由 | 納期・品質・追加要望対応を断定しており、確認不足のまま顧客に確約する表現になっている |
+| **Diffusable en l'état ?** | **Non — Modifications obligatoires requises** |
+| **Motif principal** | Formulations péremptoires constituant des engagements fermes et imprudents sur les délais, la prise en charge gratuite d'évolutions et la garantie de qualité sans réserve. |
 
-### 修正が必要な表現
+### Formulations à corriger et risques associés
 
-| 対象表現 | リスク | 修正案 |
+| Formulation initiale | Risque opérationnel & juridique | Proposition de reformulation prudente |
 |---|---|---|
-| 現時点では納期への影響はありません | 納期影響を断定している | 現時点では大きな影響は確認されていませんが、外部API仕様の確定状況を踏まえて継続確認します |
-| 現在のスケジュール内で対応可能です | 追加要望対応を確約している | 追加要望については、影響範囲を確認したうえで対応方針をご相談します |
-| 品質面も問題ありません | 品質を保証する表現になっている | 現在確認できている範囲では重大な品質懸念は確認されていません |
+| *« À ce jour, il n'y a aucun impact sur la date de livraison »* | Affirmation péremptoire engageant la responsabilité en cas de dérive ultérieure | *« À ce stade, aucun impact majeur n'a été caractérisé, sous réserve de la stabilisation rapide des spécifications d'API externe qui demeure sous surveillance étroite. »* |
+| *« Concernant vos demandes complémentaires, nous serons en mesure de les intégrer dans le calendrier actuel »* | Acceptation unilatérale et sans frais d'une extension de périmètre | *« Concernant les évolutions sollicitées, nous finalisons l'instruction de leur périmètre et de leurs impacts afin de convenir avec vous des modalités de prise en compte. »* |
+| *« La qualité est également sous contrôle, la mise en production s'effectuera sans encombre »* | Engagement de résultat et garantie implicite sans réserve | *« Les contrôles effectués à ce stade ne révèlent pas d'anomalie critique bloquante pour la poursuite des étapes d'homologation. »* |
 
-### 顧客提出前に確認すべきこと
+### Vérifications préalables indispensables avant émission au client
 
-- 外部API仕様の確定予定日
-- 追加要望の影響範囲
-- スケジュールへの影響
-- 上長レビューの要否
-- 契約・スコープ上の扱い
-
----
-
-## Human Review Points
-
-- 顧客に対して確約しすぎていないか
-- 納期・品質・費用・責任範囲を断定していないか
-- 上長・関係者レビューが必要な内容を見落としていないか
-- 機密情報・個人情報が含まれていないか
+- Date ferme d'arbitrage des spécifications de l'API externe
+- Bilan d'impact consolidé des demandes complémentaires (charges et calendrier)
+- Arbitrage hiérarchique interne sur la politique contractuelle applicable aux demandes d'évolution
+- Vérification du respect des clauses contractuelles et conditions générales applicables
 
 ---
 
-## 次に確認するとよいページ
+## Points de contrôle humain (Human Review Points)
 
-- `docs/ai-safety.md`
-- `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
-- `.claude/skills/stakeholder-strategy/SKILL.md`
+- Le message évite-t-il toute promesse implicite ou garantie non étayée ?
+- Les affirmations relatives aux délais, à la qualité, aux coûts et aux responsabilités sont-elles rigoureusement nuancées ?
+- Les arbitrages nécessitant l'aval de la direction ou du service juridique ont-ils été instruits ?
+- Aucune donnée confidentielle ou non communicable n'est-elle mentionnée ?
+
+---
+
+## Ressources complémentaires recommandées
+
+- Guide de sécurité et d'éthique de l'IA : `docs/ai-safety.md`
+- Communication avec les clients : `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
+- Stratégie d'alignement par partie prenante : `.claude/skills/stakeholder-strategy/SKILL.md`

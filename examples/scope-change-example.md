@@ -1,65 +1,65 @@
-# 仕様変更・スコープ変更の整理 — 実用サンプル
+# Gestion et arbitrage des modifications de périmètre (Scope Change) — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-開発中盤で顧客から追加要望が発生した場面を想定しています。
+Ce scénario modélise l'apparition de demandes d'évolution ou de fonctionnalités complémentaires émanant du client en phase intermédiaire de développement.
 
-仕様変更・スコープ変更・追加要望をAIに整理させ、影響範囲・選択肢・確認事項を明確にする例です。
+L'objectif est d'utiliser l'IA pour objectiver l'écart par rapport au périmètre initialement contractualisé, cartographier les impacts opérationnels (charges, délais, coûts) et bâtir des scénarios d'arbitrage clairs à soumettre à la gouvernance.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/SCOPE_CHANGE_CONTEXT.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
 ```
-案件名：サンプル案件
-フェーズ：開発中盤（全体70%進捗）
+Projet : Projet Alpha (Fictif)
+Phase opérationnelle : Milieu de développement (70% d'avancement global)
 
-【変更要望】
-顧客担当者Aから、以下の追加要望が挙がった。
+【Demandes d'évolution exprimées】
+Le Contact client A a formulé les demandes d'ajouts suivantes :
 
-要望1：管理画面に「一括エクスポート機能」を追加してほしい
-要望2：ダッシュボード画面に「先月比グラフ」を追加してほしい
-要望3：登録フォームのバリデーション項目を追加してほしい（詳細は未確定）
+Demande 1 : Intégrer un module d'exportation de données en masse (Batch Export) dans le back-office d'administration
+Demande 2 : Ajouter un graphique comparatif d'évolution mensuelle (M/M-1) sur le tableau de bord
+Demande 3 : Enrichir les règles de validation et de contrôle de cohérence sur le formulaire d'inscription (spécifications précises en attente)
 
-【変更が出た背景】
-- 上位の管理者層から「現場が使いやすい機能にしてほしい」という要求が出た
-- 要件定義時には想定していなかった運用ニーズが後から明らかになった
+【Origine de la demande】
+- Exigence émise par la direction générale du client pour « améliorer l'ergonomie opérationnelle des équipes terrain »
+- Besoins d'exploitation découverts tardivement par le métier, non identifiés lors des ateliers de cadrage initial
 
-【当初スコープ】
-- 管理画面には閲覧・検索・個別エクスポート機能のみ含まれていた
-- ダッシュボードは今期分の集計表示のみが対象
-- バリデーションは画面設計書に記載の項目のみが対象
+【Périmètre initialement contractualisé (Baseline Scope)】
+- Back-office : consultation, recherche multicritère et export unitaire exclusivement
+- Tableau de bord : restitution analytique circonscrite à l'exercice en cours
+- Contrôles de formulaires : strictement limités aux règles recensées dans le dossier de spécifications fonctionnelles v1.0
 
-【追加になりそうな作業】
-- 一括エクスポート機能：設計・実装・テストで3〜5営業日と想定（未確認）
-- 先月比グラフ：設計・実装・テストで2〜3営業日と想定（未確認）
-- バリデーション追加：詳細不明なため工数算出不可
+【Charge prévisionnelle estimée】
+- Export en masse : 3 à 5 jours-hommes (estimation brute à affiner)
+- Graphique comparatif : 2 à 3 jours-hommes (estimation brute à affiner)
+- Règles de validation additionnelles : chiffrage impossible en l'absence de spécifications détaillées
 
-【影響しそうな機能】
-- データ出力形式の統一に影響する可能性（一括エクスポートと既存エクスポートの整合性）
-- DB設計への影響は現時点では不明
+【Composants applicatifs impactés】
+- Risque d'incohérence entre les formats d'export unitaire existants et l'export en masse
+- Impact potentiel sur le schéma de base de données à confirmer
 
-【納期制約】
-- 最終納期まで残り4週間
-- 納期の変更は困難（顧客が社内公表済み）
+【Contrainte calendaire impérative】
+- Échéance finale de livraison : dans 4 semaines (20 jours ouvrés)
+- Date de déploiement non négociable (annoncée publiquement en interne par le client)
 
-【費用制約】
-- 現時点では追加費用についての合意はない
-- 追加費用が発生するか、顧客がどう受け取るかが未確認
+【Contrainte budgétaire】
+- Aucun accord de financement complémentaire conclu à ce stade
+- Sensibilité et acceptation du client quant à une facturation d'avenant non qualifiées
 
-【顧客に確認したいこと】
-- 追加要望の優先度（3件すべて必須か、優先度があるか）
-- 要望3（バリデーション追加）の詳細仕様
-- 追加費用・納期延長が発生した場合の顧客側の受け入れ可否
+【Arbitrages à instruire auprès du client】
+- Hiérarchisation des 3 demandes (caractère impératif ou négociable)
+- Obtention des spécifications précises de la Demande 3
+- Acceptation formelle des impacts (surcoût financier et/ou décalage de livraison)
 ```
 
 ---
@@ -67,152 +67,142 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、仕様変更・スコープ変更の状況を整理してください。
+Après avoir intégré les fichiers de contexte ci-dessous, analyse la demande d'évolution de périmètre et prépare la grille d'arbitrage projet.
 
-【読み込むファイル】
+【Fichiers de contexte】
 - contexts/PM_CONTEXT.md
 - contexts/SCOPE_CHANGE_CONTEXT.md
 
-【変更状況】
-（上記の Sanitized Input を貼り付ける）
+【Données de situation】
+(Coller les données d'entrée anonymisées ci-dessus)
 
-以下の観点で整理してください。
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響
-5. 納期影響
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべきこと
-8. 提示する選択肢
-9. エスカレーション要否
+Structure ton analyse selon les axes suivants :
+1. Qualification des demandes d'évolution
+2. Écart caractérisé par rapport au périmètre initial (Scope Baseline)
+3. Matrice des impacts collatéraux (architecture, tests, cohérence)
+4. Évaluation de la charge de travail additionnelle
+5. Impact sur le chemin critique et la date de livraison
+6. Risques contractuels et financiers
+7. Clarifications préalables à exiger du client
+8. Scénarios d'arbitrage à présenter (options A, B, C)
+9. Circuit d'escalade managériale
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 1. 変更内容の整理
+### 1. Qualification des demandes d'évolution
 
-| # | 要望内容 | 当初スコープ | 変更区分 |
+| # | Libellé de la demande | Statut dans le périmètre initial | Typologie de modification |
 |---|---|---|---|
-| 1 | 管理画面に一括エクスポート機能を追加 | スコープ外 | 追加要望 |
-| 2 | ダッシュボードに先月比グラフを追加 | スコープ外 | 追加要望 |
-| 3 | 登録フォームのバリデーション項目追加 | 既存バリデーションのみ対象 | 拡張要望（詳細未定） |
+| 1 | Module d'export en masse en back-office | Hors périmètre (Out of scope) | Demande d'évolution majeure |
+| 2 | Graphique comparatif mensuel sur le tableau de bord | Hors périmètre (Out of scope) | Demande d'évolution mineure |
+| 3 | Nouvelles règles de validation de saisie | Hors spécifications v1.0 | Extension de périmètre (non qualifiée) |
 
 ---
 
-### 2. 当初スコープとの差分
+### 2. Écart caractérisé par rapport au périmètre initial (Scope Baseline)
 
-- 管理画面：閲覧・検索・個別エクスポートのみ → 一括エクスポートは追加
-- ダッシュボード：今期分集計表示のみ → 先月比グラフは追加
-- バリデーション：画面設計書記載の項目のみ → 追加項目は要件定義外
+- **Back-office** : Le périmètre validé couvre uniquement la recherche et l'export fiche par fiche. L'export groupé nécessite un nouveau composant asynchrone pour éviter les surcharges serveurs.
+- **Tableau de bord** : Limité au cumul de l'exercice courant. La comparaison historique implique d'agréger des données antérieures.
+- **Formulaire** : Strictement circonscrit à la matrice de validation validée en recette fonctionnelle.
 
-いずれも要件定義書・画面設計書に含まれていない内容と想定される。
+Aucune de ces trois exigences ne figure dans les documents contractuels de cadrage.
 
 ---
 
-### 3. 影響範囲
+### 3. Matrice des impacts collatéraux
 
-| 影響対象 | 内容 |
+| Domaine d'impact | Conséquence opérationnelle |
 |---|---|
-| 設計書・仕様書 | 追加要望を反映した設計変更が必要 |
-| 実装工数 | 要望1・2・3ともに追加実装が発生 |
-| テスト工数 | 追加実装に伴うテストケース追加が必要 |
-| 既存機能との整合性 | 一括エクスポートと既存エクスポートのデータ形式・動作の整合性確認が必要 |
-| DB設計 | 先月比グラフの実現方法によってはDB変更が必要になる可能性あり（要確認） |
+| Documentation / Spécifications | Nécessité de réviser et faire signer les spécifications détaillées avant tout codage |
+| Effort de développement | Développement supplémentaire sur 3 modules distincts |
+| Effort de qualification | Conception de nouveaux jeux de tests et cas limites |
+| Cohérence fonctionnelle | Risque de rupture de format de restitution de données entre exports unitaires et exports en masse |
+| Modèle de données | Risque de refonte de requêtes SQL complexes pour l'historique M/M-1 |
 
 ---
 
-### 4. 工数影響
+### 4. Évaluation de la charge de travail additionnelle
 
-| 要望 | 想定追加工数 | 備考 |
+| Demande | Estimation prévisionnelle | Commentaire technique |
 |---|---|---|
-| 一括エクスポート | 3〜5営業日（未確認） | 正確な見積には仕様確定が必要 |
-| 先月比グラフ | 2〜3営業日（未確認） | DB変更が生じれば増加する可能性あり |
-| バリデーション追加 | 不明 | 詳細仕様が確定するまで見積不可 |
-| 合計 | 5〜8営業日以上 | 仕様確定後に正式見積が必要 |
+| Export groupé | 3 à 5 jours-hommes | Sujet à validation de l'architecture d'exécution |
+| Graphique comparatif | 2 à 3 jours-hommes | Peut augmenter si des indexations DB sont requises |
+| Nouvelles validations | Indéterminée | Chiffrage impossible sans les règles métier exactes |
+| **Total prévisionnel** | **5 à 8 j/h minimum** | Sous réserve de la complexité de la Demande 3 |
 
 ---
 
-### 5. 納期影響
+### 5. Impact sur le chemin critique et la date de livraison
 
-残り4週間（20営業日）の中で追加対応を行う場合、現在の開発遅延と合わせて、テスト期間がさらに圧縮される。
+Sur un solde calendaire de 4 semaines (20 jours ouvrés) et compte tenu du retard résiduel en cours de résorption, l'injection de 5 à 8 jours de dev additionnels comprimerait mortellement la phase de tests d'intégration.
 
-- 3件すべてを対応した場合：5〜8営業日以上の追加作業が発生し、現計画では納期内に完了できない可能性がある
-- 一部対応（優先度が高いもののみ）の場合：選択次第では納期内に収まる可能性はある
-- バリデーション追加（要望3）は詳細不明のため、工数によっては別扱いが望ましい
+- **Acceptation intégrale des 3 demandes** : Impossibilité matérielle de tenir le jalon de livraison sans dérive calendaire majeure.
+- **Acceptation partielle sélective** : Faisable uniquement sur un volume résiduel strictement encadré (ex. 2 jours).
+- **Règles de validation (Demande 3)** : À exclure de la livraison nominale en raison du flou de spécification.
 
-**納期延長なしで全件対応は困難な見通し。**
-
----
-
-### 6. 費用影響が生じうるポイント
-
-> **注意：** 費用・契約に関する判断はAI出力をそのまま使用しないでください。法務・上長・契約書の確認が必要です。
-
-- 追加要望はいずれも要件定義書に含まれていない内容であるため、追加費用の発生根拠になりうる
-- 追加費用の発生可否・金額・合意方法は、契約形態（請負・準委任等）によって異なる
-- 顧客との費用合意が取れない場合、追加要望を受け入れることでPM・会社がリスクを負う可能性がある
+**Conclusion calendaire : L'intégration complète à date constante est irréalisable.**
 
 ---
 
-### 7. 顧客に確認すべきこと
+### 6. Risques contractuels et financiers
 
-- 3件の要望に優先度はあるか（全件必須か、選択可能か）
-- 要望3（バリデーション追加）の詳細仕様を早急に確定してほしい
-- 追加工数が発生する場合、納期延長または追加費用の受け入れ可否
-- 追加費用が発生する場合の合意プロセスの確認
+> **Avertissement :** Les incidences contractuelles et de refacturation exigent une consultation préalable de la direction commerciale et du service juridique.
+
+- Les demandes ne figurant pas au cahier des charges, leur prise en charge sans avenant formel dégraderait la rentabilité du projet et créerait un précédent juridique défavorable.
+- L'acceptation verbale ou informelle sans notification écrite d'impact calendaire engagerait la responsabilité du prestataire en cas de non-respect de l'échéance finale.
 
 ---
 
-### 8. 提示する選択肢
+### 7. Clarifications préalables à exiger du client
 
-顧客に提示する選択肢の案（たたき台）：
+- Établir la hiérarchie de valeur métier entre les 3 demandes (définir les éléments impératifs vs accessoires)
+- Obtenir sous 48h les règles de gestion précises de la Demande 3
+- Confirmer si le client est prêt à arbitrer entre un report de date ou un financement par avenant
 
-| 選択肢 | 内容 | 納期 | 費用 |
+---
+
+### 8. Scénarios d'arbitrage à présenter (Options A, B, C)
+
+| Option | Périmètre traité | Calendrier de livraison | Incidence financière |
 |---|---|---|---|
-| A：全件対応（納期延長あり） | 3件すべてを対応。納期を延長する | 要交渉 | 要交渉 |
-| B：優先2件のみ対応（納期固定） | 要望1・2のみ対応（バリデーションは次フェーズ） | 現納期 | 要交渉 |
-| C：現スコープで進める（追加なし） | 追加要望は次フェーズ以降に持ち越す | 現納期 | 変更なし |
-
-> **注意：** この選択肢はたたき台です。実際の提示前に、上長・法務・顧客との契約内容を確認してください。
+| **Option A : Prise en compte globale avec report** | Intégration des 3 demandes après stabilisation des spécifications | Report du jalon de 2 à 3 semaines | Émission d'un avenant au forfait |
+| **Option B : Déploiement du socle nominal et version v1.1 rapide** | Maintien strict du périmètre initial pour la mise en prod dans 4 semaines ; livraison des évolutions dans un sprint v1.1 dédié | Jalon initial garanti | Avenant pour le lot v1.1 |
+| **Option C : Substitution de périmètre (Trade-off)** | Intégration de la Demande 1 en contrepartie du déscopage d'une fonctionnalité initiale de charge équivalente | Jalon initial maintenu | Neutre budgétairement |
 
 ---
 
-### 9. エスカレーション要否
+### 9. Circuit d'escalade managériale
 
-**エスカレーション推奨：**
-
-- 追加費用・納期延長の判断は、PM単独では行わず上長の承認が必要
-- 契約変更が伴う場合は、法務・営業担当への確認が必要
-- 顧客への費用・納期に関する回答は、社内合意後に行うことを推奨
-
----
-
-## Human Review Points
-
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 当初スコープとの差分が実際の要件定義書・契約書と一致しているか
-- 工数の想定が実際の開発チームの見立てと合っているか
-- 費用影響の指摘が実際の契約形態と一致しているか
-- 顧客への選択肢提示の内容・表現を実際の関係性・契約条件に合わせて修正する
-- 社内エスカレーションの基準が組織のルールと合っているか確認する
+**Escalade interne obligatoire :**
+- Information immédiate de la direction de projet et du responsable commercial
+- Interdiction stricte aux équipes de développement de commencer tout codage sur ces demandes sans ordre de service ou avenant signé
+- Validation collégiale de l'argumentaire avant transmission des options au client
 
 ---
 
-## Caution
+## Points de contrôle humain (Human Review Points)
+
+Avant de formaliser la réponse au client, le chef de projet doit contrôler :
+
+- L'exactitude contractuelle de la délimitation du périmètre initial vis-à-vis des annexes signées
+- La solidité de l'estimation de charge validée par l'équipe technique
+- L'adéquation des options proposées avec la politique commerciale du compte
+- La neutralité et la fermeté du discours : valoriser la volonté de service tout en posant la réalité physique des contraintes de délai et de budget
+
+---
+
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Les données utilisées dans ce document sont purement fictives.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Ne saisissez jamais d'éléments contractuels confidentiels, de taux journaliers réels ou d'identités réelles dans un outil d'IA.
 >
-> **AI出力は業務判断の代替ではありません。** 契約・納期・費用・責任範囲に関する判断はAI出力をそのまま使用せず、必ず担当者・上長・法務が確認した上で判断してください。
->
-> 顧客への回答・社内報告・契約変更の判断にAI出力をそのまま使用しないでください。
+> **L'IA ne prend pas de décisions contractuelles.** Toute modification d'échéance, de budget ou de responsabilité juridique requiert la validation formelle des signataires habilités de l'entreprise.

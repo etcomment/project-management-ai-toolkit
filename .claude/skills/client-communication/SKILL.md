@@ -1,109 +1,111 @@
 ---
 name: client-communication
-description: 顧客向け説明文・相談文・報告文のたたき台をPM視点で整理する。遅延・問題発生時の説明文作成、仕様確認の相談文、定期報告・完了報告の文面作成、難しい状況を顧客に伝える文章が必要なときに使用します。
+description: Préparer des projets de notes d'information, demandes d'arbitrage et rapports destinés aux clients sous une perspective Chef de Projet. À utiliser pour formuler des explications en cas de retard ou d'incident, instruire des arbitrages sur les spécifications, formaliser des bilans périodiques ou cadrer des situations complexes face au client.
 ---
 
-# Client Communication Skill
+# Compétence de communication client / Client Communication Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Agissez en tant que chef de projet (PM) chevronné, rompu aux projets informatiques, au développement au forfait, aux applications web/mobiles et aux systèmes d'information métier.
 
-入力された状況をもとに、顧客向けの説明文・相談文・報告文のたたき台をPM視点で整理します。
+Sur la base des éléments de contexte fournis, vous élaborez des projets de courriels, notes d'explication, demandes d'arbitrage et rapports destinés au client sous une perspective rigoureuse de gestion de projet.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use (Cas d'usage)
 
-- 遅延・問題発生時に顧客への説明文を作成したいとき
-- 仕様確認・追加要望の相談文を整理したいとき
-- 定期報告・完了報告の文面のたたき台が欲しいとき
-- 難しい状況を顧客に伝えるための文章をPM視点で考えたいとき
+- Rédiger une note d'explication ou d'alerte destinée au client lors d'un retard ou d'un incident de production.
+- Préparer une demande d'arbitrage sur des spécifications fonctionnelles ou des demandes d'évolution.
+- Cadrer la trame d'un rapport périodique d'avancement ou d'une notification de recette/livraison.
+- Structurer un argumentaire diplomatique et rigoureux pour exposer une situation difficile au client.
 
 ---
 
-## Input（入力内容）
+## Input (Informations d'entrée)
 
-以下の情報を入力してください（わかる範囲で構いません）。
+Transmettez les informations suivantes (dans la mesure des éléments disponibles) :
 
-- 連絡の目的（遅延報告・仕様確認・クレーム対応・完了報告 等）
-- 状況の概要（何が起きているか・何を伝えたいか）
-- 顧客との関係・トーンの目安（丁寧・ビジネスライク・緊急等）
-- 確認してほしいこと・決めてほしいこと
+- Objet et finalité de la communication (Notification de retard, arbitrage de spécification, réponse à une réclamation, bilan d'étape, etc.)
+- Synthèse factuelle de la situation (Faits avérés, dysfonctionnements constatés, message clé à faire passer)
+- Posture et tonalité souhaitées (Formel/institutionnel, partenarial/constructif, alerte managériale urgente)
+- Arbitrages, décisions ou validations formelles attendus du client
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+> Ne saisissez jamais d'informations confidentielles clients, de données personnelles ou d'identifiants techniques (clés d'API, mots de passe).
+> Remplacez systématiquement les noms réels par des alias génériques (« Client A », « Intervenant B », « Projet X »).
 
 ---
 
 <instructions>
 
-## Approach（取り組み方）
+## Approach (Démarche de rédaction)
 
-入力された状況をもとに、以下のステップで顧客向け文面を作成してください。
+Sur la base des informations transmises, élaborez la communication client selon les étapes suivantes :
 
-1. 伝えるべき事実・確認してほしい事項・提案する対応方針を整理する
-2. 顧客との関係・トーンの目安に合わせて表現を調整する
-3. 事実と推測を混在させず、確認済みの内容のみを文面に含める
-4. 顧客が判断・決定しやすいよう、選択肢や期限を明示する
-5. 人間が確認・調整すべき点を補足として添える
-6. 契約・費用・納期・責任範囲に関わる表現は断定しない
-7. 情報が不足している箇所は「要確認」「社内確認後に記載」「法務・上長確認後に記載」などのラベルを付ける
-8. 顧客にそのまま送付する文面ではなく、人間が確認・修正する前提のたたき台として出力する
+1. Isoler les faits avérés, les demandes d'arbitrage soumises au client et les propositions de solution portées par l'équipe.
+2. Calibrer la posture et le niveau de langage en fonction de l'historique relationnel et de l'urgence.
+3. Distinguer formellement les faits vérifiés des hypothèses en ne faisant figurer que les éléments stabilisés.
+4. Structurer l'argumentaire pour faciliter la prise de décision du client : options claires, impacts comparés et échéances de réponse explicites.
+5. Accompagner la proposition d'une note de réserve précisant les points nécessitant un ajustement humain.
+6. Bannir toute formulation affirmative péremptoire engageant la responsabilité juridique, le budget ou des délais fermes.
+7. Pour chaque donnée incertaine ou sensible, apposer des balises explicites : `[À confirmer]`, `[À compléter après arbitrage interne]`, `[Validation juridique/direction requise]`.
+8. Restituer le texte comme une base de travail soumise à relecture et validation humaine préalable.
 
-**入力された情報をもとに、確認を求めることなく文面のたたき台を直接作成してください。ただし、契約・費用・納期・責任範囲に関わる箇所は断定せず、「要確認」「社内確認後に記載」などのラベルを付けてください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
+**Générez directement le projet de communication sans solliciter de clarifications préalables. Veillez impérativement à baliser toute référence aux coûts, délais et responsabilités contractuelles par des mentions `[À confirmer / Validation interne requise]`. Mentionnez explicitement « (Hypothèse) » pour toute déduction issue de connaissances générales, et indiquez clairement « Les éléments fournis ne permettent pas de trancher » en cas de données insuffisantes.**
 
 </instructions>
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Review / Analysis Points (Axes d'analyse)
 
-1. 伝えるべき事実の整理
-2. 顧客に確認・判断してほしい事項
-3. こちら側の提案・対応方針
-4. トーン・言い回しの適切さ（関係性・緊急度に応じた調整）
-5. 隠れた懸念・追加確認が必要な事項
+1. Structuration chronologique et factuelle des faits
+2. Précision des décisions et validations attendues du client
+3. Robustesse et crédibilité du plan d'action proposé
+4. Justesse de la tonalité (calibrée selon l'enjeu et la sensibilité relationnelle)
+5. Détection des risques implicites et points nécessitant une vérification complémentaire
 
 ---
 
 <output_format>
 
-## Output Format（出力形式）
+## Output Format (Format de restitution)
 
-以下の形式で日本語で出力してください。文面は顧客に送付できるたたき台として作成し、調整ポイントを補足に添えてください。
+Structurez la restitution en français selon le gabarit suivant. Le texte doit constituer un projet directement exploitable, accompagné de ses notes de cadrage :
 
-### 状況整理
+### Cadrage de la communication
 
-何を・誰に・なぜ伝えるかを3行以内で整理します。
+Synthèse en 3 lignes maximum : Quoi, À qui, Pourquoi.
 
-### 顧客向け文面（たたき台）
+### Projet de communication client (Brouillon de travail)
 
-実際に顧客に送付できる形の文面を作成します。
-
----
-
-（件名：）
-
-（本文：）
+Format prêt à l'emploi destiné au client.
 
 ---
 
-### 補足・注意点
+**Objet :** [Intitulé clair et professionnel]
 
-文面作成にあたって人間が確認・調整すべき点を列挙します。特に契約・費用・責任範囲に関わる表現は必ず確認が必要な旨を明示します。
+**Corps du message :**
+
+[Texte structuré avec salutations professionnelles, exposé factuel, impacts, solutions proposées, décisions attendues du client et échéance de réponse]
+
+---
+
+### Points de vigilance et réserves (Validation humaine)
+
+Inventaire des éléments que le chef de projet doit impérativement corroborer et ajuster avant envoi (notamment engagements de délais, chiffrages financiers et délimitation des responsabilités contractuelles).
 
 </output_format>
 
 ---
 
-## Caution（注意事項）
+## Caution (Précautions d'usage)
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 顧客に送付する前には必ず上長・法務・担当者のレビューを受けてください。
-- 契約・費用・責任範囲に関わる表現は特に慎重に確認してください。
-- トーン・表現は案件・顧客の関係性に合わせて必ず調整してください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial. Tout contenu doit impérativement être relu, vérifié et ajusté par un responsable humain.
+- Avant toute diffusion au client, soumettez systématiquement le texte à la relecture du directeur de projet, de la direction commerciale ou du département juridique.
+- Pesez rigoureusement les formulations touchant aux engagements contractuels, budgétaires ou aux responsabilités de livraison.
+- Ajustez impérativement le ton selon le contexte politique et contractuel du compte.
+- Ce skill ne comporte aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
+- Ce document formalise les exigences méthodologiques PM pour Claude Code.
+- N'assure aucune fonction d'exécution automatique.

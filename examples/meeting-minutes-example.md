@@ -1,44 +1,44 @@
-# 会議メモから議事録・TODOを作る — 実用サンプル
+# Compte rendu de réunion et plan d'actions (Meeting Minutes & TODOs) — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-週次定例の会議メモから、議事録・決定事項・TODO・次回確認事項を作成する場面を想定しています。
+Ce scénario illustre la conversion de notes brutes prises au vol lors d'un comité hebdomadaire en un compte rendu structuré comprenant la synthèse, les décisions validées, les points en suspens, les actions à mener (TODO) et les points de vigilance pour l'échéance suivante.
 
-会議メモを整理する手間をAIに補助させる例です。
+L'objectif est d'accélérer la formalisation post-réunion tout en garantissant la rigueur de suivi.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/MEETING_MINUTES_CONTEXT.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
 ```
-会議の目的：週次定例
-会議種別：顧客定例
-日時：第9週 水曜日
-参加者の役割：PM（自社）、開発リーダー（自社）、顧客担当者A
+Objet de la réunion : Comité d'avancement hebdomadaire
+Type de réunion : Point régulier client / prestataire
+Date : Semaine 9 (S9), Mercredi
+Rôles des participants : Chef de Projet (prestataire), Lead Développeur (prestataire), Contact client A
 
-【会議メモ（箇条書き・走り書き）】
+【Notes brutes de réunion (prises de notes télégraphiques)】
 
-- 先週の宿題：データ仕様確認の回答 → 顧客担当者Aから回答あり（後述）
-- データ連携仕様について、顧客担当者Aから方針が示された
-  - 項目Xは今回スコープ外にする
-  - 項目Yは仕様を簡略化して対応する（詳細は顧客担当者Aが別途メモを送ってくれる）
-  - 項目Zは当初仕様で進める
-- 外部連携機能の実装は来週末を目標にする（遅延回復中）
-- テスト設計書の着手確認 → 開発リーダーが来週月曜から着手する予定
-- テスト期間の確保について懸念あり → 開発リーダーから「期間が5日は厳しい」と発言
-  - 「延ばせるか検討が必要」とPMが伝えたが、方針は未決定
-- リリース判定会議について → 顧客担当者Aに日程を確認したが、「上長に確認する」とのこと。回答待ち
-- 次回定例：来週水曜日
-  - 顧客担当者Aが確認事項の回答を持ってくる予定
+- Action de la semaine précédente : retour sur les spécifications de données → apporté en séance par le Contact client A (détails ci-dessous)
+- Orientations actées sur les spécifications d'interfaces de données :
+  - Rubrique X : déscopée de la version actuelle
+  - Rubrique Y : spécification simplifiée à retenir (le Contact client A transmettra une note de cadrage séparée)
+  - Rubrique Z : maintien des spécifications initiales sans altération
+- Développement du module externe : cible fixée à la fin de semaine prochaine pour achèvement (rattrapage de planning enclenché)
+- Lancement de la conception des tests → le Lead Tech prévoit de démarrer dès lundi prochain
+- Alerte sur la fenêtre de test → le Lead Tech indique : « 5 jours ouvrés de tests d'intégration, c'est intenable »
+  - Le Chef de Projet répond qu'il faut étudier une extension du calendrier, mais aucune décision définitive n'est encore actée
+- Comité Go/No-Go de validation de mise en production → confirmation de date demandée au Contact client A ; celui-ci indique devoir valider auprès de sa hiérarchie. En attente de son retour
+- Prochain point d'avancement : Mercredi prochain
+  - Le Contact client A doit apporter les arbitrages de sa direction
 ```
 
 ---
@@ -46,119 +46,117 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、会議メモから議事録・TODOを整理してください。
+Après avoir intégré les fichiers de contexte ci-dessous, structure et formalise les notes brutes de réunion en un compte rendu professionnel assorti d'un plan d'actions.
 
-【読み込むファイル】
+【Fichiers de contexte】
 - contexts/PM_CONTEXT.md
 - contexts/MEETING_MINUTES_CONTEXT.md
 
+【Notes de réunion】
+(Coller les données d'entrée anonymisées ci-dessus)
 
-【会議メモ】
-（上記の Sanitized Input を貼り付ける）
-
-以下の観点で整理してください。
-1. 会議サマリー
-2. 決定事項
-3. 未決事項
-4. TODO一覧（担当者・期限付き）
-5. 担当者不明のTODO
-6. 次回確認事項
-7. リスク・懸念点
+Structure ta restitution selon les axes suivants :
+1. Synthèse managériale de la réunion
+2. Décisions actées (Decisions)
+3. Points en suspens et arbitrages ouverts (Open Issues)
+4. Registre des actions / TODO (avec responsable et date butoir)
+5. Actions sans responsable identifié (points aveugles)
+6. Ordre du jour et points à trancher lors de la prochaine séance
+7. Risques et facteurs de vigilance
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
-
----
-
-### 1. 会議サマリー
-
-第9週週次定例において、懸案だったデータ連携仕様の方針が顧客担当者Aより示された。外部連携機能は来週末を目標に実装を進める。テスト設計書は来週月曜から着手予定だが、テスト期間の短さについて懸念が出ており、方針は未決定。リリース判定会議の日程は引き続き確認中。
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 2. 決定事項
+### 1. Synthèse managériale de la réunion
 
-| # | 決定内容 |
+Lors du comité hebdomadaire de la Semaine 9, les orientations sur les spécifications d'interfaces de données ont été arrêtées avec le Contact client A (déscopage de X, simplification de Y, maintien de Z). Le développement des flux externes cible un achèvement en fin de semaine prochaine. La conception du plan de tests débutera lundi prochain sous la responsabilité du Lead Développeur ; toutefois, l'alerte sur la brièveté de la fenêtre de qualification (5 jours) impose un arbitrage rapide sur le calendrier. La fixation de la date du comité Go/No-Go reste soumise à validation hiérarchique côté client.
+
+---
+
+### 2. Décisions actées (Decisions)
+
+| # | Décision actée |
 |---|---|
-| 1 | データ連携仕様：項目Xは今回スコープ外 |
-| 2 | データ連携仕様：項目Yは仕様を簡略化して対応 |
-| 3 | データ連携仕様：項目Zは当初仕様で進める |
-| 4 | 外部連携機能の実装完了目標：来週末 |
-| 5 | テスト設計書：開発リーダーが来週月曜から着手 |
+| 1 | Interfaces de données : exclusion de la rubrique X du périmètre de la version actuelle |
+| 2 | Interfaces de données : simplification des spécifications pour la rubrique Y |
+| 3 | Interfaces de données : conservation des exigences initiales pour la rubrique Z |
+| 4 | Cible d'achèvement du développement des flux externes fixée à la fin de la Semaine 10 |
+| 5 | Lancement de la conception du plan de tests acté pour lundi prochain par le Lead Tech |
 
 ---
 
-### 3. 未決事項
+### 3. Points en suspens et arbitrages ouverts (Open Issues)
 
-| # | 内容 | 確認先 |
+| # | Sujet ouvert | Action attendue / Interlocuteur |
 |---|---|---|
-| 1 | テスト期間の延長可否 | PM・上長・顧客担当者Aとの調整が必要 |
-| 2 | リリース判定会議の日程 | 顧客担当者Aが上長に確認中 |
-| 3 | 項目Yの簡略化仕様の詳細 | 顧客担当者Aからのメモ待ち |
+| 1 | Prolongation éventuelle de la fenêtre de tests | Arbitrage tripartite requis : Chef de Projet / Direction / Client |
+| 2 | Date du comité de validation Go/No-Go | En cours de validation par le Contact client A auprès de sa direction |
+| 3 | Spécification technique détaillée de la simplification de Y | Attente de la note de cadrage du Contact client A |
 
 ---
 
-### 4. TODO一覧
+### 4. Registre des actions / TODO
 
-| # | TODO | 担当 | 期限 |
+| # | Action | Responsable | Échéance |
 |---|---|---|---|
-| 1 | 外部連携機能の実装完了 | 開発担当者 | 来週末 |
-| 2 | テスト設計書の着手 | 開発リーダー | 来週月曜 |
-| 3 | 項目Yの仕様メモの受領確認 | PM担当者 | 今週中（顧客担当者A送付後） |
-| 4 | テスト期間延長の検討・方針決定 | PM担当者 | 来週定例前 |
-| 5 | リリース判定会議の日程フォローアップ | PM担当者 | 来週定例時に確認 |
+| 1 | Finalisation des développements des interfaces externes | Équipe Dev | Fin de Semaine 10 |
+| 2 | Initialisation de la rédaction du plan de tests | Lead Développeur | Lundi de Semaine 10 |
+| 3 | Réception et accusé de réception de la note de cadrage sur la rubrique Y | Chef de Projet | Dès émission par le client |
+| 4 | Instruction de l'impact calendaire d'une extension de la phase de test | Chef de Projet | Avant le prochain comité |
+| 5 | Relance sur la date du comité de décision Go/No-Go | Chef de Projet | Prochain comité d'avancement |
 
 ---
 
-### 5. 担当者不明のTODO
+### 5. Actions sans responsable identifié (points aveugles)
 
-- 項目Yの簡略化仕様の内部レビュー：仕様メモが届いた後、誰がレビューするかが会議メモから読み取れない
-
----
-
-### 6. 次回確認事項
-
-来週水曜の定例で確認すること：
-
-- リリース判定会議の日程（顧客担当者Aが上長に確認して回答予定）
-- テスト期間の延長可否に関するPM側の方針
-- 外部連携機能の実装進捗
-- テスト設計書の着手状況
+- Revue d'impact technique de la note de cadrage sur Y : qui instruit et valide la faisabilité dès réception de la note du client ? À attribuer au Lead Développeur.
 
 ---
 
-### 7. リスク・懸念点
+### 6. Ordre du jour et points à trancher lors de la prochaine séance
 
-| リスク | 内容 |
+Points prioritaires du comité de Mercredi prochain :
+
+- Confirmation de la date du comité Go/No-Go (retour de la direction client)
+- Présentation de la proposition du Chef de Projet concernant le recalibrage de la période de test
+- Contrôle de l'avancement des flux externes vis-à-vis de l'objectif de fin de semaine
+- Revue du démarrage de la conception des tests
+
+---
+
+### 7. Risques et facteurs de vigilance
+
+| Risque | Analyse et impact opérationnel |
 |---|---|
-| テスト期間の圧縮 | 現計画5日のテスト期間は不足との懸念が出た。方針未決定のまま進むとリリース品質に影響する可能性がある |
-| 仕様決定の遅れ | 項目Yの詳細仕様が未着。受領後に内部での確認・実装調整が発生するため、受領日によっては遅延リスクがある |
-| リリース判定基準の未合意 | 日程も基準も未確定のまま開発が進んでいる。リリース直前での認識ズレを避けるため、早期合意が必要 |
+| Compression de la qualification | La fenêtre de 5 jours est jugée intenable par l'équipe technique. Maintenir cette durée sans arbitrage fait peser un risque critique sur la stabilité de la mise en production |
+| Retard d'instruction sur la rubrique Y | Si la note de cadrage tarde à parvenir, le développement risque de subir un décalage supplémentaire lors de la phase de tests unitaires |
+| Carence de critères d'homologation | L'absence d'accord formel sur les critères d'acceptation du comité Go/No-Go expose à un refus de recette en fin de parcours |
 
 ---
 
-## Human Review Points
+## Points de contrôle humain (Human Review Points)
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
+Avant toute transmission ou diffusion, le chef de projet doit vérifier :
 
-- 決定事項の内容が会議での合意内容と一致しているか（AIの誤解読みがないか）
-- 未決事項に漏れがないか
-- TODO の担当者・期限が実際に合意した内容と一致しているか
-- 担当者名を実際の担当者名に修正したか
-- 議事録として顧客と共有する場合、表現が適切かを確認する
-- リスク・懸念点に、会議の場では言いにくかった内容が正しく反映されているか
+- La stricte conformité des décisions actées avec les débats réels en réunion (absence de surinterprétation de l'IA)
+- L'exhaustivité des points en suspens et la fidélité des attributions
+- Le réalisme des dates butoirs et la désignation nominative précise des acteurs
+- L'adaptation diplomatique des formulations si le compte rendu est partagé avec le client
+- La prise en compte des non-dits ou signaux faibles perçus pendant la séance
 
 ---
 
-## Caution
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Les informations de cet exemple sont purement fictives.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Toute note de réunion réelle doit faire l'objet d'un filtrage et d'une anonymisation stricte de ses données sensibles avant injection dans un outil d'IA.
 >
-> **AI出力は業務判断の代替ではありません。** 顧客と共有する議事録は、必ず担当者が内容を確認・修正してから送付してください。
+> **L'IA ne se substitue pas à la responsabilité du chef de projet.** Le compte rendu engage contractuellement l'équipe auprès du client dès lors qu'il est émis.

@@ -1,273 +1,273 @@
-# Claude Code Guide / Claude Code向けガイド
+# Guide Claude Code / Claude Code Guide
 
-Claude Code で本リポジトリを活用するためのガイドです。
+Guide pratique pour exploiter le présent référentiel avec Claude Code en environnement terminal.
 
 > [!IMPORTANT]
-> 機密情報・個人情報・認証情報（APIキー・パスワード等）をClaude Codeに入力しないでください。
-> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
+> Ne saisissez jamais de données confidentielles clients, d'informations personnelles ou d'identifiants d'accès (clés d'API, mots de passe) dans Claude Code.
+> Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial. Tout contenu produit doit impérativement être relu, vérifié et ajusté par un responsable humain.
 
 ---
 
-## `contexts/` — AI Contexts本体
+## `contexts/` — Composant central (AI Contexts)
 
-コンテキスト本体は `contexts/` 配下にあります。
+Le cœur méthodologique réside dans le répertoire `contexts/`.
 
-Claude Code 向けの PM 実務 Skill は `.claude/skills/` 配下に配置されています。
+Les compétences méthodologiques adaptées à Claude Code sont regroupées sous `.claude/skills/`.
 
 ---
 
-## Skill の場所
+## Organisation de l'arborescence des Skills
 
 ```text
 .claude/
 └─ skills/
-   ├─ README.md                          ← Skill一覧・使い方ガイド
+   ├─ README.md                          ← Sommaire général et guide des compétences
    │
-   ├─ pm-ai-diagnosis/SKILL.md           ← まず使う：診断・入口
+   ├─ pm-ai-diagnosis/SKILL.md           ← Point d'entrée : diagnostic du besoin et orientation
    │
-   ├─ project-risk-radar/SKILL.md        ← リスクを見つける
+   ├─ project-risk-radar/SKILL.md        ← Détection et anticipation des risques
    ├─ issue-risk-review/SKILL.md
    │
-   ├─ pm-decision-support/SKILL.md       ← 判断する
+   ├─ pm-decision-support/SKILL.md       ← Aide à la décision et arbitrage
    │
-   ├─ stakeholder-strategy/SKILL.md      ← 伝える
+   ├─ stakeholder-strategy/SKILL.md      ← Stratégie de communication et alignement
    ├─ client-communication/SKILL.md
    ├─ status-report/SKILL.md
    │
-   ├─ ai-output-governance-review/SKILL.md  ← AI出力を確認する
+   ├─ ai-output-governance-review/SKILL.md  ← Contrôle qualité et gouvernance des sorties IA
    │
-   ├─ meeting-minutes/SKILL.md           ← 会議・変更・遅延を整理する
+   ├─ meeting-minutes/SKILL.md           ← Réunions, changements de périmètre et crises
    ├─ scope-change-review/SKILL.md
    ├─ delay-recovery/SKILL.md
    ├─ fire-response-first-72h/SKILL.md
    │
-   ├─ pm-review/SKILL.md                 ← 汎用レビュー・ヘルスチェック
+   ├─ pm-review/SKILL.md                 ← Revues transversales et bilans de santé
    └─ project-health-check/SKILL.md
 ```
 
 ---
 
-## Skill とは
+## Nature et portée des Skills
 
-このリポジトリの Skill は **ドキュメントのみ** です。以下は含まれていません。
+Les compétences de ce répertoire sont **exclusivement documentaires**. Elles ne comportent aucun des composants techniques suivants :
 
-| 含まれないもの | 理由 |
+| Composant exclu | Justification |
 |---|---|
-| 実行可能な hooks | 意図しない自動実行を防ぐため |
-| 自動実行コマンド | 意図しない自動実行を防ぐため |
-| shell スクリプト | 意図しない自動実行を防ぐため |
-| MCP設定 | 外部サービスとの自動連携を防ぐため |
-| GitHub Actions | CI/CDの自動実行を防ぐため |
-| 自動コミット・自動デプロイ | 意図しないコード変更・本番環境への影響を防ぐため |
+| Hooks exécutables | Prévention de toute exécution automatique non sollicitée |
+| Commandes CLI automatiques | Prévention de toute action système autonome |
+| Scripts shell | Prévention de tout impact système imprévu |
+| Configurations MCP | Absence de couplage automatique avec des services externes |
+| Workflows GitHub Actions | Prévention de déclenchements automatiques en CI/CD |
+| Commits et déploiements automatiques | Protection contre toute modification non validée du code et de la production |
 
-Skill は、PM実務のレビュー観点・整理観点をClaude Codeに伝えるためのドキュメントです。
+Ces compétences formalisent les exigences de rigueur et les grilles de lecture de gestion de projet (PM) pour orienter le raisonnement de Claude Code.
 
 ---
 
-## Skill 選択マップ
+## Matrice de sélection des Skills
 
-### まず使う
+### Point d'entrée recommandé
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| どのContextやSkillを使えばよいか診断したい | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
+| Diagnostiquer la situation et choisir le bon contexte ou skill | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
 
-### リスクを見つける
+### Détection et anticipation des risques
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| 表面化していないプロジェクトリスクを検知したい | `.claude/skills/project-risk-radar/SKILL.md` |
-| 課題・リスクの抜け漏れを整理したい | `.claude/skills/issue-risk-review/SKILL.md` |
+| Détecter les risques sous-jacents et les signaux faibles | `.claude/skills/project-risk-radar/SKILL.md` |
+| Auditer la complétude du registre des incidents et des risques | `.claude/skills/issue-risk-review/SKILL.md` |
 
-### 判断する
+### Aide à la décision et arbitrage
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| PM判断（エスカレーション・方針選択）を構造化したい | `.claude/skills/pm-decision-support/SKILL.md` |
+| Structurer un arbitrage managérial complexe (escalade, choix A/B) | `.claude/skills/pm-decision-support/SKILL.md` |
 
-### 伝える
+### Communication et restitution
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| 相手別の伝え方・コミュニケーション戦略を整理したい | `.claude/skills/stakeholder-strategy/SKILL.md` |
-| 顧客向け文面のたたき台を作りたい | `.claude/skills/client-communication/SKILL.md` |
-| 進捗報告を整理したい | `.claude/skills/status-report/SKILL.md` |
+| Définir la stratégie et le séquençage de communication par cible | `.claude/skills/stakeholder-strategy/SKILL.md` |
+| Préparer un projet de courriel ou d'explication client | `.claude/skills/client-communication/SKILL.md` |
+| Structurer le rapport d'avancement périodique | `.claude/skills/status-report/SKILL.md` |
 
-### AI出力を確認する
+### Contrôle qualité et gouvernance des sorties IA
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| AI出力を実務利用する前に安全性・表現をレビューしたい | `.claude/skills/ai-output-governance-review/SKILL.md` |
+| Auditer la sécurité et le ton des textes produits par l'IA avant diffusion | `.claude/skills/ai-output-governance-review/SKILL.md` |
 
-### 会議・変更・遅延を整理する
+### Réunions, changements et gestion des dérives
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| 議事録・TODO・次回確認事項を整理したい | `.claude/skills/meeting-minutes/SKILL.md` |
-| スコープ変更の影響を整理したい | `.claude/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー方針を整理したい | `.claude/skills/delay-recovery/SKILL.md` |
-| 炎上初動を整理したい | `.claude/skills/fire-response-first-72h/SKILL.md` |
+| Rédiger le compte rendu, les décisions et le plan d'actions (TODO) | `.claude/skills/meeting-minutes/SKILL.md` |
+| Qualifier les impacts d'un changement de périmètre (Scope Change) | `.claude/skills/scope-change-review/SKILL.md` |
+| Établir les scénarios d'un plan de rattrapage calendaire | `.claude/skills/delay-recovery/SKILL.md` |
+| Conduire le plan d'action d'urgence des premières 72h de crise | `.claude/skills/fire-response-first-72h/SKILL.md` |
 
-### 汎用レビュー・ヘルスチェック
+### Revues transversales et bilans de santé
 
-| 目的 | Skill |
+| Objectif visé | Fichier Skill |
 |---|---|
-| 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
-| プロジェクト全体の健全性確認 | `.claude/skills/project-health-check/SKILL.md` |
+| Revue globale 360° du projet sous l'angle PM | `.claude/skills/pm-review/SKILL.md` |
+| Bilan de santé opérationnel (Health Check) | `.claude/skills/project-health-check/SKILL.md` |
 
 ---
 
-## 使い方
+## Exemples concrets d'utilisation
 
-Claude Code のチャットで、以下のように依頼します。
+Dans l'interface de conversation de Claude Code, formulez vos demandes selon les modèles suivants :
 
-### 例1：プロジェクトのREADMEをPM視点でレビューしてもらう
-
-```text
-.claude/skills/pm-review/SKILL.md の内容を前提として、
-このプロジェクトの README.md をPM視点でレビューしてください。
-```
-
-### 例2：進捗報告のたたき台を作成してもらう
+### Exemple 1 : Revue du README sous l'angle PM
 
 ```text
-.claude/skills/status-report/SKILL.md の内容を前提として、
-以下の進捗状況を社内向け・顧客向けで整理してください。
-
-【今週の状況（機密情報はマスキング済み）】
-（ここに状況を貼り付ける）
+En vous conformant aux directives de .claude/skills/pm-review/SKILL.md,
+réalisez une revue critique du fichier README.md selon une perspective Chef de Projet.
 ```
 
-### 例3：課題・リスクをPM視点でレビューしてもらう
+### Exemple 2 : Préparation du rapport d'avancement
 
 ```text
-.claude/skills/issue-risk-review/SKILL.md の内容を前提として、
-現在の課題一覧をPM視点でレビューしてください。
-担当者不明・期限不明・エスカレーションが必要なものを指摘してください。
+En vous appuyant sur .claude/skills/status-report/SKILL.md,
+structurez la situation d'avancement ci-dessous en version interne et en version client.
+
+【Situation de la semaine (Données anonymisées)】
+(Coller ici les données)
 ```
 
-### 例4：どのContextやSkillを使えばよいか診断してもらう
+### Exemple 3 : Audit du registre des incidents et des risques
+
+```text
+Sur la base de .claude/skills/issue-risk-review/SKILL.md,
+examinez notre registre d'incidents actuel selon une perspective Chef de Projet.
+Identifiez les tâches orphelines, les dates manquantes et les points nécessitant une escalade.
+```
+
+### Exemple 4 : Diagnostic d'orientation et choix de contexte
 
 ```text
 <task>
-.claude/skills/pm-ai-diagnosis/SKILL.md の内容を前提として、
-以下の状況に合うContextとSkillを案内してください。
+En vous appuyant sur .claude/skills/pm-ai-diagnosis/SKILL.md,
+recommandez le contexte et le skill les plus pertinents pour la situation suivante.
 </task>
 <input>
-【状況】
-週次報告、顧客説明、課題管理のどれから整理すべきか迷っています。
-開発は進んでいますが、顧客確認待ちの事項が増えており、次回定例で何を説明すべきか整理できていません。
+【Situation constatée】
+J'hésite entre préparer le rapport hebdomadaire, organiser l'explication client ou revoir la gestion des incidents.
+Les développements avancent mais les validations client en attente s'accumulent, et je n'ai pas encore arrêté les sujets à aborder lors du prochain comité.
 </input>
 <constraints>
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
-- 判断に必要な情報が不足している場合は「情報不足」と明記してください。
+- L'ensemble des données d'entrée est strictement anonymisé.
+- Mentionnez expressément « Données insuffisantes » si une information manque pour conclure.
 </constraints>
 ```
 
-### 例5：表面化していないリスクを検知してもらう
+### Exemple 5 : Détection des signaux faibles et risques latents
 
 ```text
 <task>
-.claude/skills/project-risk-radar/SKILL.md の内容を前提として、
-以下の進捗メモから、表面化していないプロジェクトリスクを検知してください。
+En vous conformant à .claude/skills/project-risk-radar/SKILL.md,
+détectez les signaux faibles et risques sous-jacents à partir des notes d'avancement ci-dessous.
 </task>
 <input>
-【進捗メモ】
-- 外部API仕様は確認中
-- テスト環境構築は来週に延期
-- 顧客確認待ちの仕様変更が3件ある
-- 開発チームは主要機能の実装を優先中
-- 次回定例で進捗を報告予定
+【Notes d'avancement】
+- Spécifications de l'API partenaire en cours d'analyse
+- Déploiement de l'environnement de recette décalé à la semaine prochaine
+- 3 demandes de modifications fonctionnelles en attente d'arbitrage client
+- L'équipe priorise l'implémentation des écrans principaux
+- Point d'avancement prévu au prochain comité
 </input>
 <constraints>
-- 入力情報に根拠がないリスクは断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+- Ne formulez aucune affirmation péremptoire non étayée par les données d'entrée.
+- Mentionnez « (Hypothèse) » pour toute déduction générale.
+- Données strictement anonymisées.
 </constraints>
 ```
 
-### 例6：PM判断を構造化してもらう
+### Exemple 6 : Structuration d'un arbitrage managérial complexe
 
 ```text
 <task>
-.claude/skills/pm-decision-support/SKILL.md の内容を前提として、
-以下の判断テーマについて、選択肢・判断基準・推奨案・エスカレーション要否を整理してください。
+En vous appuyant sur .claude/skills/pm-decision-support/SKILL.md,
+instruisez l'arbitrage ci-dessous : options possibles, critères de choix, recommandation et opportunité d'escalade.
 </task>
 <input>
-【判断テーマ】
-顧客確認待ちの仕様が確定しない状態で、暫定実装を進めるべきか、仕様確定まで待つべきか。
-【状況】
-- 仕様確定が遅れると開発着手が遅れる
-- 暫定実装すると手戻りリスクがある
-- リリース予定日はまだ変更されていない
-- 上長にはまだ相談していない
+【Problématique d'arbitrage】
+Les spécifications de l'API externe n'étant pas stabilisées côté client, faut-il engager une implémentation simulée (mock) ou suspendre le chantier jusqu'à confirmation définitive ?
+【Situation】
+- Attendre décalera mécaniquement le lancement de la recette
+- Une implémentation simulée comporte un risque de refactorisation ultérieure (rework)
+- La date de livraison contractuelle reste inchangée à ce jour
+- La direction de projet n'a pas encore été saisie
 </input>
 <constraints>
-- 最終判断はPM・上長・関係者が行う前提で整理してください。
-- 契約・納期・費用・責任範囲に関わる事項は断定しないでください。
-- 情報不足があれば明記してください。
+- Formulez l'analyse sous forme d'aide à la décision, l'arbitrage final revenant au responsable humain.
+- Ne posez aucun engagement ferme sur les délais, les coûts ou les responsabilités.
+- Mentionnez explicitement les zones de flou le cas échéant.
 </constraints>
 ```
 
-### 例7：AI出力を顧客提出前にレビューしてもらう
+### Exemple 7 : Revue de gouvernance d'un projet de texte client
 
 ```text
 <task>
-.claude/skills/ai-output-governance-review/SKILL.md の内容を前提として、
-以下の顧客向け文面に、危険な断定表現、機密情報、確認漏れ、契約・納期・責任範囲への踏み込みがないかレビューしてください。
+En vous conformant à .claude/skills/ai-output-governance-review/SKILL.md,
+auditez le projet de texte destiné au client ci-dessous : décelez les promesses excessives, omissions, risques de fuites ou engagements contractuels imprudents.
 </task>
 <input>
-【レビュー対象文面】
-現時点では納期への影響はありません。
-外部API仕様が確定次第、予定通り実装を進めます。
-追加要望についても、現在のスケジュール内で対応可能です。
-【利用目的】
-顧客向け進捗報告のたたき台
+【Texte à auditer】
+À ce jour, aucun impact n'est à déplorer sur la date de livraison finale.
+Dès stabilisation des spécifications de l'API partenaire, nous procéderons aux développements sans délai.
+Concernant les demandes d'ajouts formulées, nous les intégrerons dans le planning actuel sans surcoût.
+【Finalité】
+Projet de note d'avancement hebdomadaire pour le client
 </input>
 <constraints>
-- 顧客提出前提の文面として、安全性・表現・確認漏れをレビューしてください。
-- 「法的に安全」「契約上問題ない」とは断定しないでください。
-- 必要に応じて上長・法務・関係者への確認が必要と明記してください。
+- Auditez le texte avec l'exigence d'une communication client formelle (maîtrise des risques, posture, omissions).
+- Ne posez aucune conclusion péremptoire de « conformité juridique totale ».
+- Préconisez formellement la validation de la direction de projet et des services juridiques.
 </constraints>
 ```
 
 ---
 
-## contexts/ との関係
+## Articulation entre `contexts/` et les Skills Claude Code
 
-Claude Code Skill と `contexts/` は以下のように使い分けできます。
+Les compétences Claude Code et les fichiers de contexte se complètent naturellement :
 
-- `contexts/*.md`：AIに渡す前提情報・Prompt Template（ChatGPT / Gemini / Claude / Claude Code 共通）
-- `.claude/skills/*.md`：Claude Code 向けに PM 実務の観点を伝えるドキュメント
+- `contexts/*.md` : Référentiels méthodologiques universels et modèles de requêtes (communs à ChatGPT, Gemini, Claude et Claude Code).
+- `.claude/skills/*.md` : Guides de raisonnement spécifiques fournissant à Claude Code les grilles d'analyse PM.
 
-Claude Codeで使う場合は、Skill と `contexts/PM_CONTEXT.md` を組み合わせると効果的です。
+Avec Claude Code, l'association d'un Skill et de `contexts/PM_CONTEXT.md` garantit une pertinence d'analyse maximale :
 
 ```text
-.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
-このリポジトリの現在の状況をPM視点でレビューしてください。
+Après avoir chargé .claude/skills/pm-review/SKILL.md et contexts/PM_CONTEXT.md,
+réalisez une revue de situation complète de ce référentiel selon une perspective Chef de Projet.
 ```
 
 ---
 
-## 注意事項
+## Précautions impératives
 
-- `SKILL.md` はドキュメントサンプルです。内容を理解したうえで利用してください
-- **機密情報・個人情報・認証情報をClaude Codeに入力しないでください**
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください
-- 顧客提出・社内報告前には必ず人間によるレビューを行ってください
-- Claude Code の利用規約・データ利用条件を確認してください
-
----
-
-## 関連ドキュメント
-
-- [docs/ai-safety.md](../ai-safety.md) — AIに入力してよい情報・安全な使い方
-- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — 免責事項
+- Les fichiers `SKILL.md` sont des canevas documentaires : prenez le temps de vous les approprier.
+- **Ne saisissez jamais d'informations confidentielles, données personnelles ou identifiants techniques dans Claude Code.**
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial ou légal.
+- Tout contenu destiné à un client ou à la gouvernance interne requiert impérativement une relecture humaine préalable.
+- Vérifiez au préalable vos paramètres de confidentialité et d'utilisation des données sur Claude Code.
 
 ---
 
-## 関連情報
+## Documents associés
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [docs/ai-safety.md](../ai-safety.md) — Règles de sécurité et données autorisées
+- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — Clause de non-responsabilité
+
+---
+
+## Liens utiles
+
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

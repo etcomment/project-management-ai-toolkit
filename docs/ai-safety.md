@@ -1,237 +1,228 @@
-# AI利用時の安全ガイド / AI Safety Guide
+# Guide de sécurité et d'usage responsable de l'IA / AI Safety Guide
 
 ---
 
-## はじめに
+## Introduction
 
-このガイドは、本リポジトリのコンテキストファイルやプロンプトテンプレートを生成AIサービスで利用する際の、安全に関するガイドです。
+Ce guide définit les règles impératives de sécurité, de confidentialité et de déontologie professionnelle à respecter lors de l'utilisation des fichiers de contexte et des modèles de requêtes de ce dépôt avec des services d'IA générative.
 
-**AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。**
-
----
-
-## AIサービスに入力してはいけない情報
-
-以下の情報は、外部のAIサービス（ChatGPT、Gemini、Claude等）に入力しないでください。
-
-### 個人情報・顧客情報
-
-- 顧客名・顧客企業名
-- 顧客担当者の氏名・役職・連絡先
-- 個人のメールアドレス・電話番号・住所
-- プロジェクトメンバーの個人情報
-
-### 契約情報・機密情報
-
-- 契約書の内容・条件・金額
-- NDAで保護されている情報
-- 見積の詳細金額
-- 社内の未公開事業情報・財務情報
-
-### 議事録・会議メモの原文
-
-- 参加者氏名が記載された議事録全文
-- 顧客先での発言の記録
-- 社内の内部情報を含む会議メモの原文
-
-### 技術的な機密情報
-
-- 本番環境のソースコード（自社・顧客のプロダクトコード）
-- APIキー・アクセストークン・シークレット
-- パスワード・認証情報
-- 本番サーバーのIP・ドメイン・インフラ構成の詳細
-- セキュリティ上の脆弱性情報
+**Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial ou professionnel. Tout contenu généré doit impérativement être relu, vérifié et validé par un responsable humain avant d'être exploité.**
 
 ---
 
-## AIに入力する前の確認フロー
+## Informations strictement proscrites en entrée des services d'IA
 
-入力したい情報がある場合、以下の順番で確認してから入力してください。
+Les données suivantes ne doivent JAMAIS être saisies dans un service d'IA externe (ChatGPT, Gemini, Claude, etc.) :
+
+### Données à caractère personnel et informations clients
+- Noms de clients, enseignes et raisons sociales
+- Noms, prénoms, fonctions, numéros de téléphone et adresses emails directes de collaborateurs ou d'intervenants clients
+- Données personnelles des membres des équipes projets
+
+### Données contractuelles, financières et sensibles
+- Contenus intégraux, clauses particulières et conditions financières des contrats
+- Informations couvertes par un accord de confidentialité (NDA)
+- Détail unitaire des taux journaliers moyens (TJM), marges ou montants confidentiels de devis
+- Données financières ou orientations stratégiques internes non publiques
+
+### Comptes rendus intégraux et retranscriptions brutes
+- Procès-verbaux et comptes rendus intégraux comportant des noms réels
+- Enregistrements ou verbatims bruts de réunions avec les clients
+- Notes de séances internes confidentielles
+
+### Secrets techniques et données de production
+- Extraits de code source de production (code propriétaire de l'entreprise ou du client)
+- Clés d'API, jetons d'accès (tokens), clés privées et secrets d'authentification
+- Mots de passe, certificats et identifiants de bases de données
+- Adresses IP de production, noms de domaines internes et architectures réseau sensibles
+- Rapports d'audit de vulnérabilité ou failles de sécurité non colmatées
+
+---
+
+## Protocole de validation avant saisie
+
+Avant de soumettre une information à une IA, suivez scrupuleusement le logigramme de contrôle suivant :
 
 ```text
-AIに入力したい情報がある
+Données projet à soumettre à l'IA
 │
-├─ 顧客名・個人名・会社名を含む？
-│    ├─ はい → マスキングする
-│    └─ いいえ
+├─ Présence de noms de clients, personnes ou sociétés ?
+│    ├─ Oui → Anonymiser / Pseudonymiser
+│    └─ Non
 │
-├─ 契約情報・NDA対象情報を含む？
-│    ├─ はい → 入力しない / 社内確認
-│    └─ いいえ
+├─ Présence de clauses contractuelles ou données sous NDA ?
+│    ├─ Oui → Proscrire la saisie / Consulter la direction
+│    └─ Non
 │
-├─ APIキー・パスワード・トークンを含む？
-│    ├─ はい → 削除する
-│    └─ いいえ
+├─ Présence de clés API, mots de passe ou tokens ?
+│    ├─ Oui → Supprimer impérativement
+│    └─ Non
 │
-├─ 議事録全文・ソースコードを含む？
-│    ├─ はい → 要約・抽象化する
-│    └─ いいえ
+├─ Présence de PV intégraux ou de code source brut ?
+│    ├─ Oui → Synthétiser et abstraire
+│    └─ Non
 │
-└─ 社内規程・顧客契約・AIサービス規約を確認
+└─ Contrôle des politiques internes, contrats clients et CGU de l'IA
      │
      v
-AIに入力できる範囲か最終確認
+Validation formelle de l'éligibilité des données
      │
      v
-AIに入力
+Saisie dans l'outil d'IA
      │
      v
-AI出力を人間が確認・修正
+Relecture, ajustement et validation humaine des résultats
 ```
 
 > [!IMPORTANT]
-> 「入力してよい」かどうかの最終判断は、所属組織の情報セキュリティ規程・顧客契約・NDA・利用するAIサービスの規約を確認したうえで、利用者自身が行ってください。
+> La responsabilité finale de l'éligibilité des données transmises à un tiers relève exclusivement de l'utilisateur, au regard des règles de sécurité de son organisation, des contrats clients, des accords NDA et des conditions de service des plateformes d'IA.
 
 ---
 
-## マスキングすべき情報と方法
+## Table de correspondance pour le masquage et l'anonymisation
 
-業務情報を入力する場合は、以下のように匿名化・抽象化してから使用してください。
+Lors de la préparation de vos données opérationnelles, appliquez systématiquement le principe d'abstraction suivant :
 
-| 情報の種類 | マスキング前（例） | マスキング後（例） |
+| Catégorie d'information | Donnée brute réelle (À proscrire) | Formulation anonymisée conforme |
 |---|---|---|
-| 顧客名 | 株式会社〇〇システムズ | 顧客A（流通業界のクライアント） |
-| 担当者名 | 山田 花子 | 顧客担当者A |
-| 自社担当者名 | 鈴木 一郎 PM | PM担当者B |
-| 契約金額 | 2,800万円 | 数千万円規模 |
-| 納期 | 2025年3月31日 | 第1四半期末 |
-| 議事録原文 | 「山田さんから、〇〇機能の仕様を変更したいとの要望があった」 | 「顧客から、主要機能の仕様変更要望があった（未決定）」 |
-| APIキー | sk-xxxxxxxxxxxxxxxxxx | （削除） |
+| Nom de client | Société Alpha Solutions SA | Client A (Grand compte du secteur distribution) |
+| Intervenant client | Claire Martin | Représentant Client A |
+| Chef de projet interne | Thomas Dubois PM | Chef de projet référent |
+| Montant contractuel | 280 000 € HT | Enveloppe budgétaire de quelques centaines de k€ |
+| Date butoir | 31 mars 2026 | Fin de premier trimestre |
+| Extrait de réunion brut | « Claire Martin exige la refonte du module de facturation » | « Le client a émis une demande d'évolution sur un composant clé (non arbitrée) » |
+| Clé d'API | sk-xxxxxxxxxxxxxxxxxx | [SUPPRIMÉ] |
 
 ---
 
-## 入力してよい情報の例
+## Exemples d'entrées conformes et sécurisées
 
-以下のような、適切に抽象化された情報は入力できます。
+Voici des exemples types d'informations convenablement anonymisées pouvant être soumises sans risque opérationnel :
 
-### 安全な入力例 1：進捗状況の報告整理
-
-```
-今週の状況を整理してください。
-
-- フェーズ：設計レビュー完了、開発フェーズ開始
-- 完了した作業：画面設計レビュー（3画面）、DB設計確定
-- 未完了：API仕様の確定（顧客確認待ち）
-- 遅延：テスト環境構築が2営業日遅れ
-- リスク：API仕様が確定しないと、開発着手できない機能が4件ある
-- 来週の予定：開発着手（6機能）、顧客との週次定例
-```
-
-### 安全な入力例 2：課題リストのレビュー依頼
+### Exemple conforme 1 : Structuration du suivi d'avancement
 
 ```
-以下の課題リストをPM視点でレビューしてください。
-担当者不明・期限不明・影響範囲が曖昧なものを指摘してください。
+Merci de structurer la situation d'avancement de la semaine selon une perspective Chef de Projet :
 
-| No. | 課題 | ステータス | 担当 | 期限 |
+- Phase : Revue de conception achevée, lancement de la phase de réalisation
+- Tâches achevées : Validation des maquettes UX (3 écrans clés), modèle de données figé
+- Points en attente : Spécifications de l'API partenaire (en attente de retour client)
+- Retard constaté : Mise à disposition de l'environnement de recette décalée de 2 jours ouvrés
+- Risque identifié : L'absence de stabilisation de l'API bloque le démarrage de 4 fonctionnalités
+- Planning semaine suivante : Lancement du sprint sur 6 fonctionnalités, comité hebdomadaire client
+```
+
+### Exemple conforme 2 : Revue de criticité d'un backlog d'incidents
+
+```
+Merci d'auditer ce registre de points durs sous l'angle PM.
+Identifiez les tâches orphelines, les échéances manquantes et les périmètres d'impact imprécis.
+
+| N° | Incident / Point dur | Statut | Responsable (Rôle) | Échéance |
 |---|---|---|---|---|
-| 1 | 外部API仕様の確定 | 未対応 | 未定 | 未定 |
-| 2 | テスト環境の構築 | 対応中 | 担当者A | 来週月曜 |
-| 3 | 顧客確認待ちの仕様変更対応 | 保留 | — | — |
+| 1 | Validation des specs de l'API externe | Non démarré | Non assigné | Non fixée |
+| 2 | Configuration de l'environnement de test | En cours | Ingénieur DevOps | Lundi prochain |
+| 3 | Demande d'évolution fonctionnelle client | En attente | — | — |
 ```
 
-### 安全な入力例 3：顧客向け説明文のたたき台作成
+### Exemple conforme 3 : Projet de communication client
 
 ```
-以下の状況で、顧客へのメール案を作成してください。
+Merci de préparer un projet de courriel destiné au client dans le contexte suivant :
 
-- 状況：外部API連携の仕様が確定しておらず、開発着手が遅れている
-- こちらの見解：仕様確定が今週中であれば、納期への影響は最小限に抑えられる
-- 顧客に確認したいこと：仕様確定の見込み時期、代替案（仕様なしで仮実装する可否）
-- 避けたい表現：責任の所在を断定するような表現
-
-※ 生成されたメール案は、そのまま送信せず、必ず人間が内容を確認・修正してから使用してください。
+- Situation : Les spécifications de l'API externe n'étant pas arrêtées, les développements associés sont suspendus
+- Position de l'équipe : Une stabilisation d'ici la fin de semaine permettra de neutraliser tout décalage du jalon de livraison
+- Décisions attendues du client : Date cible de livraison des spécifications ou validation d'une implémentation simulée (mock)
+- Recommandation de posture : Rester constructif et partenarial, sans imputer unilatéralement la faute
+- Note : Ce texte constitue une base préparatoire qui sera relue et validée par le chef de projet avant diffusion.
 ```
 
 ---
 
-## 危険な入力例
+## Exemples d'entrées dangereuses proscrites
 
-以下のような入力は行わないでください。
+Ne formulez JAMAIS vos invites de la manière suivante :
 
-### 危険な入力例 1：顧客名や個人名を含む入力
-
-```
-❌ 危険な入力例
-株式会社〇〇システムズの山田様から、先週の定例で「3月末の納期は絶対に守ってほしい」
-と言われました。弊社の鈴木PMが「調整します」と回答しましたが、実際には間に合わない
-可能性があります。顧客への説明文を作ってください。
-```
-
-→ 顧客名・担当者名・具体的発言が含まれています。マスキングしてから入力してください。
-
-### 危険な入力例 2：認証情報を含む入力
+### Exemple proscrit 1 : Données nominatives et propos attribués
 
 ```
-❌ 危険な入力例
-本番環境の設定を確認したいのですが、APIキーは「sk-xxxxxxxxxx」で、
-DBのパスワードは「pass1234」です。この構成でセキュリティ上問題ありますか？
+❌ EXEMPLE DANGEREUX À PROSCRIRE
+Mme Claire Martin de chez Alpha Solutions m'a dit lors du copil : « Le 31 mars est une date
+impérative non négociable ». Notre chef de projet Thomas Dubois lui a dit qu'on allait voir,
+mais en réalité nous serons en retard. Rédige un mail pour lui annoncer.
 ```
+→ *Gravité : Divulgation de données personnelles, citations directes d'intervenants et secrets d'affaires. Anonymisez impérativement.*
 
-→ APIキーやパスワードは絶対に入力しないでください。AIサービスへの送信はセキュリティリスクになります。
-
-### 危険な入力例 3：議事録全文・契約情報を含む入力
+### Exemple proscrit 2 : Divulgation de secrets techniques
 
 ```
-❌ 危険な入力例
-以下の議事録を要約してください。
-[議事録全文：参加者氏名、顧客企業名、契約金額、仕様変更内容の詳細、発言の記録...]
+❌ EXEMPLE DANGEREUX À PROSCRIRE
+Voici notre configuration de production : la clé API est « sk-xxxxxxxxxx » et le mot de passe
+de la base de données est « pass1234 ». Y a-t-il un problème de sécurité dans cette architecture ?
 ```
+→ *Gravité : Risque critique de compromission de sécurité. Ne saisissez jamais d'identifiants ou secrets de production.*
 
-→ 議事録全文には個人情報・機密情報が含まれている可能性があります。要約・匿名化してから入力してください。
+### Exemple proscrit 3 : Injection brute de procès-verbaux
+
+```
+❌ EXEMPLE DANGEREUX À PROSCRIRE
+Résume ce compte rendu :
+[Copier-coller de l'intégralité du PV avec noms des participants, rémunérations, clauses juridiques...]
+```
+→ *Gravité : Violation des règles de confidentialité et exposition de données sensibles. Isolez et synthétisez les faits pertinents au préalable.*
 
 ---
 
-## 顧客提出文書・報告書に利用する場合の注意
+## Précautions spécifiques pour les documents contractuels et livrables clients
 
-AI出力を以下の目的で利用する場合は、特に注意が必要です。
+Une vigilance absolue s'impose dès lors que les sorties de l'IA sont exploitées pour :
 
-- 顧客への提出文書・説明資料
-- 社内への進捗報告・障害報告
-- 契約・発注・見積に関連する文書
-- 納期回答・品質判断に関わる文書
+- Des documents officiels ou courriers contractuels destinés au client
+- Des comptes rendus d'incidents (post-mortems), bilans de crise ou rapports d'avancement
+- Des propositions commerciales, avenants, engagements de périmètre ou devis
+- Des engagements fermes sur le calendrier de livraison ou les critères d'acceptation qualité
 
-**これらの文書に AI 出力をそのまま使わないでください。**
+**NE DIFFUSEZ JAMAIS DIRECTEMENT UN LIVRABLE PRODUIT PAR UNE IA SANS VALIDATION HUMAINE.**
 
-必ず以下を確認してください。
+Vérifiez scrupuleusement les 5 points suivants avant tout partage :
 
-1. AI出力の内容が事実と一致しているか
-2. 案件の実態・背景・経緯と合っているか
-3. 顧客・社内の関係性に合わせた表現になっているか
-4. 契約条件・責任範囲に関する表現が適切か
-5. 上長・法務・関係者の確認が必要か
-
----
-
-## AIサービスの規約・社内規程の確認
-
-生成AIサービスを業務利用する前に、必ず以下を確認してください。
-
-- 利用するAIサービスの利用規約
-- プライバシーポリシー
-- **データ利用条件（入力した内容がモデル学習に使われるか否か）**
-- 所属組織の情報セキュリティ規程
-- 顧客との契約・NDAの内容
-
-組織によっては、外部AIサービスへの業務情報の入力を禁止・制限している場合があります。事前に確認してください。
+1. **Exactitude factuelle** : Les événements, dates et descriptions techniques sont-ils rigoureusement vrais ?
+2. **Adéquation contextuelle** : Le contenu reflète-t-il fidèlement l'historique et la réalité du projet ?
+3. **Justesse relationnelle** : Le ton est-il adapté à la relation partenariale et contractuelle avec le destinataire ?
+4. **Maîtrise contractuelle** : Les clauses de responsabilité, de délais et de budget sont-elles conformes aux engagements ?
+5. **Circuit de validation** : Les validations requises (Direction de projet, Direction commerciale, Juridique) ont-elles été formellement recueillies ?
 
 ---
 
-## AI出力の利用制限
+## Vérification préalable des politiques internes et conditions d'usage (CGU)
 
-AI出力を以下の判断に**そのまま使わないでください**。必ず人間が確認し、必要に応じて専門家や上長の承認を得てください。
+Avant d'introduire des informations professionnelles dans un service d'IA générative, contrôlez systématiquement :
 
-- 顧客への提出文書・説明資料
-- 契約・発注・見積に関する判断
-- 法務判断・税務判断・労務判断
-- セキュリティ判断
-- 納期回答・品質判断
+- Les Conditions Générales d'Utilisation (CGU) de l'outil d'IA
+- La politique de confidentialité de l'éditeur
+- **Les clauses d'utilisation des données (les données saisies servent-elles à l'entraînement des modèles de l'éditeur ?)**
+- La charte informatique et la politique de sécurité des systèmes d'information (PSSI) de votre entreprise
+- Les engagements contractuels et clauses de confidentialité (NDA) conclus avec vos clients
+
+Certaines organisations prohibent formellement le téléversement de données métier sur des services d'IA publics. Assurez-vous de disposer des habilitations requises.
 
 ---
 
-## 関連文書
+## Domaines d'exclusion formelle de l'IA
 
-- 免責事項：[docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md)
-- 利用規約：[docs/legal/TERMS.md](legal/TERMS.md)
-- 使い方ガイド：[docs/usage-guide.md](usage-guide.md)
-- コミュニティの注意事項：[docs/community.md](community.md)
+Les livrables de l'IA ne doivent **en aucun cas servir de fondement unilatéral** pour les catégories d'arbitrage suivantes, qui relèvent exclusivement du jugement d'experts humains habilités :
+
+- Arbitrages et engagements contractuels, avenants, devis fermes et bons de commande
+- Décisions et interprétations juridiques, fiscales, réglementaires ou de droit social
+- Certification et diagnostics formels de sécurité des systèmes d'information
+- Engagements juridiques fermes de dates de livraison ou de niveaux de service (SLA)
+- Évaluation disciplinaire, notation individuelle ou décisions RH relatives aux collaborateurs
+
+---
+
+## Documents associés
+
+- Clause de non-responsabilité : [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md)
+- Conditions d'utilisation : [docs/legal/TERMS.md](legal/TERMS.md)
+- Guide d'utilisation opérationnel : [docs/usage-guide.md](usage-guide.md)
+- Charte de la communauté : [docs/community.md](community.md)

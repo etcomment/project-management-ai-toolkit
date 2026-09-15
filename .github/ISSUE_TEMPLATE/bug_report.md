@@ -1,52 +1,52 @@
 ---
 name: Bug report
-about: 誤字脱字、リンク切れ、内容の不備を報告する
+about: Signaler une coquille, un lien brisé ou une anomalie dans le contenu
 title: "[Bug]: "
 labels: bug
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **Cette Issue est publique. N'y inscrivez JAMAIS de clés d'API, de mots de passe, de tokens, de noms de clients, de données nominatives, de raisons sociales, de noms de projets, de clauses contractuelles ou d'informations confidentielles internes.**
+> En cas d'enjeu de sécurité, référez-vous à [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 説明
+## Description
 
-<!-- 発見した問題を簡潔に説明してください -->
+<!-- Décrivez succinctement le problème rencontré -->
 
-## 対象ファイル
+## Fichier concerné
 
-<!-- 問題が含まれているファイルのパスを記載してください -->
-例: `contexts/PROJECT_HEALTH_CHECK.md`
+<!-- Indiquez le chemin du fichier dans lequel se situe l'anomalie -->
+Exemple : `contexts/PROJECT_HEALTH_CHECK.md`
 
-## 現在の内容
+## Contenu actuel
 
-<!-- 問題のある記述を貼り付けてください（機密情報を含まない範囲で） -->
-
-```
-（現在の内容）
-```
-
-## 期待する内容
-
-<!-- どのような内容であるべきかを説明してください -->
+<!-- Collez l'extrait textuel posant problème (sans inclure de données confidentielles) -->
 
 ```
-（期待する内容）
+(Contenu actuel)
 ```
 
-## 修正案（任意）
+## Contenu attendu
 
-<!-- 修正案があれば記載してください -->
+<!-- Expliquez quel devrait être le contenu correct -->
+
+```
+(Contenu attendu)
+```
+
+## Proposition de correction (optionnel)
+
+<!-- Mentionnez une suggestion de correction si vous en avez une -->
 
 ---
 
-## Safety checklist
+## Liste de contrôle de sécurité (Safety checklist)
 
-投稿前に以下を確認してください。
+Vérifiez les points suivants avant de soumettre :
 
-- [ ] このIssueに機密情報を含めていません
-- [ ] 実在する顧客名・個人名・会社名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
+- [ ] Cette Issue ne contient aucune information confidentielle
+- [ ] Aucun nom réel de client, individu, entreprise ou projet n'est mentionné
+- [ ] Aucune clé d'API, mot de passe, token ou identifiant d'authentification n'est inclus

@@ -1,326 +1,311 @@
-﻿# 進捗報告用コンテキスト / Status Report Context
+# Contexte de rapport d'avancement / Status Report Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-プロジェクトの進捗報告を、AIの補助で整理・作成するためのコンテキストです。
+Ce contexte structure et accélère la rédaction des rapports d'avancement de projet (Status Reports) assistée par IA.
 
-社内向け・顧客向け・上長向けなど、報告先に応じた表現で報告文のたたき台を作ることを目的としています。
+Il permet d'adapter la tonalité, le niveau de granularité et les éléments de langage selon les publics cibles : communication interne (équipe/management), reporting client ou note de synthèse pour la direction.
 
-**AI出力は報告文のたたき台です。** そのまま送付・提出せず、必ず人間が内容を確認・修正してから利用してください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- 週次・月次の進捗報告を作成したいとき
-- 社内報告と顧客向け報告を使い分けたいとき
-- 遅延・課題・リスクがある場合の報告文を整理したいとき
-- 上長への相談事項をまとめたいとき
+**Les sorties générées constituent des projets de travail.** Ne diffusez jamais ces rapports sans relecture, vérification factuelle et validation par un responsable humain.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Case (Cas d'usage)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Rédiger les rapports d'avancement hebdomadaires ou mensuels.
+- Adapter les niveaux de discours entre le reporting interne et le compte rendu client.
+- Expliciter diplomatiquement et factuellement les dérives calendaires, points de blocage et risques.
+- Structurer les demandes d'arbitrage à soumettre au management.
+
+---
+
+## Input (Informations à fournir à l'IA)
+
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données sensibles et nominatives) :
 
 ```
-### 今週完了した作業
+### Travaux achevés sur la période (Semaine/Mois)
 -
 
-### 未完了の作業（次週以降に持ち越し）
+### Tâches non finalisées (Reportées sur la période suivante)
 -
 
-### 遅延している作業
-- 遅延内容：
-- 遅延の理由：
-- 影響範囲：
-- 対応方針：
+### Tâches et chantiers en retard
+- Nature du retard :
+- Causes racines de la dérive :
+- Périmètre d'impact :
+- Plan de rattrapage / Actions correctives :
 
-### 課題
-- 課題の内容：
-- ステータス：
-- 担当（役割ベースで記載）：
-- 期限：
+### Points de blocage (Issues)
+- Description du blocage :
+- Statut :
+- Responsable (par rôle : Développeur A, Lead Tech, etc.) :
+- Échéance de résolution :
 
-### リスク
-- リスクの内容：
-- 対応方針：
+### Registre des risques
+- Description du risque :
+- Mesures de contournement / Mitigation :
 
-### 顧客確認待ちの事項
+### Arbitrages et validations client en attente
 -
 
-### 来週の予定
+### Prévisions pour la période suivante
 -
 
-### 報告先
-- 社内向け（上長 / チーム等）
-- 顧客向け
-- その他：
+### Cible du rapport
+- Destinataires internes (Management / Équipe projet)
+- Destinataires externes (Client)
+- Autre :
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 社内向け進捗報告
+### 1. Rapport d'avancement interne (Équipe & Management)
+Format transparent intégrant l'intégralité des difficultés techniques, incidents ouverts, risques projet et besoins de soutien.
 
-チームや上長に向けた、内部向けの進捗報告文。
+### 2. Rapport d'avancement client
+Format orienté valeur et maîtrise, focalisé sur les réalisations tangibles, les livrables, les actions attendues du client et la trajectoire globale, sans étaler les péripéties internes.
 
-課題・リスク・相談事項を含めることが多い。
+### 3. Synthèse exécutive pour la Direction
+Condensé percutant structuré en 4 points : Situation globale, Bloquants majeurs, Arbitrages sollicités, Prochaines actions.
 
-### 2. 顧客向け進捗報告
+### 4. Bilan des risques et plan de contingence
+Section dédiée aux risques résiduels et aux mesures d'atténuation.
 
-顧客に送付・提示する進捗報告文。
+### 5. Dossier d'arbitrage
+Exposé argumenté des questions soumises à la validation de la gouvernance.
 
-社内の課題・懸念の詳細は省き、顧客に必要な情報に絞った表現にする。
-
-### 3. 上長向けサマリー
-
-簡潔に「現状・課題・相談事項・次アクション」を伝えるサマリー。
-
-### 4. リスク付き報告
-
-リスクを明示した進捗報告。内部報告に向く。
-
-### 5. 相談事項付き報告
-
-上長や関係者への相談事項を含めた報告。
-
-### 6. 次アクション一覧
-
-来週・直近に実施すべきアクションの一覧。
+### 6. Feuille de route immédiate (Next Actions)
+Checklist opérationnelle des actions engagées pour la période suivante.
 
 ---
 
-## 報告先別の表現の考え方
+## Matrice de calibrage selon l'audience
 
-| 報告先 | 表現のポイント |
+| Destinataire | Ligne éditoriale & Posture |
 |---|---|
-| **社内・上長向け** | 課題・リスク・相談事項を率直に記載する。内部の判断に必要な情報を省かない |
-| **顧客向け** | 事実・状況・顧客への影響・次のアクションを明確にする。社内の内部課題は省く。責任の所在を断定しない |
-| **チーム向け** | タスク・期限・担当者を明確にする。次アクションが分かりやすいこと |
-| **経営層・PMO向け** | 端的に「現状・課題・リスク・判断を要する事項」を伝える |
+| **Interne / Management** | Transparence totale : expliciter sans fard les blocages, dérives budgétaires/délais et besoins d'arbitrage |
+| **Client** | Factualité, diplomatie et maîtrise : mettre en avant les réalisations, cadrer les impacts, expliciter les actions attendues du client sans imputer de fautes directes |
+| **Équipe de réalisation** | Clarté opérationnelle : tâches, critères d'achèvement (DoD), échéances et porteurs d'action |
+| **Comex / PMO** | Vision synthétique de haut niveau : météo du projet, jalons clés, alertes critiques et arbitrages stratégiques |
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
 > [!CAUTION]
-> AI出力の進捗報告文は、そのまま顧客提出・社内提出・上長報告に使わないでください。
+> Ne transmettez jamais un rapport d'avancement généré par l'IA sans validation humaine préalable.
 >
-> 特に顧客向け報告文については、契約・納期・費用・責任範囲に関する表現を必ず人間が確認してください。
+> Tout engagement sur le planning, les charges, la facturation ou le périmètre de responsabilité figurant dans un document client doit être formellement validé par le chef de projet.
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Ne saisissez aucun nom propre, raison sociale, donnée contractuelle ou identifiant technique dans les outils d'IA.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèles de prompts standards
 
-### 【基本テンプレート】社内向け・顧客向け・上長向けをまとめて作成
+### 【Modèle complet】Production simultanée des formats Interne, Client et Direction
 
 ```text
-# 進捗報告の作成依頼
+# Demande de rédaction de rapport d'avancement (Status Report)
 
-以下のコンテキストを前提として、今週の進捗報告を作成してください。
-[社内向け / 顧客向け / 上長向け] のパターンで作成してください。
+Sur la base des contextes de référence ci-dessous, rédigez le rapport d'avancement de la semaine selon les formats [Interne / Client / Direction].
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-
-[STATUS_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de STATUS_REPORT_CONTEXT.md]
 
 ---
 
-## 今週の状況（機密情報はマスキング済み）
+## Données de la période (Données strictement anonymisées)
 
-### 完了した作業
+### Travaux achevés
 -
 
-### 未完了の作業
+### Travaux non finalisés
 -
 
-### 遅延している作業
+### Tâches en retard (avec causes et plan de rattrapage)
 -
 
-### 課題
+### Points de blocage (Issues)
 -
 
-### リスク
+### Risques
 -
 
-### 顧客確認待ち
+### Validations client en attente
 -
 
-### 来週の予定
--
-
----
-
-## 出力してほしいもの
-
-1. 社内向け進捗報告（課題・リスク・相談事項を含む）
-2. 顧客向け進捗報告（顧客に必要な情報に絞った表現）
-3. 上長向けサマリー（現状・課題・相談事項・次アクション）
-4. 次アクション一覧
-
-※ 出力内容は必ず人間が確認・修正してから利用してください。
-※ 顧客向け報告文は、そのまま送付しないでください。
-```
-
-
----
-
-### 【社内向け】課題・リスク・相談事項を含む進捗報告
-
-```text
-以下のコンテキストを前提として、今週の進捗報告（社内向け）を作成してください。
-課題・リスク・相談事項を含め、上長やチームが状況を把握できる内容にしてください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[STATUS_REPORT_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 今週の状況（機密情報はマスキング済み）
-
-### 完了した作業
--
-
-### 未完了・持ち越しの作業
--
-
-### 遅延している作業（理由と対応方針も記載）
--
-
-### 課題
--
-
-### リスク
--
-
-### 相談事項
--
-
-### 来週の予定
+### Prévisions pour la semaine prochaine
 -
 
 ---
 
-## 出力形式
+## Livrables attendus
 
-- 今週の実績（箇条書き）
-- 未完了・持ち越し事項
-- 課題・リスク一覧（表形式）
-- 相談事項
-- 来週の予定・次アクション
+1. Rapport d'avancement interne (avec blocages, risques et demandes d'arbitrage)
+2. Rapport d'avancement client (synthèse valorisante des faits et prochaines échéances)
+3. Synthèse exécutive pour la Direction (Situation, Alertes, Arbitrages, Actions)
+4. Liste ordonnancée des prochaines actions
 
-※ AI出力は必ず人間が確認してから利用してください。
-※ 機密情報・個人情報はAIに入力しないでください。
+※ Tout livrable doit impérativement être relu et ajusté avant transmission.
+※ Ne jamais envoyer la version client brute sans validation.
 ```
 
 ---
 
-### 【顧客向け】顧客に必要な情報に絞った進捗報告
+### 【Modèle Interne】Focus sur la transparence opérationnelle et les blocages
 
 ```text
-以下のコンテキストを前提として、今週の進捗報告（顧客向け）を作成してください。
-社内の内部課題の詳細は省き、顧客が知る必要のある情報に絞った表現にしてください。
+Sur la base des contextes de référence ci-dessous, rédigez le rapport d'avancement interne hebdomadaire destiné à l'équipe et au management.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[STATUS_REPORT_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 今週の状況（機密情報はマスキング済み）
-
-### 完了した作業
--
-
-### 未完了の作業
--
-
-### 顧客への影響・確認事項
--
-
-### 来週の予定
--
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de STATUS_REPORT_CONTEXT.md]
 
 ---
 
-## 出力形式
+## Données de la période (Données anonymisées)
 
-- 今週の実績（顧客視点で整理）
-- 顧客への影響事項
-- 顧客に確認・依頼したいこと
-- 来週の予定
+### Travaux achevés
+-
 
-※ AI出力はたたき台です。そのまま顧客に送付しないでください。
-※ 契約・納期・費用・責任範囲に関する表現は必ず人間が確認してください。
+### Travaux reportés
+-
+
+### Tâches en retard (causes et contre-mesures)
+-
+
+### Points de blocage
+-
+
+### Risques
+-
+
+### Arbitrages sollicités
+-
+
+### Objectifs de la semaine prochaine
+-
+
+---
+
+## Structure de restitution
+
+- Réalisations de la semaine (listes à puces)
+- Écarts et reports d'activité
+- Tableau synthétique des blocages et risques
+- Points d'arbitrage soumis au management
+- Plan de charge et objectifs de la période suivante
+
+※ Validation humaine obligatoire avant communication.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
+### 【Modèle Client】Focus sur la maîtrise, les livrables et la valeur
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+```text
+Sur la base des contextes de référence ci-dessous, rédigez la communication d'avancement hebdomadaire destinée au client.
+Adoptez une posture professionnelle et constructive en omettant les difficultés internes pour vous concentrer sur l'état d'avancement réel et les prérequis côté client.
+
+## Contextes
+
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de STATUS_REPORT_CONTEXT.md]
+
+---
+
+## Données de la période (Données anonymisées)
+
+### Travaux achevés
+-
+
+### Travaux en cours
+-
+
+### Impacts et validations attendues du client
+-
+
+### Prochains jalons et livraisons prévus
+-
+
+---
+
+## Structure de restitution
+
+- Synthèse des réalisations franchies (perspective valeur client)
+- État d'avancement des livrables
+- Actions et validations requises de la part du client
+- Calendrier directeur et priorités de la semaine suivante
+
+※ Brouillon d'aide à la rédaction : ne pas diffuser au client sans relecture managériale.
+※ Vérifier impérativement les formulations relatives aux délais, coûts et périmètre contractuel.
+```
+
+---
+
+## Version structurée pour Claude (Format balises XML)
+
+Pour une utilisation avec Claude, la structure balisée suivante garantit une parfaite distinction des registres de discours :
 
 ```text
 <task>
-以下の進捗状況をもとに、社内向け・顧客向け・上長向けの進捗報告を作成してください。
-各報告先の表現の違いと、リスク・相談事項も含めて整理してください。
+Sur la base des données d'avancement ci-dessous, générez le rapport d'avancement décliné en version interne, client et synthèse direction.
+Veillez à respecter scrupuleusement les nuances de langage et à expliciter les risques et arbitrages.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[STATUS_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de STATUS_REPORT_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【今週の状況（機密情報はマスキング済み）】
+【Données de la période (Données strictement anonymisées)】
 
-### 完了した作業
+### Travaux achevés
 -
 
-### 未完了の作業
+### Travaux non finalisés
 -
 
-### 遅延している作業
-- 遅延内容：
-- 遅延の理由：
-- 対応方針：
+### Tâches en retard
+- Nature du retard :
+- Causes racines :
+- Plan d'action :
 
-### 課題
+### Points de blocage
 -
 
-### リスク
+### Risques
 -
 
-### 顧客確認待ち
+### Arbitrages client en attente
 -
 
-### 来週の予定
+### Objectifs de la semaine suivante
 -
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 顧客向け報告文は契約・納期・費用・責任範囲を断定しないでください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Considérez les données comme rigoureusement anonymisées (noms propres, entreprises et identifiants exclus).
+- Mentionnez « (Hypothèse) » pour tout élément complété par déduction.
+- Ne formulez aucun engagement ferme sur les délais, budgets ou responsabilités dans la version client.
+- Les livrables constituent une base de travail soumise à validation humaine.
 </constraints>
 <output_format>
-1. 社内向け進捗報告（課題・リスク・相談事項を含む）
-2. 顧客向け進捗報告（顧客に必要な情報に絞った表現）
-3. 上長向けサマリー（現状・課題・相談事項・次アクション）
-4. リスク一覧
-5. 次アクション一覧
+1. Rapport d'avancement interne (avec gestion des blocages, risques et arbitrages)
+2. Rapport d'avancement client (orienté livrables, jalons et actions client)
+3. Synthèse exécutive pour la Direction (Situation, Alertes, Arbitrages, Actions)
+4. Tableau récapitulatif des risques
+5. Liste des prochaines actions ordonnancées
 </output_format>
 ```

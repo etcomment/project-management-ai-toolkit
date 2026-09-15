@@ -1,107 +1,107 @@
-# 免責事項 / Disclaimer
+# Clause de non-responsabilité / Disclaimer
 
-最終更新：2026年5月
-
----
-
-## 1. 本リポジトリの位置づけ
-
-本リポジトリ「project-management-ai-toolkit」は、プロジェクトマネージャー・PMO・開発リーダーがChatGPT / Gemini / Claude / Claude Code を活用する際の、AI Contexts、Prompt Template、Claude Code Skills、設定用指示文、利用ガイド、実務サンプルを提供するものです。
-
-本リポジトリの内容は、PM業務における生成AIの活用を補助することを目的としており、業務上の意思決定、専門的判断、法的判断、契約判断、責任判断を行うためのものではありません。
+Dernière mise à jour : Mai 2026
 
 ---
 
-## 2. 保証の否認
+## 1. Objet et périmètre du dépôt
 
-本リポジトリの内容、およびこれらを利用して生成AIが出力する内容について、株式会社テックエイドは以下の事項を保証しません。
+Le présent dépôt « project-management-ai-toolkit » met à disposition des chefs de projet (PM), PMO et leaders techniques un ensemble de contextes d'IA (AI Contexts), de modèles de prompts, de compétences Claude Code (Skills), d'instructions de configuration, de guides méthodologiques et d'exemples pratiques pour faciliter l'intégration de ChatGPT, Gemini, Claude et Claude Code dans la gestion de projet.
 
-- 正確性
-- 完全性
-- 有用性
-- 最新性
-- 特定の目的への適合性
-- 第三者の権利を侵害しないこと
-
-提供内容は現状有姿（as-is）で提供されます。
+Les contenus de ce référentiel ont pour unique vocation d'apporter un support méthodologique à l'utilisation de l'IA générative dans les missions de gestion de projet. Ils ne sauraient en aucun cas se substituer aux décisions managériales, jugements professionnels, avis juridiques, arbitrages contractuels ou engagements de responsabilité de l'utilisateur.
 
 ---
 
-## 3. AI出力に関する注意
+## 2. Exclusion de garanties
 
-生成AIが出力する内容は、以下の判断を代替しません。
+Concernant les contenus du dépôt et les résultats générés par les modèles d'IA à partir de ces derniers, TechAide Inc. ne formule aucune garantie, expresse ou tacite, relative à :
 
-- プロジェクトの進捗判断
-- 課題・リスクの最終判断
-- 顧客への説明・回答内容の確定
-- 納期・品質・予算に関する判断
-- 契約に関する判断
-- 法務・税務・労務・コンプライアンスに関する判断
-- セキュリティに関する判断
-- エスカレーションの要否判断
+- L'exactitude
+- L'exhaustivité
+- L'utilité opérationnelle
+- L'actualité
+- L'adéquation à un usage ou objectif particulier
+- La non-violation des droits de tiers
 
-**AI出力は必ず人間が確認・修正してください。** 出力内容をそのまま顧客提出、社内報告、契約判断、納期回答に使用しないでください。
+L'ensemble des éléments est mis à disposition « en l'état » (as-is).
 
 ---
 
-## 4. 機密情報・個人情報の取り扱い
+## 3. Précautions relatives aux sorties de l'IA
 
-本リポジトリのコンテキストファイルやプロンプトを利用する際、AIサービスに以下の情報を入力しないでください。
+Les contenus produits par l'IA générative ne remplacent en aucun cas les arbitrages et décisions humaines dans les domaines suivants :
 
-- 顧客名・顧客企業名
-- 個人名・個人情報
-- 契約情報・契約書の内容
-- 議事録全文・会議メモの原文
-- 未公開の事業計画・事業情報
-- 財務情報・見積金額の詳細
-- ソースコードの本番コード
-- APIキー・パスワード・アクセストークン・認証情報
-- NDAや顧客契約により外部送信が禁止されている情報
+- Diagnostic et appréciation de l'avancement d'un projet
+- Qualification et décision finale sur les incidents et les risques
+- Validation définitive des argumentaires et courriers destinés aux clients
+- Décisions et engagements fermes sur les délais, la qualité et les budgets
+- Arbitrages contractuels, avenants et accords commerciaux
+- Consultations et avis juridiques, fiscaux, sociaux ou de conformité (compliance)
+- Audits et décisions d'architecture de sécurité des systèmes d'information
+- Arbitrage sur l'opportunité et le déclenchement des escalades managériales
 
-業務情報を扱う場合は、事前に匿名化・要約化・マスキングを行い、以下を確認してください。
-
-- 所属組織の情報セキュリティ規程
-- 顧客との契約
-- NDAの内容
-- 利用するAIサービスの利用規約・プライバシーポリシー・データ利用条件
+**Tout contenu généré par l'IA doit impérativement être relu, vérifié et ajusté par un responsable humain.** Ne diffusez jamais directement une sortie d'IA à un client, en comité interne, ni pour fonder un engagement contractuel ou de livraison.
 
 ---
 
-## 5. Claude Code 向けファイルについて
+## 4. Protection des informations confidentielles et des données personnelles
 
-本リポジトリには、Claude Code 向けの Skill サンプル（`.claude/skills/` 配下）を含みます。
+Lors de l'utilisation des contextes et des modèles de requêtes de ce dépôt avec des services d'IA tiers, il est formellement prohibé de renseigner les éléments suivants :
 
-このファイルは PM レビューの考え方を示すサンプルであり、以下は含まれていません。
+- Noms de clients et raisons sociales
+- Noms de personnes physiques et données à caractère personnel (PII)
+- Clauses, conditions financières et textes intégraux de contrats
+- Procès-verbaux intégraux et retranscriptions exhaustives de réunions
+- Plans de développement stratégiques ou données d'affaires confidentielles non publiques
+- Détails comptables, bilans financiers ou décomptes unitaires de devis
+- Code source propriétaire issu d'environnements de production
+- Clés d'API, mots de passe, jetons d'authentification et secrets d'infrastructure
+- Toute information dont la divulgation ou l'envoi à des tiers est restreint par un accord de confidentialité (NDA) ou un contrat client
 
-- 実行可能な hooks
-- 自動実行コマンド
-- shell スクリプト
-- MCP設定
-- GitHub Actions
-- 自動コミット・自動デプロイ
+Si vous devez traiter des informations opérationnelles réelles, veillez impérativement à les anonymiser, les résumer et les masquer au préalable, en vous assurant du respect :
 
-内容を十分に理解したうえで利用してください。内容を理解しないまま本番環境や顧客案件に適用することはお控えください。
-
----
-
-## 6. 責任の限定
-
-本リポジトリの利用により生じた損害（直接的損害、間接的損害、付随的損害、特別損害、逸失利益を含む）について、株式会社テックエイドは、法令上許される範囲において、当社の故意または重大な過失がある場合を除き、責任を負いかねます。
-
-本リポジトリの利用は、利用者自身の判断と責任のもとで行ってください。
-
-重要な業務で利用する場合は、所属組織の責任者または専門家に確認してください。
+- De la politique de sécurité des systèmes d'information (PSSI) de votre organisation
+- Des engagements contractuels conclus avec vos clients
+- Des clauses des accords de confidentialité (NDA) applicables
+- Des conditions d'utilisation, politiques de confidentialité et règles de traitement des données des plateformes d'IA employées
 
 ---
 
-## 7. 関連文書
+## 5. Précisions relatives aux compétences Claude Code
 
-- 利用規約：[docs/legal/TERMS.md](TERMS.md)
-- ライセンス：[LICENSE.md](../../LICENSE.md)
-- セキュリティポリシー：[.github/SECURITY.md](../../.github/SECURITY.md)
-- AI利用時の安全ガイド：[docs/ai-safety.md](../ai-safety.md)
+Le présent dépôt intègre des exemples de compétences pour Claude Code (situés sous `.claude/skills/`).
+
+Ces fichiers constituent des références méthodologiques illustrant la formalisation de grilles d'analyse PM. Ils ne comportent aucun des mécanismes techniques suivants :
+
+- Hooks exécutables
+- Commandes d'automatisation non sollicitées
+- Scripts shell
+- Configurations MCP
+- Workflows GitHub Actions
+- Commits ou déploiements automatisés
+
+Assurez-vous de bien comprendre la portée de ces documents avant toute utilisation. Abstenez-vous de les appliquer en production ou sur des affaires clients sans discernement ni validation humaine.
 
 ---
 
-*株式会社テックエイド*
+## 6. Limitation de responsabilité
+
+Dans toute la mesure permise par la législation applicable, TechAide Inc. décline toute responsabilité pour tout préjudice direct, indirect, accessoire, consécutif, spécial ou pour toute perte d'exploitation ou de profit résultant de l'utilisation ou de l'impossibilité d'utiliser les contenus de ce dépôt, sauf en cas de faute lourde ou intentionnelle imputable à TechAide Inc.
+
+L'utilisation de la présente boîte à outils relève de l'appréciation, du jugement et de la responsabilité exclusive de l'utilisateur.
+
+Pour toute mise en œuvre sur des projets sensibles ou critiques, sollicitez la validation des directeurs habilités ou des experts compétents de votre organisation.
+
+---
+
+## 7. Documents associés
+
+- Conditions d'utilisation : [docs/legal/TERMS.md](TERMS.md)
+- Licence logicielle : [LICENSE.md](../../LICENSE.md)
+- Politique de sécurité : [.github/SECURITY.md](../../.github/SECURITY.md)
+- Guide de sécurité de l'IA : [docs/ai-safety.md](../ai-safety.md)
+
+---
+
+*TechAide Inc.*  
 *https://techaide.jp/*

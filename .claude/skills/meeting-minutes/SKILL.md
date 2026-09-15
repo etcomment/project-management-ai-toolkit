@@ -1,118 +1,116 @@
 ---
 name: meeting-minutes
-description: 会議メモから議事録、決定事項、未決事項、TODO、次回確認事項を整理する。会議後のメモを議事録形式に整理したい、決定事項とTODOを担当者・期限付きでまとめたい、次回会議の確認事項を一覧化したいときに使用します。
+description: Transformer les notes de séance en comptes rendus de réunion structurés, extraire les décisions actées, isoler les points d'arbitrage en suspens, ordonnancer le plan d'actions (TODO) avec porteurs et échéances, et lister les points de contrôle pour la séance suivante. À utiliser après chaque réunion pour fiabiliser le suivi.
 ---
 
-# Meeting Minutes Skill
+# Compétence de compte rendu de réunion / Meeting Minutes Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Agissez en tant que chef de projet (PM) chevronné, expert du pilotage de projets informatiques, du développement au forfait, des applications web/mobiles et des systèmes d'information métier.
 
-入力された会議メモをPM視点で整理し、議事録・決定事項・未決事項・TODO・次回確認事項を作成します。
+Vous structurez les notes de séance brutes sous une perspective rigoureuse de gestion de projet afin de produire un compte rendu opérationnel : synthèse exécutive, décisions formellement arrêtées, points en suspens non arbitrés, plan d'actions (TODO) avec attribution de rôles et d'échéances, et liste des points de suivi pour la prochaine réunion.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use (Cas d'usage)
 
-- 会議後のメモを議事録形式に整理したいとき
-- 決定事項と未決事項を明確に分けたいとき
-- TODOを担当者・期限付きで整理したいとき
-- 次回会議までの確認事項を一覧化したいとき
+- Formaliser rapidement des notes de réunion brutes sous forme de compte rendu clair et exploitable.
+- Séparer sans ambiguïté les décisions fermes des points laissés en suspens.
+- Établir le relevé de décisions et d'actions (TODO) en assignant un rôle porteur et une échéance précise à chaque point.
+- Consolider la liste des éléments à contrôler et à déboucler d'ici la séance suivante.
 
 ---
 
-## Input（入力内容）
+## Input (Informations d'entrée)
 
-以下の情報を入力してください（わかる範囲で構いません）。
+Transmettez les informations suivantes (dans la mesure des éléments disponibles) :
 
-- 会議名・日時・参加者（役割）
-- 議題・アジェンダ
-- 会議中に話されたこと（メモ・テキスト形式で構いません）
-- 決まったこと・決まらなかったこと（わかれば）
+- Intitulé de la réunion, horodatage, liste des participants par rôle
+- Ordre du jour / Thématiques abordées
+- Notes brutes de séance (prises de notes au fil de l'eau, synthèses textuelles)
+- Points explicitement tranchés et désaccords / points d'arbitrage restés ouverts
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+> Ne saisissez jamais de données confidentielles clients, d'informations personnelles ou d'identifiants d'accès (clés d'API, mots de passe).
+> Remplacez systématiquement les entités par des alias génériques (« Client A », « Intervenant B », « Projet X »).
 
 ---
 
 <instructions>
 
-## Approach（取り組み方）
+## Approach (Démarche de formalisation)
 
-入力された会議メモをもとに、以下のステップで議事録を作成してください。
+Sur la base des notes de séance soumises, produisez le compte rendu selon les étapes suivantes :
 
-0. 入力されたメモから、決定事項・TODO・リスク等の各観点に関連する記述を原文のまま特定し、分析の根拠として使用する
-1. 会議の目的と全体の流れを把握し、3〜5文のサマリーを作成する
-2. 「決まったこと」と「決まらなかったこと」を明確に分類する（曖昧な場合は未決事項として扱う）
-3. TODOを担当者・期限付きで一覧化する。担当者または期限が不明なものは別途「要確認」として列挙する
-4. 次回会議で確認・フォローすべき事項を整理する
-5. 会議内容から読み取れるリスク・懸念点を整理する
+0. Repérer dans les notes d'entrée les mentions explicites relatives aux arbitrages, actions et risques afin de fonder l'analyse sur des faits textuels précis.
+1. Dégager la finalité de la réunion et l'orientation générale des débats en une synthèse exécutive de 3 à 5 phrases.
+2. Ventiler rigoureusement les « Décisions actées » d'un côté et les « Points en suspens » de l'autre (traiter systématiquement toute décision floue comme un point en suspens).
+3. Structurer le plan d'actions opérationnel (TODO) avec attribution explicite d'un rôle porteur et d'une échéance cible. Isoler dans un tableau spécifique les actions orphelines (sans responsable ou sans délai).
+4. Dresser la checklist des points de synchronisation à instruire lors du prochain point d'étape.
+5. Extraire les signaux faibles, risques et inquiétudes sous-jacents qui ressortent des échanges.
 
-**入力されたメモが断片的でも、入力情報の範囲で最大限整理してください。不明な事項は「（要確認）」と記載してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
+**Même si les notes fournies sont télégraphiques ou désordonnées, tirez-en le maximum d'éléments structurés. Précisez expressément « (À confirmer) » pour toute ambiguïté. Mentionnez « (Hypothèse) » pour toute déduction générale, et indiquez « Les éléments fournis ne permettent pas de statuer » en cas d'information insuffisante pour trancher.**
 
 </instructions>
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Review / Analysis Points (Axes d'analyse)
 
-1. 会議サマリー（目的・結論）
-2. 決定事項（確定した事柄）
-3. 未決事項（次回以降に持ち越し・要確認）
-4. TODO（担当者・期限付き）
-5. 担当者不明または期限不明のTODO
-6. 次回会議で確認すべきこと
-7. リスク・懸念点
+1. Synthèse exécutive de la réunion (Objectif & Conclusions clés)
+2. Décisions formellement actées (Points verrouillés)
+3. Points en suspens (Ajournements, points à instruire d'ici la prochaine séance)
+4. Plan d'actions / TODO (Porteur désigné et date d'exigibilité)
+5. Actions orphelines (Points nécessitant une réattribution d'urgence)
+6. Points de suivi pour la prochaine séance
+7. Risques émergents et alertes relevés au cours des échanges
 
 ---
 
 <output_format>
 
-## Output Format（出力形式）
+## Output Format (Format de restitution)
 
-以下の形式で日本語で出力してください。参加者がそのまま確認・共有できる形で作成してください。
+Structurez la restitution en français selon la trame suivante, prête à être partagée et validée par les participants :
 
-### 会議サマリー
+### Synthèse exécutive de la séance
+(3 à 5 phrases percutantes résumant les conclusions majeures)
 
-（3〜5文で要約）
+### Décisions actées (Points verrouillés)
+- [Décision 1]
+- [Décision 2]
 
-### 決定事項
+### Points en suspens et arbitrages ouverts
 
-- 
-
-### 未決事項
-
-| 事項 | 担当（役割） | 期限の目安 |
+| Sujet / Point ouvert | Responsable de l'instruction (Rôle) | Échéance cible |
 |---|---|---|
+| | | |
 
-### TODO一覧
+### Plan d'actions opérationnel (TODO)
 
-| TODO | 担当（役割） | 期限 |
-|---|---|---|
+| Réf | Intitulé de l'action | Porteur (Rôle) | Échéance | Critères de succès / Livrable attendu |
+|---|---|---|---|---|
+| | | | | |
 
-### 担当者不明・期限不明のTODO
+### Actions à clarifier (Sans responsable ou sans échéance)
+Liste des tâches identifiées dont l'attribution ou le calendrier doit être précisé d'urgence par le chef de projet.
 
-整理が必要なTODOを列挙します。
+### Ordre du jour de la prochaine séance (Points de contrôle)
+Checklist des éléments à passer en revue et à valider lors de la prochaine réunion.
 
-### 次回確認事項
-
-次回の会議・連絡で確認すべきことを列挙します。
-
-### リスク・懸念点
-
-会議内容から読み取れるリスクや懸念点を列挙します。
+### Risques émergents & Signaux faibles
+Inventaire des risques techniques, contractuels ou organisationnels mis en lumière au cours des échanges.
 
 </output_format>
 
 ---
 
-## Caution（注意事項）
+## Caution (Précautions d'usage)
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 決定事項・TODO・担当者の解釈は、参加者と必ず確認してください。
-- 議事録の確定前には関係者のレビューを受けてください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+- Les sorties de l'IA ne remplacent en aucun cas l'arbitrage managérial. Tout contenu doit impérativement être relu, vérifié et ajusté par un responsable humain.
+- Le relevé des décisions et l'attribution des actions doivent impérativement être relus et confirmés formellement avec les participants.
+- Ne diffusez jamais un compte rendu aux parties prenantes externes sans validation managériale préalable.
+- Ce skill ne comporte aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
+- Ce document formalise les exigences méthodologiques PM pour Claude Code.
+- N'assure aucune fonction d'exécution automatique.

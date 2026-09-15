@@ -1,87 +1,87 @@
-# Examples — 実用サンプル集
+# Exemples — Cas d'usage pratiques (Examples)
 
-このディレクトリは、`contexts/` の使い方を具体的に示すサンプル集です。
-
----
-
-## このディレクトリの目的
-
-各コンテキストファイルを実際にどのように使うのか、入力例・プロンプト例・期待する出力例を通じて確認できます。
+Ce répertoire rassemble des cas d'usage illustrant concrètement l'exploitation des fichiers de `contexts/`.
 
 ---
 
-## 注意事項
+## Objectif de ce répertoire
+
+Ces exemples permettent de comprendre précisément comment exploiter chaque fichier de contexte à travers des jeux de données d'entrée réalistes, des modèles de prompts associés et les livrables attendus de l'IA.
+
+---
+
+## Consignes de sécurité et avertissements
 
 > [!IMPORTANT]
-> **すべてのサンプルは架空データです。** 実在する顧客名・会社名・個人名・案件名・認証情報は含まれていません。
+> **Tous les exemples reposent sur des données fictives.** Aucun nom de client, d'entreprise, d'individu, de projet réel ni aucun identifiant de sécurité n'y figure.
 >
-> 実案件の情報（顧客名、案件名、個人情報、認証情報、契約情報）をAIサービスに入力しないでください。
-> 入力前に必ずマスキング・抽象化を行ってください。詳細は [docs/ai-safety.md](../docs/ai-safety.md) を参照してください。
+> N'introduisez jamais d'informations réelles sensibles (noms de clients ou de projets, données personnelles, identifiants d'accès, données contractuelles) dans un service d'IA.
+> Procédez systématiquement à une anonymisation ou une abstraction préalable. Pour plus de détails, consultez [docs/ai-safety.md](../docs/ai-safety.md).
 
 > [!WARNING]
-> **AI出力は業務判断の代替ではありません。** 出力内容は必ず人間が確認・修正してください。
-> 顧客提出・社内報告・契約判断・納期回答・費用判断に使用する場合は、担当者が内容を確認した上で利用してください。
+> **Les livrables générés par l'IA ne remplacent en aucun cas l'arbitrage managérial.** Tout contenu produit doit impérativement faire l'objet d'une relecture et d'une validation par un chef de projet humain.
+> Avant toute transmission à un client, diffusion interne, négociation contractuelle, engagement sur les délais ou arbitrage budgétaire, le responsable de mission doit valider personnellement le contenu.
 
 ---
 
-## サンプル一覧
+## Liste des cas pratiques
 
-| サンプルファイル | 内容 |
+| Fichier d'exemple | Objet |
 |---|---|
-| [project-health-check-example.md](project-health-check-example.md) | プロジェクト状況のヘルスチェック例 |
-| [status-report-example.md](status-report-example.md) | 進捗報告作成例 |
-| [issue-risk-review-example.md](issue-risk-review-example.md) | 課題・リスクレビュー例 |
-| [meeting-minutes-example.md](meeting-minutes-example.md) | 会議メモから議事録・TODOを作る例 |
-| [fire-response-first-72h-example.md](fire-response-first-72h-example.md) | 炎上初動72時間の整理例 |
-| [scope-change-example.md](scope-change-example.md) | 仕様変更・スコープ変更の整理例 |
-| [delay-recovery-example.md](delay-recovery-example.md) | 遅延時のリカバリー方針整理例 |
-| [claude-code-pm-review-example.md](claude-code-pm-review-example.md) | Claude CodeでPMレビューSkillを使う例 |
-| [pm-ai-diagnosis-example.md](pm-ai-diagnosis-example.md) | PM課題・AI活用課題を診断し、使うべきContextとSkillを選ぶ例 |
-| [project-risk-radar-example.md](project-risk-radar-example.md) | 進捗メモから表面化していないリスクを検知する例 |
-| [ai-output-governance-review-example.md](ai-output-governance-review-example.md) | AI出力を顧客提出前にレビューする例 |
+| [project-health-check-example.md](project-health-check-example.md) | Diagnostic d'état de santé d'un projet |
+| [status-report-example.md](status-report-example.md) | Élaboration d'un rapport d'avancement (Flash report) |
+| [issue-risk-review-example.md](issue-risk-review-example.md) | Revue des problèmes et analyse des risques |
+| [meeting-minutes-example.md](meeting-minutes-example.md) | Transformation de notes brutes de réunion en compte rendu et plan d'actions (TODO) |
+| [fire-response-first-72h-example.md](fire-response-first-72h-example.md) | Gestion de crise : cadrage des 72 premières heures |
+| [scope-change-example.md](scope-change-example.md) | Gestion et arbitrage d'une modification de périmètre (Scope Change) |
+| [delay-recovery-example.md](delay-recovery-example.md) | Élaboration d'un plan de rattrapage en cas de retard |
+| [claude-code-pm-review-example.md](claude-code-pm-review-example.md) | Utilisation de la compétence de revue PM dans Claude Code |
+| [pm-ai-diagnosis-example.md](pm-ai-diagnosis-example.md) | Diagnostic des enjeux PM / adoption de l'IA et sélection des contextes / compétences adaptés |
+| [project-risk-radar-example.md](project-risk-radar-example.md) | Détection des signaux faibles et risques latents à partir des notes d'avancement |
+| [ai-output-governance-review-example.md](ai-output-governance-review-example.md) | Revue de gouvernance d'un livrable IA avant transmission au client |
 
 ---
 
-## 使用するファイルの対応表
+## Matrice de correspondance des fichiers utilisés
 
-| サンプル | 使用するファイル |
+| Exemple | Fichiers de contexte et compétences associés |
 |---|---|
-| project-health-check-example.md | `contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md` |
-| status-report-example.md | `contexts/PM_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md` |
-| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md` |
-| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`、`contexts/MEETING_MINUTES_CONTEXT.md` |
-| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`、`contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` |
-| delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
-| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`.claude/skills/pm-review/SKILL.md` |
-| pm-ai-diagnosis-example.md | `.claude/skills/pm-ai-diagnosis/SKILL.md`、`contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| project-risk-radar-example.md | `.claude/skills/project-risk-radar/SKILL.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
-| ai-output-governance-review-example.md | `.claude/skills/ai-output-governance-review/SKILL.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`docs/ai-safety.md` |
+| project-health-check-example.md | `contexts/PM_CONTEXT.md`, `contexts/PROJECT_HEALTH_CHECK.md` |
+| status-report-example.md | `contexts/PM_CONTEXT.md`, `contexts/STATUS_REPORT_CONTEXT.md` |
+| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`, `contexts/ISSUE_RISK_CONTEXT.md` |
+| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`, `contexts/MEETING_MINUTES_CONTEXT.md` |
+| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`, `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| scope-change-example.md | `contexts/PM_CONTEXT.md`, `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| delay-recovery-example.md | `contexts/PM_CONTEXT.md`, `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`, `.claude/skills/pm-review/SKILL.md` |
+| pm-ai-diagnosis-example.md | `.claude/skills/pm-ai-diagnosis/SKILL.md`, `contexts/PM_CONTEXT.md`, `contexts/PROJECT_HEALTH_CHECK.md`, `contexts/STATUS_REPORT_CONTEXT.md`, `contexts/ISSUE_RISK_CONTEXT.md`, `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| project-risk-radar-example.md | `.claude/skills/project-risk-radar/SKILL.md`, `contexts/PROJECT_HEALTH_CHECK.md`, `contexts/ISSUE_RISK_CONTEXT.md`, `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| ai-output-governance-review-example.md | `.claude/skills/ai-output-governance-review/SKILL.md`, `contexts/CLIENT_COMMUNICATION_CONTEXT.md`, `contexts/STATUS_REPORT_CONTEXT.md`, `docs/ai-safety.md` |
 
 ---
 
-## AI出力を実務で使う前の確認
+## Contrôle humain préalable à toute utilisation opérationnelle
 
-各サンプルの「Human Review Points」セクションに、AIの出力を確認すべき観点を記載しています。
+Dans chaque exemple, la section « Human Review Points » recense les axes d'analyse critiques que le chef de projet doit obligatoirement contrôler sur le livrable produit par l'IA.
 
-AIの出力をそのまま顧客提出・社内報告・契約関連文書に使わないでください。最終的な判断と責任は、必ず人間が持ってください。
+N'utilisez jamais les sorties brutes de l'IA pour une présentation client, une communication de direction ou une formalisation contractuelle. La décision finale et la responsabilité incombent toujours à l'humain.
 
-詳細は [docs/usage-guide.md](../docs/usage-guide.md) および [docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md) を参照してください。
-
----
-
-## サンプルから学べること
-
-- AIに渡す前提情報（AI Contexts）の整理方法
-- PMとして確認すべき観点
-- AIに任せてよい部分と、人間が判断すべき部分
-- 顧客・上司・チームに共有する前のレビュー観点
+Pour plus de précisions, reportez-vous à [docs/usage-guide.md](../docs/usage-guide.md) et [docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md).
 
 ---
 
-## 次に確認するとよいページ
+## Ce que ces exemples vous apprennent
 
-- 用途別に選びたい方：[`docs/use-case-map.md`](../docs/use-case-map.md)
-- 学習順を知りたい方：[`docs/learning-roadmap.md`](../docs/learning-roadmap.md)
-- 安全に使うための注意点：[`docs/ai-safety.md`](../docs/ai-safety.md)
-- Claude Code Skill一覧：[`../.claude/skills/README.md`](../.claude/skills/README.md)
+- Comment structurer les hypothèses et données de cadrage (AI Contexts) à transmettre à l'IA
+- Quels points de contrôle spécifiques le chef de projet doit examiner
+- Ce qui peut être délégué à l'IA et ce qui requiert un arbitrage humain
+- Les grilles d'analyse avant tout partage avec les clients, la direction ou l'équipe
+
+---
+
+## Ressources complémentaires recommandées
+
+- Choisir un outil selon votre besoin : [`docs/use-case-map.md`](../docs/use-case-map.md)
+- Suivre la progression d'apprentissage : [`docs/learning-roadmap.md`](../docs/learning-roadmap.md)
+- Bonnes pratiques de sécurité : [`docs/ai-safety.md`](../docs/ai-safety.md)
+- Répertoire des compétences Claude Code : [`../.claude/skills/README.md`](../.claude/skills/README.md)

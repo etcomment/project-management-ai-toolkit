@@ -1,46 +1,46 @@
+<!--
 > [!CAUTION]
-> **このPull Requestは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に含めないでください。**
-> 詳細は [`CONTRIBUTING.md`](../CONTRIBUTING.md) および [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **Cette Pull Request sera publique. N'incluez JAMAIS de clés d'API, de mots de passe, de jetons, de noms de clients réels, de données nominatives, de noms d'entreprises, de noms de projets confidentiels, d'éléments contractuels ou d'informations internes confidentielles.**
+> Pour plus de détails, veuillez consulter [`CONTRIBUTING.md`](../CONTRIBUTING.md) et [`SECURITY.md`](../SECURITY.md).
+-->
 
----
+## Résumé (Summary)
 
-## Summary
+<!-- Décrivez succinctement la modification apportée -->
 
-<!-- 変更内容を簡潔に説明してください -->
+## Fichiers modifiés (Changed files)
 
-## Changed files
-
-<!-- 変更したファイルを列挙してください -->
+<!-- Listez les fichiers modifiés -->
 
 - 
 
-## Type of change
+## Type de modification (Type of change)
 
-<!-- 該当する項目にチェックしてください -->
+<!-- Cochez la case correspondante -->
 
-- [ ] 誤字脱字・表記ゆれ修正
-- [ ] ドキュメント改善
-- [ ] コンテキストファイル改善
-- [ ] プロンプトテンプレート改善
-- [ ] サンプル追加・改善
-- [ ] 安全注意・免責表現の改善
-- [ ] その他
+- [ ] Correction de coquilles / harmonisation terminologique
+- [ ] Amélioration documentaire
+- [ ] Amélioration de fichier de contexte
+- [ ] Amélioration de modèle de prompt
+- [ ] Ajout ou amélioration d'exemples
+- [ ] Renforcement des consignes de sécurité / mentions de non-responsabilité
+- [ ] Autre
 
-## Safety checklist
+## Liste de contrôle de sécurité (Safety checklist)
 
 > [!IMPORTANT]
-> すべての項目を確認し、チェックしてから提出してください。
+> Vérifiez l'intégralité des points et cochez chaque case avant de soumettre la contribution.
 
-- [ ] 実在する顧客名・会社名・個人名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
-- [ ] 契約情報・NDA対象情報・機密情報を含めていません
-- [ ] ソースコードや業務秘密を含めていません
-- [ ] サンプルは架空データまたは抽象化した情報です
-- [ ] AI出力を業務判断の代替とする表現を追加していません
-- [ ] 免責・安全上の注意を弱めていません
-- [ ] hooks、command、shell script、MCP設定、GitHub Actionsを追加していません
-- [ ] Udemy導線を過度に増やしていません
+- [ ] Aucun nom de client, entreprise, individu ou projet réel n'est mentionné
+- [ ] Aucune clé d'API, mot de passe, token ou identifiant d'authentification n'est inclus
+- [ ] Aucune donnée contractuelle, couverte par un accord de confidentialité (NDA) ou confidentielle n'est incluse
+- [ ] Aucun code source propriétaire ou secret d'affaires n'est inclus
+- [ ] Tous les exemples s'appuient strictement sur des données fictives ou anonymisées
+- [ ] Aucune formulation ne suggère que les livrables de l'IA remplacent l'arbitrage managérial ou le jugement humain
+- [ ] Les clauses de non-responsabilité et consignes de sécurité n'ont pas été affaiblies
+- [ ] Aucun hook exécutable, commande automatisée, script shell, configuration MCP ou workflow GitHub Actions n'a été ajouté
+- [ ] Aucun lien promotionnel excessif vers des formations n'a été introduit
 
-## Notes
+## Notes complémentaires (Notes)
 
-<!-- 補足事項があれば記載してください -->
+<!-- Indiquez toute précision utile le cas échéant -->

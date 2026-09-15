@@ -1,177 +1,177 @@
-﻿# ChatGPT 使い方ガイド
+# Guide d'utilisation de ChatGPT / ChatGPT Usage Guide
 
-ChatGPT で本リポジトリを活用するためのガイドです。
+Guide pratique pour exploiter le présent référentiel avec OpenAI ChatGPT.
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・契約情報・認証情報（APIキー・パスワード等）は、ChatGPT に入力しないでください。
-> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
+> Ne saisissez jamais de données clients réelles, informations personnelles, clauses contractuelles ou identifiants techniques (clés d'API, mots de passe) dans ChatGPT.
+> Les sorties de l'IA ne remplacent pas l'arbitrage managérial. Tout livrable doit impérativement être relu, vérifié et ajusté par un humain.
 
 ---
 
-## `contexts/` — AI Contexts本体
+## `contexts/` — Composant central (AI Contexts)
 
-コンテキスト本体は `contexts/` 配下にあります。各コンテキストファイルには、AIに渡す前提情報・判断軸・Prompt Template が含まれています。
+Le cœur méthodologique réside dans le répertoire `contexts/`. Chaque fichier rassemble les prérequis métier, les critères d'arbitrage et les modèles d'invites (Prompt Templates).
 
-設定用ファイル（指示文）は `instructions/` 配下にあります。
+Les gabarits d'instructions pour les paramètres système se trouvent sous `instructions/`.
 
 ---
 
-## 使用する設定用ファイル
+## Fichiers de configuration système à utiliser
 
-| ファイル | 設定先 |
+| Fichier | Emplacement de configuration |
 |---|---|
-| `instructions/chatgpt-project-instructions.md` | ChatGPT Projects の Instructions 欄 |
-| `instructions/custom-gpt-instructions.md` | カスタムGPT の Instructions 欄 |
+| `instructions/chatgpt-project-instructions.md` | Champ Instructions des Projets ChatGPT (ChatGPT Projects) |
+| `instructions/custom-gpt-instructions.md` | Champ Instructions de vos Custom GPTs |
 
-これらのファイルは「AIツールの設定欄にコピーして使う指示文」です。人間が読むガイドではありません。
+Ces fichiers sont des directives système prêtes à l'emploi destinées aux paramètres de configuration de l'outil.
 
 ---
 
-## 利用パターン
+## Modes d'exploitation
 
-### 通常チャットで使う場合
+### Option 1 : Utilisation dans une conversation standard
 
-1. `contexts/PM_CONTEXT.md` の内容をコピーする
-2. 新規チャットの冒頭に貼り付ける
-3. 用途別コンテキスト（`contexts/*.md`）と案件情報（マスキング済み）を続けて入力する
-4. AI出力を人間が確認する
+1. Copier le contenu de `contexts/PM_CONTEXT.md`.
+2. Le coller en préambule d'une nouvelle conversation.
+3. Coller le fichier de contexte adapté à votre besoin (`contexts/*.md`) puis renseigner les informations anonymisées de votre projet.
+4. Procéder à la validation humaine du résultat produit.
 
 ```text
-以下のコンテキストを前提として振る舞ってください。
+Vous agirez en vous conformant strictement au contexte méthodologique ci-dessous :
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-[用途別コンテキストファイルの内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 
 ---
 
-[案件情報（機密情報をマスキング済み）をここに入力する]
+[Coller ici le contenu du fichier de contexte thématique]
+
+---
+
+[Renseigner ici les données de votre projet (strictement anonymisées)]
 ```
 
-### ChatGPT Projects で使う場合
+### Option 2 : Configuration dans ChatGPT Projects
 
-1. ChatGPT でプロジェクトを新規作成する
-2. プロジェクトの「Instructions」に `instructions/chatgpt-project-instructions.md` の内容を貼り付ける
-3. 案件情報（マスキング済み）と用途別コンテキストを入力して依頼する
+1. Créer un nouveau projet dans ChatGPT.
+2. Coller le contenu de `instructions/chatgpt-project-instructions.md` dans le champ « Instructions » du projet.
+3. Dans les conversations du projet, transmettez directement les informations anonymisées accompagnées du contexte spécifique sans avoir à réinjecter les consignes de base.
 
-### カスタムGPT で使う場合
+### Option 3 : Création d'un Custom GPT dédié
 
-1. カスタムGPTの「Instructions」欄に `instructions/custom-gpt-instructions.md` の内容を貼り付ける
-2. 必要に応じて `contexts/PM_CONTEXT.md` などを Knowledge に追加する
-3. 案件情報（マスキング済み）と用途別コンテキストを入力して依頼する
+1. Coller le contenu de `instructions/custom-gpt-instructions.md` dans le champ « Instructions » du configurateur de GPT.
+2. Téléverser les fichiers de référence comme `contexts/PM_CONTEXT.md` dans la section « Knowledge ».
+3. Formuler vos requêtes avec vos données projets anonymisées.
 
 ---
 
-## 利用フロー
+## Schéma récapitulatif du flux de travail
 
 ```text
-ChatGPTで使う
+Exploitation avec ChatGPT
 │
-├─ 通常チャット
-│    └─ contexts/*.md をチャットに貼り付ける
+├─ Conversation standard
+│    └─ Coller contexts/*.md directement dans le fil de discussion
 │
 ├─ ChatGPT Projects
-│    └─ instructions/chatgpt-project-instructions.md を設定する
+│    └─ Paramétrer instructions/chatgpt-project-instructions.md
 │
-└─ カスタムGPT
-     └─ instructions/custom-gpt-instructions.md を設定する
+└─ Custom GPT
+     └─ Paramétrer instructions/custom-gpt-instructions.md
 
-共通の流れ：
-PM_CONTEXT.md → 用途別 contexts/*.md → マスキングして入力 → AI出力を人間が確認
+Démarche méthodologique commune :
+PM_CONTEXT.md → Fichier thématique contexts/*.md → Données anonymisées → Validation humaine
 ```
 
 ---
 
-## 用途別コンテキストの選び方
+## Sélection des contextes thématiques par cas d'usage
 
-| 目的 | コンテキストファイル |
+| Cas d'usage | Fichier de contexte associé |
 |---|---|
-| プロジェクトヘルスチェック | `contexts/PROJECT_HEALTH_CHECK.md` |
-| 進捗報告 | `contexts/STATUS_REPORT_CONTEXT.md` |
-| 課題・リスク整理 | `contexts/ISSUE_RISK_CONTEXT.md` |
-| 顧客向け説明文 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 炎上初動 | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| 議事録・TODO | `contexts/MEETING_MINUTES_CONTEXT.md` |
+| Bilan de santé global du projet | `contexts/PROJECT_HEALTH_CHECK.md` |
+| Rapport d'avancement périodique | `contexts/STATUS_REPORT_CONTEXT.md` |
+| Registre des incidents et risques | `contexts/ISSUE_RISK_CONTEXT.md` |
+| Communication et argumentaire client | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| Gestion de crise (Premières 72h) | `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| Compte rendu de réunion & Relevé de décisions | `contexts/MEETING_MINUTES_CONTEXT.md` |
 
-詳細は [docs/use-case-map.md](../use-case-map.md) を参照してください。
+Pour une orientation détaillée, consultez [docs/use-case-map.md](../use-case-map.md).
 
 ---
 
-## 入力前のマスキング例
+## Exemples d'anonymisation avant saisie
 
-| 置き換え前（例） | 置き換え後（例） |
+| Donnée réelle (À proscrire) | Formulation anonymisée conforme |
 |---|---|
-| 株式会社〇〇（顧客名） | 顧客A |
-| 田中 太郎（担当者名） | 担当者A |
-| api_key_xxxxxxxxxx | （削除） |
-| 見積金額：3,500万円 | 見積金額：数千万円規模 |
-| プロジェクト名：〇〇システム刷新 | プロジェクトX |
+| Société Alpha Solutions (Client) | Client A |
+| Jean Dupont (Chef de projet client) | Intervenant A / Responsable Client |
+| api_key_xxxxxxxxxx | [SUPPRIMÉ] |
+| Montant contractuel : 350 000 € | Budget : Ordre de grandeur de quelques centaines de k€ |
+| Projet Refonte ERP 2026 | Projet X |
 
 ---
 
-## 利用例（架空データ）
+## Cas pratique illustratif (Données fictives)
 
-以下は架空データを使った利用例です。
+Exemple d'application concrète sur des données simulées :
 
-### 例：プロジェクトヘルスチェック
+### Scénario : Bilan de santé projet (Health Check)
 
-**使用するファイル**
+**Ressources mobilisées**
 - `contexts/PM_CONTEXT.md`
 - `contexts/PROJECT_HEALTH_CHECK.md`
 
-**Sanitized Input（架空データ）**
+**Données d'entrée anonymisées (Données fictives)**
 
 ```
-【案件概要】
-- 種別：業務システム開発（受託）
-- フェーズ：結合テスト工程
-- 全体進捗：65%
+【Synthèse du projet】
+- Typologie : Développement d'un système métier sur mesure (au forfait)
+- Phase : Tests d'intégration / Recette technique
+- Avancement global : 65%
 
-【状況】
-- 外部連携APIの仕様が未確定のため、3機能が着手できていない
-- テスト消化率が40%で追いつかず
-- 顧客から要件追加要望が2件あり対応方針が未定
+【Situation constatée】
+- Les spécifications de l'API externe n'étant pas stabilisées, 3 fonctionnalités restent bloquées
+- Taux de couverture de test à seulement 40% (retard sur la campagne de recette)
+- Le client a formulé 2 demandes d'évolution majeures non encore arbitrées
 ```
 
-**Prompt**
+**Modèle de requête (Prompt)**
 
 ```
-以下のコンテキストを前提として、プロジェクト状況をPM視点でヘルスチェックしてください。
+Sur la base des contextes de référence ci-dessous, réalisez un bilan de santé (Health Check) de notre situation selon une perspective Chef de Projet :
 
-[PM_CONTEXT.md の内容]
-[PROJECT_HEALTH_CHECK.md の内容]
+[Contenu de PM_CONTEXT.md]
+[Contenu de PROJECT_HEALTH_CHECK.md]
 
-【現在の案件状況（架空データ）】
-（上記 Sanitized Input を貼り付ける）
+【Situation du projet (Données anonymisées)】
+(Coller ici les données d'entrée ci-dessus)
 ```
 
-**Human Review Points**
-- 危険度の判断が実際の案件感覚と一致しているか確認する
-- 次アクションの優先順位が現場状況に合っているか調整する
-- AI出力をそのまま顧客提出・社内報告に使わない
+**Points de contrôle humain (Human Review)**
+- Vérifier la pertinence du niveau de criticité attribué au regard de la réalité terrain.
+- Réajuster la priorité opérationnelle des actions proposées.
+- Ne jamais diffuser la synthèse brute générée sans validation managériale préalable.
 
 ---
 
-## 出力確認チェックリスト
+## Checklist de validation des résultats
 
-- [ ] 出力内容が実際の案件状況と一致している
-- [ ] 顧客・社内の関係性に合ったトーン・表現になっている
-- [ ] 契約・費用・責任範囲に関する表現が正確である
-- [ ] 顧客提出前に上長・担当者のレビューを受けている
-
----
-
-## 関連ドキュメント
-
-- [docs/ai-safety.md](../ai-safety.md) — AIに入力してよい情報・安全な使い方
-- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — 免責事項
+- [ ] L'analyse concorde fidèlement avec les événements réels du projet
+- [ ] Le ton et le registre d'expression sont adaptés aux relations internes et clients
+- [ ] Les formulations relatives au périmètre contractuel, aux délais et aux coûts sont exemptes d'engagements imprudents
+- [ ] Le livrable a été validé par un responsable humain habilité avant transmission
 
 ---
 
-## 関連情報
+## Documents associés
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [docs/ai-safety.md](../ai-safety.md) — Règles de sécurité et données autorisées
+- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — Clause de non-responsabilité
+
+---
+
+## Liens utiles
+
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

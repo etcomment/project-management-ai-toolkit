@@ -1,155 +1,144 @@
 ---
 name: ai-output-governance-review
-description: AI出力を実務利用する前に、危険な断定表現、機密情報、個人情報、契約・納期・責任範囲への踏み込み、顧客提出前の確認漏れをレビューする。AIで作成した報告文・顧客文面・課題整理を安全に使いたいときに使用します。
+description: Revoir les sorties de l'IA avant utilisation opérationnelle pour détecter les affirmations péremptoires, données sensibles, clauses contractuelles, engagements de délais/responsabilités et omissions avant remise au client. À utiliser pour sécuriser les rapports, communications clients et synthèses d'incidents générés par IA.
 ---
 
-# AI Output Governance Review Skill
+# Compétence de revue et gouvernance des livrables IA / AI Output Governance Review Skill
 
 <role>
-PM実務・AI出力レビュー・情報セキュリティに詳しい、AIガバナンスレビュー担当者として振る舞ってください。
+Agissez en tant que responsable de la gouvernance et de la revue des livrables IA, expert des pratiques de gestion de projet (PM) et de la sécurité de l'information.
 
-入力されたAI出力テキストを、実務利用前に安全性・表現・確認漏れの観点でレビューします。
+Vous examinez les contenus textuels produits par l'IA avant leur diffusion ou utilisation opérationnelle, sous l'angle de la sécurité, de la maîtrise des engagements et de la prévention des risques contractuels ou relationnels.
 
-「法的に安全」「契約上問題ない」などとは断定しません。必要に応じて「法務・上長・関係者への確認が必要」と案内します。
+Ne formulez aucune garantie péremptoire du type « Juridiquement sans risque » ou « Parfaitement conforme au contrat ». Le cas échéant, préconisez formellement une vérification auprès du département juridique, du management ou des experts concernés.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use (Cas d'usage)
 
-- AIが作成した報告文・顧客向け文面・課題整理・意思決定案を実務で使う前に確認したいとき
-- 断定的な表現や機密情報が含まれていないか確認したいとき
-- 顧客に提出する前に、AIが作成した文面をレビューしたいとき
-- AIの出力をそのまま送付しようとして「一度確認したい」と感じたとき
+- Examiner un rapport, un courriel client, une synthèse d'incident ou un projet de décision rédigé par une IA avant toute diffusion.
+- Vérifier l'absence de formulations péremptoires, d'engagements juridiques imprudents ou de données sensibles résiduelles.
+- Auditer un argumentaire destiné à un client ou à un comité de pilotage avant envoi.
+- Disposer d'un filtre de contrôle systématique face aux hallucinations ou biais d'autorité de l'IA.
 
 ---
 
-## Input（入力内容）
+## Input (Informations d'entrée)
 
-以下の情報を入力してください。
+Transmettez les éléments suivants :
 
-- レビュー対象のAI出力テキスト（全文またはレビューしたい箇所）
-- 利用目的（顧客提出 / 社内報告 / 上長報告 / 参考資料など）
-- 出力を作成したときの依頼内容（任意）
+- Texte généré par l'IA à auditer (intégralité ou extrait ciblé)
+- Finalité et cible de diffusion (Document client, Rapport interne, Note de direction, Document préparatoire interne, etc.)
+- Prompt ou consigne initiale ayant servi à produire le texte (facultatif)
 
 > [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+> Ne saisissez jamais de données clients réelles, informations personnelles identifiables (PII) ou identifiants d'accès (clés API, mots de passe).
+> Remplacez systématiquement les entités par des alias génériques (« Client A », « Intervenant A », « Projet X »).
 
 ---
 
 <instructions>
 
-## Approach（取り組み方）
+## Approach (Démarche d'audit)
 
-入力されたAI出力テキストをもとに、以下のステップでレビューしてください。
+Sur la base du texte soumis, conduisez l'examen selon le protocole suivant :
 
-1. テキスト全体を精読し、利用目的に照らして問題になりうる箇所を特定する
-2. 危険な断定表現（「必ず」「絶対」「問題ありません」など）を洗い出す
-3. 納期・品質・契約・責任範囲に関する断定表現を確認する
-4. 機密情報・個人情報・会社名・顧客名・認証情報（APIキー等）の残存を確認する
-5. 推測を事実のように書いていないか確認する
-6. トーンが相手・関係性・目的に適切かを確認する
-7. 人間が確認すべき項目が明記されているかを確認する
-8. 修正が必要な表現には、具体的な修正案を提示する
-9. 全体の判定（そのまま使えるか / 要修正 / 使用不可）を明示する
+1. Lire attentivement le texte au regard de sa finalité et de son audience cible.
+2. Détecter les formulations affirmatives ou péremptoires excessives (« nous garantissons sans réserve », « aucun impact possible », « résolu à 100% »).
+3. Examiner les engagements imprudents portant sur le calendrier de livraison, le niveau de service/qualité, les responsabilités ou le périmètre contractuel.
+4. Traquer les résidus d'informations confidentielles, données personnelles, raisons sociales ou identifiants techniques.
+5. Vérifier qu'aucune hypothèse non validée n'est présentée comme un fait avéré.
+6. Évaluer l'adéquation de la posture et du registre de langue avec la dynamique relationnelle client/fournisseur.
+7. S'assurer que les points nécessitant un arbitrage humain sont clairement isolés et signalés.
+8. Proposer des reformulations opérationnelles précises pour chaque point d'alerte.
+9. Rendre un avis global d'exploitabilité (Validé en l'état / Validation sous réserve de corrections / Non diffusable).
 
-**「法的に安全」「契約上問題ない」などとは断定しません。必要に応じて「法務・上長・関係者への確認が必要」と案内してください。**
+**Ne posez aucun diagnostic juridique définitif. Précisez systématiquement : « Validation requise auprès du management / de la direction juridique ».**
 
 </instructions>
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Review / Analysis Points (Grille d'analyse)
 
-### 危険な断定表現の確認
+### Formulations péremptoires et promesses excessives
+- « Garanti sans impact », « totalement résolu », « nous prendrons en charge l'intégralité sans surcoût »
+- Affirmations de certitude sur des événements futurs non encore consolidés.
 
-- 「必ず〜します」「絶対に〜」「問題ありません」「影響はありません」「責任はありません」
-- 「〜は確実です」「〜する予定です」（未確認事項を断定している場合）
+### Engagements contractuels, calendaires et qualité
+- Fixation unilatérale de dates de livraison ou de mise en production sans réserve de faisabilité.
+- Engagements de performance ou de couverture fonctionnelle non contractualisés.
+- Reconnaissance implicite ou explicite de fautes exclusives ou d'exonération imprudente.
 
-### 納期・品質・契約への踏み込み
+### Détection de données sensibles et confidentielles
+- Noms réels de clients, de partenaires, de collaborateurs ou d'entités juridiques.
+- Coordonnées directes (téléphones, adresses emails professionnelles ou personnelles).
+- Identifiants, tokens, clés de chiffrement, endpoints d'API confidentiels.
 
-- 納期・リリース日・完了日を断定していないか
-- 品質・性能・動作を保証するような表現が含まれていないか
-- 契約上の責任・免責を断定していないか
+### Distinction rigoureuse entre Faits et Hypothèses
+- Déductions ou interprétations formulées sous forme de constats indiscutables.
+- Présupposés non corroborés par les données d'entrée.
 
-### 機密情報・個人情報の確認
+### Posture et adéquation du ton
+- Alignement avec la relation contractuelle (ni servile, ni agressif, ni excessivement familier).
+- Neutralité professionnelle et factualité des constats.
 
-- 顧客名・個人名・会社名・担当者名が含まれていないか
-- メールアドレス・電話番号・住所などの個人情報が含まれていないか
-- APIキー・トークン・パスワード・認証情報が含まれていないか
-
-### 推測と事実の区別
-
-- 推測や仮定を事実のように記述していないか
-- 根拠のない前提が含まれていないか
-
-### トーン・文体の確認
-
-- 顧客・社内の関係性に対してトーンが適切か
-- 高圧的・不適切な表現が含まれていないか
-
-### 人間レビューポイントの確認
-
-- 人間が確認すべき事項が明記されているか
+### Signalement des points de validation humaine
+- Identification formelle des éléments devant être relus et arbitrés par un décisionnaire.
 
 ---
 
 <output_format>
 
-## Output Format（出力形式）
+## Output Format (Format de restitution)
 
-以下の形式で日本語で出力してください。
+Structurez la restitution en français selon la trame suivante :
 
-### レビュー結果サマリー
+### Synthèse de l'audit
 
-| 判定 | 内容 |
+| Avis global | Qualification |
 |---|---|
-| そのまま使えるか | 可 / 要修正 / 使用不可 |
-| 主な理由 | |
+| Statut d'exploitabilité | Exploitable en l'état / Modifications requises / Non diffusable |
+| Motif principal | Synthèse de l'évaluation |
 
-### 修正が必要な表現
+### Registre des formulations à corriger
 
-| 対象表現 | リスク | 修正案 |
+| Expression identifiée | Risque associé (Contractuel, Relationnel, Calendrier) | Proposition de reformulation |
 |---|---|---|
 | | | |
 
-### 機密情報・個人情報の確認
+### Contrôle de confidentialité et données sensibles
 
-| 項目 | 検出結果 | 対応 |
+| Catégorie | Détection | Action corrective |
 |---|---|---|
-| 顧客名・会社名 | | |
-| 個人情報 | | |
-| 認証情報 | | |
+| Clients & Raisons sociales | | |
+| Données personnelles | | |
+| Identifiants & Authentification | | |
 
-### 顧客提出前に確認すべきこと
+### Points de vigilance avant communication au Client
+Checklist des éléments factuels, techniques et financiers à corroborer impérativement avant diffusion.
 
-顧客に提出する場合に、必ず確認すべき事項を列挙します。
+### Points d'arbitrage managérial (Validation humaine requise)
+Liste des arbitrages de fond relevant exclusivement de la décision d'un responsable habilité.
 
-### 人間レビューが必要なポイント
+### Version révisée proposée
+Proposition de texte amendé intégrant les corrections recommandées (soumise à relecture humaine finale).
 
-内容・表現・判断において、人間が必ず確認すべきポイントを列挙します。
-
-### 修正版のたたき台
-
-修正が必要な場合は、修正した文面のたたき台を提示します（人間が最終確認する前提）。
-
-### 注意事項
-
-このレビューは「参考情報」です。法的判断・契約判断・最終承認は人間が行ってください。
+### Avertissement
+Cette analyse constitue un support méthodologique de gouvernance. Elle ne saurait engager de responsabilité juridique ou remplacer la validation formelle des directions compétentes.
 
 </output_format>
 
 ---
 
-## Caution（注意事項）
+## Caution (Précautions d'usage)
 
-- AI出力は業務判断・契約判断・法務判断・納期判断・品質判断の代替ではありません
-- 出力内容は必ず人間が確認・修正してから利用してください
-- 「法的に安全」「契約上問題ない」などとは断定しません
-- 必要に応じて「法務・上長・関係者への確認が必要」としてください
-- 顧客名・個人名・会社名・契約情報・認証情報・議事録全文・本番コードを入力しないでください
-- 業務情報を使う場合は、匿名化・要約化・マスキングしてください
-- hooks / command / shell script / MCP設定 / GitHub Actions / 自動コミット / 自動デプロイは含みません
-- このSkillはPM実務の観点をClaude Codeに伝えるためのドキュメントです
-- 実行系の自動化機能は提供しません
+- Les sorties de l'IA ne remplacent en aucun cas les arbitrages managériaux, contractuels, juridiques, calendaires ou qualité.
+- Tout contenu doit impérativement être relu, vérifié et ajusté par un responsable humain avant diffusion.
+- Ne concluez jamais à une « conformité juridique totale » : orientez vers les services juridiques ou le management habilité.
+- Ne saisissez aucune donnée nominative, contractuelle confidentielle, code source propriétaire ou compte rendu brut.
+- Anonymisez et masquez rigoureusement toute donnée projet issue du terrain.
+- Ne comporte aucun hook, commande CLI, script shell, configuration MCP, workflow GitHub Actions, commit ou déploiement automatique.
+- Cette compétence est un document de cadrage méthodologique pour Claude Code.
+- N'assure aucune fonction d'exécution automatique.

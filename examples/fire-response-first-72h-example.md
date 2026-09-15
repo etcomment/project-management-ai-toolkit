@@ -1,67 +1,67 @@
-# 炎上初動72時間の整理 — 実用サンプル
+# Gestion de crise : cadrage des 72 premières heures (Fire Response First 72h) — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-重大な不具合がリリース直前に判明した場面を想定しています。
+Ce scénario simule l'apparition d'une anomalie bloquante majeure à quelques jours d'une mise en production critique.
 
-炎上初動72時間において、事実・影響・未確認事項・初動対応をAIに整理させる例です。
+L'objectif est d'exploiter l'IA durant la fenêtre névralgique des 72 premières heures pour ségréguer faits et suppositions, évaluer le périmètre d'impact, recenser les zones d'ombre et structurer le plan de réaction immédiat.
 
-**方針：** 原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先します。
+**Ligne directrice :** Avant toute recherche de responsabilité, la priorité absolue consiste à objectiver les faits, mesurer les impacts réels, poser les scénarios d'arbitrage et orchestrer les actions immédiates.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/FIRE_RESPONSE_FIRST_72H.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
 ```
-案件名：サンプル案件
-発生日時：リリース3日前（火曜日の午後）
+Projet : Projet Alpha (Fictif)
+Survenue de l'incident : J-3 avant mise en production (Mardi après-midi)
 
-【何が起きたか】
-本番リリース直前の最終確認中に、決済処理に関わる重要機能で不具合が発見された。
-特定の条件下で処理が完了せず、エラーが返る事象が確認された。
+【Incident constaté】
+Lors des ultimes vérifications d'homologation précédant le déploiement en production, une régression critique a été découverte sur le module d'exécution des transactions de paiement.
+Sous certaines conditions spécifiques, la transaction ne s'exécute pas et renvoie une erreur système fatale.
 
-【いつ発生したか】
-- 不具合が発見されたのは最終確認テスト中（火曜日午後）
-- 不具合が本番環境に存在していた期間は不明
-- 開発環境でも同様の事象が再現する
+【Chronologie et reproductibilité】
+- Anomalie détectée en phase finale de recette (Mardi après-midi)
+- Antériorité de l'anomalie sur la branche de release non établie
+- Comportement reproductible à l'identique sur les environnements de développement et de qualification
 
-【顧客影響】
-- リリース日が金曜日の予定であり、顧客はリリースに向けた社内告知を既に開始済み
-- リリース延期となった場合、顧客への影響が大きい
-- 顧客担当者Aには未報告。どのタイミングで報告するか未決定
+【Impacts côté Client / Métier】
+- Déploiement général planifié pour ce Vendredi ; le client a d'ores et déjà diffusé la communication de lancement auprès de ses équipes
+- Tout report de date générerait une forte perturbation organisationnelle chez le client
+- Le Contact client A n'est pas encore informé. Le canal et l'opportunité de l'annonce restent à arbitrer
 
-【社内影響】
-- 開発担当者がすでに修正調査を開始している
-- 他機能への影響範囲がまだ確認できていない
-- テスト工程のやり直しが必要になる可能性がある
+【Impacts internes et techniques】
+- L'équipe technique est mobilisée sur le diagnostic du code
+- L'impact collatéral sur les modules connexes n'est pas encore cerné
+- Risque d'invalidation et de réexécution complète de la campagne de tests de non-régression
 
-【現在分かっている事実】
-- 特定の条件下で決済処理が失敗する
-- 開発環境・検証環境ともに再現する
-- 条件の詳細はまだ特定中
+【Faits matériellement établis】
+- La transaction de paiement échoue sous un jeu de données spécifique
+- Reproductibilité confirmée sur staging et dev
+- Conditions exactes de déclenchement en cours de qualification précise
 
-【まだ分かっていないこと】
-- 不具合の根本原因
-- 他機能への影響
-- 修正に必要な工数
-- リリース日に間に合うかどうか
+【Éléments non consolidés (inconnues)】
+- Cause racine (Root Cause) exacte de l'anomalie
+- Périmètre des effets de bord sur le reste de la plateforme
+- Charge de travail et délai requis pour le correctif
+- Faisabilité du maintien de la mise en production ce Vendredi
 
-【すでに実施した対応】
-- 開発担当者が調査開始（火曜日午後）
-- 上長への口頭報告（火曜日夕方）
+【Mesures immédiates déjà prises】
+- Enclenchement de l'analyse d'investigation technique (Mardi après-midi)
+- Alerte verbale transmise à la direction de projet interne (Mardi en fin de journée)
 
-【期限・制約】
-- リリース予定日：金曜日
-- 顧客はリリースを前提に社内告知を開始済み
+【Contraintes critiques et échéances】
+- Date de mise en production cible : Vendredi
+- Plan de communication client déjà déployé en interne par le commanditaire
 ```
 
 ---
@@ -69,151 +69,147 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、炎上初動72時間の状況を整理してください。
+Après avoir intégré les fichiers de contexte ci-dessous, analyse et structure le plan de crise opérationnel pour les 72 premières heures.
 
-【読み込むファイル】
+【Fichiers de contexte】
 - contexts/PM_CONTEXT.md
 - contexts/FIRE_RESPONSE_FIRST_72H.md
 
-【状況】
-（上記の Sanitized Input を貼り付ける）
+【Données de situation】
+(Coller les données d'entrée anonymisées ci-dessus)
 
-原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先してください。
+Donne la priorité absolue à la clarification des faits, aux impacts, aux options d'arbitrage et au plan d'actions immédiat, avant toute tentative d'analyse des causes profondes.
 
-以下の観点で整理してください。
-1. 事実と推測の切り分け
-2. 影響範囲の整理
-3. 今日中に確認すべきこと
-4. 顧客に伝えるべきこと
-5. 社内で決めるべきこと
-6. 初動対応リスト
-7. 72時間以内の対応計画
-8. エスカレーション要否
+Structure ta restitution selon les axes suivants :
+1. Ségrégation stricte des faits avérés et des conjectures
+2. Cartographie du périmètre d'impact
+3. Vérifications impératives à mener avant la fin de la journée (J0)
+4. Éléments de cadrage de la communication vers le client
+5. Arbitrages managériaux à trancher en interne
+6. Liste des actions de réaction immédiate
+7. Plan de gestion de crise sur 72 heures
+8. Opportunité et niveau d'escalade hiérarchique
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
-
----
-
-### 1. 事実と推測の切り分け
-
-**確認された事実：**
-- 決済処理に関わる機能で不具合が発生している
-- 開発環境・検証環境ともに再現する
-- リリース3日前に判明した
-- 顧客はリリースを前提に社内告知を開始済み
-- 上長への口頭報告は完了している
-
-**まだ確認できていない（推測・不明）：**
-- 不具合の根本原因
-- 他機能への影響範囲
-- 修正に必要な工数・時間
-- 本番環境に既に存在していたかどうか
-- リリース日に修正・再テストが間に合うかどうか
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 2. 影響範囲の整理
+### 1. Ségrégation stricte des faits avérés et des conjectures
 
-| 対象 | 影響 | 確認状況 |
+**Faits matériellement constatés :**
+- Défaillance bloquante du module de paiement sous conditions précises
+- Reproductibilité validée sur staging et dev
+- Constat survenu à J-3 de la mise en production
+- Communication de lancement déjà lancée en interne par le client
+- Escalade verbale effectuée auprès de la direction de projet interne
+
+**Inconnues et conjectures (non vérifiées) :**
+- Cause racine du bug
+- Étendue des impacts collatéraux sur l'application
+- Charge nécessaire au développement et au déploiement du correctif
+- Antériorité de l'anomalie sur le référentiel de code
+- Viabilité du maintien de la livraison Vendredi avec campagne de tests complète
+
+---
+
+### 2. Cartographie du périmètre d'impact
+
+| Périmètre | Impact constaté ou potentiel | État des lieux |
 |---|---|---|
-| 決済処理機能 | 特定条件下でエラー発生 | 確認済み（再現性あり） |
-| 他機能への影響 | 不明 | 調査中 |
-| リリース日程 | 遅延の可能性あり | 修正工数次第 |
-| 顧客の社内告知 | すでに告知開始済みのため、延期時の顧客影響が大きい | 要確認 |
+| Module de paiement | Erreur bloquante sous conditions particulières | Confirmé (reproductibilité avérée) |
+| Modules adjacents | Risque d'effets de bord inconnu | Analyse en cours |
+| Calendrier de déploiement | Menace directe de report de livraison | Subordonné au chiffrage du correctif |
+| Communication client | Impact organisationnel et d'image fort en cas de report | Risque critique avéré |
 
 ---
 
-### 3. 今日中に確認すべきこと
+### 3. Vérifications impératives à mener avant la fin de la journée (J0)
 
-- [ ] 不具合の発生条件の特定（どのような操作・データで発生するか）
-- [ ] 他機能への影響範囲の調査完了
-- [ ] 修正対応の難易度・工数の見通し（「今週末に間に合うか」「いつなら間に合うか」）
-- [ ] 修正後の再テストに必要な期間の確認
-
----
-
-### 4. 顧客に伝えるべきこと
-
-> **注意：** 顧客への報告内容・タイミング・表現は、契約条件・顧客との関係性・社内の判断を踏まえて決定してください。AI出力をそのまま使わないでください。
-
-**報告のポイント（たたき台）：**
-
-- リリース前の確認テストで不具合が発見されたこと
-- 現在、原因調査と影響範囲の確認を進めていること
-- リリース日程への影響有無は、調査完了後に改めて報告すること
-- 現時点で判明した事実のみを伝え、憶測は含めないこと
-
-**顧客への報告タイミング：**
-- 影響範囲と修正見通しが判明した段階で報告することを推奨
-- ただし、顧客が告知を開始していることを踏まえ、「調査中である」という状況連絡は早期に行うことを検討する
+- [ ] Isoler précisément les paramètres de déclenchement (jeux de données et parcours utilisateur exacts)
+- [ ] Conclure le diagnostic d'impact sur les modules tiers
+- [ ] Obtenir une estimation rigoureuse du temps de correction technique (scénario nominal vs scénario dégradé)
+- [ ] Évaluer la durée incompressible de rejeu de la recette après correctif
 
 ---
 
-### 5. 社内で決めるべきこと
+### 4. Éléments de cadrage de la communication vers le client
 
-- リリース延期の判断基準（「いつまでに修正の見通しが立てば金曜リリースを目指すか」）
-- 顧客への報告タイミングと報告内容の承認フロー
-- 修正対応の優先順位とアサイン
-- リリース延期の場合の代替日程案
+> **Avertissement :** Le contenu, le timing et la posture diplomatique vis-à-vis du client relèvent d'un arbitrage managérial strict prenant en compte le contrat et la relation commerciale. Ne reprenez pas le texte de l'IA sans filtre.
+
+**Principes de communication (matrice de base) :**
+- Transparence sur le fait qu'une anomalie d'homologation fait l'objet d'investigations actives
+- Présenter le dispositif de diagnostic mobilisé sans formuler d'engagements calendaires prématurés
+- Rassurer sur le fait que la décision ferme sur le calendrier sera communiquée dès qualification de l'impact
+- S'en tenir exclusivement aux faits constatés sans propager d'hypothèses anxiogènes
+
+**Timing de notification :**
+- Idéalement dès que le temps de correction et l'impact sur le calendrier sont chiffrés
+- Toutefois, compte tenu de la communication interne déjà déployée par le client, envisager un pré-avis d'investigation sans délai si le report devient probable
 
 ---
 
-### 6. 初動対応リスト
+### 5. Arbitrages managériaux à trancher en interne
 
-| # | 対応 | 担当 | 期限 |
+- Seuil de décision de report : déterminer l'heure limite (ex. Mercredi 12h) au-delà de laquelle l'absence de correctif fiable impose formellement l'annulation du déploiement de Vendredi
+- Validation de la gouvernance de crise et approbation du plan de communication client
+- Priorisation absolue des ressources techniques affectées à la résolution
+- Scénarios de repli : déploiement partiel (gel temporaire de l'option de paiement incriminée) ou report intégral de la version
+
+---
+
+### 6. Liste des actions de réaction immédiate
+
+| # | Action opérationnelle | Responsable | Échéance |
 |---|---|---|---|
-| 1 | 不具合の発生条件・影響範囲の特定 | 開発担当者 | 今日中 |
-| 2 | 修正工数・見通しの確認 | 開発リーダー | 今日中 |
-| 3 | 上長へのステータス報告（調査状況の共有） | PM担当者 | 今日中 |
-| 4 | 顧客への報告タイミング・内容の社内合意 | PM担当者・上長 | 今日中 |
-| 5 | 顧客担当者Aへの状況連絡（合意内容に基づき） | PM担当者 | 社内合意後 |
+| 1 | Qualification des conditions de reproduction et des modules collatéraux | Développeur référent | Ce soir |
+| 2 | Chiffrage de l'effort de correction et calendrier de test | Lead Tech | Ce soir |
+| 3 | Point de situation formalisé avec la direction interne | Chef de Projet | Ce soir |
+| 4 | Arbitrage de la posture de communication client | Chef de Projet / Direction | Ce soir |
+| 5 | Prise de contact avec le Contact client A selon la stratégie retenue | Chef de Projet | Après validation interne |
 
 ---
 
-### 7. 72時間以内の対応計画
+### 7. Plan de gestion de crise sur 72 heures
 
-| 時間軸 | 対応 |
+| Phase | Objectifs et livrables opérationnels |
 |---|---|
-| 今日中（Day 1） | 不具合の発生条件・影響範囲の特定。修正工数の見通し確定。顧客への報告方針を社内合意 |
-| 明日（Day 2） | 修正対応の開始。顧客担当者Aへの状況報告。リリース日程の最終判断（延期or強行の判断） |
-| Day 3（リリース前日） | 修正完了・再テスト実施。リリース可否の最終判断。顧客への結論報告 |
+| **Jour 1 (Ce jour)** | Identification de la cause, isolation du bug, évaluation de l'effort, alignement de la gouvernance interne |
+| **Jour 2 (J-2)** | Développement du correctif, communication formelle de situation au client, décision collégiale Go/No-Go pour la date cible |
+| **Jour 3 (J-1)** | Déploiement du correctif sur staging, exécution complète des tests de non-régression, arbitrage final de mise en prod |
 
 ---
 
-### 8. エスカレーション要否
+### 8. Opportunité et niveau d'escalade hiérarchique
 
-**エスカレーション推奨：**
-
-- リリース日程の変更判断は、PM単独では行わず、上長・関係者への報告・承認が必要
-- 顧客が告知を開始しているため、顧客への報告は上長確認の上で行うことを推奨
-- 修正が間に合わない場合の対応方針（一部リリース、機能制限、リリース延期）は社内で合議が必要
-
----
-
-## Human Review Points
-
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 事実と推測の切り分けが実際の状況と一致しているか
-- 顧客への報告内容・タイミングが実際の契約条件・顧客との合意内容に沿っているか
-- 初動対応リストの優先順位が実際の体制・リソースと合っているか
-- エスカレーションの判断が組織のルール・権限範囲に沿っているか
-- AIが出力した「顧客に伝えるべき内容」をそのままメール・報告書にしないこと
+**Escalade managériale indispensable :**
+- Le décalage éventuel de la livraison finale excède les prérogatives du chef de projet et requiert l'aval de la direction
+- L'impact d'image chez le client commande une couverture par les instances de gouvernance du compte
+- Le choix entre un report global ou une livraison en mode dégradé doit être arbitré collégialement
 
 ---
 
-## Caution
+## Points de contrôle humain (Human Review Points)
+
+Avant toute action sur le terrain, le chef de projet doit analyser :
+
+- Si la frontière entre faits mesurés et suppositions techniques reflète exactement le niveau d'investigation
+- Si la temporalité de l'annonce au client préserve la confiance sans créer de panique prématurée
+- Si les capacités réelles de mobilisation technique permettent de tenir le plan sur 72 heures sans épuisement des équipes
+- Si les clauses contractuelles prévoient des pénalités ou des protocoles formels de notification d'incident
+- L'interdiction absolue de transmettre les préconisations brutes de l'IA au client sans réécriture humaine
+
+---
+
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Ce scénario est intégralement fictif.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Ne saisissez jamais de détails techniques réels non anonymisés, d'identifiants ou d'informations confidentielles dans un moteur d'IA.
 >
-> **AI出力は業務判断の代替ではありません。** リリース判断・顧客報告・エスカレーションは、必ず担当者・上長が確認した上で行ってください。
->
-> 顧客提出文書・社内報告・契約判断にAI出力をそのまま使用しないでください。
+> **L'IA ne prend pas les décisions de crise.** Les décisions de maintien, d'annulation ou de bascule de production relèvent de la responsabilité légale et opérationnelle de l'encadrement humain.

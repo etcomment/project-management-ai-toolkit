@@ -1,74 +1,74 @@
-# 課題・リスクレビュー — 実用サンプル
+# Revue des problèmes et analyse des risques (Issue & Risk Review) — Exemple pratique
 
-## Use Case
+## Cas d'usage (Use Case)
 
-課題一覧をAIに渡し、課題管理の抜け漏れと潜在リスクを洗い出す場面を想定しています。
+Ce scénario illustre l'exploitation de l'IA pour auditer le registre des problèmes (Issues) d'un projet, identifier les manques de pilotage opérationnel et faire émerger les risques sous-jacents.
 
-定期的な課題棚卸し・レビューをAIに補助させる例です。
+Il s'agit d'automatiser et de fiabiliser la revue périodique du tableau de bord des alertes et des risques.
 
 ---
 
-## 使用するファイル
+## Fichiers de contexte utilisés
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
 
 ---
 
-## Sanitized Input
+## Données d'entrée anonymisées (Sanitized Input)
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Avertissement :** Les données ci-dessous sont entièrement fictives. Aucun nom réel de client, de projet ou d'individu n'est mentionné.
 
 ```
-案件名：サンプル案件
-確認日：第9週時点
+Projet : Projet Alpha (Fictif)
+Date de revue : Semaine 9 (S9)
 
-【課題一覧】
+【Registre des problèmes / Alertes (Issues)】
 
 No.1
-  タイトル：データ連携仕様の未確定
-  ステータス：対応中
-  担当者：開発リーダー
-  期限：今週末（顧客確認待ち）
-  影響範囲：外部連携機能全体
-  対応方針：顧客担当者Aへ確認依頼済み。回答待ち
-  外部依存：顧客担当者Aの回答が必要
+  Titre : Spécifications des interfaces de données non stabilisées
+  Statut : En cours de traitement
+  Responsable : Lead Développeur
+  Échéance : Fin de semaine en cours (en attente retour client)
+  Périmètre d'impact : Ensemble du module d'interfaçage externe
+  Plan d'action : Demande de validation formelle transmise au Contact client A. En attente de retour
+  Dépendance externe : Arbitrage indispensable du Contact client A
 
 No.2
-  タイトル：テスト設計書が未作成
-  ステータス：未着手
-  担当者：未定
-  期限：未定
-  影響範囲：テスト全体（結合テスト・受入テスト）
-  対応方針：来週着手予定
-  外部依存：なし
+  Titre : Plan de conception des tests non rédigé
+  Statut : Non démarré
+  Responsable : Non assigné
+  Échéance : Non définie
+  Périmètre d'impact : Ensemble de la phase de qualification (tests d'intégration et recette usine)
+  Plan d'action : Démarrage envisagé la semaine prochaine
+  Dépendance externe : Aucune
 
 No.3
-  タイトル：バックエンドI/F定義の認識齟齬
-  ステータス：一部解消、残1点未確定
-  担当者：開発リーダー、バックエンド担当者
-  期限：来週の週次定例
-  影響範囲：バックエンド〜フロントエンド間の連携
-  対応方針：来週定例で最終確認
-  外部依存：なし
+  Titre : Divergence d'interprétation sur l'architecture d'interface backend
+  Statut : Partiellement levé, 1 point résiduel en suspens
+  Responsable : Lead Développeur, Référent Backend
+  Échéance : Comité technique hebdomadaire de la semaine prochaine
+  Périmètre d'impact : Flux d'échanges entre couches frontend et backend
+  Plan d'action : Arbitrage technique définitif lors du prochain comité
+  Dépendance externe : Aucune
 
 No.4
-  タイトル：外部連携先との結合テスト日程未調整
-  ステータス：未着手
-  担当者：PM担当者
-  期限：未定
-  影響範囲：結合テスト期間全体
-  対応方針：来週から調整開始予定
-  外部依存：外部連携先（担当者B）のスケジュール確認が必要
+  Titre : Calendrier des tests d'intégration avec le partenaire externe non synchronisé
+  Statut : Non démarré
+  Responsable : Chef de Projet
+  Échéance : Non définie
+  Périmètre d'impact : Période globale des tests d'intégration
+  Plan d'action : Initialisation des démarches de calage la semaine prochaine
+  Dépendance externe : Disponibilité et planning de l'homologue technique externe (Contact B)
 
 No.5
-  タイトル：リリース判定会議の日程未確定
-  ステータス：未着手
-  担当者：不明
-  期限：不明
-  影響範囲：リリース全体
-  対応方針：不明
-  外部依存：顧客担当者Aとの調整が必要
+  Titre : Date et modalités du comité de validation de mise en production (Go/No-Go) non fixées
+  Statut : Non démarré
+  Responsable : Inconnu
+  Échéance : Inconnue
+  Périmètre d'impact : Procédure globale de mise en production
+  Plan d'action : Non défini
+  Dépendance externe : Alignement préalable requis avec le Contact client A
 ```
 
 ---
@@ -76,115 +76,115 @@ No.5
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、課題一覧をPM視点でレビューしてください。
+Après avoir intégré les fichiers de contexte ci-dessous, réalise une revue critique et méthodique du registre des problèmes selon les standards d'un pilotage de projet rigoureux.
 
-【読み込むファイル】
+【Fichiers de contexte】
 - contexts/PM_CONTEXT.md
 - contexts/ISSUE_RISK_CONTEXT.md
 
-【課題一覧】
-（上記の Sanitized Input を貼り付ける）
+【Registre des problèmes】
+(Coller les données d'entrée anonymisées ci-dessus)
 
-以下の観点で整理してください。
-1. 課題の分類
-2. 優先度の見直し
-3. 担当者不明・期限不明の課題
-4. 影響範囲が曖昧な課題
-5. 表面化していないリスク
-6. エスカレーション候補
-7. 次アクション
+Structure ton analyse selon les axes suivants :
+1. Typologie et classification des problèmes
+2. Réévaluation des priorités opérationnelles
+3. Identification des anomalies de gouvernance (responsables ou échéances indéterminés)
+4. Alertes dont le périmètre d'impact est sous-évalué ou flou
+5. Risques latents et menaces sous-jacentes
+6. Sujets nécessitant une escalade managériale immédiate
+7. Plan d'actions de remédiation
 ```
 
 ---
 
-## Expected Output
+## Livrable attendu de l'IA (Expected Output)
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+Exemple illustratif de la restitution attendue. Les résultats réels varient selon le modèle et les données injectées.
 
 ---
 
-### 1. 課題の分類
+### 1. Typologie et classification des problèmes
 
-| 分類 | 課題No. | タイトル |
+| Catégorie | N° de problème | Titre |
 |---|---|---|
-| 顧客依存・外部依存 | No.1、No.4、No.5 | データ連携仕様、結合テスト日程調整、リリース判定会議日程 |
-| 内部対応（設計・実装） | No.3 | バックエンドI/F定義の認識齟齬 |
-| 内部対応（計画・体制） | No.2 | テスト設計書未作成 |
+| Dépendance externe / Client | No.1, No.4, No.5 | Spécifications d'interfaces, synchronisation des tests d'intégration, calendrier du comité Go/No-Go |
+| Pilotage technique interne (Conception / Dev) | No.3 | Divergence d'interprétation sur l'interface backend |
+| Gouvernance et cadrage interne (Planification / Ressources) | No.2 | Plan de conception des tests non rédigé |
 
 ---
 
-### 2. 優先度の見直し
+### 2. Réévaluation des priorités opérationnelles
 
-| 課題No. | 現在の状況 | 推奨優先度 | 理由 |
+| N° | Statut actuel | Priorité recommandée | Justification opérationnelle |
 |---|---|---|---|
-| No.2 | 未着手・担当者未定・期限未定 | **最高** | テスト設計の遅延は後工程全体に連鎖する。即着手が必要 |
-| No.1 | 顧客回答待ち | **高** | 外部連携機能の進行を阻害。回答が来た時点で即対応できる準備が必要 |
-| No.5 | 担当者不明・対応方針不明 | **高** | リリース判定の基準・合格条件が未整備のままリリース前まで気づかないリスクがある |
-| No.4 | 未着手・期限未定 | **中〜高** | 外部連携先の都合で日程が取れない場合、全体スケジュールに影響する |
-| No.3 | 一部解消 | **中** | 残1点のみ。来週定例での解消を確実に行う |
+| No.2 | Non démarré, non assigné, sans échéance | **Critique / Urgente** | Le retard sur la stratégie de qualification paralyse l'ensemble des jalons avals. Mobilisation immédiate requise |
+| No.1 | En attente de validation client | **Élevée** | Bloque le développement des flux externes. Nécessite une préparation pour engager le dev dès validation reçue |
+| No.5 | Responsable et démarche non définis | **Élevée** | Risque d'aboutir au jalon de livraison sans critères d'acceptation ni grille Go/No-Go partagés |
+| No.4 | Non démarré, sans échéance | **Moyenne à Élevée** | Si les créneaux du partenaire externe sont restreints, le glissement affectera le jalon de livraison global |
+| No.3 | Partiellement levé | **Moyenne** | Concerne un point technique résiduel circonscrit. À trancher formellement lors du prochain point hebdo |
 
 ---
 
-### 3. 担当者不明・期限不明の課題
+### 3. Identification des anomalies de gouvernance (responsables ou échéances indéterminés)
 
-| 課題No. | 問題点 | 推奨アクション |
+| N° | Anomalie de pilotage | Action corrective préconisée |
 |---|---|---|
-| No.2 | 担当者未定、期限未定 | 今週中に担当者・着手日・期限を確定させる |
-| No.5 | 担当者不明、期限不明、対応方針不明 | PMがオーナーとなり、顧客との調整を開始する |
+| No.2 | Ressource non affectée, absence d'échéance | Désigner impérativement un rédacteur et figer le calendrier de livraison dès cette semaine |
+| No.5 | Ni responsable, ni échéance, ni plan d'action | Prise en charge directe par le Chef de Projet et cadrage avec le commanditaire |
 
 ---
 
-### 4. 影響範囲が曖昧な課題
+### 4. Alertes dont le périmètre d'impact est sous-évalué ou flou
 
-- **No.5（リリース判定会議）**：影響範囲は「リリース全体」と記載されているが、判定基準・合格条件・参加者・会議形式が不明。実質的に最重要課題である可能性がある。
-
----
-
-### 5. 表面化していないリスク
-
-- **テスト期間の圧縮リスク**：No.2（テスト設計未着手）とNo.4（結合テスト日程未調整）が重なっており、テスト工程全体が後ろ倒しになる可能性がある
-- **外部連携先の調整リスク**：No.4 は外部連携先の都合に依存している。先方の都合がつかない場合、日程変更が発生しうる
-- **顧客の認識ズレリスク**：No.5 が未確定のまま進むと、顧客とリリース基準の認識がずれたままリリース判定に臨むリスクがある
-- **課題管理表の網羅性リスク**：バグ管理表が未整備とのことで、テスト開始後の不具合が課題として登録されない可能性がある
+- **No.5 (Comité de validation Go/No-Go)** : Qualifié sommairement d'impact sur « la mise en production globale », ce point masque l'absence de définition des critères d'acceptation, des seuils de criticité des anomalies bloquantes et de la gouvernance décisionnelle. Il s'agit en réalité d'un risque majeur de non-recette finale.
 
 ---
 
-### 6. エスカレーション候補
+### 5. Risques latents et menaces sous-jacentes
 
-- **No.5（リリース判定会議の日程未確定）**：担当者・方針ともに不明。PMが直接顧客担当者Aと日程調整を行い、判定基準を合意する必要がある。状況次第で上長への報告・判断を仰ぐことを検討する
-- **No.2（テスト設計書未作成）**：担当者未定のまま放置すると工程全体に影響する。体制上の問題がある場合は上長に報告が必要
+- **Effet ciseau sur le calendrier de qualification** : Le télescopage entre No.2 (tests non cadrés) et No.4 (tests partenaires non synchronisés) fait peser une menace directe d'écrasement ou d'abandon partiel de la couverture de tests
+- **Aléa de disponibilité de la tierce partie** : L'inertie du partenaire externe (No.4) peut imposer un décalage unilatéral non maîtrisable
+- **Divergence d'acceptation client** : Sans critères d'homologation formalisés (No.5), l'équipe s'expose à un refus de recette pour non-conformité subjective lors de la livraison
+- **Défaillance du suivi de la dette qualité** : L'absence de formalisation des anomalies constatées lors des premiers tests risque de fausser la visibilité réelle de la stabilité du système
 
 ---
 
-### 7. 次アクション
+### 6. Sujets nécessitant une escalade managériale immédiate
 
-| # | アクション | 担当 | 期限 |
+- **No.5 (Cadrage du Go/No-Go de mise en production)** : Absence totale de pilotage. Le Chef de Projet doit se positionner en propriétaire du sujet, convenir des modalités avec le client et escalader auprès de la direction de projet si un désaccord survient sur les conditions d'acceptation.
+- **No.2 (Plan de conception des tests)** : La carence d'affectation met en péril l'organisation. Si une indisponibilité de compétences en interne bloque la désignation, une alerte immédiate pour arbitrage capacitaire doit être transmise à la direction.
+
+---
+
+### 7. Plan d'actions de remédiation
+
+| # | Action | Responsable | Échéance |
 |---|---|---|---|
-| 1 | No.2 テスト設計書の担当者・期限を確定 | PM担当者 | 今週中 |
-| 2 | No.5 リリース判定会議の日程・基準を顧客と調整開始 | PM担当者 | 今週中 |
-| 3 | No.4 外部連携先への日程調整連絡 | PM担当者 | 来週前半 |
-| 4 | No.1 顧客からの回答が届いた時点で即対応できる準備 | 開発リーダー | 随時 |
-| 5 | No.3 来週定例で残1点を確定 | 開発リーダー | 来週定例 |
+| 1 | No.2 : Affecter un concepteur de tests et arrêter la date de remise du livrable | Chef de Projet | Fin de semaine en cours |
+| 2 | No.5 : Enclencher la concertation avec le client sur la date et la grille Go/No-Go | Chef de Projet | Fin de semaine en cours |
+| 3 | No.4 : Transmettre la demande de calage d'agenda d'intégration au partenaire tiers | Chef de Projet | Début de semaine prochaine |
+| 4 | No.1 : Préparer l'équipe dev pour prise en compte immédiate du retour client | Lead Développeur | Au fil de l'eau |
+| 5 | No.3 : Statuer sur le point technique résiduel lors du comité d'architecture | Lead Développeur | Prochain comité technique |
 
 ---
 
-## Human Review Points
+## Points de contrôle humain (Human Review Points)
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
+Préalablement à toute décision managériale, vérifiez impérativement :
 
-- 課題の分類が実際の案件状況と一致しているか
-- 優先度の判断が実際の制約（納期、顧客との合意など）を踏まえているか
-- 表面化していないリスクの指摘に、案件の実態と合わない内容が含まれていないか
-- エスカレーション候補の判断を、自分の組織ルール・権限に照らして確認する
-- AIが見落としている、自分だけが知っている課題や背景情報がないか確認する
+- L'adéquation de la catégorisation avec la réalité contractuelle de votre engagement
+- La conformité de la priorisation avec les échéances fermes négociées avec le client
+- La pertinence des risques latents soulevés au regard de l'historique et des pratiques de vos équipes
+- La conformité des propositions d'escalade avec les protocoles de gouvernance et circuits hiérarchiques internes
+- L'existence éventuelle de contraintes opérationnelles ou politiques internes ignorées par le modèle
 
 ---
 
-## Caution
+## Consignes de sécurité et avertissements (Caution)
 
 > [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
+> Ce cas pratique utilise exclusivement des données fictives. Aucun nom de client, d'entreprise ou de projet réel n'y figure.
 >
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
+> Toute donnée issue de projets réels doit être anonymisée et débarrassée de toute information confidentielle avant d'être soumise à un modèle d'IA.
 >
-> **AI出力は業務判断の代替ではありません。** エスカレーション判断・顧客への確認・契約に関わる判断は、必ず担当者が確認した上で行ってください。
+> **L'IA ne se substitue pas à la responsabilité managériale.** Toute décision d'escalade, tout engagement contractuel ou toute communication client demeure sous la responsabilité exclusive du chef de projet.

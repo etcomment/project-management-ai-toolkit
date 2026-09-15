@@ -1,23 +1,23 @@
-# Project Risk Radar の利用例
+# Détection des risques latents (Project Risk Radar) — Exemple pratique
 
-## このサンプルの目的
+## Objectif de ce cas pratique
 
-このサンプルは、`.claude/skills/project-risk-radar/SKILL.md` を使って、進捗メモや課題一覧から表面化していないプロジェクトリスクを検知する例です。
+Cet exemple illustre l'utilisation de la compétence `.claude/skills/project-risk-radar/SKILL.md` pour détecter des signaux faibles et des risques non formalisés à partir de simples notes d'avancement ou d'un registre d'alertes.
 
 > [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
+> L'ensemble des données est strictement fictif. Aucun nom réel de client, d'entreprise, d'individu ou de projet n'y figure.  
+> Pour toute utilisation sur un projet réel, veillez à anonymiser et synthétiser vos données au préalable.
 
 > [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+> Les livrables de l'IA ne remplacent en aucun cas l'arbitrage managérial. Toute décision finale relève de la responsabilité exclusive du chef de projet.
 
 ---
 
-## 使用するSkill
+## Compétence (Skill) mobilisée
 
 - `.claude/skills/project-risk-radar/SKILL.md`
 
-## 関連Context
+## Fichiers de contexte associés
 
 - `contexts/PROJECT_HEALTH_CHECK.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
@@ -25,89 +25,90 @@
 
 ---
 
-## 入力例
+## Exemples d'entrées (Input)
 
-### 通常版
+### Version standard
 
 ```text
-.claude/skills/project-risk-radar/SKILL.md の内容を前提として、
-以下の進捗メモから、表面化していないプロジェクトリスクを検知してください。
-【進捗メモ】
-- 現在フェーズ：開発中盤
-- 主要機能A：実装中、進捗70%
-- 主要機能B：外部API仕様待ち
-- テスト環境構築：来週に延期
-- 顧客確認待ち：画面仕様2件、帳票仕様1件
-- 課題管理表：10件中3件が担当者未設定
-- 次回定例：来週水曜日
-- リリース予定日：現時点では変更なし
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+En te basant sur le contenu de .claude/skills/project-risk-radar/SKILL.md,
+analyse les notes d'avancement ci-dessous et fais émerger les risques opérationnels latents.
+
+【Notes d'avancement】
+- Phase actuelle : milieu de développement
+- Fonctionnalité majeure A : en cours de codage, avancement à 70%
+- Fonctionnalité majeure B : suspendue dans l'attente des spécifications d'API externe
+- Mise à disposition de l'environnement de recette : reportée à la semaine prochaine
+- Arbitrages client en souffrance : 2 maquettes d'écrans et 1 modèle de rapport d'édition
+- Registre des problèmes : 3 points sur 10 sans responsable affecté
+- Prochain point d'avancement : Mercredi prochain
+- Échéance de livraison cible : maintenue sans décalage à ce jour
+※ Noms d'acteurs, de clients et de sociétés rigoureusement anonymisés.
 ```
 
-### Claude向けXMLタグ版
+### Version structurée en balises XML (recommandée pour Claude)
 
 ```text
 <task>
-.claude/skills/project-risk-radar/SKILL.md の内容を前提として、
-以下の進捗メモから、表面化していないプロジェクトリスクを検知してください。
+En te basant sur le contenu de .claude/skills/project-risk-radar/SKILL.md,
+analyse les notes d'avancement ci-dessous et fais émerger les risques opérationnels latents.
 </task>
 <input>
-【進捗メモ】
-- 現在フェーズ：開発中盤
-- 主要機能A：実装中、進捗70%
-- 主要機能B：外部API仕様待ち
-- テスト環境構築：来週に延期
-- 顧客確認待ち：画面仕様2件、帳票仕様1件
-- 課題管理表：10件中3件が担当者未設定
-- 次回定例：来週水曜日
-- リリース予定日：現時点では変更なし
+【Notes d'avancement】
+- Phase actuelle : milieu de développement
+- Fonctionnalité majeure A : en cours de codage, avancement à 70%
+- Fonctionnalité majeure B : suspendue dans l'attente des spécifications d'API externe
+- Mise à disposition de l'environnement de recette : reportée à la semaine prochaine
+- Arbitrages client en souffrance : 2 maquettes d'écrans et 1 modèle de rapport d'édition
+- Registre des problèmes : 3 points sur 10 sans responsable affecté
+- Prochain point d'avancement : Mercredi prochain
+- Échéance de livraison cible : maintenue sans décalage à ce jour
 </input>
 <constraints>
-- 入力情報に根拠がないリスクは断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
-- 納期影響は断定せず、「影響が生じうる」として整理してください。
+- N'affirme aucun risque qui ne soit directement déductible des faits exposés.
+- Si une déduction comporte une part d'incertitude, indique expressément « (Hypothèse) ».
+- Toutes les données confidentielles ont été préalablement masquées.
+- Ne conclus pas à un retard certain, mais qualifie précisément la probabilité d'occurrence et l'impact potentiel sur le calendrier.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Restitution attendue de l'IA (Expected Output)
 
-### リスク検知サマリー
+### Synthèse de détection des risques
 
-- 外部API仕様待ち、テスト環境構築の延期、顧客確認待ちの滞留、担当者未設定課題がリスクとして検知される
-- リリース予定日は変更なしでも、将来的な納期影響があり得ることが示される
+- Identification des risques critiques : suspension du développement sur l'API externe, retard d'infrastructure de recette, accumulation des arbitrages client et carences d'assignation
+- Démonstration que le maintien théorique de la date de livraison masque une dérive latente majeure sur le chemin critique
 
-### 検知したリスク一覧
+### Tableau des risques latents détectés
 
-| 優先度 | リスク | 根拠となる記述 | 影響範囲 | 発生可能性 | 推奨対応 |
+| Priorité | Risque détecté | Justification factuelle | Périmètre d'impact | Probabilité | Plan de maîtrise préconisé |
 |---|---|---|---|---|---|
-| 高 | 外部API仕様待ちによる開発遅延 | 主要機能B：外部API仕様待ち | 主要機能Bの実装・テスト | 中〜高 | 仕様確定予定日と暫定実装可否を確認 |
-| 高 | テスト環境構築の遅延 | テスト環境構築：来週に延期 | テスト開始・品質確認 | 中 | 環境構築の担当・完了条件を明確化 |
-| 中 | 課題管理の責任所在不明 | 10件中3件が担当者未設定 | 課題対応の遅延 | 中 | 担当者と期限を設定 |
+| **Haute** | Dérive calendaire par blocage d'API externe | « Fonction B : en attente des spécifications d'API » | Développement et qualification de la fonction B | Modérée à Forte | Obtenir la date ferme de remise des specs et évaluer la faisabilité d'un mock |
+| **Haute** | Goulot d'étranglement sur le démarrage des tests | « Environnement de test reporté à la semaine prochaine » | Démarrage des campagnes de tests et détection des bugs | Modérée | Figer la date butoir de livraison du socle et désigner un responsable infra |
+| **Moyenne** | Flottement de gouvernance sur les alertes | « 3 problèmes sur 10 sans responsable » | Traitement des anomalies opérationnelles | Modérée | Assigner impérativement un pilote et une échéance sur chaque ligne |
 
-### PMが次に確認すべき質問
+### Questions clés d'investigation pour le Chef de Projet
 
-- 外部API仕様はいつ確定する予定か
-- 暫定仕様で実装を進められるか
-- テスト環境構築の延期はリリース予定に影響するか
-- 担当者未設定の課題は誰が判断するのか
-
----
-
-## Human Review Points
-
-- AIが検知したリスクに、入力情報上の根拠があるか
-- 推測と事実が分けられているか
-- 顧客・上長へ伝える前に、PMが確認すべき情報を洗い出せているか
-- 納期影響を断定していないか
+- À quelle date précise les spécifications de l'API externe seront-elles stabilisées ?
+- Est-il pertinent de développer sur des bouchons d'API (mocks) provisoires pour ne pas bloquer l'équipe ?
+- Le décalage de l'environnement de test amputera-t-il la durée globale de recette ?
+- Qui est habilité à statuer et arbitrer sur les 3 problèmes orphelins ?
 
 ---
 
-## 次に確認するとよいページ
+## Points de contrôle humain (Human Review Points)
 
-- `contexts/ISSUE_RISK_CONTEXT.md`
-- `contexts/DELAY_RECOVERY_CONTEXT.md`
-- `.claude/skills/pm-decision-support/SKILL.md`
-- `.claude/skills/stakeholder-strategy/SKILL.md`
+- Les risques détectés reposent-ils sur des faits tangibles ou sur des extrapolations excessives ?
+- La distinction entre faits matériels et conjectures est-elle scrupuleusement respectée ?
+- Les questions de levée de doutes permettent-elles d'alimenter utilement les arbitrages internes avant toute communication client ?
+- Les prévisions d'impact calendaire évitent-elles tout catastrophisme tout en posant clairement les alertes ?
+
+---
+
+## Ressources complémentaires recommandées
+
+- Traitement des problèmes et risques : `contexts/ISSUE_RISK_CONTEXT.md`
+- Plan de rattrapage : `contexts/DELAY_RECOVERY_CONTEXT.md`
+- Aide à la décision managériale : `.claude/skills/pm-decision-support/SKILL.md`
+- Stratégie par partie prenante : `.claude/skills/stakeholder-strategy/SKILL.md`

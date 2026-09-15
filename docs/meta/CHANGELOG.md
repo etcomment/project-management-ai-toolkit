@@ -1,32 +1,32 @@
-# Changelog
+# Journal des modifications / Changelog
 
-このファイルでは、project-management-ai-toolkit の主な変更履歴を記録します。
+Ce fichier répertorie l'historique des évolutions notables apportées au projet `project-management-ai-toolkit`.
 
 ## [Unreleased]
 
-### Changed
+### Changements (Changed)
 
-- リポジトリ全体を再構成
-  - `claude-code/skills/` を `.claude/skills/` に移動
-  - `chatgpt/`、`gemini/`、`claude/`、`claude-code/` を廃止
-  - 設定用指示文を `instructions/` に統合
-  - ツール別ガイドを `docs/tools/` に統合
-  - `CONTRIBUTING.md`、`SECURITY.md` を `.github/` に移動
-  - `DISCLAIMER.md`、`TERMS.md` を `docs/legal/` に移動
-  - `CHANGELOG.md`、`ROADMAP.md` を `docs/meta/` に移動
+- Restructuration globale de l'arborescence du dépôt
+  - Migration de `claude-code/skills/` vers `.claude/skills/`
+  - Suppression des anciens répertoires par outil (`chatgpt/`, `gemini/`, `claude/`, `claude-code/`)
+  - Centralisation des instructions de configuration système sous `instructions/`
+  - Consolidation des guides méthodologiques par outil sous `docs/tools/`
+  - Déplacement de `CONTRIBUTING.md` et `SECURITY.md` sous `.github/`
+  - Déplacement de `DISCLAIMER.md` et `TERMS.md` sous `docs/legal/`
+  - Déplacement de `CHANGELOG.md` et `ROADMAP.md` sous `docs/meta/`
 
-### Added
+### Ajouts (Added)
 
-- `instructions/` ディレクトリ（ChatGPT / Gemini / Claude 向け設定用指示文）
-- `docs/tools/chatgpt.md`、`docs/tools/gemini.md`、`docs/tools/claude.md`、`docs/tools/claude-code.md`
+- Répertoire `instructions/` (directives de configuration pour ChatGPT, Gemini et Claude)
+- Guides d'outillage : `docs/tools/chatgpt.md`, `docs/tools/gemini.md`, `docs/tools/claude.md`, `docs/tools/claude-code.md`
 
 ---
 
 ## [0.3.1] - 2026-05
 
-### Added
+### Ajouts (Added)
 
-- Claude Code向けの用途別 Skill を追加（現在は `.claude/skills/` に配置）
+- Ajout de compétences (skills) Claude Code spécialisées par cas d'usage (désormais sous `.claude/skills/`) :
   - `.claude/skills/project-health-check/SKILL.md`
   - `.claude/skills/status-report/SKILL.md`
   - `.claude/skills/issue-risk-review/SKILL.md`
@@ -36,17 +36,17 @@
   - `.claude/skills/scope-change-review/SKILL.md`
   - `.claude/skills/delay-recovery/SKILL.md`
 
-### Changed
+### Changements (Changed)
 
-- `prompts/` の内容を `contexts/` 各ファイルの Prompt Template に統合し、リポジトリをコンテキストファイル中心の構成に整理
+- Intégration des modèles de requêtes directement dans chaque fichier de contexte (`contexts/*.md`), plaçant les contextes au cœur de l'architecture et supprimant le dossier `prompts/`.
 
 ---
 
 ## [0.3.0] - 2026-05
 
-### Added
+### Ajouts (Added)
 
-- `examples/` 配下に実用サンプルを追加
+- Ajout d'exemples d'application pratiques sur données fictives dans `examples/` :
   - `project-health-check-example.md`
   - `status-report-example.md`
   - `issue-risk-review-example.md`
@@ -55,11 +55,8 @@
   - `scope-change-example.md`
   - `delay-recovery-example.md`
   - `claude-code-pm-review-example.md`
-- ChatGPT / Gemini 向けの設定ガイド・利用例を追加
-  - `chatgpt/examples.md`
-  - `gemini/examples.md`
-  - `gemini/gem-setup-guide.md`
-- 追加ユースケース用の `contexts/` と `prompts/` を追加
+- Ajout de guides de configuration et d'exemples pour ChatGPT et Gemini
+- Ajout de contextes complémentaires couvrant de nouveaux cas d'usage :
   - `contexts/MEETING_MINUTES_CONTEXT.md`
   - `contexts/WEEKLY_MEETING_CONTEXT.md`
   - `contexts/SCOPE_CHANGE_CONTEXT.md`
@@ -70,39 +67,30 @@
   - `contexts/ESTIMATION_CONTEXT.md`
   - `contexts/PMO_REVIEW_CONTEXT.md`
   - `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md`
-  - 対応する `prompts/` ファイル群
 
 ---
 
 ## [0.2.0] - 2026-05
 
-### Added
+### Ajouts (Added)
 
-- 会議、スコープ変更、遅延、品質問題、振り返り、PMOレビューなどの追加コンテキストを追加
-- `claude-code/` 配下に Claude Code 向け PM レビュー Skill を追加
-- `docs/` 配下にツール別利用ガイドを追加
+- Ajout de contextes additionnels : réunions, dérives de périmètre, retards, qualité, rétrospective, revues transversales PMO
+- Ajout des premières compétences de revue PM pour Claude Code
+- Ajout des guides d'utilisation par outil dans `docs/`
 
 ---
 
 ## [0.1.0] - 2026-05
 
-### Added
+### Ajouts (Added)
 
-- 初期 README
-- `DISCLAIMER.md`
-- `TERMS.md`
-- `SECURITY.md`
-- `LICENSE.md`
-- 基本 `contexts/`
+- Version initiale du README
+- `DISCLAIMER.md`, `TERMS.md`, `SECURITY.md`, `LICENSE.md`
+- Contextes fondamentaux sous `contexts/` :
   - `PM_CONTEXT.md`
   - `PROJECT_HEALTH_CHECK.md`
   - `STATUS_REPORT_CONTEXT.md`
   - `ISSUE_RISK_CONTEXT.md`
   - `FIRE_RESPONSE_FIRST_72H.md`
   - `CLIENT_COMMUNICATION_CONTEXT.md`
-- 基本 `prompts/`
-  - `status-report.md`
-  - `issue-risk-review.md`
-  - `client-communication.md`
-  - `fire-response.md`
-- ChatGPT / Gemini / Claude / Claude Code 向け初期ドキュメント
+- Documentation initiale pour ChatGPT, Gemini, Claude et Claude Code

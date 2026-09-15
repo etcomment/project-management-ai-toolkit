@@ -1,197 +1,197 @@
-# Claude 使い方ガイド
+# Guide d'utilisation d'Anthropic Claude / Claude Usage Guide
 
-Claude / Claude Projects で本リポジトリを活用するためのガイドです。
+Guide pratique pour exploiter le présent référentiel avec Claude et Claude Projects.
 
 > [!IMPORTANT]
-> 機密情報・個人情報・契約情報・認証情報（APIキー・パスワード等）は、Claude に入力しないでください。
-> AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
+> Ne saisissez jamais de données clients réelles, informations personnelles, clauses contractuelles ou identifiants d'accès (clés d'API, mots de passe) dans Claude.
+> Les livrables de l'IA ne remplacent pas l'arbitrage managérial. Tout contenu produit doit impérativement être relu, vérifié et ajusté par un responsable humain.
 
 ---
 
-## `contexts/` — AI Contexts本体
+## `contexts/` — Composant central (AI Contexts)
 
-コンテキスト本体は `contexts/` 配下にあります。各コンテキストファイルには、AIに渡す前提情報・判断軸・Prompt Template が含まれています。
+Le cœur méthodologique réside dans le répertoire `contexts/`. Chaque fichier rassemble les prérequis métier, les critères d'arbitrage et les modèles d'invites (Prompt Templates).
 
-設定用ファイル（指示文）は `instructions/` 配下にあります。
+Les gabarits d'instructions pour les paramètres système se trouvent sous `instructions/`.
 
 ---
 
-## 使用する設定用ファイル
+## Fichiers de configuration système à utiliser
 
-| ファイル | 設定先 |
+| Fichier | Emplacement de configuration |
 |---|---|
-| `instructions/claude-project-instructions.md` | Claude Projects のプロジェクト指示欄 |
+| `instructions/claude-project-instructions.md` | Champ Project Instructions de Claude Projects |
 
-このファイルは「AIツールの設定欄にコピーして使う指示文」です。人間が読むガイドではありません。
-
----
-
-## 利用パターン
-
-### 通常チャットで使う場合
-
-1. `contexts/PM_CONTEXT.md` の内容をチャットに貼り付ける
-2. 目的に合う用途別コンテキスト（`contexts/*.md`）を貼り付ける
-3. 案件情報（マスキング済み）を貼り付ける
-4. `contexts/*.md` の `Prompt Template` を参考に出力形式を指定する
-5. AI出力を人間が確認する
-
-### Claude Projects で使う場合
-
-1. `instructions/claude-project-instructions.md` をプロジェクト指示に設定する
-2. 必要に応じて `contexts/PM_CONTEXT.md` と `docs/ai-safety.md` をProject Knowledgeに追加する
-3. 案件ごとに用途別コンテキストをチャットに貼り付ける
-4. 実案件情報はマスキング・要約してから入力する
+Ce fichier fournit les directives prêtes à l'emploi à intégrer dans les paramètres d'instructions de projet de Claude.
 
 ---
 
-## 利用フロー
+## Modes d'exploitation
+
+### Option 1 : Utilisation dans une conversation standard
+
+1. Copier le contenu de `contexts/PM_CONTEXT.md`.
+2. Le coller au début d'une nouvelle conversation Claude.
+3. Coller le fichier de contexte thématique adapté (`contexts/*.md`).
+4. Renseigner les données anonymisées de votre projet.
+5. Spécifier le format de sortie attendu en vous inspirant du gabarit d'invite du fichier de contexte.
+6. Procéder à la validation humaine du résultat.
+
+### Option 2 : Configuration dans Claude Projects
+
+1. Coller le texte de `instructions/claude-project-instructions.md` dans le champ « Project instructions » de votre projet Claude.
+2. Ajouter si nécessaire `contexts/PM_CONTEXT.md` et `docs/ai-safety.md` dans la base de connaissances du projet (Project Knowledge).
+3. Dans vos échanges au sein du projet, collez simplement le contexte thématique pertinent et vos données projets anonymisées et synthétisées.
+
+---
+
+## Schéma récapitulatif du flux de travail
 
 ```text
-Claudeで使う
+Exploitation avec Claude
 │
-├─ 通常チャット
-│    └─ contexts/*.md をチャットに貼り付ける
+├─ Conversation standard
+│    └─ Coller contexts/*.md directement dans le fil de discussion
 │
 └─ Claude Projects
-     └─ instructions/claude-project-instructions.md を設定する
+     └─ Paramétrer instructions/claude-project-instructions.md
 
-共通の流れ：
-PM_CONTEXT.md → 用途別 contexts/*.md → 長文は要約・マスキング → AI出力を人間が確認
+Démarche méthodologique commune :
+PM_CONTEXT.md → Fichier thématique contexts/*.md → Synthèse & Anonymisation → Validation humaine
 ```
 
 ---
 
-## 長文コンテキストを渡す場合の注意
+## Bonnes pratiques pour les contextes volumineux
 
-- 議事録の全文をそのまま貼り付けない
-- 顧客名・個人名・契約情報を削除する
-- 長文は「事実」「課題」「未決事項」「次アクション」に要約してから貼り付ける
-- 不要な過去情報を入れすぎない
-- AI出力の品質は、入力情報の品質に依存します
+- Ne collez jamais de comptes rendus intégraux ou de retranscriptions brutes.
+- Éliminez scrupuleusement les noms réels, entreprises et clauses contractuelles.
+- Résumez au préalable vos notes brutes en 4 volets : « Faits », « Points durs », « Arbitrages ouverts », « Prochaines actions ».
+- Évitez de surcharger l'invite d'historiques obsolètes : ciblez la situation active.
+- La qualité de l'analyse produite dépend directement de la rigueur et de la netteté des données transmises.
 
 ---
 
-## 用途別コンテキストの選び方
+## Sélection des contextes thématiques par cas d'usage
 
-| 目的 | コンテキストファイル |
+| Cas d'usage | Combinaison de fichiers recommandée |
 |---|---|
-| プロジェクトヘルスチェック | `contexts/PM_CONTEXT.md` + `contexts/PROJECT_HEALTH_CHECK.md` |
-| 進捗報告 | `contexts/PM_CONTEXT.md` + `contexts/STATUS_REPORT_CONTEXT.md` |
-| 課題・リスク整理 | `contexts/PM_CONTEXT.md` + `contexts/ISSUE_RISK_CONTEXT.md` |
-| 顧客説明 | `contexts/PM_CONTEXT.md` + `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| 炎上初動 | `contexts/PM_CONTEXT.md` + `contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| スコープ変更 | `contexts/PM_CONTEXT.md` + `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| Bilan de santé global du projet | `contexts/PM_CONTEXT.md` + `contexts/PROJECT_HEALTH_CHECK.md` |
+| Rapport d'avancement périodique | `contexts/PM_CONTEXT.md` + `contexts/STATUS_REPORT_CONTEXT.md` |
+| Registre des incidents et risques | `contexts/PM_CONTEXT.md` + `contexts/ISSUE_RISK_CONTEXT.md` |
+| Communication et argumentaire client | `contexts/PM_CONTEXT.md` + `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| Gestion de crise (Premières 72h) | `contexts/PM_CONTEXT.md` + `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| Gestion du changement de périmètre | `contexts/PM_CONTEXT.md` + `contexts/SCOPE_CHANGE_CONTEXT.md` |
 
-詳細は [docs/use-case-map.md](../use-case-map.md) を参照してください。
+Pour une vue d'ensemble complète, consultez [docs/use-case-map.md](../use-case-map.md).
 
 ---
 
-## 利用例（架空データ）
+## Cas pratique illustratif (Données fictives)
 
-以下は架空データを使った利用例です。
+Exemple d'application concrète sur des données simulées :
 
-### 例：進捗報告の整理
+### Scénario : Structuration du rapport d'avancement hebdomadaire
 
-**使用するファイル**
+**Ressources mobilisées**
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
 
-**Sanitized Input（架空データ）**
+**Données d'entrée anonymisées (Données fictives)**
 
 ```
-今週完了した作業：
-- 基本設計レビュー（完了）
-- テスト環境構築（完了）
+Travaux achevés cette semaine :
+- Revue de conception générale (validée)
+- Déploiement de l'environnement de recette (effectif)
 
-未完了の作業：
-- 詳細設計書 作成中（進捗70%）
+Travaux en cours :
+- Rédaction des spécifications détaillées (avancement 70%)
 
-遅延している作業：
-- 外部API連携設計（2日遅延）
+Tâches en retard :
+- Conception de l'interface API partenaire (2 jours de dérive)
 
-課題：
-- 外部システムの仕様確認が未完了
+Points durs :
+- Spécifications de l'API partenaire en attente de retour client
 ```
 
-**Prompt**
+**Modèle de requête (Prompt)**
 
 ```
-以下のコンテキストを前提として、今週の進捗報告を整理してください。
+Sur la base des contextes de référence ci-dessous, préparez le rapport d'avancement de la semaine :
 
-【PM_CONTEXT.md の内容】
-（ここにcontexts/PM_CONTEXT.mdを貼り付ける）
+【Référence PM_CONTEXT.md】
+(Coller ici contexts/PM_CONTEXT.md)
 
-【STATUS_REPORT_CONTEXT.md の内容】
-（ここにcontexts/STATUS_REPORT_CONTEXT.mdを貼り付ける）
+【Référence STATUS_REPORT_CONTEXT.md】
+(Coller ici contexts/STATUS_REPORT_CONTEXT.md)
 
-【今週の状況（架空データ）】
-（Sanitized Inputの内容を貼り付ける）
+【Situation de la semaine (Données fictives)】
+(Coller ici les données d'entrée ci-dessus)
 
-以下の3種類で整理してください：
-1. 社内向け進捗報告
-2. 顧客向け進捗報告
-3. 上長向けサマリー
+Merci de décliner la restitution selon les 3 volets :
+1. Rapport d'avancement interne
+2. Communication client
+3. Synthèse exécutive pour la Direction
 ```
 
-**Human Review Points**
-- 事実と一致しているか確認する
-- 顧客向けの表現トーンは適切か確認する
-- 契約・費用・納期に関する記述は人間が確認する
+**Points de contrôle humain (Human Review)**
+- Vérifier la parfaite exactitude des faits mentionnés.
+- S'assurer que le niveau de diplomatie de la version client est adéquat.
+- Valider impérativement les termes relatifs au planning, aux coûts et aux engagements contractuels.
 
 ---
 
-## Claudeで使う場合のプロンプト構造
+## Structure de prompt recommandée pour Claude (Format balises XML)
 
-Claudeに複数の情報を渡す場合は、以下のように役割・依頼内容・入力情報・制約・出力形式を分けると整理しやすくなります。
+Pour exploiter au mieux les capacités de raisonnement de Claude, structurez vos requêtes en délimitant les rôles, contextes, entrées et contraintes avec des balises XML :
 
 ```text
 <task>
-AIに依頼したい内容を1〜3文で明確に書く
+Définir clairement en 1 à 3 phrases le mandat confié à l'IA.
 </task>
 <context>
-関連するコンテキスト情報（PM_CONTEXT.md や用途別 contexts/*.md の内容）
+Informations méthodologiques de référence (contenu de PM_CONTEXT.md et du contexts/*.md retenu).
 </context>
 <input>
-案件情報・会議メモ・課題一覧など、ユーザーが入力する情報（機密情報はマスキング済み）
+Données de situation du projet, notes de réunion, registre d'incidents (strictement anonymisées).
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 判断に十分な情報がない場合は「情報不足」または「この情報だけでは判断できません」と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Considérez les données fournies comme rigoureusement anonymisées.
+- Toute déduction non étayée par les entrées doit être explicitement signalée par « (Hypothèse) ».
+- En cas d'informations insuffisantes pour trancher, indiquez expressément « Données insuffisantes » ou « Les éléments fournis ne permettent pas de statuer ».
+- Les sorties constituent une base d'instruction soumise à arbitrage et validation humaine préalable.
 </constraints>
 <output_format>
-出力してほしい項目（例：状況要約、主要課題、リスク、次アクション）
+Structure attendue (ex. : Synthèse exécutive, Points durs prioritaires, Risques, Prochaines actions).
 </output_format>
 ```
 
-この構造は Claude 向けに特に効果的ですが、ChatGPT / Gemini でも同様に使用できます。
+Cette structure balisée est particulièrement performante avec les modèles Claude, tout en restant pleinement compatible avec ChatGPT et Gemini.
 
-`contexts/` 各ファイル内の「Claude向け Prompt Template（XMLタグ版）」も参照してください。
+Reportez-vous à la section « Version structurée pour Claude (Format balises XML) » présente dans chaque fichier du répertoire `contexts/`.
 
 ---
 
-## 出力後の確認
+## Précautions de validation des livrables
 
 > [!CAUTION]
-> AI出力をそのまま業務に使わないでください。
+> N'utilisez jamais une sortie de l'IA en production sans relecture et validation humaine préalable.
 
-- AI出力は業務判断の代替ではありません
-- 顧客提出・社内報告・契約判断・納期回答には必ず人間が確認してください
-- 必要に応じて上長・法務・PMOに確認してください
-
----
-
-## 関連ドキュメント
-
-- [docs/ai-safety.md](../ai-safety.md) — AIに入力してよい情報・安全な使い方
-- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — 免責事項
+- Les réponses générées ne se substituent en aucun cas à l'arbitrage managérial.
+- Tout document destiné à un client, à la direction générale ou impactant des délais/budgets doit être vérifié formellement.
+- Consultez si nécessaire le directeur de projet, le PMO ou le département juridique.
 
 ---
 
-## 関連情報
+## Documents associés
 
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
-- [自分に合う講座を診断する](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [docs/ai-safety.md](../ai-safety.md) — Règles de sécurité et données autorisées
+- [docs/legal/DISCLAIMER.md](../legal/DISCLAIMER.md) — Clause de non-responsabilité
+
+---
+
+## Liens utiles
+
+- [Découvrir la boîte à outils PM × IA](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Laboratoire PM & IA](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)
+- [Diagnostic d'orientation formation](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)

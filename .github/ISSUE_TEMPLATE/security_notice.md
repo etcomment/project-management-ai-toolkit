@@ -1,39 +1,39 @@
 ---
 name: Security notice
-about: セキュリティ上の懸念を報告する。ただし機密情報は書かないでください
+about: Signaler une préoccupation de sécurité, sans divulguer de données confidentielles
 title: "[Security]: "
 labels: security
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。**
+> **Cette Issue est publique.**
 >
-> **APIキー、パスワード、トークン、顧客情報、個人情報、契約情報、社内機密情報は、このIssueに絶対に記載しないでください。**
+> **Ne mentionnez JAMAIS de clés d'API, de mots de passe, de tokens, d'informations clients, de données personnelles, d'éléments contractuels ou de secrets d'affaires dans cette Issue.**
 >
-> 詳細に機密情報が含まれる場合は、公開Issueには書かず、[`SECURITY.md`](../SECURITY.md) を確認してください。
+> Si la description du problème implique des données confidentielles, ne rédigez rien dans l'Issue publique et suivez les instructions de [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## セキュリティ上の懸念の概要
+## Synthèse de la préoccupation de sécurité
 
-<!-- 懸念内容を、機密情報を含まない範囲で簡潔に説明してください -->
+<!-- Décrivez succinctement le problème, sans inclure aucune information confidentielle -->
 
-## 対象ファイル
+## Fichier concerné
 
-<!-- 懸念が含まれるファイルのパスを記載してください -->
-例: `contexts/PM_CONTEXT.md`
+<!-- Indiquez le chemin du fichier impliqué -->
+Exemple : `contexts/PM_CONTEXT.md`
 
-## 公開して問題ない範囲での説明
+## Description communicable publiquement
 
-<!-- 懸念の詳細を、公開しても問題ない範囲で説明してください -->
-<!-- 顧客名・個人名・会社名・案件名・APIキー・パスワード等は絶対に記載しないでください -->
+<!-- Décrivez le problème dans la limite stricte de ce qui peut être rendu public sans risque -->
+<!-- Ne mentionnez JAMAIS de noms de clients, individus, entreprises, projets, clés d'API ou mots de passe -->
 
 ---
 
-## 確認事項
+## Points de confirmation
 
-- [ ] このIssueに機密情報・個人情報・認証情報を含めていません
-- [ ] APIキー・パスワード・トークンを含めていません
-- [ ] 顧客名・個人名・会社名・案件名を含めていません
-- [ ] 詳細を共有する場合は `SECURITY.md` の案内に従うことを確認しました
+- [ ] Cette Issue ne comporte aucune information confidentielle, donnée personnelle ou identifiant de sécurité
+- [ ] Aucune clé d'API, mot de passe ou jeton d'authentification n'est inclus
+- [ ] Aucun nom de client, d'individu, d'entreprise ou de projet réel n'est mentionné
+- [ ] J'ai vérifié la procédure de signalement confidentiel détaillée dans `SECURITY.md` en cas de transmission de détails sensibles

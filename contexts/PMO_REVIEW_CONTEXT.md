@@ -1,194 +1,186 @@
-﻿# PMO横断レビューコンテキスト / PMO Review Context
+# Contexte de revue transversale PMO / PMO Review Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose (Objectif de ce contexte)
 
-PMO・管理職が複数案件を横断的にレビューし、危険案件・共通リスク・支援が必要なPMや案件・エスカレーション候補を整理するためのコンテキストです。
+Ce contexte permet au PMO et au management d'effectuer une revue transversale multi-projets, afin d'identifier les projets en situation critique, les risques partagés, les chefs de projet (PM) ou chantiers nécessitant un soutien, et les candidats à l'escalade managériale.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**L'IA ne remplace pas l'arbitrage du chef de projet ni de la direction.** L'IA est un outil de structuration, de catégorisation et de préparation de bases de travail. La décision finale doit impérativement être prise par un responsable humain.
 
 > [!CAUTION]
-> 個人の評価・人事判断にAI出力を使わないでください。
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 各PMの個人的な状況や評価に関する内容はAIに入力しないでください。
+> N'utilisez jamais les livrables de l'IA pour l'évaluation individuelle ou des décisions RH.
+> Ne saisissez aucun nom de client, raison sociale, nom de collaborateur, clause contractuelle ou identifiant/clé d'accès.
+> N'introduisez aucune appréciation personnelle ou évaluation individuelle relative aux chefs de projet.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Case (Cas d'usage)
 
-- 複数案件の状況を横断的に確認したいとき
-- 危険な状態にある案件を特定したいとき
-- 複数案件に共通して発生している問題を把握したいとき
-- 支援が必要なPM・案件を整理したいとき
-- 経営層向けのPMOレポートの骨子を作りたいとき
+- Examiner transversalement la situation d'un portefeuille de projets.
+- Identifier et prioriser les projets en situation critique (alerte rouge/orange).
+- Détecter les causes racines ou difficultés récurrentes communes à plusieurs projets.
+- Cartographier les projets et PM nécessitant un renfort ou un accompagnement d'urgence.
+- Élaborer la trame d'un reporting PMO destiné au comité de direction (Comex/Codir).
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Informations à fournir à l'IA)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+Après avoir chargé ce contexte, transmettez les informations ci-dessous (veillez à anonymiser rigoureusement les données confidentielles et personnelles) :
 
 ```
-### 複数案件の一覧（案件名は「案件A」「案件B」のように抽象化すること）
+### Liste des projets (utiliser des identifiants abstraits : « Projet A », « Projet B »)
 
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限・マイルストーン | 支援要否 |
+| ID Projet | État d'avancement | Nb Incidents (Issues) | Risques majeurs | Rôle PM référent | Contexte Client | Situation Équipe / Staffing | Prochain jalon / Échéance | Besoin d'appui PMO |
 |---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
-| 案件C | | | | | | | | |
+| Projet A | | | | | | | | |
+| Projet B | | | | | | | | |
+| Projet C | | | | | | | | |
 
-### 共通して気になっていること
-（複数案件にまたがって感じている懸念・傾向を箇条書きで）
+### Signaux faibles et alertes transversales
+(Lister les tendances récurrentes ou alertes observées sur plusieurs chantiers)
 
-### 支援が必要そうな案件
-（PMO視点で支援・介入が必要と感じている案件とその理由）
+### Projets sous tension nécessitant un renfort
+(Identifier les projets nécessitant une intervention PMO et en expliciter les motifs)
 
-### 組織・体制上の課題
-（体制・リソース・スキル面での組織的な課題）
+### Contraintes d'organisation et de compétences
+(Difficultés structurelles : staffing, compétences rares, charge/capacité)
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Output (Livrables attendus de l'IA)
 
-### 1. 危険案件一覧
+### 1. Registre des projets critiques
+Liste des projets nécessitant une vigilance renforcée immédiate et justification factuelle du niveau de criticité.
 
-現状から見て特に注意が必要な案件の一覧と、その理由。
+### 2. Facteurs de risque transversaux et récurrences
+Synthèse des dysfonctionnements, points de blocage et tendances communes observés à l'échelle du portefeuille.
 
-### 2. 共通して発生している問題
+### 3. Cartographie des besoins d'accompagnement (PM & Projets)
+Identification ciblée des projets et des profils/rôles nécessitant un soutien opérationnel du PMO ou de la direction.
 
-複数案件にまたがって見られる共通の問題・傾向の整理。
+### 4. Arbitrages et dossiers d'escalade
+Liste des blocages et risques critiques justifiant une saisine de la direction générale ou des comités de pilotage.
 
-### 3. 支援が必要なPM・案件
+### 5. Plans d'amélioration transversaux
+Recommandations d'actions structurelles à mener sur les processus, la gouvernance ou le staffing.
 
-PMO・管理職からの支援が必要と思われる案件・担当者（役割）の整理。
+### 6. Synthèse exécutive pour la Direction (Executive Summary)
+Trame d'un flash report synthétique calibré pour une restitution de 1 à 2 minutes aux décideurs.
 
-### 4. エスカレーション候補
-
-経営層・関係部門へのエスカレーションが必要と思われる案件・課題の一覧。
-
-### 5. 横断的な改善テーマ
-
-組織・プロセス・体制として横断的に取り組むべき改善テーマの提案。
-
-### 6. 経営層向け報告サマリー
-
-経営層向けに1〜2分で状況を伝えるためのサマリー骨子。
-
-### 7. PMOとして次に確認すべきこと
-
-PMOが次のアクションとして確認・実施すべき事項の一覧。
+### 7. Plan de contrôle et prochaines actions PMO
+Checklist des vérifications et démarches immédiates incombant au PMO.
 
 ---
 
-## Caution（利用時の注意）
+## Caution (Précautions d'usage)
 
-- **個人の評価・人事判断にAI出力を使わないでください。** PMOレビューはプロセス・体制・案件状況の改善を目的とします。
-- 顧客名・社名・個人名はAIに入力しないでください。役割・「案件A」などに置き換えてください。
-- 各PMの個人的な状況・評価に関する内容はAIに入力しないでください。
-- 契約情報・認証情報・機密情報はAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
+- **Interdiction formelle d'exploiter les sorties pour l'évaluation RH ou individuelle.** La revue PMO se focalise exclusivement sur l'optimisation des processus, des équipes et la sécurisation des livrables projets.
+- Ne mentionnez aucun nom de client, société ou individu. Utilisez des dénominations génériques (« Projet A », « PM Référent »).
+- N'introduisez aucune information d'ordre personnel ou disciplinaire.
+- Ne transmettez aucune donnée contractuelle, tarifaire ou identifiant technique.
+- **Les sorties de l'IA ne valent pas décision managériale.** L'arbitrage final relève de l'autorité humaine.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Modèle de prompt standard
 
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+Copiez ce gabarit, complétez les données projets et soumettez la requête :
 
 ```text
-以下のコンテキストを前提として、複数案件を横断的にレビューしてください。
+Sur la base des contextes ci-dessous, réalisez une revue transversale PMO de notre portefeuille de projets.
 
-## コンテキスト
+## Contextes
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[PMO_REVIEW_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de PMO_REVIEW_CONTEXT.md]
 
 ---
 
-## 案件一覧（機密情報はマスキング済み・案件名は抽象化済み）
+## Portefeuille de projets (Données anonymisées - noms de projets abstraits)
 
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限 | 支援要否 |
+| ID Projet | État d'avancement | Nb Incidents (Issues) | Risques majeurs | Rôle PM référent | Contexte Client | Situation Équipe / Staffing | Prochain jalon | Besoin d'appui PMO |
 |---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
-| 案件C | | | | | | | | |
+| Projet A | | | | | | | | |
+| Projet B | | | | | | | | |
+| Projet C | | | | | | | | |
 
-### 共通して気になっていること
-（記入）
+### Signaux faibles et alertes transversales
+(Renseigner)
 
-### 支援が必要そうな案件
-（記入）
+### Projets sous tension nécessitant un renfort
+(Renseigner)
 
-### 組織・体制上の課題
-（記入）
+### Contraintes d'organisation et de compétences
+(Renseigner)
 
 ---
 
-## 出力してほしいこと
+## Livrables attendus
 
-1. 危険案件一覧と理由
-2. 複数案件に共通する問題・傾向
-3. 支援が必要なPM・案件の整理
-4. エスカレーション候補
-5. 横断的な改善テーマ
-6. 経営層向け報告サマリーの骨子
-7. PMOとして次に確認すべきこと
+1. Registre des projets critiques et justifications
+2. Facteurs de risque transversaux et récurrences
+3. Cartographie des besoins d'accompagnement (PM & Projets)
+4. Arbitrages et dossiers d'escalade
+5. Plans d'amélioration transversaux
+6. Synthèse exécutive pour la Direction
+7. Plan de contrôle et prochaines actions PMO
 
-※ 個人の評価・人事判断にAI出力を使わないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+※ Ne pas utiliser les sorties de l'IA pour l'évaluation individuelle ou RH.
+※ Les sorties constituent une base de travail d'aide à la décision : l'arbitrage final revient exclusivement aux responsables humains.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
+## Version structurée pour Claude (Format balises XML)
 
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+Pour une utilisation avec Claude, la structure XML ci-dessous garantit une stricte séparation entre le mandat, les contextes, les données et les contraintes :
 
 ```text
 <task>
-以下の案件一覧をPMO視点で横断的にレビューしてください。
-危険案件、共通課題、支援が必要なPM・案件、エスカレーション候補を整理してください。
+Réalisez une revue transversale PMO du portefeuille de projets ci-dessous.
+Identifiez les projets critiques, les risques transversaux, les besoins d'appui opérationnel et les arbitrages nécessitant une escalade.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PM_CONTEXT.md]
 </pm_context>
 <specific_context>
-[PMO_REVIEW_CONTEXT.md の内容をここに貼り付ける]
+[Coller ici le contenu de PMO_REVIEW_CONTEXT.md]
 </specific_context>
 </context>
 <input>
-【案件一覧（機密情報はマスキング済み・案件名は抽象化済み）】
+【Portefeuille de projets (Données anonymisées - noms de projets abstraits)】
 
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限 | 支援要否 |
+| ID Projet | État d'avancement | Nb Incidents (Issues) | Risques majeurs | Rôle PM référent | Contexte Client | Situation Équipe / Staffing | Prochain jalon | Besoin d'appui PMO |
 |---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
+| Projet A | | | | | | | | |
+| Projet B | | | | | | | | |
 
-### 共通して気になっていること
-（記入）
+### Signaux faibles et alertes transversales
+(Renseigner)
 
-### 支援が必要そうな案件
-（記入）
+### Projets sous tension nécessitant un renfort
+(Renseigner)
 
-### 組織・体制上の課題
-（記入）
+### Contraintes d'organisation et de compétences
+(Renseigner)
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 個人の評価・人事判断にAI出力を使わないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Traitez l'ensemble des données comme strictement anonymisées (aucun nom propre de client, personne ou donnée contractuelle).
+- N'utilisez en aucun cas les résultats pour de l'évaluation individuelle ou RH.
+- Si vous complétez des informations manquantes, mentionnez explicitement « (Hypothèse) ».
+- Formulez les réponses sous forme d'aide à la décision, l'arbitrage final revenant au responsable humain.
 </constraints>
 <output_format>
-1. 危険案件一覧と理由
-2. 複数案件に共通する問題・傾向
-3. 支援が必要なPM・案件の整理
-4. エスカレーション候補
-5. 横断的な改善テーマ
-6. 経営層向け報告サマリーの骨子
-7. PMOとして次に確認すべきこと
+1. Registre des projets critiques et justifications
+2. Facteurs de risque transversaux et récurrences
+3. Cartographie des besoins d'accompagnement (PM & Projets)
+4. Arbitrages et dossiers d'escalade
+5. Plans d'amélioration transversaux
+6. Synthèse exécutive pour la Direction
+7. Plan de contrôle et prochaines actions PMO
 </output_format>
 ```

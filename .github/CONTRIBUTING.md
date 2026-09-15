@@ -1,111 +1,88 @@
-# Contributing
+# Contribuer (Contributing)
 
-このリポジトリは、株式会社テックエイドが管理・保守する公式コンテンツです。
+Ce dépôt est un contenu officiel géré et maintenu par TechAide Inc. (TechAide Inc.).
 
-誤字脱字・安全上の懸念・改善提案は歓迎しますが、外部からのPull Requestを積極的に募集するものではありません。
+Bien que les corrections orthographiques, le signalement de failles ou d'anomalies de sécurité et les propositions d'amélioration soient les bienvenus, ce projet ne sollicite pas activement de Pull Requests externes.
 
-改善提案はIssueで受け付け、採用・反映は管理者が判断します。
-大幅な構成変更、マーケティング導線の変更、利用条件・免責表現の変更は、原則として管理者側で判断します。
+Les suggestions d'amélioration doivent être soumises via des Issues, dont l'examen et l'éventuelle intégration relèvent de la décision exclusive des administrateurs.
+Les restructurations majeures, les modifications de la trajectoire marketing, ainsi que les ajustements des conditions d'utilisation ou des clauses de non-responsabilité demeurent de la responsabilité exclusive des mainteneurs.
 
-Pull Request や Issue の投稿前に、必ず以下の方針と注意事項を確認してください。
-
----
-
-## 歓迎する改善提案
-
-以下のような改善提案を歓迎します（反映はIssueでの確認後に管理者が判断します）。
-
-- 誤字脱字の修正
-- 表現の改善
-- 安全注意・免責表現の改善提案
-- 利用例の改善提案
+Avant de soumettre une Pull Request ou d'ouvrir une Issue, veuillez prendre connaissance des consignes et des avertissements ci-dessous.
 
 ---
 
-## 貢献前の注意
+## Propositions d'amélioration bienvenues
+
+Sont particulièrement appréciées les contributions suivantes (leur intégration sera arbitrée par les administrateurs après instruction dans l'Issue) :
+
+- Correction de fautes de frappe ou coquilles
+- Améliorations rédactionnelles et précision des formulations
+- Suggestions de renforcement des avertissements de sécurité et mentions légales
+- Amélioration de la clarté des cas d'usage et exemples pratiques
+
+---
+
+## Avertissements préalables à toute contribution
 
 > [!CAUTION]
-> Pull Request や Issue には、以下の情報を含めないでください。
+> Une Pull Request ou une Issue ne doit sous aucun prétexte comporter les éléments suivants :
 
-- 実在する顧客名・会社名・個人名・案件名
-- 顧客との契約情報・NDA対象情報・議事録全文・社内機密情報
-- APIキー・パスワード・トークン・認証情報
-- ソースコードや業務上の秘密情報
-- 機密性の高い社内資料・未公開情報
+- Noms réels de clients, d'entreprises, de personnes ou de projets
+- Clauses contractuelles, données sous accord de non-divulgation (NDA), comptes rendus intégraux de réunions confidentielles ou secrets internes
+- Clés d'API, mots de passe, tokens ou identifiants de sécurité
+- Code source propriétaire ou informations relevant du secret professionnel
+- Documents internes confidentiels ou informations non publiques
 
-**サンプルは必ず架空データにしてください。**
+**Les exemples doivent impérativement s'appuyer sur des données entièrement fictives.**
 
-AI生成文を追加する場合も、人間が内容を確認・修正したうえで投稿してください。
-
----
-
-## 受け付けにくい変更
-
-以下の変更は、このリポジトリの方針に沿わないため受け付けにくい場合があります。
-
-- hooks、command、自動実行・自動コミット・自動デプロイの追加
-- MCP設定、GitHub Actions、ワークフローの追加
-- APIキーや外部サービス連携を前提にしたサンプルの追加
-- 免責や安全上の注意を弱める変更
-- Udemyや自社サービスへの導線を過度に増やす変更
-- 実案件の詳細を含む変更
-
-このリポジトリはAI Contexts、Prompt Template、Claude Code Skillsを含むPM向けAI活用ツールキットであり、実行系の自動化リポジトリではありません。
+En cas d'ajout de textes générés par IA, veillez à ce qu'un humain ait intégralement relu, vérifié et validé le contenu avant soumission.
 
 ---
 
-## 貢献フロー
+## Contributions difficilement recevables
 
-```text
-改善案を思いつく
-│
-├─ 機密情報を含む？
-│    ├─ はい → 投稿しない / マスキングする
-│    └─ いいえ
-│
-├─ 変更種別は？
-│    ├─ 誤字・軽微修正 → Pull Request
-│    ├─ 新規提案       → Issueで提案
-│    └─ セキュリティ懸念 → SECURITY.mdを確認
-│
-├─ Safety checklistを確認
-│
-├─ レビュー
-│
-└─ 採用判断
-```
+Les modifications suivantes, contraires aux principes directeurs du dépôt, ne pourront en règle générale pas être acceptées :
+
+- Ajout de hooks, de commandes exécutables, de mécanismes d'exécution automatique, de commit ou de déploiement automatique
+- Ajout de configurations MCP, de GitHub Actions ou de pipelines d'automatisation
+- Exemples imposant l'utilisation d'une clé d'API ou d'un interfaçage avec un service externe
+- Modifications diminuant la portée des clauses de non-responsabilité ou des consignes de sécurité
+- Multiplications excessives de liens commerciaux ou promotionnels
+- Ajout de détails issus de projets réels
+
+Ce dépôt a pour vocation d'être une boîte à outils d'assistance IA pour le pilotage de projet (contextes IA, modèles de prompts, compétences Claude Code) et non un environnement d'automatisation exécutable.
 
 ---
 
-## Pull Request の流れ
+## Processus de contribution
 
-1. Issue またはPRで提案内容を共有する
-2. 変更内容を簡潔に説明する
-3. 追加・修正したファイルと理由を記載する
-4. 機密情報が含まれていないことを自身で確認する
-5. Markdown 表示を確認する
 
-Pull Request テンプレートの Safety checklist を必ず確認・チェックしてください。
 
 ---
 
-## コミットメッセージ例
+## Démarche pour soumettre une Pull Request
 
-```
-Fix typo in README
-Improve risk review context
-Add example for stakeholder report
-Clarify AI safety notice
-Update meeting minutes prompt
-```
+1. Partager préalablement la proposition dans une Issue ou décrire la PR de façon détaillée.
+2. Expliquer synthétiquement la nature du changement.
+3. Spécifier les fichiers ajoutés ou modifiés ainsi que la motivation de ces changements.
+4. S'assurer personnellement qu'aucune donnée sensible ou confidentielle n'a été insérée.
+5. Vérifier le rendu Markdown.
+
+Veillez à vérifier et cocher scrupuleusement la Safety checklist du modèle de Pull Request.
 
 ---
 
-## 免責
+## Exemples de messages de commit
 
-- 投稿された内容はレビュー後に採用判断されます。
-- 必ず採用されるわけではありません。
-- 投稿者は、投稿内容に第三者の権利侵害や機密情報が含まれていないことを確認する責任を負います。
-- 投稿した内容がリポジトリに取り込まれた場合、本リポジトリのライセンス（LICENSE.md）が適用されます。
 
-詳細は `docs/legal/TERMS.md`、`docs/legal/DISCLAIMER.md`、`.github/SECURITY.md` を確認してください。
+
+---
+
+## Clauses et responsabilités
+
+- Tout contenu soumis est examiné lors d'une phase de revue préalablement à toute intégration.
+- L'acceptation d'une contribution n'est en aucun cas garantie.
+- Le contributeur engage sa propre responsabilité quant à l'absence de violation de droits tiers et d'informations confidentielles dans ses propositions.
+- En cas d'acceptation dans le dépôt, les contenus soumis sont placés sous les conditions de la licence du projet (LICENSE.md).
+
+Pour plus de précisions, veuillez consulter ,  et .
