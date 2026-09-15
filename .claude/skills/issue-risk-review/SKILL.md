@@ -1,121 +1,83 @@
 ---
 name: issue-risk-review
-description: 課題一覧とリスクをPM視点でレビューし、優先度、抜け漏れ、エスカレーション候補を整理する。課題・Issueリストの抜け漏れ確認、優先度見直し、担当者不明・期限不明の課題洗い出し、エスカレーション候補の特定、潜在リスクの確認が必要なときに使用します。
+description: Review issue backlogs and risk registers from a senior PM perspective; audit priorities, governance gaps, and escalation candidates. Use when validating backlog completeness, reprioritizing blockers, identifying unassigned issues, and uncovering latent delivery risks.
 ---
 
 # Issue & Risk Review Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as an experienced Project Manager specializing in IT delivery, risk mitigation, and issue resolution.
 
-入力された課題一覧をPM視点でレビューし、優先度・抜け漏れ・表面化していないリスク・エスカレーション候補を整理します。
+Audit the provided issue register and risk data from a senior PM perspective to evaluate prioritization, identify governance gaps, and uncover latent delivery risks.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- 課題・Issueリストの抜け漏れを確認したいとき
-- 優先度を見直したいとき
-- 担当者不明・期限不明の課題を洗い出したいとき
-- エスカレーションが必要な課題を特定したいとき
-- 表面化していない潜在リスクを確認したいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 課題一覧（課題内容・担当者・期限・影響範囲・ステータス）
-- プロジェクトの現在フェーズ
-- 直近のマイルストーン・期限
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Auditing active issue registers for missing owners, ambiguous scopes, or open-ended deadlines
+- Re-evaluating relative priority levels based on critical path dependencies
+- Uncovering latent systemic delivery risks hidden beneath surfaced operational issues
+- Preparing structured escalation rationale for executive sponsors or steering committees
+- Consolidating items requiring formal customer clarification or arbitration
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Evaluate the provided issue and risk backlog across the following 7 analytical axes:
 
-入力された課題一覧をもとに、以下のステップでレビューしてください。
-
-1. 各課題をスコープ・品質・スケジュール・外部依存・その他に分類する
-2. 影響度と発生確率の観点で優先度を評価し、変更が必要な課題を特定する
-3. 担当者不明・期限不明・影響範囲が曖昧な課題を洗い出す
-4. 入力情報から読み取れる、まだ課題化されていない潜在リスクを推論する
-5. PMのみでは判断できない課題（エスカレーション候補）を特定する
-6. 優先度順に次アクションを整理する
-
-**入力情報が不足している場合でも、入力された範囲で分析を行い、推論が含まれる場合は「（推測）」と明示してください。入力に含まれない情報を一般知識で補完する場合も「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
+1. **Issue Categorization**: Group items into Client/External Dependencies, Internal Technical Architecture, or Governance/Resource Bottlenecks.
+2. **Priority Realignment**: Rank items (Critical, High, Medium, Low) based on critical path impact and dependency chains.
+3. **Governance Gap Identification**: Highlight issues lacking assigned owners or definitive resolution dates.
+4. **Ambiguous Impact Alerts**: Flag issues where the operational blast radius is understated or poorly defined.
+5. **Latent Delivery Risks**: Identify second-order risks (e.g., test window compression, third-party API misalignment).
+6. **Escalation Candidate Shortlist**: Identify critical issues exceeding PM authority that require immediate executive or steering committee intervention.
+7. **Action Plan**: Define concrete, assigned operational next steps with deadlines.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-1. 課題の分類（スコープ・品質・コスト・スケジュール・外部依存）
-2. 優先度の見直し（影響度 × 発生確率）
-3. 担当者不明・期限不明の課題
-4. 影響範囲が曖昧な課題
-5. 表面化していない潜在リスク
-6. エスカレーション候補（PMのみでは判断できない事項）
-7. 次アクション
-
----
-
-<output_format>
-
-## Output Format（出力形式）
-
-以下の形式で日本語で出力してください。各セクションを省略せず記載し、情報が不足している項目は「情報不足」と明記してください。
-
-### 課題分類サマリー
-
-| 分類 | 件数 | 主要課題 |
+```markdown
+### 1. Issue Categorization Matrix
+| Category | Issue ID / Title | Summary |
 |---|---|---|
-| スコープ | | |
-| 品質 | | |
-| スケジュール | | |
-| 外部依存 | | |
-| その他 | | |
+| External / Client Dependency | ... | ... |
+| Internal Technical / Dev | ... | ... |
+| Governance & Staffing | ... | ... |
 
-### 優先度見直し
-
-優先度変更を推奨する課題を、変更理由とともに列挙します。
-
-### 要確認課題（担当者不明・期限不明）
-
-担当者または期限が不明な課題を一覧化します。
-
-### 潜在リスク
-
-入力情報から読み取れる、まだ課題化されていないリスクを列挙します。推測を含む場合は「（推測）」と明示してください。
-
-### エスカレーション候補
-
-PMのみでは判断できない課題・PMO・上長・顧客への相談が必要な事項を、相談先とともに列挙します。
-
-### 次アクション
-
-| 優先度 | アクション | 担当（役割） | 期限の目安 |
+### 2. Priority Realignment & Technical Rationale
+| Issue ID | Current Status | Recommended Priority | Justification & Critical Path Impact |
 |---|---|---|---|
-| 高 | | | |
-| 中 | | | |
+| ... | ... | Critical / High / Med | ... |
 
-</output_format>
+### 3. Governance Gap Identification (Missing Owners / Deadlines)
+| Issue ID | Governance Vulnerability | Recommended Corrective Action |
+|---|---|---|
+| ... | No owner / No deadline | ... |
+
+### 4. Ambiguous Scope & Understated Blast Radius
+- **[Issue ID]**: (Analysis of true operational impact)
+
+### 5. Latent Delivery Risks
+- (Systemic delivery risks surfaced from backlog dependencies)
+
+### 6. Escalation Candidate Shortlist
+- (Critical issues requiring executive sponsor intervention)
+
+### 7. Immediate Operational Action Plan
+| # | Action Item | Assigned Owner | Deadline |
+|---|---|---|---|
+| 1 | ... | ... | ... |
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- エスカレーション要否の最終判断は必ず人間が行ってください。
-- 課題の優先度変更は、チーム・顧客と合意の上で行ってください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Maintain a fact-based decision-support framing.
+- Never make binding contractual or legal priority determinations.
+- Flag any issue lacking an owner or deadline as an urgent governance vulnerability.
+</constraints>

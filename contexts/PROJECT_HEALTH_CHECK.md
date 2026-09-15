@@ -1,241 +1,228 @@
-﻿# プロジェクトヘルスチェック用コンテキスト / Project Health Check Context
+# Project Health Check Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-プロジェクトの現在の状態を、PM視点で多角的にレビューするためのコンテキストです。
+This context enables a multi-dimensional diagnostic review of a project's operational health from a senior PM perspective.
 
-進捗・課題・リスク・顧客状況・体制・品質などの情報をAIに渡すことで、見落としや死角を発見する補助に活用できます。
+By submitting current project indicators—progress metrics, open issues, risk registers, stakeholder dynamics, staffing levels, and quality metrics—to an AI, teams can detect systemic blind spots, critical dependencies, and delivery vulnerabilities early.
 
-**AIはプロジェクト診断・監査を行うものではありません。** 出力内容は必ず人間が確認し、実際の案件状況に合わせて判断してください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- プロジェクト全体の状況を定期的にレビューしたいとき
-- 「なんとなく不安」な状況を言語化・整理したいとき
-- 月次・週次の状況確認に使いたいとき
-- 上長・関係者への説明前に状況を整理したいとき
-- プロジェクトが炎上しそうな予兆を確認したいとき
+**AI does not perform formal audits or legally binding project diagnostics.** All evaluations must be validated by human management against the realities on the ground.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Cases
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Conducting periodic (weekly/monthly) project health assessments
+- Articulating, structuring, and verifying intuitive concerns or red flags
+- Preparing executive briefing materials prior to leadership or steering committee reviews
+- Identifying early warning signs of impending project crises or schedule slips
 
-必須ではありませんが、項目が多いほど精度の高い整理が期待できます。
+---
+
+## Input (Information to Provide to the AI)
+
+After loading this context, provide the following project details with all confidential identifiers masked:
 
 ```
-### プロジェクト概要
-- プロジェクトの目的・背景：
-- 主な成果物：
-- 現在のフェーズ：（例：要件定義・設計・開発・テスト・リリース準備）
-- 全体のスケジュール（マスキング済み）：
-- 規模感：（例：小規模・中規模・大規模）
+### Project Overview
+- Objective & Business Context:
+- Key Deliverables:
+- Current Phase: (e.g., Requirements, Design, Development, Testing, Release Prep)
+- Overall Timeline & Milestones (Sanitized):
+- Project Scale / Complexity: (e.g., Small, Medium, Large)
 
-### 現在の進捗
-- 全体進捗（%）：
-- 今週・今月の完了事項：
-- マイルストーンの達成状況：
-- 遅延が発生している作業（あれば）：
+### Current Progress
+- Overall Completion Rate (%):
+- Items Completed in Current Period:
+- Milestone Achievement Status:
+- Delayed Workstreams (if any):
 
-### 課題
-- 現在発生している課題（担当者名は「担当者A」等に置換）：
-- 未解決の課題：
-- 担当者不明の課題：
-- 期限不明の課題：
+### Active Issues & Blockers
+- Active Blockers (mask names: e.g., "Dev Lead A"):
+- Unresolved Issues:
+- Unassigned Issues:
+- Issues Lacking Definite Deadlines:
 
-### リスク
-- 認識しているリスク：
-- 外部依存（顧客確認待ち・外部ベンダー・外部APIの仕様待ち等）：
-- 対応方針が決まっていないリスク：
+### Identified & Emerging Risks
+- Known Delivery Risks:
+- External Dependencies (client approvals, third-party vendor APIs, infrastructure):
+- Unmitigated Risks / Lacking Action Plans:
 
-### 顧客・ステークホルダーの状況
-- 顧客確認待ちの事項：
-- 顧客側の担当者・体制の状況（名前は「顧客担当者A」等に置換）：
-- 顧客の期待値・要望：
-- 顧客とのコミュニケーション上の懸念：
+### Stakeholder & Client Context
+- Pending Client Approvals / Confirmations:
+- Client Counterpart Dynamics (mask names: e.g., "Client Lead A"):
+- Client Expectations & Unofficial Requests:
+- Communication or Alignment Concerns:
 
-### 体制・チームの状況
-- 現在の体制（役割ベースで記載）：
-- 体制上の懸念（メンバーの稼働・スキル・欠員等）：
+### Team & Resource Health
+- Staffing & Role Breakdown:
+- Team Concerns (bandwidth, skill gaps, critical single-points-of-failure, planned absences):
 
-### 品質の状況
-- テスト状況（フェーズ・不具合件数等）：
-- 品質上の懸念：
+### Quality Status
+- Testing Metrics (phase, open bug counts, severity breakdown, fix velocity):
+- Quality & Non-Functional Concerns:
 
-### 直近の会議・出来事のメモ
-- 直近の定例・会議の要点（個人名・顧客名をマスキング）：
-- 最近発生した特記事項：
+### Recent Meetings & Critical Notes
+- Key Takeaways from Recent Meetings (anonymized):
+- Critical Incidents or Anomalies:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-このコンテキストを前提にAIに依頼すると、以下のような出力を得ることができます。
+Leveraging this context, the AI generates the following structured diagnostic:
 
-### 1. 状況要約
+### 1. Executive Situation Summary
+A concise 3-5 sentence synthesis capturing overall delivery health, momentum, and primary threats.
 
-プロジェクトの現在の状況を、3〜5文で要約したもの。
+### 2. Risk Level Rating
+Categorized into four standardized tiers:
 
-### 2. 危険度
-
-以下の4段階で評価します。
-
-| 危険度 | 目安 |
+| Risk Level | Threshold Criteria |
 |---|---|
-| 🔴 高（要即対応） | 納期・品質・顧客関係に重大なリスクが迫っている |
-| 🟡 中（注意が必要） | 複数の懸念事項があり、放置すると悪化する可能性がある |
-| 🟢 低（概ね順調） | 課題はあるが管理範囲内 |
-| ⬜ 判断不能 | 入力情報が不足している |
+| 🔴 **High (Immediate Action Required)** | Critical risks imminent to timeline, quality, or client relationship |
+| 🟡 **Medium (Attention Required)** | Multiple vulnerabilities active; will degrade if left unaddressed |
+| 🟢 **Low (On Track)** | Normal operating variance; issues fully under control |
+| ⬜ **Indeterminate** | Insufficient data provided to establish a credible rating |
 
-### 3. 主要な懸念点
+### 3. Primary Concerns & Vulnerabilities
+Ranked list of critical operational bottlenecks prioritized by potential blast radius.
 
-現在の状況で特に注意すべき懸念点を、優先度順に列挙したもの。
+### 4. Overlooked Risks & Latent Blind Spots
+Systemic risks inferred from gaps between inputs (e.g., testing compressed due to upstream API delays).
 
-### 4. 見落としている可能性があるリスク
+### 5. Confirmations & Clarifications Required from Client
+Targeted list of decisions, approvals, and inputs needed from the customer.
 
-入力情報をもとに、PMが見落としている可能性があるリスクを提示したもの。
+### 6. Internal Managerial Decisions Required
+Arbitrations required from PM leadership, PMO, or internal executives.
 
-### 5. 顧客に確認すべきこと
-
-顧客に対して確認・説明すべき事項の一覧。
-
-### 6. 社内で決めるべきこと
-
-PM・PMO・上長が社内で決定すべき事項の一覧。
-
-### 7. 次の24〜72時間でやるべきこと
-
-直近で実施すべきアクションの優先順位付き一覧。
+### 7. Immediate Action Plan (Next 24 to 72 Hours)
+Prioritized checklist of operational interventions required immediately.
 
 ---
 
-## Caution（利用時の注意）
+## Caution & Operational Safeguards
 
 > [!CAUTION]
-> このコンテキストを利用してAIが出力した内容は、プロジェクト診断・監査・専門家の助言を代替しません。
+> Outputs generated by this context do not constitute a formal audit, regulatory compliance assessment, or professional legal advice.
 >
-> AI出力は必ず人間が確認・修正してから利用してください。
+> All AI findings must be reviewed, adapted, and approved by qualified human project managers.
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Never enter confidential client names, corporate identities, personal information, or credentials into the AI tool.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
+## Standard Prompt Template
 
 ```text
-# プロジェクトヘルスチェックの依頼
+# Project Health Check Request
 
-以下のコンテキストを前提として、プロジェクトの現状をPM視点でヘルスチェックしてください。
+Using the contexts below, conduct a comprehensive health check of the project's current status from a senior PM perspective.
 
-## コンテキスト
+## Contexts
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 
-[PROJECT_HEALTH_CHECK.md の内容をここに貼り付ける]
-
----
-
-## 案件の現状（機密情報はマスキング済み）
-
-### プロジェクト概要
-- プロジェクトの目的：
-- 現在のフェーズ：
-- 全体スケジュール：
-
-### 進捗
-- 全体進捗：
-- 完了した作業：
-- 遅延している作業：
-
-### 課題・リスク
-- 発生している課題：
-- 認識しているリスク：
-- 顧客確認待ち：
-
-### 体制・品質
-- 体制上の懸念：
-- 品質上の懸念：
-
-### 直近の出来事
+[Paste contents of PROJECT_HEALTH_CHECK.md here]
 
 ---
 
-## 出力してほしいこと
+## Project Status (Sanitized)
 
-1. 状況要約
-2. 危険度（🔴高 / 🟡中 / 🟢低）と理由
-3. 主要な懸念点（優先度順）
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+### Project Overview
+- Purpose:
+- Current Phase:
+- Schedule:
 
-※ AI出力は判断材料です。最終判断は人間が行ってください。
+### Progress
+- Overall Progress:
+- Completed Work:
+- Delayed Work:
+
+### Issues & Risks
+- Active Issues:
+- Known Risks:
+- Pending Client Confirmations:
+
+### Team & Quality
+- Staffing Concerns:
+- Quality Concerns:
+
+### Recent Events:
+
+---
+
+## Requested Deliverables
+
+1. Executive Situation Summary
+2. Risk Level Rating (🔴 High / 🟡 Medium / 🟢 Low) and Rationale
+3. Primary Critical Concerns (Prioritized)
+4. Overlooked Risks & Blind Spots
+5. Confirmations Needed from Client
+6. Internal Managerial Decisions Required
+7. Immediate Action Plan for Next 24 to 72 Hours
+
+*Note: AI output serves as analytical support. Final operational decisions remain human responsibility.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下のプロジェクト状況をPM視点でヘルスチェックしてください。
-危険度、主要な懸念点、見落としリスク、顧客確認事項、社内判断事項、次の24〜72時間のアクションを出力してください。
+Conduct a comprehensive health check of the project status below from a senior PM perspective.
+Output the risk level, primary concerns, overlooked risks, client confirmations, internal decisions, and next 24-72h actions.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[PROJECT_HEALTH_CHECK.md の内容をここに貼り付ける]
+[Paste contents of PROJECT_HEALTH_CHECK.md here]
 </specific_context>
 </context>
 <input>
-【プロジェクトの現状（機密情報はマスキング済み）】
+[Project Status (Sanitized)]
 
-### プロジェクト概要
-- プロジェクトの目的：
-- 現在のフェーズ：
-- 全体スケジュール：
+### Project Overview
+- Purpose:
+- Current Phase:
+- Schedule:
 
-### 進捗
-- 全体進捗：
-- 完了した作業：
-- 遅延している作業：
+### Progress
+- Overall Progress:
+- Completed Work:
+- Delayed Work:
 
-### 課題・リスク
-- 発生している課題：
-- 認識しているリスク：
-- 顧客確認待ち：
+### Issues & Risks
+- Active Issues:
+- Known Risks:
+- Pending Client Confirmations:
 
-### 体制・品質
-- 体制上の懸念：
-- 品質上の懸念：
+### Team & Quality
+- Staffing Concerns:
+- Quality Concerns:
 
-### 直近の出来事
+### Recent Events:
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 判断に十分な情報がない場合は「情報不足」または「この情報だけでは判断できません」と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Treat all client names, individual identities, and corporate data as sanitized.
+- Explicitly mark unverified external assertions or assumptions as "(Inferred)".
+- If information is insufficient for a sound assessment, state: "Insufficient information to make an assessment."
+- Format outputs as decision-support inputs; final decisions require human manager validation.
 </constraints>
 <output_format>
-1. 状況要約
-2. 危険度（🔴高 / 🟡中 / 🟢低）と理由
-3. 主要な懸念点（優先度順）
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+1. Executive Situation Summary
+2. Risk Level Rating (🔴 High / 🟡 Medium / 🟢 Low) and Rationale
+3. Primary Critical Concerns (Prioritized)
+4. Overlooked Risks & Blind Spots
+5. Confirmations Needed from Client
+6. Internal Managerial Decisions Required
+7. Immediate Action Plan for Next 24 to 72 Hours
 </output_format>
 ```

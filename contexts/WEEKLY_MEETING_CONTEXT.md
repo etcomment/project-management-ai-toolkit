@@ -1,216 +1,121 @@
-﻿# 週次定例会議コンテキスト / Weekly Meeting Context
+# Weekly Meeting Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-週次定例会のアジェンダ・確認順序・事前準備・会議後TODOを整理するためのコンテキストです。顧客定例・社内定例どちらにも使用できます。
+This context assists Project Managers in structuring weekly progress agendas, establishing a logical review sequence, preparing meeting prerequisites, and tracking post-meeting action items for both client-facing and internal team syncs.
 
-**AIはPMの判断を代替しません。** AIはアジェンダ作成・準備リスト・TODO整理の補助ツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI serves as a preparation and structuring tool. Final agendas and steering decisions remain human responsibilities.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 機密性の高い内容は役割・状況の概要に置き換えてから入力してください。
+> Never enter real client names, corporate identities, personal information, or credentials into the AI.
+> Abstract sensitive business data into roles, milestones, and high-level deliverables before submission.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 顧客定例のアジェンダを事前に準備したいとき
-- 社内定例の確認順序と所要時間を整理したいとき
-- 前回宿題の確認リストを作りたいとき
-- 会議後のTODOを整理したいとき
-- 定例で確認すべきリスクを洗い出したいとき
+- Structuring efficient, focused agendas for weekly client progress meetings
+- Preparing internal weekly team synchronization sessions
+- Ensuring all critical decision points and blockers are queued in the right order of priority
+- Generating pre-meeting preparation checklists for engineering and management leads
+- Tracking post-meeting action items and agreements
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 会議の目的
-（例：顧客との週次進捗確認、社内チーム状況共有 など）
+### Meeting Setup
+- Meeting Type: (Client Progress Meeting / Internal Team Sync)
+- Duration & Cadence: (e.g., 60 minutes, Weekly)
+- Key Stakeholder Roles: (e.g., Client PM, Sponsor, Internal Lead Dev)
 
-### 参加者の役割（実名は入力しないこと）
-（例：PM、開発リーダー、インフラ担当、顧客担当者A など）
-
-### 現在の進捗
-（完了していること・進行中のこと・遅延していることを箇条書きで）
-
-### 確認したい課題
-（会議で確認したい課題・問題を箇条書きで）
-
-### 顧客に相談したいこと（顧客定例の場合）
-（顧客の判断・確認が必要な事項を箇条書きで）
-
-### 前回からの宿題・持ち越し事項
-（前回決まったはずのTODOや、前回確認待ちになっていた事項）
-
-### 今回決めたいこと
-（この会議で必ず結論を出したい事項を箇条書きで）
-
-### 会議時間（分）
-（例：60分、90分 など）
+### Current Project Status (Sanitized)
+- Milestone Progress:
+- Active Blockers / Decisions Required:
+- Pending Client Reviews:
+- Upcoming Delivery Gates:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 会議アジェンダ
+### 1. Structured Time-Boxed Agenda
+Logical breakdown of meeting topics (Progress Review, Blocker Arbitration, Next Milestone Planning).
 
-| No. | 議題 | 目的 | 想定時間 | 担当（役割） |
-|---|---|---|---|---|
+### 2. High-Priority Decision Items
+Specific topics requiring formal managerial sign-off during the session.
 
-### 2. 確認順序と想定時間配分
+### 3. Pre-Meeting Preparation Checklist
+Specific data points, documents, or metric summaries that attendees must prepare beforehand.
 
-議題の優先順と、各議題の推奨所要時間。
-
-### 3. 事前準備リスト
-
-会議前に準備すべき資料・確認事項・送付物の一覧。
-
-### 4. 前回宿題の確認リスト
-
-前回会議からの宿題・持ち越し事項の確認リスト。
-
-### 5. 会議後TODO一覧
-
-| No. | 作業内容 | 担当（役割） | 期限 | 備考 |
-|---|---|---|---|---|
-
-### 6. 次回持ち越し事項
-
-今回確認できなかった・持ち越しになりそうな事項の一覧。
-
-### 7. 会議で確認すべきリスク
-
-現在の状況から見えるリスク・懸念点で、この会議で確認・共有すべきもの。
+### 4. Post-Meeting Action Item Template
+Standardized structure for recording assigned next steps, owners, and deadlines.
 
 ---
 
-## Caution（利用時の注意）
-
-- **顧客名・社名・個人名をAIに入力しないでください。** 役割や「顧客担当者A」などに置き換えてください。
-- AI出力のアジェンダはたたき台です。実際の案件状況・関係者の状況に合わせて人間が修正してください。
-- 顧客に送付するアジェンダは、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、週次定例会のアジェンダと事前準備リストを整理してください。
+# Weekly Meeting Agenda & Preparation Request
 
-## コンテキスト
+Using the contexts below, build a structured, time-boxed weekly meeting agenda and preparation checklist based on the project status.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[WEEKLY_MEETING_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 会議情報（機密情報はマスキング済み）
-
-### 会議の目的
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 現在の進捗
-（記入）
-
-### 確認したい課題
-（記入）
-
-### 顧客に相談したいこと
-（記入）
-
-### 前回からの宿題・持ち越し事項
-（記入）
-
-### 今回決めたいこと
-（記入）
-
-### 会議時間
-（記入）
+[Paste contents of WEEKLY_MEETING_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Project Status (Sanitized)
 
-1. 会議アジェンダ（議題・目的・想定時間・担当役割）
-2. 確認順序と時間配分
-3. 事前準備リスト
-4. 前回宿題の確認リスト
-5. 会議後TODO一覧
-6. 次回持ち越し事項
-7. 会議で確認すべきリスク
+[Paste sanitized status and discussion points here]
 
-※ AI出力は整理のたたき台です。顧客提出前・社内報告前に必ず人間が確認してください。
+---
+
+## Requested Deliverables
+
+1. Time-Boxed Meeting Agenda
+2. Core Decision Points Requiring Arbitration
+3. Pre-Meeting Preparation Checklist by Attendee Role
+4. Post-Meeting Action Tracking Framework
+
+*Note: AI output serves as analytical support. Final agendas require human approval.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の情報をもとに、週次定例会のアジェンダと事前準備リストを整理してください。
+Build a structured, time-boxed weekly meeting agenda and preparation checklist based on the provided project status.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[WEEKLY_MEETING_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of WEEKLY_MEETING_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【会議情報（機密情報はマスキング済み）】
-
-### 会議の目的
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 現在の進捗
-（記入）
-
-### 確認したい課題
-（記入）
-
-### 顧客に相談したいこと
-（記入）
-
-### 前回からの宿題・持ち越し事項
-（記入）
-
-### 今回決めたいこと
-（記入）
-
-### 会議時間
-（記入）
+[Paste sanitized status and discussion points here]
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は整理のたたき台であり、顧客提出・社内報告前に人間が確認してください。
+- Prioritize topics by operational urgency and critical path dependency.
+- Structure agenda items with realistic time allocations.
+- Maintain professional, neutral framing suitable for stakeholder alignment.
 </constraints>
 <output_format>
-1. 会議アジェンダ（議題・目的・想定時間・担当役割）
-2. 確認順序と時間配分
-3. 事前準備リスト
-4. 前回宿題の確認リスト
-5. 会議後TODO一覧
-6. 次回持ち越し事項
-7. 会議で確認すべきリスク
+1. Time-Boxed Meeting Agenda
+2. Core Decision Points Requiring Arbitration
+3. Pre-Meeting Preparation Checklist by Attendee Role
+4. Post-Meeting Action Tracking Framework
 </output_format>
 ```

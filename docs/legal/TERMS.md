@@ -1,121 +1,59 @@
-# 利用規約 / Terms of Use
-
-最終更新：2026年5月
+# Terms of Use
 
 ---
 
-## 1. 目的
+## 1. Scope of Terms
 
-本利用規約は、株式会社テックエイド（以下「当社」）が公開するリポジトリ「project-management-ai-toolkit」（以下「本資料」）の利用条件を定めるものです。
-
-本資料は、プロジェクトマネージャー・PMO・開発リーダーが生成AIをPM業務で活用するための、AI Contexts、Prompt Template、Claude Code Skills、設定用指示文、利用ガイド、実務サンプルを提供することを目的としています。
+These Terms of Use govern the access and utilization of the **project-management-ai-toolkit** repository, provided and maintained by TechAide Inc. (TechAide Co., Ltd.).
 
 ---
 
-## 2. 利用者の責任
+## 2. Permitted Uses
 
-本資料を利用する方（以下「利用者」）は、以下を理解し、自己の責任のもとで利用するものとします。
+Users are granted permission to use these materials under the following conditions:
 
-- 本資料はPM業務の参考資料であり、業務上の意思決定を代替しないこと
-- 業務で利用する前に、必ず内容を確認し、案件状況・契約条件・社内規程に合わせて修正すること
-- AI出力は人間が確認し、修正してから利用すること
-- 顧客提出文書、報告書、契約関連文書、見積、納期回答、障害報告などに利用する場合は、特に慎重に確認すること
-
----
-
-## 3. 禁止事項
-
-利用者は以下の行為を行ってはなりません。
-
-### 3-1. 機密情報・個人情報の取り扱い
-
-- 顧客名・個人名・会社名・契約情報・個人情報・認証情報（APIキー、パスワード、トークン等）を、外部のAIサービスに入力する行為（所属組織の規程・NDA・契約に反する形での入力）
-
-### 3-2. 違法行為・不正行為への利用
-
-- 本資料を、違法行為・不正行為・契約違反・社内規程違反につながる目的で利用する行為
-
-### 3-3. 再配布・商業利用に関する禁止行為
-
-- 当社の書面による許可なく、本資料を再販売する行為
-- 当社の書面による許可なく、本資料を有料教材・有料サービス・有料ツールに組み込む行為
-- 当社の書面による許可なく、本資料を自社商品・自社コンテンツとして再配布する行為
-
-### 3-4. 表示に関する禁止行為
-
-- 本資料の著作権表示・出典表示を削除する行為
-- 本資料が当社の公式コンテンツであるかのような誤認を招く表示をする行為（改変版を公開する場合、改変版であること・当社公式版ではないことを明示すること）
+1. **Individual Learning & Self-Study**: Personal reference and professional skills development.
+2. **Internal Enterprise Project Management**: Operational reference and internal workflow structuring (strictly for non-public internal corporate use).
+3. **Internal Customization**: Modifying and adapting context files and templates for private, internal organizational usage.
 
 ---
 
-## 4. 許可される利用
+## 3. Conditions for Public Redistribution of Modified Versions
 
-以下の利用は許可されます。
+If you publish or redistribute modified versions of these materials, you must strictly satisfy all of the following requirements:
 
-- 個人学習・自己研鑽のための利用
-- 所属組織内でのプロジェクト管理業務への参照利用
-- 本資料を改変して社内利用すること（社内での非公開利用）
-- 改変版を公開・再配布する場合は、出典（本リポジトリのURL）を明示し、株式会社テックエイド公式版ではないことを明記すること
+1. Provide clear attribution and a link to the original repository URL:
+   `https://github.com/techaide-jp/project-management-ai-toolkit`
+2. Explicitly state that the redistribution is **"Not an official release of TechAide Inc."**
+3. Retain the original copyright notice and references to this terms file without removal.
 
 ---
 
-## 利用可否の早見表
+## 4. Prohibited Acts
 
-| 利用内容 | 可否 | 補足 |
+The following acts are strictly prohibited:
+
+- Commercial resale or unauthorized distribution of these materials as standalone commercial products.
+- Incorporating these materials into paid educational courses, paid services, or commercial software tools without prior written authorization from TechAide Inc.
+- Falsely claiming ownership or rebranding these materials as your own proprietary commercial intellectual property.
+- Removing copyright notices, source attributions, or liability disclaimers.
+- Any representation falsely implying endorsement, partnership, or official affiliation with TechAide Inc.
+
+---
+
+## 5. Summary Permissions Matrix
+
+| Use Case | Permitted? | Conditions / Details |
 |---|---|---|
-| 個人学習で使う | 可 | 自己研鑽目的で利用可能 |
-| 社内のPM業務で参照する | 可 | 非公開の社内利用は可能 |
-| 社内向けに改変して使う | 可 | 社内での非公開利用に限る |
-| 出典を明記して改変版を公開する | 条件付き可 | 出典URL明示・公式版ではないことを明記する必要あり |
-| 無断で再販売する | 不可 | 禁止 |
-| 有料教材・有料サービスに組み込む | 原則不可 | 当社の書面による事前許可が必要 |
-| 著作権表示を削除する | 不可 | 禁止 |
-
-※この表は利用条件の概要です。詳細は各セクションおよび [LICENSE.md](../../LICENSE.md) を確認してください。
+| Individual self-study | ✅ Yes | Free for personal educational use |
+| Internal company PM operations | ✅ Yes | Private internal operational use permitted |
+| Internal company modifications | ✅ Yes | Strictly restricted to non-public internal use |
+| Public redistribution of modified work | ⚠️ Conditional | Mandatory source link, clear non-affiliation notice, and copyright retention |
+| Commercial resale without agreement | ❌ Prohibited | Strictly forbidden |
+| Integration into paid commercial training/SaaS | ❌ Prohibited | Requires prior written agreement from TechAide Inc. |
+| Removal of copyright notices | ❌ Prohibited | Strictly forbidden |
 
 ---
 
-## 5. 非保証
-
-本資料の内容の正確性・完全性・有用性・最新性・特定目的への適合性について、当社は保証しません。
-
-詳細は [docs/legal/DISCLAIMER.md](DISCLAIMER.md) を参照してください。
-
----
-
-## 6. 損害賠償責任の限定
-
-本資料の利用により生じた損害について、当社は、法令上許される範囲において、当社の故意または重大な過失がある場合を除き、責任を負いかねます。
-
----
-
-## 7. AIサービス利用時の確認事項
-
-本資料のコンテキストやプロンプトを生成AIサービスで利用する場合は、以下を事前に確認してください。
-
-- 利用するAIサービスの利用規約
-- 利用するAIサービスのプライバシーポリシー
-- 利用するAIサービスのデータ利用条件（入力データが学習に利用されるか否か等）
-- 所属組織の情報セキュリティ規程
-- 顧客との契約・NDAの内容
-
----
-
-## 8. 準拠法・管轄
-
-本利用規約は日本法に準拠します。
-
-本利用規約に関する紛争については、当社所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。
-
----
-
-## 9. 関連文書
-
-- 免責事項：[docs/legal/DISCLAIMER.md](DISCLAIMER.md)
-- ライセンス：[LICENSE.md](../../LICENSE.md)
-- セキュリティポリシー：[.github/SECURITY.md](../../.github/SECURITY.md)
-
----
-
-*株式会社テックエイド*
+*TechAide Inc. (TechAide Co., Ltd.)*  
 *https://techaide.jp/*

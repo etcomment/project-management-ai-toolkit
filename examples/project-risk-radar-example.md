@@ -1,113 +1,87 @@
-# Project Risk Radar の利用例
+# Project Risk Radar — Practical Scenario
 
-## このサンプルの目的
+## Use Case
 
-このサンプルは、`.claude/skills/project-risk-radar/SKILL.md` を使って、進捗メモや課題一覧から表面化していないプロジェクトリスクを検知する例です。
-
-> [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
-
-> [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+Utilizing `.claude/skills/project-risk-radar/SKILL.md` to detect latent, unstated project risks and blind spots from informal progress updates and team notes.
 
 ---
 
-## 使用するSkill
+## Contexts & Skills Used
 
 - `.claude/skills/project-risk-radar/SKILL.md`
-
-## 関連Context
-
 - `contexts/PROJECT_HEALTH_CHECK.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
 - `contexts/DELAY_RECOVERY_CONTEXT.md`
 
 ---
 
-## 入力例
+## Sanitized Input
 
-### 通常版
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
-```text
-.claude/skills/project-risk-radar/SKILL.md の内容を前提として、
-以下の進捗メモから、表面化していないプロジェクトリスクを検知してください。
-【進捗メモ】
-- 現在フェーズ：開発中盤
-- 主要機能A：実装中、進捗70%
-- 主要機能B：外部API仕様待ち
-- テスト環境構築：来週に延期
-- 顧客確認待ち：画面仕様2件、帳票仕様1件
-- 課題管理表：10件中3件が担当者未設定
-- 次回定例：来週水曜日
-- リリース予定日：現時点では変更なし
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+```
+[Informal Progress Notes]
+- Current Phase: Mid-development
+- Core Feature A: Implementation underway, tracking ~70% completion
+- Core Feature B: Suspended awaiting external third-party API specifications
+- Staging Environment Setup: Deferred to next week due to devops bandwidth
+- Pending Client Decisions: 2 UI screen layouts and 1 batch report format
+- Issue Backlog: 3 out of 10 items currently lack assigned owners
+- Next Weekly Sync: Next Wednesday
+- Target Release Date: Currently unchanged on paper
+(All client and company names have been masked.)
 ```
 
-### Claude向けXMLタグ版
+---
 
+## Prompts for Claude Code
+
+### Standard Prompt
+```text
+Based on .claude/skills/project-risk-radar/SKILL.md,
+scan the progress notes above and detect latent, unstated delivery risks.
+```
+
+### Claude Structured XML Prompt
 ```text
 <task>
-.claude/skills/project-risk-radar/SKILL.md の内容を前提として、
-以下の進捗メモから、表面化していないプロジェクトリスクを検知してください。
+Scan the provided progress notes using .claude/skills/project-risk-radar/SKILL.md to uncover latent delivery risks and blind spots.
 </task>
 <input>
-【進捗メモ】
-- 現在フェーズ：開発中盤
-- 主要機能A：実装中、進捗70%
-- 主要機能B：外部API仕様待ち
-- テスト環境構築：来週に延期
-- 顧客確認待ち：画面仕様2件、帳票仕様1件
-- 課題管理表：10件中3件が担当者未設定
-- 次回定例：来週水曜日
-- リリース予定日：現時点では変更なし
+[Paste Sanitized Input above]
 </input>
 <constraints>
-- 入力情報に根拠がないリスクは断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
-- 納期影響は断定せず、「影響が生じうる」として整理してください。
+- Anchor all identified risks in tangible evidence from the input; tag inferences as "(Inferred)".
+- Do not assert definitive schedule failure; evaluate probability and potential delay objectively.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Expected Output
 
-### リスク検知サマリー
+An illustrative example of the expected AI evaluation:
 
-- 外部API仕様待ち、テスト環境構築の延期、顧客確認待ちの滞留、担当者未設定課題がリスクとして検知される
-- リリース予定日は変更なしでも、将来的な納期影響があり得ることが示される
+---
 
-### 検知したリスク一覧
+### 1. Risk Radar Summary
+While the official release date is nominally "unchanged on paper", the notes reveal four compounding latent risks that threaten to trigger an unrecoverable delivery crisis: external API specification stalls, environment setup delays, pending client UI approvals, and unowned backlog items.
 
-| 優先度 | リスク | 根拠となる記述 | 影響範囲 | 発生可能性 | 推奨対応 |
+---
+
+### 2. Detected Latent Risk Register
+
+| Priority | Latent Risk | Trigger Evidence | Impact Scope | Probability | Recommended Preventive Action |
 |---|---|---|---|---|---|
-| 高 | 外部API仕様待ちによる開発遅延 | 主要機能B：外部API仕様待ち | 主要機能Bの実装・テスト | 中〜高 | 仕様確定予定日と暫定実装可否を確認 |
-| 高 | テスト環境構築の遅延 | テスト環境構築：来週に延期 | テスト開始・品質確認 | 中 | 環境構築の担当・完了条件を明確化 |
-| 中 | 課題管理の責任所在不明 | 10件中3件が担当者未設定 | 課題対応の遅延 | 中 | 担当者と期限を設定 |
-
-### PMが次に確認すべき質問
-
-- 外部API仕様はいつ確定する予定か
-- 暫定仕様で実装を進められるか
-- テスト環境構築の延期はリリース予定に影響するか
-- 担当者未設定の課題は誰が判断するのか
+| **High** | Schedule Slip via External API Blockage | "Feature B suspended awaiting external API specs" | Feature B implementation & integration testing | High | Request formal confirmation date for API specs; evaluate mock API implementation. |
+| **High** | QA Test Window Compression | "Staging environment setup deferred to next week" | Integration testing kickoff & bug discovery | High | Lock in hard deadline for staging readiness; assign dedicated DevOps resource. |
+| **Medium** | Decision Vacuum on Critical Issues | "3 out of 10 items lack assigned owners" | Operational issue resolution velocity | Medium | Immediately assign owners and deadlines to all 3 orphaned issues. |
 
 ---
 
-## Human Review Points
+### 3. Critical Investigative Questions for the PM
 
-- AIが検知したリスクに、入力情報上の根拠があるか
-- 推測と事実が分けられているか
-- 顧客・上長へ伝える前に、PMが確認すべき情報を洗い出せているか
-- 納期影響を断定していないか
-
----
-
-## 次に確認するとよいページ
-
-- `contexts/ISSUE_RISK_CONTEXT.md`
-- `contexts/DELAY_RECOVERY_CONTEXT.md`
-- `.claude/skills/pm-decision-support/SKILL.md`
-- `.claude/skills/stakeholder-strategy/SKILL.md`
+- When exactly will the third-party API specifications be formally finalized?
+- Can engineering implement against a mock interface to prevent developer downtime?
+- Will postponing the staging environment compress the total duration allocated for UAT?
+- Who possesses the authority and accountability to resolve the 3 unassigned issues?

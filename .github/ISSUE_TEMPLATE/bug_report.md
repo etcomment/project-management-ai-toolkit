@@ -1,52 +1,52 @@
 ---
 name: Bug report
-about: 誤字脱字、リンク切れ、内容の不備を報告する
+about: Report a typo, broken link, or content defect
 title: "[Bug]: "
 labels: bug
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **This Issue is public. NEVER include API keys, passwords, tokens, client names, personal data, company names, contract terms, or confidential internal information.**
+> For security vulnerabilities, review [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 説明
+## Description
 
-<!-- 発見した問題を簡潔に説明してください -->
+<!-- Briefly describe the bug or defect discovered -->
 
-## 対象ファイル
+## Target File
 
-<!-- 問題が含まれているファイルのパスを記載してください -->
-例: `contexts/PROJECT_HEALTH_CHECK.md`
+<!-- Path of the file containing the defect -->
+Example: `contexts/PROJECT_HEALTH_CHECK.md`
 
-## 現在の内容
+## Current Content
 
-<!-- 問題のある記述を貼り付けてください（機密情報を含まない範囲で） -->
-
-```
-（現在の内容）
-```
-
-## 期待する内容
-
-<!-- どのような内容であるべきかを説明してください -->
+<!-- Paste the problematic text snippet (without confidential data) -->
 
 ```
-（期待する内容）
+(Current content)
 ```
 
-## 修正案（任意）
+## Expected Content
 
-<!-- 修正案があれば記載してください -->
+<!-- Explain what the content should be -->
+
+```
+(Expected content)
+```
+
+## Suggested Fix (Optional)
+
+<!-- Suggest a fix if applicable -->
 
 ---
 
-## Safety checklist
+## Safety Checklist
 
-投稿前に以下を確認してください。
+Verify before submitting:
 
-- [ ] このIssueに機密情報を含めていません
-- [ ] 実在する顧客名・個人名・会社名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
+- [ ] This Issue contains no confidential or proprietary information
+- [ ] No real client names, personal data, company names, or real project titles are included
+- [ ] No API keys, passwords, tokens, or credentials are included

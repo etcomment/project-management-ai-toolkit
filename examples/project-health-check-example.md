@@ -1,14 +1,14 @@
-# プロジェクトヘルスチェック — 実用サンプル
+# Project Health Check — Practical Scenario
 
 ## Use Case
 
-プロジェクト状況をPM視点でヘルスチェックする場面を想定しています。
+Conducting an end-to-end diagnostic audit of project delivery health from a senior PM perspective.
 
-開発中盤において、進捗、課題、体制上の懸念、品質リスクを入力し、AIにPM視点でレビューさせる例です。
+In this scenario, a Project Manager compiles progress metrics, open blockers, staffing bottlenecks, and quality risks mid-development, prompting the AI to evaluate health, surface blind spots, and prioritize actions.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/PROJECT_HEALTH_CHECK.md`
@@ -17,35 +17,35 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-フェーズ：開発中盤
+Project: Project Alpha (Fictitious)
+Current Phase: Mid-Development (Sprint 6 of 10)
 
-【進捗状況】
-- 全体進捗：約60%
-- 遅れている作業：外部連携機能、テスト設計
-- 外部連携機能は当初予定より1.5週間遅延中
-- テスト設計がまだ着手されていない
+[Progress Status]
+- Overall Completion: ~60%
+- Delayed Workstreams: External Integration Module, QA Test Plan Design
+- External Integration is currently 1.5 weeks behind baseline
+- Test plan design has not yet been initiated
 
-【課題】
-- 顧客担当者Aからの仕様確認が2週間以上未回答
-- データ連携仕様が未確定のため、開発を一部保留している
-- バックエンド側のI/F定義について、担当者間で認識齟齬の可能性あり
+[Active Blockers]
+- Specification clarification request sent to Client Lead A has been pending response for over 2 weeks
+- Data synchronization specs unconfirmed, partially halting backend development
+- High risk of interface (I/F) definition misalignment between frontend and backend teams
 
-【体制上の懸念】
-- レビュー担当者が1名のみで、他作業と兼務のためレビュー待ち時間が増加
-- 開発リーダーが来週3日間不在予定
+[Team & Staffing Concerns]
+- Single code reviewer bottle-necking PR throughput due to competing operational commitments
+- Tech Lead scheduled for 3 days of planned absence next week
 
-【品質上の懸念】
-- 結合テスト期間が現計画で5日間のみ
-- 単体テストのカバレッジが確認できていない
-- バグ管理表が整備されていない
+[Quality & Non-Functional Concerns]
+- Integration test window currently compressed to only 5 business days
+- Unit test code coverage unverified
+- Defect tracking register not yet standardized
 
-【その他】
-- 最終納期まで残り6週間
-- リリース判定会議の日程が未確定
+[Delivery Constraints]
+- 6 weeks remaining until final go-live milestone
+- Date for formal Go/No-Go release gate meeting unconfirmed
 ```
 
 ---
@@ -53,115 +53,101 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、プロジェクト状況をPM視点でヘルスチェックしてください。
+After loading the context files below, perform a comprehensive project health check from a senior PM perspective.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/PROJECT_HEALTH_CHECK.md
 
-【プロジェクト状況】
-（上記の Sanitized Input を貼り付ける）
+[Project Status]
+(Paste the Sanitized Input above)
 
-以下の観点で整理してください。
-1. 状況要約
-2. 危険度（低・中・高・緊急）
-3. 主要な懸念点
-4. 見落としている可能性があるリスク
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次の24〜72時間でやるべきこと
+Structure your evaluation across these dimensions:
+1. Executive Situation Summary
+2. Risk Level Rating (🔴 High / 🟡 Medium / 🟢 Low) and Rationale
+3. Primary Critical Concerns
+4. Overlooked Risks & Blind Spots
+5. Confirmations Needed from Client
+6. Internal Managerial Decisions Required
+7. Immediate Action Plan for Next 24 to 72 Hours
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 状況要約
-
-サンプル案件は開発中盤で全体60%進捗。外部連携機能とテスト設計の遅延が発生しており、顧客確認待ちと仕様未確定が重なっている。レビュー体制の脆弱性と結合テスト期間の短さが品質リスクを高めている。
-
----
-
-### 2. 危険度
-
-**高**
-
-- 遅延中の作業が残り6週間の中で回収できるかが不明
-- テスト設計未着手かつ結合テスト期間が極めて短い
-- 顧客確認待ちが長期化しており、開発の前提が固まっていない
+### 1. Executive Situation Summary
+Project Alpha is at 60% completion mid-development but faces significant compounding risks. Slippage in external integration and unstarted test planning are exacerbated by a two-week client response bottleneck. With a single-reviewer bottleneck and the integration test window compressed to just 5 days, quality risks to the 6-week go-live deadline are acute.
 
 ---
 
-### 3. 主要な懸念点
+### 2. Risk Level Rating
 
-| # | 懸念点 | 理由 |
+**🔴 High (Immediate Action Required)**
+
+- Recovery feasibility within the remaining 6 weeks is doubtful under current velocity.
+- Test planning has not started while the integration test window is critically compressed.
+- Critical architectural dependencies remain stalled awaiting client clarification.
+
+---
+
+### 3. Primary Critical Concerns
+
+| # | Concern | Operational Impact & Rationale |
 |---|---|---|
-| 1 | テスト設計が未着手 | 残り6週間でテスト設計・実施・修正を完了させるには時間が不足する可能性がある |
-| 2 | 顧客確認が2週間以上未回答 | 仕様未確定のまま開発が進むと、後工程での手戻りリスクが高い |
-| 3 | レビュー担当者が1名兼務 | 開発ペースに対してレビューが追いつかず、品質低下・遅延の原因になりやすい |
-| 4 | データ連携仕様が未確定 | 外部連携機能の遅延の主因。未確定のまま進めると大規模な手戻りが発生しうる |
+| 1 | Test Plan Design Unstarted | Completing test design, execution, bug fixing, and retesting within 6 weeks is at high risk of failure. |
+| 2 | Client Clarification Pending 2+ Weeks | Proceeding on unconfirmed assumptions guarantees major architectural rework later. |
+| 3 | Single-Reviewer Bottleneck | PR review latency will choke delivery velocity as code volume peaks. |
+| 4 | Data Sync Specs Unfinalized | Root cause of external integration slip; risks data integrity across interfaces. |
 
 ---
 
-### 4. 見落としている可能性があるリスク
+### 4. Overlooked Risks & Blind Spots
 
-- リリース判定会議の日程が未確定なため、判定基準・合格条件が明確になっていない可能性がある
-- バグ管理表が未整備の場合、不具合の全体像が見えず、テスト期間中に収拾がつかなくなるリスクがある
-- 開発リーダー不在期間中の意思決定フローが決まっていない可能性がある
-- 外部連携先（他システム）の受け入れテスト日程が調整されているか不明
-
----
-
-### 5. 顧客に確認すべきこと
-
-- 仕様確認依頼の回答期限を明確に設定し、確認を催促する
-- データ連携仕様の確認・承認プロセスを確認する
-- リリース判定会議の日程と合格条件を合意する
-- リリース後の運用体制（障害対応・問い合わせ窓口）が確認済みか確認する
+- **Unconfirmed Go/No-Go Gate Date**: Without an agreed-upon gate date, release acceptance criteria and sign-off prerequisites remain undefined.
+- **Absence of Standard Defect Register**: Defect triage will descend into chaos once integration testing starts without a centralized tracking tool.
+- **Tech Lead Absence Decision Latency**: No delegation framework established for the 3-day absence next week.
+- **Partner System Test Alignment**: Unknown whether external integration partner has scheduled UAT testing windows.
 
 ---
 
-### 6. 社内で決めるべきこと
+### 5. Confirmations Needed from Client
 
-- テスト設計のキックオフをいつ行うか（即着手が望ましい）
-- 結合テスト期間を延長できるか、または圧縮した場合の品質基準を決める
-- レビュー担当者の兼務状況を解消またはサポートする人員を手配できるか
-- 開発リーダー不在期間の代行者・意思決定フローを明確にする
-- バグ管理表の運用ルールを定める
+- Issue an urgent escalation email with a firm response deadline for the pending data specs.
+- Formalize the sign-off procedure for external interface definitions.
+- Agree upon the date and acceptance criteria for the formal Go/No-Go release gate.
+- Confirm post-launch operational support and tier-2 incident escalation contacts.
 
 ---
 
-### 7. 次の24〜72時間でやるべきこと
+### 6. Internal Managerial Decisions Required
 
-- [ ] 顧客担当者Aへ仕様確認の回答期限付き催促メール送付
-- [ ] テスト設計の着手日・担当者・スケジュールを確定
-- [ ] 開発リーダー不在期間の代行体制を確認・周知
-- [ ] リリース判定会議の日程調整を開始
-- [ ] バグ管理表のフォーマットを準備
+- Authorize an immediate kickoff for test design (must start without delay).
+- Decide whether to extend the integration test window or adjust scope to safeguard quality.
+- Rebalance reviewer workload or assign a second peer reviewer to unblock PR queues.
+- Formalize technical delegation authority during the Tech Lead's 3-day absence.
+- Deploy a standardized bug tracking board immediately.
+
+---
+
+### 7. Immediate Action Plan (Next 24 to 72 Hours)
+
+- [ ] Send formal reminder to Client Lead A regarding data specs with a firm 48-hour response deadline.
+- [ ] Assign owner and lock in kickoff date for QA test design.
+- [ ] Establish and communicate decision authority delegation during Tech Lead absence.
+- [ ] Initiate scheduling alignment for the formal Go/No-Go release meeting.
+- [ ] Deploy standard defect tracking register and triage workflow.
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 危険度の判断が実際の案件状況と一致しているか
-- 顧客確認事項に、実際の顧客との関係性・契約条件に沿わない内容が含まれていないか
-- 社内での決定事項に、実際の組織体制・権限に合わない内容が含まれていないか
-- 次アクションの優先度が案件の実態と合っているか
-- AIが指摘していない、自分だけが知っているリスクがないか確認する
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 顧客提出・社内報告・納期回答・費用判断に使用する場合は、必ず担当者が内容を確認してください。
+Before utilizing this output operationally:
+- Verify whether the risk rating aligns with actual contractual obligations and client dynamics.
+- Check that client requests adhere to agreed-upon governance protocols.
+- Confirm internal resource availability before promising reviewer rebalancing.
+- Verify whether unstated constraints known only to you alter the priority ranking.

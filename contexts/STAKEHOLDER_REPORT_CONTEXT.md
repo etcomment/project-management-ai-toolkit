@@ -1,216 +1,132 @@
-﻿# ステークホルダー報告コンテキスト / Stakeholder Report Context
+# Stakeholder Report Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-上長・経営層・顧客責任者・PMOなどのステークホルダー向けに、案件状況・重要課題・判断事項を整理するためのコンテキストです。エグゼクティブサマリー・論点整理・意思決定依頼の構成を補助します。
+This context assists Project Managers in synthesizing project status, critical delivery risks, and strategic decisions for executive sponsors, steering committees, senior client leadership, and PMO directors.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・構成案の作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI assists in framing information and drafting executive summaries. Final strategic reports and governance presentations must be approved by human leadership.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 経営判断・顧客上位層への報告内容はAI出力をそのまま使わず、必ず人間が確認・修正してください。
+> Never submit real client names, corporate identities, personal information, contract figures, or credentials into the AI.
+> Content intended for C-level or client executives must be thoroughly validated by human management prior to presentation.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 上長・経営層向けの案件状況報告を整理したいとき
-- 重要な判断を上位者に依頼する文面のたたき台を作りたいとき
-- 顧客責任者向けの報告骨子を整理したいとき
-- PMOへの報告・相談内容を整理したいとき
-- 支援依頼・エスカレーション内容を整理したいとき
+- Drafting executive summaries for Steering Committee (SteerCo) decks
+- Preparing high-level briefing notes for executive sponsors and PMO directors
+- Structuring complex, technical delivery issues into clear business trade-offs
+- Requesting executive decisions, budget arbitrations, or cross-departmental escalations
+- Calibrating communication to focus on strategic outcomes, ROI, and delivery certainty
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 報告先の立場
-（例：部門長、経営層、顧客責任者、PMO など）
+### Stakeholder Context
+- Target Audience: (e.g., Executive Steering Committee, C-Suite, PMO Director)
+- Core Business Objective:
+- Current Overall Health: (Green / Amber / Red)
 
-### 案件状況
-（現在のフェーズ・進捗・全体的な状況の概要）
+### Strategic Progress & Milestones
+- Key business milestones achieved:
+- Upcoming critical delivery gates:
 
-### 重要な課題
-（現在発生している・懸念される主要課題を箇条書きで）
+### Critical Issues & Strategic Risks
+- Major blockers threatening timeline, budget, or business value:
+- Potential business impact:
 
-### 主要リスク
-（顕在化しているリスク・潜在リスクを箇条書きで）
-
-### 判断が必要な事項
-（ステークホルダーに判断・承認してもらう必要がある事項）
-
-### 支援してほしい事項
-（ステークホルダーに支援・介入をお願いしたい事項）
-
-### 報告期限
-（報告・送付のデッドライン）
-
-### 次回までの対応方針
-（PM側で対応予定のアクションと方針）
+### Specific Decisions / Approvals Requested
+- Formal decisions required from executive leadership:
+- Trade-off options presented:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. エグゼクティブサマリー
+### 1. Executive Summary (1-Page Briefing Format)
+Concise, high-impact synthesis of current health, business value delivered, and strategic horizon.
 
-報告先が1〜2分で現状を把握できる概要（3〜5行程度）。
+### 2. Milestone Achievement & Trajectory Tracker
+Status of core milestones relative to the approved business baseline.
 
-### 2. 現在の状況
+### 3. Strategic Risk Matrix
+Top delivery risks mapped against business impact and mitigation roadmaps.
 
-案件のフェーズ・進捗・全体的な状況の整理。
+### 4. Decision & Arbitration Memoranda
+Structured presentation of options requiring executive approval (Options A, B, C with trade-offs).
 
-### 3. 主要な論点
-
-現在の最重要課題と、その背景・影響の整理。
-
-### 4. 意思決定が必要な事項
-
-ステークホルダーに判断・承認を求める事項の整理。
-
-### 5. 支援依頼
-
-ステークホルダーに支援・介入をお願いしたい事項の整理。
-
-### 6. リスクと対応方針
-
-主要リスクとPM側の対応方針・見通しの整理。
-
-### 7. 次回までのアクション
-
-報告者（PM）が次回までに実施するアクションの一覧。
+### 5. Recommended Leadership Actions
+Specific interventions requested from sponsors to unblock delivery teams.
 
 ---
 
-## Caution（利用時の注意）
-
-- **経営判断・顧客上位層への報告はAI出力をそのまま使わないでください。** 必ず人間が内容を確認・修正してから送付してください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- 機密情報・認証情報はAIに入力しないでください。
-- 納期・費用・責任範囲に関する記述は特に慎重に確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、ステークホルダー向けの報告内容を整理してください。
+# Executive Stakeholder Briefing Request
 
-## コンテキスト
+Using the contexts below, structure a high-level executive report and decision memorandum based on the provided project data.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[STAKEHOLDER_REPORT_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 報告情報（機密情報はマスキング済み）
-
-### 報告先の立場
-（記入）
-
-### 案件状況
-（記入）
-
-### 重要な課題
-（記入）
-
-### 主要リスク
-（記入）
-
-### 判断が必要な事項
-（記入）
-
-### 支援してほしい事項
-（記入）
-
-### 報告期限
-（記入）
-
-### 次回までの対応方針
-（記入）
+[Paste contents of STAKEHOLDER_REPORT_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Project & Stakeholder Data (Sanitized)
 
-1. エグゼクティブサマリー（3〜5行）
-2. 現在の状況の整理
-3. 主要な論点（課題・背景・影響）
-4. 意思決定が必要な事項の整理
-5. 支援依頼内容の整理
-6. リスクと対応方針
-7. 次回までのアクション一覧
+[Paste sanitized stakeholder briefing data here]
 
-※ 経営判断・顧客上位層への報告はAI出力をそのまま使わず、必ず人間が確認してください。
-※ AI出力は整理のたたき台です。送付前に必ず人間が確認・修正してください。
+---
+
+## Requested Deliverables
+
+1. Executive Summary (High-Impact Briefing Format)
+2. Milestone Trajectory Tracker
+3. Strategic Risk Matrix
+4. Decision & Arbitration Memoranda (Structured Trade-Offs)
+5. Recommended Sponsor Actions
+
+*Note: AI output serves as analytical support. Final executive presentations require human leadership sign-off.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の案件状況をもとに、ステークホルダー向けの報告内容を整理してください。
-エグゼクティブサマリー、論点整理、意思決定依頼事項、次アクションを含めて出力してください。
+Draft an executive stakeholder briefing and decision memorandum based on the provided project data.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[STAKEHOLDER_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of STAKEHOLDER_REPORT_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【報告情報（機密情報はマスキング済み）】
-
-### 報告先の立場
-（記入）
-
-### 案件状況
-（記入）
-
-### 重要な課題
-（記入）
-
-### 主要リスク
-（記入）
-
-### 判断が必要な事項
-（記入）
-
-### 支援してほしい事項
-（記入）
-
-### 次回までの対応方針
-（記入）
+[Paste sanitized stakeholder briefing data here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 経営判断・契約・費用・責任範囲に関する事項は断定しないでください。
-- 経営層・顧客上位層への報告内容は、必ず人間が確認・修正してから使用してください。
+- Adopt an executive, strategic, and concise communication style.
+- Focus on business impact, delivery certainty, and clear trade-off choices.
+- Avoid technical minutiae; focus on governance, milestones, and risk mitigation.
 </constraints>
 <output_format>
-1. エグゼクティブサマリー（3〜5行）
-2. 現在の状況の整理
-3. 主要な論点（課題・背景・影響）
-4. 意思決定が必要な事項の整理
-5. 支援依頼内容の整理
-6. リスクと対応方針
-7. 次回までのアクション一覧
+1. Executive Summary (High-Impact Briefing Format)
+2. Milestone Trajectory Tracker
+3. Strategic Risk Matrix
+4. Decision & Arbitration Memoranda (Structured Trade-Offs)
+5. Recommended Sponsor Actions
 </output_format>
 ```

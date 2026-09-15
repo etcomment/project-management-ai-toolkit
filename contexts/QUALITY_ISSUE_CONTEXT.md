@@ -1,235 +1,134 @@
-﻿# 品質問題対応コンテキスト / Quality Issue Context
+# Quality Issue Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-不具合・レビュー漏れ・テスト不足・品質問題の原因と対策を整理するためのコンテキストです。事象の整理・原因分析・再発防止策の検討・報告文の骨子作成を補助します。
+This context assists Project Managers in framing quality failures, defect spikes, insufficient test coverage, and code review gaps. It supports root-cause analysis (RCA), preventive action formulation, and structured incident reporting.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI assists in categorizing facts and structuring analysis. Final technical assessments, warranty responses, and incident disclosures must be approved by human leadership.
 
 > [!CAUTION]
-> ソースコード・認証情報・詳細な技術仕様をAIに入力しないでください。
-> 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-> 障害報告・原因報告・謝罪文はAI出力をそのまま使わず、必ず人間・上長・必要に応じて法務が確認してください。
+> Never enter proprietary source code, credentials, or confidential system architectures into the AI.
+> Do not input real client names, corporate identities, or contract liability terms.
+> Incident reports, root-cause summaries, and corrective commitments must always be reviewed by management and legal counsel before external release.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 不具合・品質問題が発生したときに事象と原因を整理したいとき
-- 直接原因と背景要因を区別して整理したいとき
-- 再発防止策を検討したいとき
-- 顧客向け報告文のたたき台を作りたいとき
-- 社内改善アクションを整理したいとき
+- Conducting 5-Whys or Ishikawa root-cause analysis on critical production defects or QA escapes
+- Evaluating systemic quality risks (e.g., compressed UAT windows, inadequate regression testing)
+- Structuring permanent corrective and preventive action (CAPA) plans
+- Drafting objective, blameless quality incident reports for stakeholders
+- Establishing measurable quality gates and Definition of Done (DoD) criteria
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 発生した不具合・品質問題
-（事象の概要を箇条書きで。ソースコード・認証情報は含めないこと）
+### Defect Metadata
+- Incident / Defect Description:
+- Severity / Priority Level:
+- Discovery Phase: (e.g., Unit Testing, Integration Testing, UAT, Production)
+- Environments Impacted:
 
-### 発見タイミング
-（いつ・誰が・どのような状況で発見したか）
+### Quality Timeline & Chain of Events
+- When the defect was introduced (estimated):
+- Why it escaped earlier testing gates:
+- Root cause identified by engineering:
 
-### 影響範囲
-（影響を受ける機能・利用者・業務の範囲）
+### Operational Impact
+- Impact on end-users / client operations:
+- Downstream modules affected:
 
-### 暫定対応
-（すでに実施した暫定対応・応急処置）
-
-### 原因と考えられること
-（現時点での原因仮説を箇条書きで）
-
-### レビュー状況
-（コードレビュー・設計レビューがどのように行われていたか）
-
-### テスト状況
-（テスト計画・実施状況・テストカバレッジの概要）
-
-### 再発懸念
-（同様の問題が他の箇所でも発生しうると考えている根拠）
-
-### 顧客影響
-（顧客・利用者への具体的な影響と、現在の顧客の状況）
+### Preventive Measures Under Consideration
+- Proposed engineering, QA, or process improvements:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 事象整理
+### 1. Incident Executive Summary
+Factual, objective synthesis of the defect, impact, and immediate containment status.
 
-発生した事象の概要と発見経緯の整理。
+### 2. Root Cause Analysis (Direct vs. Systemic Causes)
+Distinguishing immediate technical triggers from underlying process or governance gaps.
 
-### 2. 直接原因
+### 3. Corrective & Preventive Action Plan (CAPA)
+Concrete, actionable measures categorized by Immediate Containment, Process Enhancement, and Long-Term Prevention.
 
-事象を直接引き起こした原因の整理。
+### 4. Quality Gate & Testing Hardening Measures
+Specific enhancements to test matrices, automated regression suites, or review checklists.
 
-### 3. 背景要因
-
-直接原因の背後にあるプロセス・体制・環境上の要因。
-
-### 4. 暫定対応のまとめ
-
-実施済みの暫定対応と、その効果・限界の整理。
-
-### 5. 恒久対応案
-
-根本的な修正・解決のために必要な対応の整理。
-
-### 6. 再発防止策
-
-プロセス・レビュー・テスト・体制の観点からの再発防止策案。
-
-### 7. 顧客影響のまとめ
-
-顧客・利用者への影響範囲と現在の状況の整理。
-
-### 8. 社内改善策
-
-組織・チームレベルでの改善が必要なポイント。
-
-### 9. 報告文の構成案
-
-顧客・上長への報告文を作成する際の構成と含めるべき要素。
+### 5. Stakeholder Communication Draft (Blameless & Objective)
+Professional incident summary suitable for client or executive review.
 
 ---
 
-## Caution（利用時の注意）
-
-- **障害報告・原因報告・謝罪文はAI出力をそのまま使わないでください。** 必ず人間・上長、必要に応じて法務が確認・修正してから送付してください。
-- ソースコード・認証情報・詳細な技術仕様はAIに入力しないでください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- 個人の責任を特定・断定するような内容はAIに求めないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、品質問題の原因と対策を整理してください。
+# Quality Incident & Root Cause Analysis Request
 
-## コンテキスト
+Using the contexts below, structure an objective root-cause analysis and preventive action plan for the quality issue described.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[QUALITY_ISSUE_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 品質問題の情報（機密情報はマスキング済み）
-
-### 発生した不具合・品質問題
-（記入）
-
-### 発見タイミング
-（記入）
-
-### 影響範囲
-（記入）
-
-### 暫定対応
-（記入）
-
-### 原因と考えられること
-（記入）
-
-### レビュー状況
-（記入）
-
-### テスト状況
-（記入）
-
-### 再発懸念
-（記入）
-
-### 顧客影響
-（記入）
+[Paste contents of QUALITY_ISSUE_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Incident Details (Sanitized)
 
-1. 事象整理
-2. 直接原因の整理
-3. 背景要因の整理
-4. 暫定対応のまとめ
-5. 恒久対応案
-6. 再発防止策（プロセス・レビュー・テスト・体制の観点で）
-7. 顧客影響のまとめ
-8. 社内改善策
-9. 顧客・上長向け報告文の構成案
+[Paste sanitized defect and quality data here]
 
-※ 障害報告・謝罪文はAI出力をそのまま使わず、必ず人間・上長・法務が確認してください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
+---
+
+## Requested Deliverables
+
+1. Incident Executive Summary
+2. Direct vs. Systemic Root Cause Analysis
+3. Corrective & Preventive Action Plan (CAPA)
+4. Quality Gate & Testing Hardening Recommendations
+5. Client-Facing Incident Briefing Draft
+
+*Note: AI output serves as analytical support. Final reports require human executive validation.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の品質問題について、事象整理・原因分析・対策・再発防止策・顧客影響をPM視点で整理してください。
+Structure an objective root-cause analysis, preventive action plan, and client briefing draft based on the provided quality incident.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[QUALITY_ISSUE_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of QUALITY_ISSUE_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【品質問題の情報（機密情報はマスキング済み）】
-
-### 発生した不具合・品質問題
-（記入）
-
-### 発見タイミング
-（記入）
-
-### 影響範囲
-（記入）
-
-### 暫定対応
-（記入）
-
-### 原因と考えられること
-（記入）
-
-### レビュー状況
-（記入）
-
-### テスト状況
-（記入）
-
-### 顧客影響
-（記入）
+[Paste sanitized defect and quality data here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 責任の断定・補償・賠償への言及はしないでください。
-- 障害報告・謝罪文のたたき台は、上長・法務の確認が必要と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Maintain a blameless, fact-focused, and constructive analytical posture.
+- Differentiate superficial technical bugs from systemic process vulnerabilities.
+- Ensure all customer-facing drafts are flagged for mandatory human review.
 </constraints>
 <output_format>
-1. 事象整理
-2. 直接原因・背景要因の整理
-3. 暫定対応のまとめ
-4. 恒久対応案
-5. 再発防止策
-6. 顧客影響のまとめ
-7. 顧客・上長向け報告文の構成案（たたき台）
+1. Incident Executive Summary
+2. Direct vs. Systemic Root Cause Analysis
+3. Corrective & Preventive Action Plan (CAPA)
+4. Quality Gate & Testing Hardening Recommendations
+5. Client-Facing Incident Briefing Draft
 </output_format>
 ```

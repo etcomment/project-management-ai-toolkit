@@ -1,46 +1,46 @@
+<!--
 > [!CAUTION]
-> **このPull Requestは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に含めないでください。**
-> 詳細は [`CONTRIBUTING.md`](../CONTRIBUTING.md) および [`SECURITY.md`](../SECURITY.md) を確認してください。
-
----
+> **This Pull Request will be public. NEVER include API keys, passwords, tokens, real client names, personal identities, corporate names, contract details, or confidential internal data.**
+> For guidelines, review [\`CONTRIBUTING.md\`](../CONTRIBUTING.md) and [\`SECURITY.md\`](../SECURITY.md).
+-->
 
 ## Summary
 
-<!-- 変更内容を簡潔に説明してください -->
+<!-- Briefly describe the changes introduced in this PR -->
 
-## Changed files
+## Changed Files
 
-<!-- 変更したファイルを列挙してください -->
+<!-- List the modified or added files -->
 
 - 
 
-## Type of change
+## Type of Change
 
-<!-- 該当する項目にチェックしてください -->
+<!-- Check all applicable boxes -->
 
-- [ ] 誤字脱字・表記ゆれ修正
-- [ ] ドキュメント改善
-- [ ] コンテキストファイル改善
-- [ ] プロンプトテンプレート改善
-- [ ] サンプル追加・改善
-- [ ] 安全注意・免責表現の改善
-- [ ] その他
+- [ ] Typo / phrasing refinement
+- [ ] Documentation improvement
+- [ ] Context file enhancement
+- [ ] Prompt template refinement
+- [ ] Example scenario improvement
+- [ ] Security warning / disclaimer reinforcement
+- [ ] Other
 
-## Safety checklist
+## Safety Checklist
 
 > [!IMPORTANT]
-> すべての項目を確認し、チェックしてから提出してください。
+> Verify every item and check all boxes before submitting this Pull Request.
 
-- [ ] 実在する顧客名・会社名・個人名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
-- [ ] 契約情報・NDA対象情報・機密情報を含めていません
-- [ ] ソースコードや業務秘密を含めていません
-- [ ] サンプルは架空データまたは抽象化した情報です
-- [ ] AI出力を業務判断の代替とする表現を追加していません
-- [ ] 免責・安全上の注意を弱めていません
-- [ ] hooks、command、shell script、MCP設定、GitHub Actionsを追加していません
-- [ ] Udemy導線を過度に増やしていません
+- [ ] No real client names, corporate identities, personal data, or real project titles are included
+- [ ] No API keys, passwords, access tokens, or credentials are included
+- [ ] No contract terms, NDA-restricted information, or proprietary secrets are included
+- [ ] No proprietary source code or trade secrets are included
+- [ ] All examples use strictly fabricated, fictitious, or abstracted data
+- [ ] No phrasing suggests AI outputs replace professional managerial or legal judgment
+- [ ] Disclaimers, liability limitations, and safety warnings have not been weakened
+- [ ] No executable hooks, background commands, shell scripts, MCP configs, or GitHub Actions were added
+- [ ] No excessive promotional or commercial links were added
 
 ## Notes
 
-<!-- 補足事項があれば記載してください -->
+<!-- Add any additional operational context if applicable -->

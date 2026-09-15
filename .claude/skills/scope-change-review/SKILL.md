@@ -1,126 +1,92 @@
 ---
 name: scope-change-review
-description: 仕様変更・スコープ変更の影響範囲、工数、納期、費用、確認事項を整理する。顧客から追加要望・仕様変更が来た、変更の影響範囲・工数・納期・費用を整理したい、顧客への説明・交渉のたたき台を作りたいときに使用します。
+description: Evaluate scope change requests against baseline delivery commitments; structure impacts on effort, timeline, cost, and client negotiation options. Use when new feature requests arise mid-development, to clarify baseline variance, and to build structured trade-off options.
 ---
 
 # Scope Change Review Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as a senior Project Manager specializing in IT delivery, contract boundaries, and scope governance.
 
-入力された仕様変更・スコープ変更の内容をPM視点で整理し、影響範囲・工数・納期・費用・顧客への確認事項を整理します。
+Evaluate the provided scope change request against baseline commitments to quantify technical effort, schedule impacts, commercial considerations, and trade-off options.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- 顧客から追加要望・仕様変更が来たとき
-- 変更の影響範囲を整理したいとき
-- 工数・納期・費用への影響を概算したいとき
-- 顧客への説明・交渉のたたき台を作りたいとき
-- 変更管理プロセスを進めるための情報を整理したいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 変更内容の概要
-- 当初スコープとの差分
-- 変更の背景・理由
-- 現在のプロジェクトフェーズ
-- 直近のマイルストーン・期限
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Receiving customer change requests or feature additions mid-development
+- Delineating clear variance between the approved requirements baseline and new requests
+- Quantifying the ripple effect on architecture, test cycles, and delivery milestones
+- Preparing structured trade-off options (Options A, B, C) for steering committee arbitration
+- Formulating clarifying questions to expose ambiguous customer requirements
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Analyze the scope change across the following 9 dimensions:
 
-入力された変更内容をもとに、以下のステップで整理してください。
-
-1. 変更内容と当初スコープとの差分を明確にする
-2. 機能・工程・他チーム・外部への影響範囲を整理する
-3. 工数・納期・費用への影響を概算する（根拠と前提を明示する）
-4. 顧客に確認・判断してもらう必要がある事項を整理する
-5. 顧客に提示できる対応パターン（フェーズ分割・追加費用・納期延長等）を複数案列挙する
-6. PMのみでは判断できない事項（エスカレーション候補）を特定する
-
-**入力情報が不足している場合でも、入力された範囲で概算・整理を行い、前提条件や不確かさを明示してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
+1. **Scope Change Categorization**: Classify requests as Major Addition, Minor Enhancement, or Defect/Clarification.
+2. **Baseline Scope Variance Analysis**: Delineate variance against the approved requirements baseline.
+3. **Cross-Functional Blast Radius**: Map impacts across architecture, existing functionality, test matrices, and documentation.
+4. **Technical Effort Assessment**: Estimate engineering, testing, and rework effort required.
+5. **Timeline & Milestone Impact**: Evaluate whether additions can be absorbed without breaching delivery milestones.
+6. **Contractual & Commercial Considerations**: Highlight risks of uncompensated effort or margin erosion.
+7. **Clarifications Needed from Client**: Formulate targeted questions to resolve ambiguities.
+8. **Structured Decision Options (Options A, B, C)**: Actionable trade-off scenarios (Full scope with extension, Phased delivery in v1.1, Scope swap/trade-off).
+9. **Internal Escalation Requirements**: Identify necessary approvals from account leadership or commercial directors.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-1. 変更内容の整理（当初スコープとの差分）
-2. 影響範囲（機能・工程・他チーム・外部）
-3. 工数影響（追加・削減の概算）
-4. 納期影響（遅延リスク・バッファ消費）
-5. 費用影響が生じうるポイント
-6. 顧客に確認すべきこと
-7. 提示する選択肢
-8. エスカレーション要否
+```markdown
+### 1. Scope Change Categorization Matrix
+| # | Requested Feature | Baseline Status | Change Type |
+|---|---|---|---|
+| 1 | ... | In Scope / Out of Scope | Major / Minor / Clarification |
 
----
+### 2. Baseline Scope Variance Analysis
+(Detailed comparison against approved requirements)
 
-<output_format>
-
-## Output Format（出力形式）
-
-以下の形式で日本語で出力してください。顧客への説明・交渉のたたき台として使えるよう、各項目を具体的に記載してください。
-
-### 変更内容整理
-
-| 項目 | 内容 |
+### 3. Cross-Functional Blast Radius
+| Impact Area | Operational Consequence |
 |---|---|
-| 変更内容 | |
-| 当初スコープとの差分 | |
-| 変更の背景 | |
+| Architecture / Database | ... |
+| Regression Testing | ... |
 
-### 影響範囲
-
-- 機能への影響：
-- 工程への影響：
-- 他チーム・外部への影響：
-
-### 工数・納期・費用への影響（概算）
-
-| 項目 | 概算 | 根拠・前提 |
+### 4. Technical Effort Assessment
+| Request | Estimated Effort (Days) | Remarks |
 |---|---|---|
-| 追加工数 | | |
-| 納期影響 | | |
-| 費用影響 | | |
+| ... | ... | ... |
 
-### 顧客への確認事項
+### 5. Timeline & Milestone Impact
+(Analysis of delivery date feasibility)
 
-顧客に確認・判断してもらう必要がある事項を、優先度順に列挙します。
+### 6. Contractual & Commercial Considerations
+(Margin risk, fixed-price implications, change order requirements)
 
-### 提示する選択肢
+### 7. Clarifications Needed from Client
+- (Questions to resolve ambiguous requirements)
 
-顧客に提示できる対応パターンを列挙します（例：フェーズ分割・追加費用・納期延長 等）。各案のメリット・デメリットも添えてください。
+### 8. Structured Decision Options (Options A, B, C)
+| Option | Scope Included | Timeline Impact | Commercial Impact |
+|---|---|---|---|
+| Option A | ... | ... | ... |
+| Option B | ... | ... | ... |
+| Option C | ... | ... | ... |
 
-### エスカレーション要否
-
-PMのみでは判断できない事項と、確認が必要な相手・タイミングを記載します。不要であれば「不要」と明記してください。
-
-</output_format>
+### 9. Internal Escalation Requirements
+(Management and commercial approvals needed)
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 工数・費用・納期の影響はあくまで概算です。正式な見積もりは別途実施してください。
-- 契約・費用に関わる変更は、法務・上長への確認を必ず行ってください。
-- 顧客への提示前には上長・担当者のレビューを受けてください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Strictly differentiate the contractual baseline from new requests.
+- Provide objective, balanced trade-off options.
+- Highlight any uncompensated scope creep that risks delivery stability.
+</constraints>

@@ -1,208 +1,104 @@
 ---
 name: pm-review
-description: PM視点でプロジェクト状況、Issue、進捗、課題、リスク、顧客影響、次アクションをレビューする。README・Issueリスト・仕様メモ・進捗メモをPM視点でレビューしたい、抜け漏れや担当者不明・期限不明のタスクを確認したいときに使用します。
+description: Review project status, issues, velocity, risks, client impacts, and next actions from a senior PM perspective. Use when auditing READMEs, issue backlogs, specification notes, and status updates, or when identifying blind spots, unassigned tasks, and missing deadlines.
 ---
 
 # PM Review Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMレビュー担当者として振る舞ってください。
+Act as a senior Project Management Reviewer with extensive expertise in IT project delivery, contract software engineering, web/mobile development, and enterprise systems.
 
-以下の観点からプロジェクトの状況をレビューし、PMが見落としているリスク・課題・次アクションを整理します。
+Review the project status across the dimensions below to surface overlooked risks, operational bottlenecks, and immediate next actions.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-以下のような場面で利用してください。
-
-- プロジェクトの README をPM視点でレビューしたいとき
-- Issue リストをPM視点で確認し、抜け漏れを指摘してほしいとき
-- 仕様メモ・要件メモをPM視点で整理してほしいとき
-- 進捗メモ・会議メモをPM視点でレビューしてほしいとき
-- タスク一覧の曖昧さ・担当者不明・期限不明を確認してほしいとき
+- Reviewing a development repository or project documentation from a PM perspective
+- Auditing an issue backlog or milestone plan for gaps and missing information
+- Identifying tasks lacking designated owners or definitive deadlines
+- Surfacing latent risks from progress notes and informal updates
+- Preparing for steering committee meetings or executive progress reviews
 
 ---
 
-## Input（入力内容）
+## Instructions
 
-以下の情報を、可能な範囲で入力してください。
+When the user provides project information (repository files, issue lists, progress notes, specification summaries), review the situation across these 7 dimensions:
 
-- README、Issue一覧、仕様メモ、進捗メモ、会議メモ、課題一覧
-- 担当者・期限・ステータス・依存関係など、確認したい運用情報
+### 1. Progress Management
+- Assess actual completed deliverables against planned milestones.
+- Identify early indicators of delivery bottlenecks or schedule slippage.
+- If variance is detected, analyze the blast radius, root causes, and recovery options.
 
----
+### 2. Issue Management
+- Audit the issue backlog for items lacking assigned owners or target dates.
+- Surface dormant issues or blockers left unaddressed.
+- Assess the impact scope and technical dependency chain for active issues.
 
-<instructions>
+### 3. Risk Management
+- Identify latent, unstated delivery risks alongside active issues.
+- Track external dependencies (client sign-offs, vendor APIs, infrastructure availability).
+- Evaluate whether risks warrant formal stakeholder escalation.
 
-## Approach（取り組み方）
+### 4. Client Communication
+- Assess whether customer expectations align with operational delivery realities.
+- Track pending client approvals and response deadlines.
+- Frame issues objectively: separate confirmed facts from technical assumptions.
 
-入力された情報をもとに、以下のステップで分析してください。
+### 5. Scope Management
+- Identify unapproved requirements additions or emerging scope creep.
+- Evaluate the ripple effect of scope changes on timeline, testing, and contractual boundaries.
 
-0. 入力されたドキュメントから、各レビュー観点に関連する記述を原文のまま特定し、分析の根拠として使用する
-1. 入力内容を精読し、事実・確認済み情報と推測・不明事項を区別する
-2. 下記 7 つのレビュー観点それぞれについて状況を評価する
-3. 全体の危険度を判定する（根拠を明確にする）
-4. 主要リスクを影響度・緊急度の順に整理する
-5. PMが直近で取るべき具体的なアクションを列挙する
+### 6. Quality Management
+- Identify systemic quality risks (compressed UAT windows, inadequate test coverage, defect spikes).
+- Ensure explicit Definition of Done (DoD) and release exit criteria are maintained.
 
-**入力情報が不足している場合でも、入力された範囲で分析を行い、不足情報は「情報不足」として明示してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
-
----
-
-## Review Points（レビューの観点）
-
-以下の観点でレビューします。
-
-### 1. 進捗の遅れ
-
-- 計画に対して遅延が発生しているか
-- 遅延の兆候がないか（バッファの減少、未着手タスクの積み上がり等）
-- マイルストーンへの影響があるか
-
-### 2. スコープ膨張
-
-- 当初のスコープに変更・追加が発生していないか
-- スコープ変更が契約・納期・費用に影響していないか
-- スコープが明確に定義されているか（曖昧なスコープはリスク）
-
-### 3. 品質リスク
-
-- テスト工程の計画が不十分でないか
-- 不具合・修正対応が追いついていないか
-- リリース前に確認すべき品質基準が明確になっているか
-
-### 4. 顧客期待値のズレ
-
-- 顧客の期待と実際の進捗・品質・スコープにズレがないか
-- 顧客確認待ちの事項が放置されていないか
-- 顧客への説明が不足していないか
-
-### 5. チーム内の認識齟齬
-
-- タスクの担当者が不明確でないか
-- 担当者間で認識の齟齬がありそうな事項はないか
-- 「誰かがやる」「TBD」「未定」が多くないか
-
-### 6. エスカレーション不足
-
-- PMだけで判断できない問題が放置されていないか
-- 上長・経営層・法務への報告が必要な事項がないか
-- 外部（顧客・ベンダー・パートナー）との調整が必要な事項はないか
-
-### 7. 次アクションの曖昧さ
-
-- 「次は〇〇をする」というアクションが具体的になっているか
-- 担当者・期限・完了条件が明確になっているか
-- 「確認する」「検討する」で止まっていないか
+### 7. Immediate Action Plan
+- Synthesize concrete, prioritized operational next steps for the PM and delivery team.
 
 ---
 
-<output_format>
+## Output Format
 
-## Output Format（出力形式）
+Structure your findings using the following schema:
 
-以下の形式で日本語で出力してください。各セクションを省略せず、情報が不足している項目は「情報不足」と明記してください。
+```markdown
+### 1. Executive Situation Summary
+(Concise 3-5 sentence synthesis of project health, momentum, and primary threats)
 
-### 状況要約
+### 2. Risk Level Rating
+- **Rating**: 🔴 High / 🟡 Medium / 🟢 Low / ⬜ Indeterminate
+- **Rationale**: (Clear, fact-based justification)
 
-プロジェクトの現在の状況を3〜5文で要約します。
-
-### 危険度
-
-以下の4段階で評価します。危険度の根拠を1〜2文で添えてください。
-
-| 危険度 | 目安 |
-|---|---|
-| 🔴 高（要即対応） | 納期・品質・顧客関係に重大なリスクが迫っている |
-| 🟡 中（注意が必要） | 複数の懸念事項があり、放置すると悪化する可能性がある |
-| 🟢 低（概ね順調） | 課題はあるが管理範囲内 |
-| ⬜ 判断不能 | 入力情報が不足している |
-
-### 主要リスク
-
-現在の状況で特に注意すべきリスクを、優先度順に列挙します。各リスクに「影響」と「推奨対応」を添えてください。
-
-### PMが次に確認すべきこと
-
-PMが直近で確認・判断すべき事項を、担当（役割）と期限の目安とともに列挙します。
-
-### 顧客に確認すべきこと
-
-顧客に対して確認・説明・相談すべき事項を列挙します。
-
-### 社内で決めるべきこと
-
-PM・上長・チームが社内で決定すべき事項を列挙します。
-
-### 次アクション
-
-直近で実施すべきアクションを、優先度・担当（役割）・期限の目安で整理します。
-
-```
-| 優先度 | アクション | 担当（役割） | 期限の目安 |
-|---|---|---|---|
-| 高 | | | |
-| 中 | | | |
-```
-
-</output_format>
-
-<examples>
-
-<example>
-
-### 状況要約
-開発フェーズ終盤だが、テスト工程の開始が1週間遅延しており、リリース日への影響が懸念される。担当者Aの対応タスクが複数滞留しており、チーム内の負荷分散が課題となっている。顧客への進捗報告は予定通り実施されているが、遅延の可能性についての説明はまだ行われていない。
-
-### 危険度
-🟡 中（注意が必要）
-テスト遅延が続けばリリース日に直結するリスクがあるため、今週中に対応を確定させる必要がある。
-
-### 主要リスク
-1. **テスト工程の遅延**
-   - 影響：リリース日が最大1週間後ろ倒しになる可能性
-   - 推奨対応：テスト開始日を確定し、顧客への事前説明を検討する
-
-2. **担当者Aへの集中リスク**
-   - 影響：担当者Aが離脱した場合、複数タスクが止まる
-   - 推奨対応：バックアップ担当者をアサインするか、タスクを再分配する
-
-### PMが次に確認すべきこと
-| アクション | 担当（役割） | 期限の目安 |
+### 3. Primary Critical Concerns
+| # | Concern | Operational Impact & Rationale |
 |---|---|---|
-| テスト開始日の確定と遅延影響の試算 | PM | 今日中 |
-| 顧客への遅延可能性の事前説明要否を上長と判断 | PM・上長 | 今週中 |
-| 担当者Aのタスク量を再確認し、再分配を検討 | PM | 今週中 |
+| 1 | ... | ... |
 
-</example>
+### 4. Overlooked Risks & Blind Spots
+- (Latent risks inferred from operational gaps)
 
-</examples>
+### 5. Confirmations & Decisions Required from Client
+- (Decisions, approvals, or specifications needed from the customer)
+
+### 6. Internal Managerial Decisions Required
+- (Decisions required from internal leadership, PMO, or engineering leads)
+
+### 7. Immediate Action Plan (Prioritized)
+| Priority | Action Item | Assigned Owner (Role) | Target Deadline |
+|---|---|---|---|
+| Critical / High / Med | ... | ... | ... |
+```
 
 ---
 
-## Caution（注意事項）
+## Operational Safeguards & Negative Constraints
 
-> **AI出力はPM判断の代替ではありません。**
->
-> このSkillを利用して出力された内容は、プロジェクトの進捗判断・顧客への回答・契約判断・納期確約・品質判断を代替しません。
->
-> 出力内容は必ず人間が確認・修正してから利用してください。
->
-> ---
->
-> **機密情報・個人情報・契約情報・認証情報を入力しないでください。**
->
-> 顧客名・個人名・会社名・APIキー・パスワード・トークン・契約情報・議事録全文・本番コードをClaude Codeに入力しないでください。
->
-> 業務情報を入力する場合は、事前に匿名化・要約化・マスキングを行ってください。
->
-> ---
->
-> **このSkillは hooks・command・shell script・MCP設定・GitHub Actions・自動実行・自動コミット・自動デプロイを含みません。**
->
-> このファイルはPMレビュー観点のサンプルドキュメントです。
-> 実行系の自動化機能は提供しません。
+<constraints>
+- Never prompt or request confidential client names, corporate identities, personal data, or credentials.
+- Base all findings strictly on provided inputs; explicitly mark unverified assumptions as "(Inferred)".
+- Never substitute for formal legal advice, contractual arbitration, or commercial binding decisions.
+- Frame all outputs as decision-support materials requiring qualified human PM validation.
+</constraints>

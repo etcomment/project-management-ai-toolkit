@@ -1,14 +1,12 @@
-# 課題・リスクレビュー — 実用サンプル
+# Issue & Risk Review — Practical Scenario
 
 ## Use Case
 
-課題一覧をAIに渡し、課題管理の抜け漏れと潜在リスクを洗い出す場面を想定しています。
-
-定期的な課題棚卸し・レビューをAIに補助させる例です。
+Auditing an active issue backlog from a senior PM perspective to uncover governance gaps, reprioritize blockers, and identify latent project risks.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/ISSUE_RISK_CONTEXT.md`
@@ -17,58 +15,58 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-確認日：第9週時点
+Project: Project Alpha (Fictitious)
+Review Date: Week 9
 
-【課題一覧】
+[Active Issue Backlog]
 
-No.1
-  タイトル：データ連携仕様の未確定
-  ステータス：対応中
-  担当者：開発リーダー
-  期限：今週末（顧客確認待ち）
-  影響範囲：外部連携機能全体
-  対応方針：顧客担当者Aへ確認依頼済み。回答待ち
-  外部依存：顧客担当者Aの回答が必要
+Issue #1
+  Title: Data synchronization interface specifications unconfirmed
+  Status: In Progress
+  Owner: Tech Lead
+  Deadline: End of this week (awaiting client sign-off)
+  Impact Scope: Entire External Integration Module
+  Action Plan: Formal review request submitted to Client Lead A. Awaiting response.
+  External Dependency: Requires client sign-off
 
-No.2
-  タイトル：テスト設計書が未作成
-  ステータス：未着手
-  担当者：未定
-  期限：未定
-  影響範囲：テスト全体（結合テスト・受入テスト）
-  対応方針：来週着手予定
-  外部依存：なし
+Issue #2
+  Title: Test Plan Specification document not drafted
+  Status: Not Started
+  Owner: Unassigned
+  Deadline: None
+  Impact Scope: Entire QA testing phase (Integration & UAT)
+  Action Plan: Kickoff planned for next week
+  External Dependency: None
 
-No.3
-  タイトル：バックエンドI/F定義の認識齟齬
-  ステータス：一部解消、残1点未確定
-  担当者：開発リーダー、バックエンド担当者
-  期限：来週の週次定例
-  影響範囲：バックエンド〜フロントエンド間の連携
-  対応方針：来週定例で最終確認
-  外部依存：なし
+Issue #3
+  Title: Backend I/F architectural definition misalignment
+  Status: Partially Resolved, 1 technical point outstanding
+  Owner: Tech Lead, Backend Dev
+  Deadline: Next weekly team sync
+  Impact Scope: Frontend-to-Backend data exchange contract
+  Action Plan: Final confirmation during upcoming technical sync
+  External Dependency: None
 
-No.4
-  タイトル：外部連携先との結合テスト日程未調整
-  ステータス：未着手
-  担当者：PM担当者
-  期限：未定
-  影響範囲：結合テスト期間全体
-  対応方針：来週から調整開始予定
-  外部依存：外部連携先（担当者B）のスケジュール確認が必要
+Issue #4
+  Title: Integration test schedule with external system partner not aligned
+  Status: Not Started
+  Owner: PM
+  Deadline: None
+  Impact Scope: Entire integration testing window
+  Action Plan: Initiate alignment next week
+  External Dependency: Partner technical counterpart schedule availability
 
-No.5
-  タイトル：リリース判定会議の日程未確定
-  ステータス：未着手
-  担当者：不明
-  期限：不明
-  影響範囲：リリース全体
-  対応方針：不明
-  外部依存：顧客担当者Aとの調整が必要
+Issue #5
+  Title: Date for formal Go/No-Go release gate meeting unconfirmed
+  Status: Not Started
+  Owner: Unknown
+  Deadline: Unknown
+  Impact Scope: Overall release process and launch gate
+  Action Plan: None
+  External Dependency: Coordination with Client Lead A required
 ```
 
 ---
@@ -76,115 +74,99 @@ No.5
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、課題一覧をPM視点でレビューしてください。
+After loading the context files below, review the active issue backlog from a senior PM perspective.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/ISSUE_RISK_CONTEXT.md
 
-【課題一覧】
-（上記の Sanitized Input を貼り付ける）
+[Active Issue Backlog]
+(Paste the Sanitized Input above)
 
-以下の観点で整理してください。
-1. 課題の分類
-2. 優先度の見直し
-3. 担当者不明・期限不明の課題
-4. 影響範囲が曖昧な課題
-5. 表面化していないリスク
-6. エスカレーション候補
-7. 次アクション
+Structure your audit across these dimensions:
+1. Issue Categorization Matrix
+2. Priority Realignment with Technical Rationale
+3. Governance Gap Identification (Unassigned / Missing Deadlines)
+4. Ambiguous Scope & Understated Blast Radius
+5. Latent Delivery Risks
+6. Escalation Candidate Shortlist
+7. Immediate Action Plan
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 課題の分類
+### 1. Issue Categorization Matrix
 
-| 分類 | 課題No. | タイトル |
+| Category | Issue ID | Summary |
 |---|---|---|
-| 顧客依存・外部依存 | No.1、No.4、No.5 | データ連携仕様、結合テスト日程調整、リリース判定会議日程 |
-| 内部対応（設計・実装） | No.3 | バックエンドI/F定義の認識齟齬 |
-| 内部対応（計画・体制） | No.2 | テスト設計書未作成 |
+| External / Client Dependencies | Issue #1, #4, #5 | Data sync specs, partner test alignment, release gate scheduling |
+| Internal Technical Architecture | Issue #3 | Backend I/F alignment |
+| Governance, Planning & Staffing | Issue #2 | Test plan specification unstarted |
 
 ---
 
-### 2. 優先度の見直し
+### 2. Priority Realignment with Technical Rationale
 
-| 課題No. | 現在の状況 | 推奨優先度 | 理由 |
+| Issue ID | Current Status | Recommended Priority | Justification & Critical Path Impact |
 |---|---|---|---|
-| No.2 | 未着手・担当者未定・期限未定 | **最高** | テスト設計の遅延は後工程全体に連鎖する。即着手が必要 |
-| No.1 | 顧客回答待ち | **高** | 外部連携機能の進行を阻害。回答が来た時点で即対応できる準備が必要 |
-| No.5 | 担当者不明・対応方針不明 | **高** | リリース判定の基準・合格条件が未整備のままリリース前まで気づかないリスクがある |
-| No.4 | 未着手・期限未定 | **中〜高** | 外部連携先の都合で日程が取れない場合、全体スケジュールに影響する |
-| No.3 | 一部解消 | **中** | 残1点のみ。来週定例での解消を確実に行う |
+| Issue #2 | Not started, Unassigned, No deadline | **P1 - Critical** | Test planning delay paralyzes downstream QA. Threatens go-live milestone directly. |
+| Issue #1 | Awaiting client response | **P2 - High** | Halting external integration. Must prepare dev team for immediate execution upon receipt. |
+| Issue #5 | Unowned, No action plan | **P2 - High** | Risks reaching deployment deadline without agreed-upon release acceptance criteria. |
+| Issue #4 | Unstarted, No deadline | **P2 - High** | Partner availability constraints could impose non-negotiable schedule slips. |
+| Issue #3 | Partially resolved | **P3 - Medium** | Localized technical point. Finalize in upcoming scheduled sync. |
 
 ---
 
-### 3. 担当者不明・期限不明の課題
+### 3. Governance Gap Identification (Missing Owners / Deadlines)
 
-| 課題No. | 問題点 | 推奨アクション |
+| Issue ID | Governance Vulnerability | Recommended Corrective Action |
 |---|---|---|
-| No.2 | 担当者未定、期限未定 | 今週中に担当者・着手日・期限を確定させる |
-| No.5 | 担当者不明、期限不明、対応方針不明 | PMがオーナーとなり、顧客との調整を開始する |
+| Issue #2 | Unassigned, No target date | Designate a lead QA author and set a firm completion deadline this week. |
+| Issue #5 | No owner, no deadline, no action plan | PM must assume direct ownership and initiate formal scheduling with client leadership. |
 
 ---
 
-### 4. 影響範囲が曖昧な課題
+### 4. Ambiguous Scope & Understated Blast Radius
 
-- **No.5（リリース判定会議）**：影響範囲は「リリース全体」と記載されているが、判定基準・合格条件・参加者・会議形式が不明。実質的に最重要課題である可能性がある。
-
----
-
-### 5. 表面化していないリスク
-
-- **テスト期間の圧縮リスク**：No.2（テスト設計未着手）とNo.4（結合テスト日程未調整）が重なっており、テスト工程全体が後ろ倒しになる可能性がある
-- **外部連携先の調整リスク**：No.4 は外部連携先の都合に依存している。先方の都合がつかない場合、日程変更が発生しうる
-- **顧客の認識ズレリスク**：No.5 が未確定のまま進むと、顧客とリリース基準の認識がずれたままリリース判定に臨むリスクがある
-- **課題管理表の網羅性リスク**：バグ管理表が未整備とのことで、テスト開始後の不具合が課題として登録されない可能性がある
+- **Issue #5 (Release Gate Meeting)**: Understated as merely "scheduling a meeting". In reality, it involves agreeing on Definition of Done, critical defect thresholds, roll-back criteria, and executive sign-off authority.
 
 ---
 
-### 6. エスカレーション候補
+### 5. Latent Delivery Risks
 
-- **No.5（リリース判定会議の日程未確定）**：担当者・方針ともに不明。PMが直接顧客担当者Aと日程調整を行い、判定基準を合意する必要がある。状況次第で上長への報告・判断を仰ぐことを検討する
-- **No.2（テスト設計書未作成）**：担当者未定のまま放置すると工程全体に影響する。体制上の問題がある場合は上長に報告が必要
+- **QA Window Compression**: Issues #2 (test design delay) and #4 (partner test misalignment) compound, threatening to crush the regression testing window.
+- **Third-Party Partner Inertia**: Issue #4 relies on external partner bandwidth; unaligned schedules frequently cause multi-week delays.
+- **Subjective Release Criteria**: If Issue #5 is unaddressed, the client may refuse acceptance at the final hour based on informal expectations.
 
 ---
 
-### 7. 次アクション
+### 6. Escalation Candidate Shortlist
 
-| # | アクション | 担当 | 期限 |
+- **Issue #5 (Release Gate Criterial & Schedule)**: PM must assume ownership and engage Client Lead A immediately; escalate to executive sponsors if alignment stalls.
+- **Issue #2 (Test Plan Ownership)**: If internal staffing constraints prevent assigning a qualified test lead, escalate to engineering director for immediate staffing support.
+
+---
+
+### 7. Immediate Action Plan
+
+| # | Action Item | Assigned Role | Target Deadline |
 |---|---|---|---|
-| 1 | No.2 テスト設計書の担当者・期限を確定 | PM担当者 | 今週中 |
-| 2 | No.5 リリース判定会議の日程・基準を顧客と調整開始 | PM担当者 | 今週中 |
-| 3 | No.4 外部連携先への日程調整連絡 | PM担当者 | 来週前半 |
-| 4 | No.1 顧客からの回答が届いた時点で即対応できる準備 | 開発リーダー | 随時 |
-| 5 | No.3 来週定例で残1点を確定 | 開発リーダー | 来週定例 |
+| 1 | Assign owner and lock in delivery date for Issue #2 (Test Plan) | PM | End of this week |
+| 2 | Initiate formal alignment on Issue #5 (Release gate date & criteria) | PM | End of this week |
+| 3 | Send formal scheduling inquiry for Issue #4 (Partner test window) | PM | Early next week |
+| 4 | Prepare dev team for immediate mobilization upon receipt of Issue #1 | Tech Lead | Ongoing |
+| 5 | Resolve final technical point for Issue #3 | Tech Lead | Next Weekly Sync |
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 課題の分類が実際の案件状況と一致しているか
-- 優先度の判断が実際の制約（納期、顧客との合意など）を踏まえているか
-- 表面化していないリスクの指摘に、案件の実態と合わない内容が含まれていないか
-- エスカレーション候補の判断を、自分の組織ルール・権限に照らして確認する
-- AIが見落としている、自分だけが知っている課題や背景情報がないか確認する
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** エスカレーション判断・顧客への確認・契約に関わる判断は、必ず担当者が確認した上で行ってください。
+Before acting on this audit:
+- Confirm whether the reprioritization aligns with negotiated contractual milestone penalties.
+- Verify whether escalation recommendations adhere to internal company governance thresholds.

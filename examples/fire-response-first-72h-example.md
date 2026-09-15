@@ -1,16 +1,16 @@
-# 炎上初動72時間の整理 — 実用サンプル
+# Fire Response: First 72 Hours — Practical Scenario
 
 ## Use Case
 
-重大な不具合がリリース直前に判明した場面を想定しています。
+Operational containment and crisis triage during the critical first 72 hours following the discovery of a critical production-blocking defect shortly before launch.
 
-炎上初動72時間において、事実・影響・未確認事項・初動対応をAIに整理させる例です。
+The objective is to leverage the AI to separate verified facts from speculation, evaluate blast radius, identify operational unknowns, and structure an immediate containment plan.
 
-**方針：** 原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先します。
+**Core Principle:** Prioritize objective facts, impact scoping, containment options, and immediate next steps over assigning blame or premature root-cause post-mortems.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/FIRE_RESPONSE_FIRST_72H.md`
@@ -19,49 +19,46 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-発生日時：リリース3日前（火曜日の午後）
+Project: Project Alpha (Fictitious)
+Incident Discovery: 3 days prior to production go-live (Tuesday afternoon)
 
-【何が起きたか】
-本番リリース直前の最終確認中に、決済処理に関わる重要機能で不具合が発見された。
-特定の条件下で処理が完了せず、エラーが返る事象が確認された。
+[What Happened]
+During final pre-release regression checks, a critical defect was discovered in the payment processing workflow. Under specific conditions, transactions fail to complete, returning a fatal system exception.
 
-【いつ発生したか】
-- 不具合が発見されたのは最終確認テスト中（火曜日午後）
-- 不具合が本番環境に存在していた期間は不明
-- 開発環境でも同様の事象が再現する
+[Timeline & Reproducibility]
+- Discovered during final regression sweeps (Tuesday afternoon)
+- Unconfirmed whether the defect existed in earlier staging builds
+- Defect reproduced consistently on both Development and Staging environments
 
-【顧客影響】
-- リリース日が金曜日の予定であり、顧客はリリースに向けた社内告知を既に開始済み
-- リリース延期となった場合、顧客への影響が大きい
-- 顧客担当者Aには未報告。どのタイミングで報告するか未決定
+[Client & Business Impact]
+- Go-live is scheduled for this Friday; client has already initiated company-wide internal launch announcements
+- Schedule postponement will trigger severe operational disruption for the customer
+- Client Lead A has not yet been notified; notification timing and framing remain unconfirmed
 
-【社内影響】
-- 開発担当者がすでに修正調査を開始している
-- 他機能への影響範囲がまだ確認できていない
-- テスト工程のやり直しが必要になる可能性がある
+[Internal & Engineering Impact]
+- Engineering team mobilized on technical diagnostics
+- Collateral blast radius on downstream order modules unconfirmed
+- Complete re-execution of the regression test suite may be required following any patch
 
-【現在分かっている事実】
-- 特定の条件下で決済処理が失敗する
-- 開発環境・検証環境ともに再現する
-- 条件の詳細はまだ特定中
+[Established Facts (Verified)]
+- Payment transactions fail under a specific data combination
+- Defect is reproducible on staging and dev environments
+- Discovery occurred at T-minus 3 days to release
+- Client has commenced internal launch announcements
+- Internal verbal escalation to executive delivery head completed
 
-【まだ分かっていないこと】
-- 不具合の根本原因
-- 他機能への影響
-- 修正に必要な工数
-- リリース日に間に合うかどうか
+[Current Unknowns (Unconfirmed)]
+- Exact technical root cause
+- Blast radius on adjacent modules
+- Engineering effort and time required for a clean fix
+- Feasibility of completing fix and full re-testing before Friday launch
 
-【すでに実施した対応】
-- 開発担当者が調査開始（火曜日午後）
-- 上長への口頭報告（火曜日夕方）
-
-【期限・制約】
-- リリース予定日：金曜日
-- 顧客はリリースを前提に社内告知を開始済み
+[Constraints & Immovable Deadlines]
+- Target Release Date: Friday morning
+- Client has published internal launch schedules
 ```
 
 ---
@@ -69,151 +66,120 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、炎上初動72時間の状況を整理してください。
+After loading the context files below, structure an operational crisis containment plan for the first 72 hours of the incident.
+Prioritize verified facts, blast radius, containment options, and immediate actions over premature root-cause speculation.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/FIRE_RESPONSE_FIRST_72H.md
 
-【状況】
-（上記の Sanitized Input を貼り付ける）
+[Incident Situation]
+(Paste the Sanitized Input above)
 
-原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先してください。
-
-以下の観点で整理してください。
-1. 事実と推測の切り分け
-2. 影響範囲の整理
-3. 今日中に確認すべきこと
-4. 顧客に伝えるべきこと
-5. 社内で決めるべきこと
-6. 初動対応リスト
-7. 72時間以内の対応計画
-8. エスカレーション要否
+Please structure the evaluation as follows:
+1. Segregation of Facts vs. Speculation
+2. Blast Radius & Impact Mapping
+3. Critical Day-0 Verifications (Due Today)
+4. Client Communication Framing (Holding Statement)
+5. Internal Executive Arbitrations Required
+6. Immediate Containment Checklist
+7. 72-Hour Phased Operational Plan
+8. Escalation Protocol & Authority Boundaries
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 事実と推測の切り分け
+### 1. Segregation of Facts vs. Speculation
 
-**確認された事実：**
-- 決済処理に関わる機能で不具合が発生している
-- 開発環境・検証環境ともに再現する
-- リリース3日前に判明した
-- 顧客はリリースを前提に社内告知を開始済み
-- 上長への口頭報告は完了している
+**Established Facts (Verified):**
+- Payment processing defect reliably reproduced under specific conditions on dev and staging.
+- Defect discovered at T-minus 3 days to scheduled release.
+- Client has already initiated internal launch announcements.
+- Internal leadership escalation completed verbally.
 
-**まだ確認できていない（推測・不明）：**
-- 不具合の根本原因
-- 他機能への影響範囲
-- 修正に必要な工数・時間
-- 本番環境に既に存在していたかどうか
-- リリース日に修正・再テストが間に合うかどうか
+**Active Inferences / Unknowns (Unconfirmed):**
+- Precise technical root cause.
+- Extent of collateral blast radius across adjacent order workflows.
+- Engineering hours required to develop, review, and test a fix.
+- Feasibility of completing verification before Friday morning launch without compromising quality.
 
 ---
 
-### 2. 影響範囲の整理
+### 2. Blast Radius & Impact Mapping
 
-| 対象 | 影響 | 確認状況 |
+| Dimension | Observed or Potential Impact | Current Verification Status |
 |---|---|---|
-| 決済処理機能 | 特定条件下でエラー発生 | 確認済み（再現性あり） |
-| 他機能への影響 | 不明 | 調査中 |
-| リリース日程 | 遅延の可能性あり | 修正工数次第 |
-| 顧客の社内告知 | すでに告知開始済みのため、延期時の顧客影響が大きい | 要確認 |
+| Payment Processing Module | Fatal exception under specific data parameters | Confirmed (Reproducible) |
+| Downstream Order Modules | Risk of data corruption or orphaned records | Under Investigation |
+| Deployment Schedule | Direct threat of go-live postponement | Dependent on fix effort estimate |
+| Client Organizational Impact | Severe disruption due to pre-announced launch | Confirmed High Risk |
 
 ---
 
-### 3. 今日中に確認すべきこと
+### 3. Critical Day-0 Verifications (Due Today)
 
-- [ ] 不具合の発生条件の特定（どのような操作・データで発生するか）
-- [ ] 他機能への影響範囲の調査完了
-- [ ] 修正対応の難易度・工数の見通し（「今週末に間に合うか」「いつなら間に合うか」）
-- [ ] 修正後の再テストに必要な期間の確認
-
----
-
-### 4. 顧客に伝えるべきこと
-
-> **注意：** 顧客への報告内容・タイミング・表現は、契約条件・顧客との関係性・社内の判断を踏まえて決定してください。AI出力をそのまま使わないでください。
-
-**報告のポイント（たたき台）：**
-
-- リリース前の確認テストで不具合が発見されたこと
-- 現在、原因調査と影響範囲の確認を進めていること
-- リリース日程への影響有無は、調査完了後に改めて報告すること
-- 現時点で判明した事実のみを伝え、憶測は含めないこと
-
-**顧客への報告タイミング：**
-- 影響範囲と修正見通しが判明した段階で報告することを推奨
-- ただし、顧客が告知を開始していることを踏まえ、「調査中である」という状況連絡は早期に行うことを検討する
+- [ ] Isolate exact data parameters and trigger conditions causing the transaction failure.
+- [ ] Conclude blast radius audit across adjacent order and reporting modules.
+- [ ] Obtain engineering estimate for fix implementation (best case vs. worst case).
+- [ ] Determine minimum required regression testing duration post-fix.
 
 ---
 
-### 5. 社内で決めるべきこと
+### 4. Client Communication Framing (Holding Statement)
 
-- リリース延期の判断基準（「いつまでに修正の見通しが立てば金曜リリースを目指すか」）
-- 顧客への報告タイミングと報告内容の承認フロー
-- 修正対応の優先順位とアサイン
-- リリース延期の場合の代替日程案
+> **Notice:** Client notification timing and wording must be approved by executive management. Do not transmit unvetted statements.
+
+**Key Briefing Points:**
+- Transparently state that a defect was identified during final pre-release sweeps and is under active technical investigation.
+- Explain that engineering teams are actively determining root cause and remediation effort.
+- Provide a commitment that a definitive status update and schedule impact assessment will be delivered by a specific time (e.g., Wednesday morning).
+- Stick strictly to verified facts; avoid premature promises that Friday launch is guaranteed.
 
 ---
 
-### 6. 初動対応リスト
+### 5. Internal Executive Arbitrations Required
 
-| # | 対応 | 担当 | 期限 |
+- **Postponement Threshold**: Define the hard cutoff time (e.g., Wednesday 12:00 PM) beyond which the launch must be formally postponed if a stable fix is not verified.
+- **Contingency Scope Options**: Evaluate whether launching with the payment feature temporarily disabled (phased rollout) is viable, or if a full release delay is required.
+- **Resource Mobilization**: Reassign senior backend engineers to support diagnostics and peer reviews.
+
+---
+
+### 6. Immediate Containment Checklist
+
+| # | Action Item | Assigned Role | Target Time |
 |---|---|---|---|
-| 1 | 不具合の発生条件・影響範囲の特定 | 開発担当者 | 今日中 |
-| 2 | 修正工数・見通しの確認 | 開発リーダー | 今日中 |
-| 3 | 上長へのステータス報告（調査状況の共有） | PM担当者 | 今日中 |
-| 4 | 顧客への報告タイミング・内容の社内合意 | PM担当者・上長 | 今日中 |
-| 5 | 顧客担当者Aへの状況連絡（合意内容に基づき） | PM担当者 | 社内合意後 |
+| 1 | Isolate trigger conditions and blast radius | Senior Backend Dev | Tonight (18:00) |
+| 2 | Deliver fix effort estimate and QA requirements | Tech Lead | Tonight (20:00) |
+| 3 | Executive situation sync with Delivery Head | PM | Tonight (20:30) |
+| 4 | Finalize client briefing posture and holding statement | PM / Executive Lead | Tonight (21:00) |
+| 5 | Issue formal status update to Client Lead A | PM | Wednesday (09:00) |
 
 ---
 
-### 7. 72時間以内の対応計画
+### 7. 72-Hour Phased Operational Plan
 
-| 時間軸 | 対応 |
-|---|---|
-| 今日中（Day 1） | 不具合の発生条件・影響範囲の特定。修正工数の見通し確定。顧客への報告方針を社内合意 |
-| 明日（Day 2） | 修正対応の開始。顧客担当者Aへの状況報告。リリース日程の最終判断（延期or強行の判断） |
-| Day 3（リリース前日） | 修正完了・再テスト実施。リリース可否の最終判断。顧客への結論報告 |
+- **Day 1 (Today / T-minus 3 Days)**: Triage root cause, quantify fix effort, align internal leadership, establish client holding briefing.
+- **Day 2 (Wednesday / T-minus 2 Days)**: Develop patch, conduct initial verification, hold formal executive Go/No-Go decision gate regarding Friday launch.
+- **Day 3 (Thursday / T-minus 1 Day)**: Deploy patch to staging, execute full regression sweeps, finalize go-live or execute postponement communications.
 
 ---
 
-### 8. エスカレーション要否
+### 8. Escalation Protocol & Authority Boundaries
 
-**エスカレーション推奨：**
-
-- リリース日程の変更判断は、PM単独では行わず、上長・関係者への報告・承認が必要
-- 顧客が告知を開始しているため、顧客への報告は上長確認の上で行うことを推奨
-- 修正が間に合わない場合の対応方針（一部リリース、機能制限、リリース延期）は社内で合議が必要
+- Deciding to postpone the launch or alter contractual scope exceeds PM authority; formal sign-off from the Executive Delivery Head is mandatory.
+- Client communications regarding release shifts must be approved by account leadership.
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 事実と推測の切り分けが実際の状況と一致しているか
-- 顧客への報告内容・タイミングが実際の契約条件・顧客との合意内容に沿っているか
-- 初動対応リストの優先順位が実際の体制・リソースと合っているか
-- エスカレーションの判断が組織のルール・権限範囲に沿っているか
-- AIが出力した「顧客に伝えるべき内容」をそのままメール・報告書にしないこと
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** リリース判断・顧客報告・エスカレーションは、必ず担当者・上長が確認した上で行ってください。
->
-> 顧客提出文書・社内報告・契約判断にAI出力をそのまま使用しないでください。
+Before taking operational action:
+- Confirm that the cutoff threshold for declaring a postponement is realistic given team stamina.
+- Ensure legal and contractual notification requirements are verified prior to client briefings.

@@ -1,279 +1,131 @@
-﻿# 見積前提整理コンテキスト / Estimation Context
+# Estimation Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-見積前に、要件メモ・前提条件・不明点・制約条件・除外範囲・不確実性を整理するためのコンテキストです。見積作業に入る前の確認事項の洗い出しと、見積前提の整理を補助します。
+This context assists Project Managers in framing estimation assumptions, identifying technical uncertainties, articulating scope exclusions, and preparing pre-estimation checklists before engaging in formal sizing.
 
-**AIはPMの判断を代替しません。また、AIに見積金額や契約条件の判断をさせないでください。** AIは見積前提・確認事項の整理補助に留めてください。
+**AI does not calculate binding cost estimates or contractual pricing.** Never delegate commercial pricing or contractual liability terms to AI. AI assists purely in structuring assumptions and scoping criteria.
 
 > [!CAUTION]
-> 見積金額・契約条件・認証情報・実在する案件の詳細情報はAIに入力しないでください。
-> 顧客名・社名・個人名をAIに入力しないでください。
-> 見積・費用判断・契約に関する最終決定は必ず人間が行ってください。
+> Never input actual contractual rates, billing amounts, budget limits, or proprietary client data into the AI.
+> Final estimation, cost modeling, and commercial commitments remain exclusively the responsibility of human leadership.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 見積作成の前に前提条件と不明点を整理したいとき
-- 要件メモから不確実性・リスクを洗い出したいとき
-- 除外範囲・対象外にすべき範囲を整理したいとき
-- 追加見積になる条件を事前に整理したいとき
-- 顧客への確認質問リストを作りたいとき
+- Structuring technical assumptions and constraints prior to engineering sizing workshops
+- Uncovering ambiguities and unstated requirements in customer specifications
+- Formalizing out-of-scope boundaries (exclusions) to prevent future scope creep
+- Quantifying architectural uncertainties and risk buffers needed in estimates
+- Preparing a clarification questionnaire for prospective clients prior to proposal submission
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 要件メモ・顧客要望の概要
-（機能・要件のメモ。ソースコード・認証情報は含めないこと）
+### Project Overview & Phase
+- Project Name (Sanitized):
+- Proposed Architecture / Tech Stack:
+- Project Delivery Model: (Fixed-Price, T&M, Target Cost)
 
-### 前提条件として確認しているもの
-（現時点で前提として置いている条件を箇条書きで）
+### Requirements Overview (Sanitized)
+- Core features & functional modules:
+- High-level integrations & external APIs:
 
-### 不明点・未確認事項
-（要件・仕様・環境・体制などで未確認の事項）
+### Known Constraints & Deadlines
+- Target delivery window:
+- Performance, security, or compliance constraints:
 
-### 制約条件
-（納期・体制・技術スタック・予算感など、制約として認識しているもの）
-
-### 対象外にしたい範囲
-（スコープから除外したい・すべきと考えている範囲）
-
-### 類似案件・参考情報（抽象化した情報のみ）
-（類似案件での傾向・工数感など、特定情報を除いた抽象的な参考情報）
-
-### 納期・体制の制約
-（納期の目安・使えるリソースの概要）
+### High-Risk / Uncertain Areas
+- Emerging technologies, undocumented legacy systems, or incomplete specs:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 見積前提のまとめ
+### 1. Pre-Estimation Assumption Register
+Formal catalog of functional, technical, and operational assumptions underlying the sizing.
 
-現時点での見積前提条件の整理。
+### 2. Boundary & Scope Exclusion Matrix
+Explicit listing of excluded items (Out of Scope) to safeguard commercial boundaries.
 
-### 2. 不確実性・リスクの整理
+### 3. Technical Uncertainty & Risk Profiling
+Categorizing features by technical volatility and recommended contingency buffers.
 
-見積に影響しうる不確実要素・リスクの一覧。
+### 4. Client Clarification Questionnaire
+Targeted questionnaire addressing ambiguous requirements before finalizing estimates.
 
-### 3. 確認すべき質問一覧
-
-顧客・発注者に確認が必要な質問の一覧。
-
-### 4. 除外範囲の整理
-
-スコープから除外すべき・すべきでない範囲の整理。
-
-### 5. 追加見積になる条件
-
-この条件が加わったら追加見積が必要になる、という条件の整理。
-
-### 6. リスクを含めた見積検討のメモ
-
-不確実性・リスクを踏まえた見積検討のための観点メモ（金額判断はAIに求めない）。
-
-### 7. 顧客に確認すべき事項のまとめ
-
-見積提出前に顧客・発注者に確認すべき事項の一覧。
+### 5. Sizing Structure & WBS Workstream Breakdown
+Logical decomposition into workstreams (Design, Core Dev, Integrations, QA, Deployment).
 
 ---
 
-## Caution（利用時の注意）
-
-- **見積金額・契約条件の判断をAIに求めないでください。** AIは見積前提・確認事項の整理補助に留めてください。
-- 実在する案件の見積書・契約書の内容はAIに入力しないでください。
-- 顧客名・社名・個人名・認証情報はAIに入力しないでください。
-- AI出力の見積前提・確認事項は、必ず人間が実情と照らし合わせて確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
-
-### 【基本テンプレート】見積前提を整理する
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、見積前の前提条件と確認事項を整理してください。
+# Pre-Estimation Scoping & Assumption Structuring Request
 
-## コンテキスト
+Using the contexts below, evaluate the proposed requirements and structure a comprehensive pre-estimation assumption catalog and clarification register.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 見積前情報（機密情報はマスキング済み）
-
-### 要件メモ・顧客要望の概要
-（記入）
-
-### 前提条件として確認しているもの
-（記入）
-
-### 不明点・未確認事項
-（記入）
-
-### 制約条件
-（記入）
-
-### 対象外にしたい範囲
-（記入）
-
-### 類似案件・参考情報（抽象化した情報のみ）
-（記入）
-
-### 納期・体制の制約
-（記入）
+[Paste contents of ESTIMATION_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Proposed Requirements (Sanitized)
 
-1. 見積前提のまとめ
-2. 不確実性・リスクの整理
-3. 確認すべき質問一覧（顧客向け）
-4. 除外範囲の整理
-5. 追加見積になる条件の整理
-6. リスクを含めた見積検討のための観点メモ
-7. 見積提出前に確認すべき事項のまとめ
+[Paste sanitized project requirements and constraints here]
 
-※ 見積金額・契約条件の判断はAIに求めないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+---
+
+## Requested Deliverables
+
+1. Pre-Estimation Assumption Register
+2. Explicit Boundary & Scope Exclusion Matrix
+3. Technical Uncertainty & Risk Profiling
+4. Client Clarification Questionnaire
+5. Sizing Workstream Decomposition (WBS Breakdown)
+
+*Note: AI output serves as analytical support. Commercial pricing and final estimates require qualified human management sign-off.
 ```
 
 ---
 
-### 【不明点洗い出し】見積に影響する不明点を整理する
-
-```text
-以下のコンテキストを前提として、見積に影響する不明点を洗い出してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 要件・状況情報（機密情報はマスキング済み）
-
-### 要件メモ・顧客要望の概要
-（記入）
-
-### 現時点での不明点
-（記入）
-
-### 類似案件・参考情報（抽象化した情報のみ）
-（記入）
-
----
-
-## 出力してほしいこと
-
-1. 見積に影響する不明点の一覧（内容・影響度・確認相手の役割）
-2. 確認が取れるまで見積に着手しないほうがよい事項
-3. 仮定を置いて見積を進める場合のリスクの整理
-4. 不明点の確認優先度案
-
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
-※ 見積金額・契約条件はAIに入力しないでください。
-```
-
----
-
-### 【除外範囲整理】スコープから除外すべき範囲を整理する
-
-```text
-以下のコンテキストを前提として、見積スコープから除外すべき範囲を整理してください。
-
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## スコープ情報（機密情報はマスキング済み）
-
-### 要件・機能の概要
-（記入）
-
-### 対象外にしたいと考えている範囲
-（記入）
-
-### 顧客要望の中で曖昧な部分
-（記入）
-
----
-
-## 出力してほしいこと
-
-1. 除外範囲の整理（除外すべき理由を含む）
-2. 除外すると顧客に影響が出る可能性がある事項の指摘
-3. 顧客に事前確認すべき除外範囲
-4. 追加見積になる条件の整理
-
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
-※ 機密情報・個人情報・認証情報はAIに入力しないでください。
-```
-
----
-
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の見積前情報をもとに、前提条件・不確実性・顧客確認事項・見積に含めるべき観点を整理してください。
+Structure a pre-estimation assumption catalog, scope boundary matrix, and client clarification questionnaire based on the provided requirements.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[ESTIMATION_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of ESTIMATION_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【見積前情報（機密情報はマスキング済み）】
-
-### 要件メモ・顧客要望の概要
-（記入）
-
-### 前提条件として確認しているもの
-（記入）
-
-### 不明点・未確認事項
-（記入）
-
-### 制約条件
-（記入）
-
-### 対象外にしたい範囲
-（記入）
+[Paste sanitized project requirements and constraints here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 具体的な金額・工数の断定はしないでください（不確実性を明示してください）。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 最終的な見積・契約・費用判断は人間が行う前提で出力してください。
+- Do not generate financial figures, billing rates, or commercial prices.
+- Focus strictly on technical scoping, baseline assumptions, and boundary exclusions.
+- Identify all points of ambiguity that could induce estimation variance.
 </constraints>
 <output_format>
-1. 前提条件の整理（確認済み・未確認の区別）
-2. 不確実性・リスクの高い箇所
-3. 顧客に確認すべき事項一覧
-4. 見積もりに含めるべき観点の整理
-5. スコープ除外候補と顧客影響の指摘
+1. Pre-Estimation Assumption Register
+2. Explicit Boundary & Scope Exclusion Matrix
+3. Technical Uncertainty & Risk Profiling
+4. Client Clarification Questionnaire
+5. Sizing Workstream Decomposition (WBS Breakdown)
 </output_format>
 ```

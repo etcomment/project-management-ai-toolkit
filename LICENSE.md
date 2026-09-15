@@ -1,82 +1,82 @@
-# ライセンス / License
+# License
 
-本リポジトリ「project-management-ai-toolkit」は、MIT ライセンスや Apache ライセンスなどの標準 OSS ライセンスではなく、以下の独自利用条件のもとで提供されます。
+The **project-management-ai-toolkit** repository is not distributed under a standard open-source license such as MIT or Apache, but under the following proprietary usage terms.
 
 ---
 
-## 著作権
+## Copyright
 
-Copyright © 株式会社テックエイド / TechAide Inc.
+Copyright © TechAide Inc. (TechAide Co., Ltd.)  
 https://techaide.jp/
 
 ---
 
-## 許可される利用
+## Permitted Uses
 
-以下の目的での利用を許可します。
+Usage is permitted for the following purposes:
 
-1. **個人学習・自己研鑽** における参照・利用
-2. **社内のプロジェクト管理業務** における参照・利用（非公開の社内利用）
-3. **内容を改変して社内利用すること**（社内での非公開利用）
-
----
-
-## 改変版を公開・再配布する場合の条件
-
-本資料を改変して公開・再配布する場合は、以下の条件をすべて満たしてください。
-
-1. 出典として本リポジトリの URL を明示すること
-   `https://github.com/techaide-jp/project-management-ai-toolkit`（またはその時点の正式 URL）
-2. 「株式会社テックエイドの公式版ではない」ことを明示すること
-3. 著作権表示（本ファイルの Copyright 表記）を削除しないこと
+1. **Individual Learning & Professional Self-Study**: Reference and skill development.
+2. **Internal Enterprise Project Management Operations**: Operational reference and workflow structuring (strictly for non-public internal corporate use).
+3. **Internal Customization**: Modifying and adapting contents for private, internal organizational usage.
 
 ---
 
-## 禁止事項
+## Conditions for Public Redistribution of Modified Versions
 
-以下の行為を禁止します。
+If you modify and publicly redistribute or publish these materials, you must strictly satisfy all of the following conditions:
 
-- 本資料を無断で再販売すること
-- 本資料を有料教材・有料サービス・有料ツールに無断で組み込むこと
-- 本資料を自社商品・自社コンテンツとして無断で再配布すること
-- 著作権表示・出典表示を削除すること
-- 本資料が株式会社テックエイドの公式コンテンツであるかのような誤認を招く表示を行うこと
+1. Provide clear attribution and a link to the original repository URL:  
+   `https://github.com/techaide-jp/project-management-ai-toolkit`
+2. Explicitly state that the redistribution is **"Not an official release of TechAide Inc."**
+3. Retain the original copyright notice and reference to this license without alteration.
 
 ---
 
-## 利用可否の早見表
+## Prohibited Acts
 
-| 利用内容 | 可否 | 補足 |
+The following acts are strictly prohibited:
+
+- Reselling these materials without prior authorization.
+- Incorporating these materials into paid educational courses, commercial SaaS products, or paid tools without prior written agreement from TechAide Inc.
+- Redistributing these materials as your own proprietary commercial software or course assets.
+- Removing copyright notices, source attributions, or liability disclaimers.
+- Any representation falsely implying that the content is an official product or service of TechAide Inc.
+
+---
+
+## Summary Permissions Matrix
+
+| Use Case | Permitted? | Conditions / Details |
 |---|---|---|
-| 個人学習で使う | 可 | 自己研鑽目的で利用可能 |
-| 社内のPM業務で参照する | 可 | 非公開の社内利用は可能 |
-| 社内向けに改変して使う | 可 | 社内での非公開利用に限る |
-| 出典を明記して改変版を公開する | 条件付き可 | 出典URL明示・公式版ではないことを明記する必要あり |
-| 無断で再販売する | 不可 | 禁止 |
-| 有料教材・有料サービスに組み込む | 原則不可 | 当社の書面による事前許可が必要 |
-| 著作権表示を削除する | 不可 | 禁止 |
+| Individual self-study | ✅ Yes | Permitted for personal educational advancement |
+| Internal company PM operations | ✅ Yes | Private internal organizational use permitted |
+| Internal company modifications | ✅ Yes | Strictly restricted to non-public internal use |
+| Public redistribution of modified work | ⚠️ Conditional | Mandatory source link, clear non-affiliation notice, and copyright retention |
+| Commercial resale without agreement | ❌ Prohibited | Strictly forbidden |
+| Integration into paid commercial training/SaaS | ❌ Prohibited | Requires prior written agreement from TechAide Inc. |
+| Removal of copyright notices | ❌ Prohibited | Strictly forbidden |
 
-※この表は利用条件の概要です。詳細は上記の各セクションおよび [docs/legal/TERMS.md](docs/legal/TERMS.md) を確認してください。
-
----
-
-## 現状有姿の提供
-
-本資料は現状有姿（as-is）で提供されます。
-
-内容の正確性・完全性・有用性・特定目的への適合性について保証しません。
-
-詳細は [docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md) を参照してください。
+*Note: This table is an operational summary. For full legal terms, refer to [docs/legal/TERMS.md](docs/legal/TERMS.md).*
 
 ---
 
-## 関連文書
+## "As-Is" Provision
 
-- 免責事項：[docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md)
-- 利用規約：[docs/legal/TERMS.md](docs/legal/TERMS.md)
-- セキュリティポリシー：[.github/SECURITY.md](.github/SECURITY.md)
+These materials are provided on an **"as-is"** basis.
+
+No warranty is provided regarding the accuracy, completeness, operational efficacy, or fitness for a particular purpose of these materials.
+
+For details, refer to [docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md).
 
 ---
 
-*株式会社テックエイド*
+## Related Documents
+
+- Disclaimer: [docs/legal/DISCLAIMER.md](docs/legal/DISCLAIMER.md)
+- Terms of Use: [docs/legal/TERMS.md](docs/legal/TERMS.md)
+- Security Policy: [.github/SECURITY.md](.github/SECURITY.md)
+
+---
+
+*TechAide Inc. (TechAide Co., Ltd.)*  
 *https://techaide.jp/*

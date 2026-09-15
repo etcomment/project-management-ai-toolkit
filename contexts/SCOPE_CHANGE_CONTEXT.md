@@ -1,228 +1,159 @@
-﻿# スコープ変更管理コンテキスト / Scope Change Context
+# Scope Change Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-仕様変更・スコープ変更・追加要望を整理し、影響範囲・工数・納期・費用・確認事項を洗い出すためのコンテキストです。変更要望への対応方針を検討するための整理補助に使用します。
+This context assists Project Managers in evaluating specification changes, scope modifications, and feature requests. It structures impact assessments across technical effort, delivery milestones, budgets, and contractual boundaries.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・論点の抽出を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI assists in organizing information and mapping dependencies. Final contractual and commercial decisions must be validated by human management.
 
 > [!CAUTION]
-> 契約条件・見積金額・法的責任範囲に関する記述はAIに入力しないでください。
-> 顧客名・社名・個人名・認証情報はAIに入力しないでください。
+> Never input specific contract values, commercial rates, or confidential client identities into the AI.
+> Ensure all project data is sanitized prior to analysis.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 顧客から仕様変更・追加要望が来たときに影響範囲を整理したいとき
-- 当初スコープとの差分を明確にしたいとき
-- 工数・納期・費用への影響を整理したいとき
-- 顧客に確認すべき事項を洗い出したいとき
-- 選択肢を整理して顧客・上長に提示したいとき
+- Structuring impact assessments when a customer requests changes or additions mid-flight
+- Delineating clear variance between the baseline contractual scope and requested additions
+- Quantifying the ripple effect on architecture, test cycles, and delivery milestones
+- Preparing structured trade-off options (Options A, B, C) for steering committee arbitration
+- Formulating clarifying questions to expose ambiguous customer requirements
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Information to Provide to the AI)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+After loading this context, submit the scope change details with confidential data masked:
 
 ```
-### 変更要望
-（顧客・関係者から出た変更・追加要望の内容を箇条書きで）
+### Project Baseline & Phase
+- Project Name (Sanitized):
+- Current Phase: (e.g., Mid-development, 70% completed)
+- Immovable Milestone Constraints:
 
-### 変更が出た背景
-（なぜこの変更要望が出たか、判明している理由）
+### Scope Change Requests
+- Detailed description of requested additions / modifications:
+- Origin & Business Rationale behind the request:
 
-### 当初スコープ
-（当初合意していた範囲の概要）
+### Baseline Scope (Contractual / Approved)
+- Functionality originally agreed upon in requirements specifications:
 
-### 追加になりそうな作業
-（変更対応で新たに発生しそうな作業）
+### Preliminary Technical Estimates
+- Estimated additional effort (engineering days/weeks):
+- System components & interfaces impacted:
+- Database schema or architecture impacts:
 
-### 影響しそうな機能・範囲
-（変更によって影響を受ける可能性がある機能・範囲）
-
-### 納期制約
-（変更前の納期・変更後の希望納期など）
-
-### 費用制約
-（変更に関して認識している費用上の制約）
-
-### 顧客に確認したいこと
-（変更対応前に顧客に確認が必要な事項）
+### Schedule & Commercial Constraints
+- Remaining timeline to release:
+- Flexibility of target delivery date:
+- Budgetary constraints / commercial contract model (Fixed-Price, Time & Materials):
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 変更内容の整理
+### 1. Scope Change Categorization Matrix
+Classifying each request as Major Addition, Minor Enhancement, or Defect/Clarification.
 
-変更要望の内容をわかりやすく整理したもの。
+### 2. Baseline Scope Variance Analysis
+Detailed contrast between the approved requirements baseline and the proposed changes.
 
-### 2. 当初スコープとの差分
+### 3. Cross-Functional Blast Radius
+Mapping the ripple effect across architecture, existing functionality, test matrices, and documentation.
 
-当初スコープと変更後の差分の一覧。
+### 4. Technical Effort & Capacity Assessment
+Estimated engineering, testing, and rework effort required.
 
-### 3. 影響範囲
+### 5. Critical Path & Timeline Impact
+Analysis of whether additions can be absorbed without breaching delivery milestones.
 
-変更によって影響を受ける可能性がある機能・工程・関係者の範囲。
+### 6. Contractual & Commercial Implications
+Highlighting risks of uncompensated effort, margin erosion, or contractual exposure under fixed-price models.
 
-### 4. 工数影響
+### 7. Clarifications Required from Client
+Targeted questions to resolve ambiguous requirements before committing.
 
-変更による工数の増減の概算（確認事項があれば指摘する）。
+### 8. Structured Decision Options (Options A, B, C)
+Actionable trade-off scenarios (e.g., Option A: Full scope with deadline extension; Option B: Phased delivery in v1.1; Option C: Scope swap/trade-off).
 
-### 5. 納期影響
-
-変更による納期への影響の概算と、調整が必要な可能性の指摘。
-
-### 6. 費用影響
-
-変更による追加費用が発生しうるポイントの整理（金額判断はAIに求めない）。
-
-### 7. 顧客に確認すべきこと
-
-変更対応前に顧客・発注者に確認が必要な事項の一覧。
-
-### 8. 提示する選択肢
-
-対応方針として検討できる選択肢と、それぞれのメリット・デメリット。
-
-### 9. エスカレーション要否
-
-上長・法務・契約担当へのエスカレーションが必要と思われる点の指摘。
+### 9. Internal Escalation & Approval Protocol
+Identifying required approvals from account leadership, legal, or commercial directors.
 
 ---
 
-## Caution（利用時の注意）
-
-- **契約・納期・費用・責任範囲に関する判断はAI出力をそのまま使わないでください。** 必ず人間・上長、必要に応じて法務が確認してください。
-- 顧客に提示する変更対応案・追加見積・納期回答は、AI出力をたたき台として、必ず人間が確認・修正してから送付してください。
-- 顧客名・社名・個人名・契約書の記載をAIに入力しないでください。
-- 機密情報・認証情報・ソースコードをAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、スコープ変更・仕様変更の影響を整理してください。
+# Scope Change Impact Assessment Request
 
-## コンテキスト
+Using the contexts below, evaluate the requested scope changes against the baseline project delivery.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[SCOPE_CHANGE_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 変更情報（機密情報はマスキング済み）
-
-### 変更要望
-（記入）
-
-### 変更が出た背景
-（記入）
-
-### 当初スコープ
-（記入）
-
-### 追加になりそうな作業
-（記入）
-
-### 影響しそうな機能・範囲
-（記入）
-
-### 納期制約
-（記入）
-
-### 費用制約
-（記入）
-
-### 顧客に確認したいこと
-（記入）
+[Paste contents of SCOPE_CHANGE_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Scope Change Data (Sanitized)
 
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響
-5. 納期影響
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべき事項一覧
-8. 対応方針の選択肢とメリット・デメリット
-9. エスカレーションが必要な点の指摘
+[Paste sanitized scope change details here]
 
-※ 契約・納期・費用・責任範囲に関する最終判断は必ず人間が行ってください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
+---
+
+## Requested Deliverables
+
+1. Scope Change Categorization Matrix
+2. Baseline Scope Variance Analysis
+3. Cross-Functional Blast Radius
+4. Technical Effort Assessment
+5. Timeline & Milestone Impact
+6. Contractual & Commercial Considerations
+7. Clarifications Needed from Client
+8. Structured Decision Options (Options A, B, C)
+9. Internal Escalation & Approval Requirements
+
+*Note: AI output serves as analytical support. Final contractual decisions remain human responsibility.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下のスコープ変更・仕様変更について、影響範囲・工数・納期・費用・確認事項を整理してください。
-対応方針の選択肢とエスカレーション要否も含めて出力してください。
+Evaluate the provided scope change request against baseline delivery commitments from a senior PM perspective.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[SCOPE_CHANGE_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of SCOPE_CHANGE_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【変更情報（機密情報はマスキング済み）】
-
-### 変更要望
-（記入）
-
-### 変更が出た背景
-（記入）
-
-### 当初スコープ
-（記入）
-
-### 追加になりそうな作業
-（記入）
-
-### 影響しそうな機能・範囲
-（記入）
-
-### 納期制約
-（記入）
-
-### 顧客に確認したいこと
-（記入）
+[Paste sanitized scope change details here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 契約・発注金額・法的責任範囲に関する記述はAIに入力しないでください。
-- 工数・納期・費用への影響は断定せず、「影響が生じうる」として整理してください。
-- 最終判断は契約・納期・費用・責任範囲を踏まえて人間が行う前提で出力してください。
+- Strictly differentiate the contractual baseline from new requests.
+- Provide objective, balanced trade-off options.
+- Highlight any uncompensated scope creep that risks delivery stability.
 </constraints>
 <output_format>
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響（概算・不確実性を明記）
-5. 納期影響が生じうるポイント
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべき事項一覧
-8. 対応方針の選択肢とメリット・デメリット
-9. エスカレーションが必要な点の指摘
+1. Scope Change Categorization Matrix
+2. Baseline Scope Variance Analysis
+3. Cross-Functional Blast Radius
+4. Technical Effort Assessment
+5. Timeline & Milestone Impact
+6. Contractual & Commercial Considerations
+7. Clarifications Needed from Client
+8. Structured Decision Options (Options A, B, C)
+9. Internal Escalation & Approval Requirements
 </output_format>
 ```

@@ -1,212 +1,133 @@
-﻿# 振り返り・ポストモーテムコンテキスト / Retrospective Context
+# Retrospective Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-プロジェクト完了後・トラブル後・スプリント後などの振り返りやポストモーテムを整理するためのコンテキストです。Keep / Problem / Try の整理・根本原因の分析・再発防止策・教訓のまとめを補助します。
+This context assists Project Managers in facilitating post-project, post-sprint, or post-incident retrospectives. It supports structuring lessons learned, categorizing Keep / Problem / Try (KPT) elements, conducting root-cause reviews, and institutionalizing continuous improvement.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI assists in organizing feedback and synthesizing takeaways. Retrospectives must foster psychological safety and team trust without assigning individual blame.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・認証情報はAIに入力しないでください。
-> 個人の評価・責任を特定するような内容はAIに求めないでください。
+> Never input real client names, corporate identities, individual identities, or credentials into the AI.
+> Do not use AI to conduct individual performance reviews or attribute personal culpability.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- プロジェクト完了後の振り返りを整理したいとき
-- スプリント後のレトロスペクティブの準備・整理をしたいとき
-- トラブル・障害後のポストモーテムをまとめたいとき
-- 根本原因を整理して再発防止策を検討したいとき
-- 次のプロジェクトへの教訓をまとめたいとき
+- Structuring project closeout retrospectives or sprint reviews (Scrum / Agile)
+- Organizing post-mortem analyses following project crises or major delivery milestones
+- Synthesizing feedback from team members into Keep, Problem, and Try frameworks
+- Formulating actionable organizational lessons learned for the PMO knowledge base
+- Developing continuous improvement initiatives for future delivery cycles
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### プロジェクトの結果・成果
-（プロジェクトの概要・成果・結果の概要）
+### Retrospective Metadata
+- Project / Sprint Name (Sanitized):
+- Delivery Cycle Duration:
+- Team Composition (Roles):
 
-### うまくいったこと
-（良かった点・成功要因を箇条書きで）
+### What Went Well (Keep / Positives)
+- Successful technical choices, processes, or teamwork dynamics:
 
-### 問題が起きたこと
-（課題・トラブル・失敗した点を箇条書きで）
+### What Encountered Friction (Problem / Challenges)
+- Difficulties in scope, schedule, quality, communication, or tooling:
 
-### 時系列（主要なイベント）
-（プロジェクト・スプリント・障害の主要なイベントの流れ）
+### Team Ideas & Suggestions (Try / Experiments)
+- Proposals from team members for future sprints:
 
-### 関係者の反応
-（顧客・チームメンバー・上長などの反応の概要）
-
-### 改善したいこと
-（次回に向けて改善したいプロセス・体制・作業方法）
-
-### 再発防止したいこと
-（繰り返したくない問題・失敗パターン）
+### Key Metrics & Delivery Outcomes
+- Variance against original schedule/budget:
+- Final defect counts & velocity:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 振り返りサマリー
+### 1. Retrospective Executive Synthesis
+Balanced summary highlighting key achievements, core bottlenecks, and overall trajectory.
 
-プロジェクト・スプリント・障害全体の振り返り概要（3〜5行程度）。
+### 2. Structured KPT Matrix (Keep / Problem / Try)
+Categorized feedback organized into clear operational themes (Engineering, Process, Governance, Collaboration).
 
-### 2. Keep / Problem / Try
+### 3. Systemic Root-Cause Insights
+Underlying organizational dynamics contributing to recurring friction points.
 
-| 分類 | 内容 |
-|---|---|
-| Keep（続けること） | |
-| Problem（問題だったこと） | |
-| Try（次回試みること） | |
+### 4. Prioritized Action Items for Next Cycle
+Top 3 to 5 high-impact process improvements with designated owners and measurable success criteria.
 
-### 3. 根本原因の整理
-
-問題の直接原因と、その背後にある根本原因の整理。
-
-### 4. 再発防止策
-
-根本原因に対応した再発防止策の案。
-
-### 5. 次回への教訓
-
-プロジェクト全体から学べる教訓・ベストプラクティスのまとめ。
-
-### 6. チーム改善アクション
-
-チームとして取り組むべき改善アクションの一覧。
-
-### 7. 次プロジェクトへの引き継ぎ事項
-
-次のプロジェクトに引き継ぐべきナレッジ・注意事項・前提条件。
+### 5. Institutional Lessons Learned (PMO Knowledge Asset)
+Key principles to add to the organizational playbook for future projects.
 
 ---
 
-## Caution（利用時の注意）
-
-- **個人の評価・責任を特定するような出力はAIに求めないでください。** 振り返りはプロセス・体制の改善を目的とします。
-- 顧客名・社名・個人名はAIに入力しないでください。役割（PM、開発リーダー、顧客担当者A など）に置き換えてください。
-- AI出力の振り返り資料はたたき台です。チームで議論・確認してから活用してください。
-- 顧客提出用のポストモーテムレポートは、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、振り返り・ポストモーテムの内容を整理してください。
+# Project Retrospective & Lessons Learned Request
 
-## コンテキスト
+Using the contexts below, structure the team's retrospective notes into an actionable continuous improvement plan.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[RETROSPECTIVE_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 振り返り情報（機密情報はマスキング済み）
-
-### プロジェクトの結果・成果
-（記入）
-
-### うまくいったこと
-（記入）
-
-### 問題が起きたこと
-（記入）
-
-### 時系列（主要なイベント）
-（記入）
-
-### 関係者の反応
-（記入）
-
-### 改善したいこと
-（記入）
-
-### 再発防止したいこと
-（記入）
+[Paste contents of RETROSPECTIVE_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Retrospective Input Data (Sanitized)
 
-1. 振り返りサマリー（3〜5行）
-2. Keep / Problem / Try の整理
-3. 根本原因の整理
-4. 再発防止策
-5. 次回への教訓・ベストプラクティス
-6. チーム改善アクション一覧
-7. 次プロジェクトへの引き継ぎ事項
+[Paste sanitized retrospective notes here]
 
-※ 個人の評価・責任の特定には使わないでください。
-※ AI出力は整理のたたき台です。チームで確認してから活用してください。
+---
+
+## Requested Deliverables
+
+1. Retrospective Executive Synthesis
+2. Structured KPT Matrix (Keep / Problem / Try)
+3. Systemic Root-Cause Insights
+4. Prioritized Action Items for Next Cycle (Owners & Success Metrics)
+5. Institutional Lessons Learned for the PMO Playbook
+
+*Note: AI output serves as analytical support. Final retrospective actions are decided by the team.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の振り返り情報をもとに、Keep / Problem / Try、根本原因、再発防止策、次への教訓を整理してください。
+Structure the provided retrospective notes into a comprehensive KPT matrix, root-cause analysis, and continuous improvement plan.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[RETROSPECTIVE_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of RETROSPECTIVE_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【振り返り情報（機密情報はマスキング済み）】
-
-### プロジェクトの結果・成果
-（記入）
-
-### うまくいったこと
-（記入）
-
-### 問題が起きたこと
-（記入）
-
-### 時系列（主要なイベント）
-（記入）
-
-### 関係者の反応
-（記入）
-
-### 改善したいこと
-（記入）
-
-### 再発防止したいこと
-（記入）
+[Paste sanitized retrospective notes here]
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 個人の評価・責任の特定には使わないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は整理のたたき台であり、チームで確認してから活用してください。
+- Maintain a blameless, growth-oriented, and constructive tone.
+- Group disparate comments into overarching systemic themes.
+- Ensure action items are concrete, measurable, and realistically scoped.
 </constraints>
 <output_format>
-1. 振り返りサマリー（3〜5行）
-2. Keep / Problem / Try の整理
-3. 根本原因の整理
-4. 再発防止策
-5. 次回への教訓・ベストプラクティス
-6. チーム改善アクション一覧
-7. 次プロジェクトへの引き継ぎ事項
+1. Retrospective Executive Synthesis
+2. Structured KPT Matrix (Keep / Problem / Try)
+3. Systemic Root-Cause Insights
+4. Prioritized Action Items for Next Cycle
+5. Institutional Lessons Learned for the PMO Playbook
 </output_format>
 ```

@@ -1,51 +1,51 @@
 ---
 name: New context request
-about: 新しいPM向けAIコンテキストファイルを提案する
+about: Propose a new AI context file for project management
 title: "[New Context]: "
 labels: new-context
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **This Issue is public. NEVER include API keys, passwords, tokens, client names, personal data, company names, contract terms, or confidential internal information.**
+> For security concerns, review [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 追加したいユースケース
+## Target Use Case
 
-<!-- どのような業務場面で使いたいか説明してください -->
+<!-- Describe the operational PM situation where this context would be applied -->
 
-## 想定利用者
+## Target Users
 
-<!-- 誰がこのコンテキストを使うか説明してください（PM / PMO / 開発リーダー など） -->
+<!-- Who will use this context? (e.g., PM / PMO / Tech Lead / Scrum Master) -->
 
-## AIに渡す Input
+## Input Provided to the AI
 
-<!-- どのような情報をAIに渡すか説明してください（架空の例で構いません） -->
+<!-- Describe what information the user provides to the AI (using fictitious examples) -->
 
-## AIに期待する Output
+## Expected Deliverables from the AI
 
-<!-- AIにどのような出力を期待するか説明してください -->
+<!-- Describe the structure and deliverables expected from the AI -->
 
-## 関連する既存ファイル（任意）
+## Related Existing Files (Optional)
 
-<!-- 既存のcontexts/やprompts/に近いファイルがあれば記載してください -->
+<!-- Mention any related files in contexts/ or prompts/ -->
 
-## なぜ新規ファイルが必要か
+## Why a New File is Required
 
-<!-- 既存ファイルで対応できない理由を説明してください -->
+<!-- Explain why existing context files cannot adequately address this need -->
 
-## 安全上の注意点（任意）
+## Safety & Governance Considerations (Optional)
 
-<!-- 提案するコンテキストに安全性上の配慮が必要な点があれば記載してください -->
+<!-- Note any specific precautions regarding data privacy or governance -->
 
 ---
 
-## Safety checklist
+## Safety Checklist
 
-投稿前に以下を確認してください。
+Verify before submitting:
 
-- [ ] このIssueに実案件情報・機密情報を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
-- [ ] hooks、shell script、MCP設定、GitHub Actionsの追加を要求していません
+- [ ] This Issue contains no real project data or confidential information
+- [ ] No API keys, passwords, tokens, or credentials are included
+- [ ] Does not request adding hooks, shell scripts, MCP configs, or GitHub Actions

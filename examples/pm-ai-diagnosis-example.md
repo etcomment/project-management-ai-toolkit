@@ -1,24 +1,14 @@
-# PM × AI 診断の利用例
+# PM × AI Diagnosis — Practical Scenario
 
-## このサンプルの目的
+## Use Case
 
-このサンプルは、`.claude/skills/pm-ai-diagnosis/SKILL.md` を使って、PM課題・AI活用課題・コミュニケーション課題を切り分ける例です。
-
-> [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
-
-> [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+Utilizing `.claude/skills/pm-ai-diagnosis/SKILL.md` to triage multi-faceted project delivery friction, distinguish PM challenges from AI workflow issues, and select the exact AI Contexts and Skills needed.
 
 ---
 
-## 使用するSkill
+## Contexts & Skills Used
 
 - `.claude/skills/pm-ai-diagnosis/SKILL.md`
-
-## 関連Context
-
 - `contexts/PM_CONTEXT.md`
 - `contexts/PROJECT_HEALTH_CHECK.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
@@ -27,91 +17,86 @@
 
 ---
 
-## 入力例
+## Sanitized Input
 
-### 通常版
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
-```text
-.claude/skills/pm-ai-diagnosis/SKILL.md の内容を前提として、
-以下の状況に合うContextとSkillを案内してください。
-【状況】
-現在、開発フェーズ中盤です。
-開発作業は進んでいますが、顧客確認待ちの仕様が複数あり、週次報告で何をどの粒度で伝えるべきか迷っています。
-課題管理表には課題が10件ありますが、担当者と期限が未設定のものもあります。
-AIを使って状況を整理したいのですが、どのContextを使えばよいか分かりません。
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+```
+We are currently in mid-development.
+Implementation is proceeding, but several specification decisions awaiting client confirmation remain blocked. I am struggling with how to frame these delays in our weekly client status report without sounding defensive.
+Additionally, our issue backlog contains 10 items, but several lack assigned owners or deadlines.
+I want to use AI to clean up and structure this situation, but I am overwhelmed by the options and unsure which Context file to start with.
+(All client names, corporate identities, and personal data have been sanitized.)
 ```
 
-### Claude向けXMLタグ版
+---
 
+## Prompts for Claude Code
+
+### Standard Prompt
+```text
+Based on .claude/skills/pm-ai-diagnosis/SKILL.md,
+diagnose the situation described above and guide me to the most effective Context files and Skills to resolve it.
+```
+
+### Claude Structured XML Prompt
 ```text
 <task>
-.claude/skills/pm-ai-diagnosis/SKILL.md の内容を前提として、
-以下の状況に合うContextとSkillを案内してください。
+Diagnose the project situation below and recommend the primary Contexts and Claude Code Skills needed based on .claude/skills/pm-ai-diagnosis/SKILL.md.
 </task>
 <input>
-【状況】
-現在、開発フェーズ中盤です。
-開発作業は進んでいますが、顧客確認待ちの仕様が複数あり、週次報告で何をどの粒度で伝えるべきか迷っています。
-課題管理表には課題が10件ありますが、担当者と期限が未設定のものもあります。
-AIを使って状況を整理したいのですが、どのContextを使えばよいか分かりません。
+[Paste Sanitized Input above]
 </input>
 <constraints>
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
-- 判断に必要な情報が不足している場合は「情報不足」と明記してください。
-- 推奨するContextとSkillの理由を明示してください。
+- Clearly distinguish pure PM challenges from AI workflow bottlenecks and communication hurdles.
+- Provide concrete operational rationales for each recommendation.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Expected Output
 
-以下のような観点で出力されることを期待します。
-
-### 診断結果サマリー
-
-- PM課題、AI活用課題、コミュニケーション課題が分けて整理される
-- 最初に使うべきContextが提示される
-- 併用するとよいSkillが提示される
-
-### 課題の分類
-
-| 分類 | 内容 | 優先度 |
-|---|---|---|
-| PM課題 | 顧客確認待ちの仕様が複数あり、課題管理表にも担当者・期限未設定のものがある | 高 |
-| AI活用課題 | どのContextを使えばよいか判断できていない | 中 |
-| コミュニケーション課題 | 週次報告で顧客へ何を伝えるべきか迷っている | 高 |
-
-### まず使うべきContext
-
-| 優先度 | Context | 使う理由 |
-|---|---|---|
-| 高 | `contexts/ISSUE_RISK_CONTEXT.md` | 担当者・期限未設定の課題を整理するため |
-| 高 | `contexts/STATUS_REPORT_CONTEXT.md` | 週次報告を社内向け・顧客向けに分けるため |
-| 中 | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 顧客確認待ち事項の伝え方を整理するため |
-
-### 併用するとよいSkill
-
-| 優先度 | Skill | 使う理由 |
-|---|---|---|
-| 高 | `issue-risk-review` | 課題管理表の抜け漏れを確認するため |
-| 高 | `status-report` | 週次報告を整理するため |
-| 中 | `stakeholder-strategy` | 顧客・社内への伝え分けを整理するため |
+An illustrative example of the expected AI evaluation:
 
 ---
 
-## Human Review Points
-
-- 診断結果が実際の案件状況と合っているか
-- AIが推奨したContextが目的に合っているか
-- 顧客提出・社内報告に使う前に人間が内容を確認したか
-- 機密情報・個人情報が含まれていないか
+### 1. Diagnostic Summary
+The situation exhibits three interrelated challenges: an operational issue tracking vulnerability (unassigned blockers), a client communication dilemma (how to report delays diplomatically), and an AI workflow question (which toolkit resources to deploy first).
 
 ---
 
-## 次に確認するとよいページ
+### 2. Challenge Categorization Matrix
 
-- `docs/use-case-map.md`
-- `docs/learning-roadmap.md`
-- `docs/ai-safety.md`
+| Category | Identified Friction | Urgency |
+|---|---|---|
+| **PM Delivery Issue** | Multiple specifications pending client sign-off; backlog contains unowned and open-ended items | High |
+| **Communication Issue** | Uncertainty over tone and framing for weekly client reporting | High |
+| **AI Workflow Issue** | Uncertainty over which toolkit Contexts and Skills to deploy | Medium |
+
+---
+
+### 3. Recommended Primary Contexts (`contexts/`)
+
+| Priority | Context File | Operational Purpose |
+|---|---|---|
+| **High** | `contexts/ISSUE_RISK_CONTEXT.md` | Clean up the 10 backlog issues, assign clear owners, and evaluate critical path impact. |
+| **High** | `contexts/STATUS_REPORT_CONTEXT.md` | Generate separate internal and diplomatic client-facing progress reports. |
+| **Medium** | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | Draft a targeted follow-up email establishing a firm response deadline for pending specs. |
+
+---
+
+### 4. Recommended Claude Code Skills (`.claude/skills/`)
+
+| Priority | Skill Name | Operational Purpose |
+|---|---|---|
+| **High** | `issue-risk-review` | Audit the issue log and surface governance blind spots. |
+| **High** | `status-report` | Structure the weekly report with an executive summary and risk table. |
+| **Medium** | `stakeholder-strategy` | Calibrate messaging between client management and internal engineering leads. |
+
+---
+
+### 5. Implementation Roadmap (Step-by-Step)
+1. **Step 1**: Load `contexts/ISSUE_RISK_CONTEXT.md` and audit your 10-item backlog to assign owners and deadlines.
+2. **Step 2**: Use `contexts/STATUS_REPORT_CONTEXT.md` to draft the weekly report, framing client delays objectively.
+3. **Step 3**: Use `contexts/CLIENT_COMMUNICATION_CONTEXT.md` to send a diplomatic reminder regarding the pending specifications.

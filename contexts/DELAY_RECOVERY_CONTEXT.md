@@ -1,232 +1,163 @@
-﻿# 遅延リカバリー対応コンテキスト / Delay Recovery Context
+# Delay Recovery Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-遅延発生時に、遅延原因・影響範囲・リカバリー案・優先順位・顧客説明方針を整理するためのコンテキストです。遅延対応の初動と対応方針の検討を補助します。
+This context assists Project Managers in framing root causes, evaluating critical path impacts, generating schedule recovery options, and structuring customer communication when delivery slips occur.
 
-**AIはPMの判断を代替しません。** AIは状況整理とリカバリー案の列挙を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI assists in organizing facts and formulating recovery scenarios (crashing, fast-tracking, scope pruning). Final schedule and commercial commitments must be made by human leadership.
 
 > [!CAUTION]
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 納期や費用に関する確約・回答はAI出力をそのまま使わず、必ず人間が判断してください。
+> Never submit unmasked client names, individual identities, contract terms, or credentials into the AI.
+> Commitment to new deadlines or commercial terms requires human manager verification and approval.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 遅延が発生・顕在化したときに状況を整理したいとき
-- リカバリー策の選択肢を洗い出したいとき
-- 顧客への遅延説明の骨子を作りたいとき
-- 社内エスカレーション資料の骨子を整理したいとき
-- 72時間以内の対応計画を立てたいとき
+- Analyzing root causes and blast radius when schedule slippage emerges
+- Evaluating recovery options: fast-tracking (parallelization), crashing (adding capacity), or scope descoping
+- Drafting objective, professional explanations of variance for clients
+- Structuring internal escalation briefings for senior executive leadership
+- Creating an operational intervention plan for the next 24 to 72 hours
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Information to Provide to the AI)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+After loading this context, submit the delay data with confidential details masked:
 
 ```
-### 遅延している作業
-（遅延が発生している作業・機能・工程を箇条書きで）
+### Project Metadata
+- Project Name (Sanitized):
+- Current Phase:
+- Remaining Time to Final Release:
 
-### 遅延理由
-（遅延の原因として考えられることを箇条書きで）
+### Delayed Workstreams
+- Specific activities experiencing slippage:
+- Measured delay (days/weeks):
+- Root causes (external dependency delays, staffing friction, technical blockers):
 
-### 遅延日数・規模感
-（何日／何週間の遅延か、または影響の規模感）
+### Remaining Work & Critical Path
+- Detailed list of remaining tasks:
+- Workstreams located strictly on the critical path:
 
-### 残作業
-（現時点で残っている作業の一覧）
+### Available Resources & Levers
+- Current team capacity & bandwidth:
+- Feasibility of external engineering reinforcement:
+- Non-critical features potentially eligible for scope trade-offs:
 
-### クリティカルパス
-（納期に直接影響する作業の流れ）
-
-### 使えるリソース
-（追加投入できる人・外部リソースの有無など）
-
-### 変えられない納期・制約
-（顧客との合意や契約上、変えられない日程・制約）
-
-### 顧客影響
-（遅延によって顧客・利用者に発生する影響）
-
-### すでに実施した対応
-（すでに対処済みのこと）
+### Constraints & Immovable Deadlines
+- Contractual or client-announced hard delivery dates:
+- Client counterpart notification status:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 遅延原因の整理
+### 1. Root Cause Diagnosis
+Categorizing delay factors into external dependencies vs. internal execution challenges.
 
-直接原因・背景要因の分類と整理。
+### 2. Critical Path Impact Assessment
+Analyzing how upstream slippages compress downstream test windows and final release gates.
 
-### 2. 影響範囲
+### 3. Structured Recovery Scenarios (Options A, B, C)
+Evaluating actionable paths:
+- Option A: Critical path focus & test case prioritization
+- Option B: Capacity crashing (reinforcements)
+- Option C: Scope pruning / descoping non-core features to v1.1
 
-遅延によって影響を受ける作業・機能・関係者の範囲。
+### 4. Operational Priority Ranking
+Determining which workstreams must receive 100% focused capacity immediately.
 
-### 3. リカバリー案
+### 5. Task Pruning & De-scoping Candidates
+Identifying non-critical, secondary tasks that can be deferred or simplified safely.
 
-遅延を回復するための選択肢（複数案）とそれぞれのトレードオフ。
+### 6. Resource Support & Reinforcement Requirements
+Pinpointing specific technical or testing resources required to compress timelines.
 
-### 4. 優先順位の整理
+### 7. Client Communication Strategy
+Framing transparent, constructive explanations for the customer focused on containment and reliable next dates.
 
-残作業をどの順で対応すべきかの優先度案。
+### 8. Internal Escalation & Governance Alignment
+Outlining required managerial sign-offs before communicating with clients.
 
-### 5. 削れる可能性がある作業
-
-品質・納期のバランスを考慮したとき、一時的に範囲を絞れる可能性がある作業の指摘。
-
-### 6. 追加支援が必要な作業
-
-外部リソース・上長支援が必要と思われる作業の指摘。
-
-### 7. 顧客への説明案（骨子）
-
-遅延を顧客に説明する際の構成案・ポイント。
-
-### 8. 社内エスカレーション案（骨子）
-
-上長・関係部門へのエスカレーション内容の構成案。
-
-### 9. 次の24〜72時間の対応
-
-直近で実施すべきアクションの一覧と優先順位。
+### 9. Immediate Operational Plan (Next 24 to 72 Hours)
+Concrete, hour-by-hour action plan to stabilize project velocity.
 
 ---
 
-## Caution（利用時の注意）
-
-- **納期・費用・責任範囲に関する顧客への回答はAI出力をそのまま使わないでください。** 必ず人間・上長が確認・判断してください。
-- 顧客への遅延説明文はたたき台として活用し、最終的には人間が内容を確認・修正してから送付してください。
-- 個人の責任を特定するような内容はAIに入力しないでください。
-- 顧客名・社名・個人名・契約情報をAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、遅延状況の整理とリカバリー方針を検討してください。
+# Schedule Delay Recovery Request
 
-## コンテキスト
+Using the contexts below, structure an operational delay recovery strategy based on the provided project data.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[DELAY_RECOVERY_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 遅延状況（機密情報はマスキング済み）
-
-### 遅延している作業
-（記入）
-
-### 遅延理由
-（記入）
-
-### 遅延日数・規模感
-（記入）
-
-### 残作業
-（記入）
-
-### クリティカルパス
-（記入）
-
-### 使えるリソース
-（記入）
-
-### 変えられない納期・制約
-（記入）
-
-### 顧客影響
-（記入）
-
-### すでに実施した対応
-（記入）
+[Paste contents of DELAY_RECOVERY_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Delay Data (Sanitized)
 
-1. 遅延原因の整理（直接原因・背景要因）
-2. 影響範囲
-3. リカバリー案（複数案・トレードオフを含む）
-4. 残作業の優先順位案
-5. 削れる可能性がある作業の指摘
-6. 追加支援が必要な作業の指摘
-7. 顧客向け遅延説明の骨子
-8. 社内エスカレーション案の骨子
-9. 次の24〜72時間で実施すべきアクション
+[Paste sanitized schedule and delay details here]
 
-※ 納期・費用・責任範囲に関する判断は必ず人間が行ってください。
-※ AI出力は整理のたたき台です。顧客提出前に必ず人間が確認してください。
+---
+
+## Requested Deliverables
+
+1. Root Cause Diagnosis
+2. Critical Path Impact Assessment
+3. Structured Recovery Scenarios (Options A, B, C)
+4. Operational Priority Ranking
+5. Task Pruning & De-scoping Candidates
+6. Resource Support Requirements
+7. Client Communication Strategy
+8. Internal Escalation & Governance Alignment
+9. Immediate Operational Plan (Next 24 to 72 Hours)
+
+*Note: AI output serves as analytical support. Final recovery commitments remain human responsibility.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の遅延状況について、遅延原因・影響範囲・リカバリー案・優先順位・顧客説明方針を整理してください。
+Structure an operational schedule delay recovery plan based on the provided project situation.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[DELAY_RECOVERY_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of DELAY_RECOVERY_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【遅延状況（機密情報はマスキング済み）】
-
-### 遅延している作業
-（記入）
-
-### 遅延理由
-（記入）
-
-### 遅延日数・規模感
-（記入）
-
-### 残作業
-（記入）
-
-### 変えられない納期・制約
-（記入）
-
-### 顧客影響
-（記入）
-
-### すでに実施した対応
-（記入）
+[Paste sanitized schedule and delay details here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 納期・費用・責任範囲に関する確約表現は含めないでください。
-- 顧客向け説明文のたたき台は、上長・関係者の確認が必要と明記してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Prioritize critical path feasibility and objective recovery options.
+- Frame client explanations constructively without making premature schedule promises.
+- Highlight risks associated with compressed testing or task pruning.
 </constraints>
 <output_format>
-1. 遅延原因の整理（直接原因・背景要因）
-2. 影響範囲
-3. リカバリー案（複数案・トレードオフを含む）
-4. 残作業の優先順位案
-5. 顧客向け遅延説明の骨子（たたき台）
-6. 社内エスカレーション案の骨子
-7. 次の24〜72時間で実施すべきアクション
+1. Root Cause Diagnosis
+2. Critical Path Impact Assessment
+3. Structured Recovery Scenarios (Options A, B, C)
+4. Operational Priority Ranking
+5. Task Pruning & De-scoping Candidates
+6. Resource Support Requirements
+7. Client Communication Strategy
+8. Internal Escalation & Governance Alignment
+9. Immediate Operational Plan (Next 24 to 72 Hours)
 </output_format>
 ```

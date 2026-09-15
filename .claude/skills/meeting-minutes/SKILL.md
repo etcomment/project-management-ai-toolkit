@@ -1,118 +1,81 @@
 ---
 name: meeting-minutes
-description: 会議メモから議事録、決定事項、未決事項、TODO、次回確認事項を整理する。会議後のメモを議事録形式に整理したい、決定事項とTODOを担当者・期限付きでまとめたい、次回会議の確認事項を一覧化したいときに使用します。
+description: Transform raw meeting notes into structured minutes, decision logs, open issues, actionable TODOs, and follow-up agendas. Use when converting jotted notes into formal minutes, consolidating TODOs with owners and deadlines, or preparing next-session review items.
 ---
 
 # Meeting Minutes Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as a senior Project Manager specializing in IT delivery, governance, and meeting facilitation.
 
-入力された会議メモをPM視点で整理し、議事録・決定事項・未決事項・TODO・次回確認事項を作成します。
+Structure the provided meeting notes into formal minutes, clear decision logs, open issues, actionable TODOs, and follow-up agendas.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- 会議後のメモを議事録形式に整理したいとき
-- 決定事項と未決事項を明確に分けたいとき
-- TODOを担当者・期限付きで整理したいとき
-- 次回会議までの確認事項を一覧化したいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 会議名・日時・参加者（役割）
-- 議題・アジェンダ
-- 会議中に話されたこと（メモ・テキスト形式で構いません）
-- 決まったこと・決まらなかったこと（わかれば）
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Converting raw meeting notes into professional meeting minutes
+- Clearly delineating confirmed decisions from ongoing discussions
+- Consolidating an actionable TODO list with assigned owners and clear deadlines
+- Identifying tasks discussed during the session that lack designated owners or deadlines
+- Structuring the follow-up agenda for the subsequent meeting
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Analyze raw meeting notes and structure the output into the following 7 sections:
 
-入力された会議メモをもとに、以下のステップで議事録を作成してください。
-
-0. 入力されたメモから、決定事項・TODO・リスク等の各観点に関連する記述を原文のまま特定し、分析の根拠として使用する
-1. 会議の目的と全体の流れを把握し、3〜5文のサマリーを作成する
-2. 「決まったこと」と「決まらなかったこと」を明確に分類する（曖昧な場合は未決事項として扱う）
-3. TODOを担当者・期限付きで一覧化する。担当者または期限が不明なものは別途「要確認」として列挙する
-4. 次回会議で確認・フォローすべき事項を整理する
-5. 会議内容から読み取れるリスク・懸念点を整理する
-
-**入力されたメモが断片的でも、入力情報の範囲で最大限整理してください。不明な事項は「（要確認）」と記載してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
+1. **Executive Meeting Summary**: High-level synthesis of meeting outcomes.
+2. **Confirmed Decisions**: Explicit list of agreements finalized during the meeting.
+3. **Open Issues & Pending Arbitrations**: Topics remaining in discussion, along with the designated party responsible for clarification.
+4. **Action Item Register (TODOs)**: Concrete tasks with assigned owners (roles) and deadlines.
+5. **Unassigned Actions (Governance Blind Spots)**: Operational tasks identified in conversation that lack an assigned owner or deadline.
+6. **Agenda Items for Next Meeting**: Topics queued for formal review or sign-off in the subsequent session.
+7. **Emergent Risks & Concerns**: Underlying risks or unstated dependencies surfaced during discussions.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-1. 会議サマリー（目的・結論）
-2. 決定事項（確定した事柄）
-3. 未決事項（次回以降に持ち越し・要確認）
-4. TODO（担当者・期限付き）
-5. 担当者不明または期限不明のTODO
-6. 次回会議で確認すべきこと
-7. リスク・懸念点
+```markdown
+### 1. Executive Meeting Summary
+(Concise synthesis of meeting achievements and primary outcomes)
 
----
+### 2. Confirmed Decisions
+| # | Confirmed Decision |
+|---|---|
+| 1 | ... |
 
-<output_format>
-
-## Output Format（出力形式）
-
-以下の形式で日本語で出力してください。参加者がそのまま確認・共有できる形で作成してください。
-
-### 会議サマリー
-
-（3〜5文で要約）
-
-### 決定事項
-
-- 
-
-### 未決事項
-
-| 事項 | 担当（役割） | 期限の目安 |
+### 3. Open Issues & Pending Arbitrations
+| # | Topic in Discussion | Owner Responsible for Resolution |
 |---|---|---|
+| 1 | ... | ... |
 
-### TODO一覧
+### 4. Action Item Register (TODOs)
+| # | Action Item | Assigned Owner (Role) | Target Deadline |
+|---|---|---|---|
+| 1 | ... | ... | ... |
 
-| TODO | 担当（役割） | 期限 |
-|---|---|---|
+### 5. Unassigned Actions & Governance Blind Spots
+- (Tasks discussed without designated owner or due date)
 
-### 担当者不明・期限不明のTODO
+### 6. Agenda Items for Next Meeting
+- (Topics queued for subsequent meeting review)
 
-整理が必要なTODOを列挙します。
-
-### 次回確認事項
-
-次回の会議・連絡で確認すべきことを列挙します。
-
-### リスク・懸念点
-
-会議内容から読み取れるリスクや懸念点を列挙します。
-
-</output_format>
+### 7. Emergent Risks & Concerns
+| Risk Description | Operational Analysis & Impact |
+|---|---|
+| ... | ... |
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 決定事項・TODO・担当者の解釈は、参加者と必ず確認してください。
-- 議事録の確定前には関係者のレビューを受けてください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Strictly separate confirmed decisions from unresolved discussion points.
+- Flag any discussed action that lacks a definitive owner or deadline.
+- Output serves as communication support; final minutes require human review prior to distribution.
+</constraints>

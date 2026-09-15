@@ -1,16 +1,16 @@
-# Claude CodeでPMレビューSkillを使う — 実用サンプル
+# Claude Code PM Review — Practical Scenario
 
 ## Use Case
 
-Claude Codeを使って、プロジェクトのリポジトリ内ファイル（README、Issue一覧、進捗メモ、仕様メモ）をPM視点でレビューする場面を想定しています。
+Auditing a project development repository (README, issue tracker, progress notes, specification summaries) from a senior PM perspective using Claude Code.
 
-`.claude/skills/pm-review/SKILL.md` をPMレビューの観点として参照させ、状況を整理させる例です。
+The goal is to invoke `.claude/skills/pm-review/SKILL.md` to evaluate delivery health, unassigned tasks, and next steps directly from within the CLI.
 
-> **注意：** このサンプルはClaude Codeへのプロンプト例を示すものです。hooks・コマンド・MCP設定・自動実行・自動コミット・自動デプロイは含まれていません。
+> **Notice:** This scenario illustrates prompts for Claude Code. It contains no executable hooks, background daemons, MCP servers, or automated commits.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `.claude/skills/pm-review/SKILL.md`
 - `contexts/PM_CONTEXT.md`
@@ -19,150 +19,117 @@ Claude Codeを使って、プロジェクトのリポジトリ内ファイル（
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
-**架空のリポジトリ README 概要（抜粋）：**
+**Fictitious Repository README (Excerpt):**
+```markdown
+# Project Alpha - Core Services Repository
 
-```
-# サンプル案件 開発リポジトリ
+## Overview
+New development of internal enterprise operations management platform.
+Phase 1 includes Administration, Reporting, and External Integration modules.
 
-## プロジェクト概要
-社内向け業務管理システムの新規開発。
-フェーズ1として管理機能・レポート機能・外部連携機能を開発中。
+## Current Status
+Mid-Development (~70% overall completion)
 
-## 現在のフェーズ
-開発中盤（全体70%進捗）
-
-## 次回リリース予定
-第14週末（残り3.5週間）
-```
-
-**架空のIssue一覧（抜粋）：**
-
-```
-Issue #12: 外部連携機能 - 実装完了
-  - ステータス：クローズ
-  - 担当：開発担当者
-
-Issue #18: 外部連携機能 - 単体テスト
-  - ステータス：オープン
-  - 担当：開発担当者
-  - 期限：記載なし
-
-Issue #21: テスト設計書の作成
-  - ステータス：オープン
-  - 担当：未定
-  - 期限：今週末
-
-Issue #24: 結合テスト（外部連携先対応）
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
-
-Issue #27: リリース判定会議 日程調整
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
-
-Issue #30: バグ管理表の整備
-  - ステータス：未着手
-  - 担当：未定
-  - 期限：未定
+## Target Release
+End of Week 14 (3.5 weeks remaining)
 ```
 
-**進捗メモ（抜粋）：**
-
+**Fictitious Issue Backlog (Excerpt):**
 ```
-第10週 進捗メモ
-- 外部連携機能の基本実装は完了した
-- 単体テストはまだ
-- テスト設計書、担当者がようやく決まった。今週着手予定
-- リリース日まであと3.5週間。間に合うか不安
-- 顧客担当者Aからの追加要望（一括エクスポートなど）が来ているが方針未決
+Issue #12: External Integration Module - Core Implementation
+  - Status: Closed
+  - Owner: Dev Lead
+
+Issue #18: External Integration Module - Unit Testing
+  - Status: Open
+  - Owner: Dev Lead
+  - Deadline: None
+
+Issue #21: QA Test Plan Specification Drafting
+  - Status: Open
+  - Owner: Unassigned
+  - Deadline: End of this week
+
+Issue #24: Partner Integration Testing
+  - Status: Not Started
+  - Owner: Unassigned
+  - Deadline: None
+
+Issue #27: Release Gate Meeting Scheduling
+  - Status: Not Started
+  - Owner: Unassigned
+  - Deadline: None
+
+Issue #30: Standardize Defect Bug Tracker
+  - Status: Not Started
+  - Owner: Unassigned
+  - Deadline: None
 ```
 
-**仕様メモ（抜粋）：**
-
+**Progress Notes (Excerpt):**
 ```
-データ連携仕様 v1.1（確定）
-- 項目X：今回スコープ外
-- 項目Y：簡略化対応（詳細メモは顧客担当者Aから受領待ち）
-- 項目Z：当初仕様で進める
-```
-
-**顧客確認待ち事項（抜粋）：**
-
-```
-- 項目Yの詳細仕様メモ（顧客担当者Aから送付予定・未着）
-- 追加要望（一括エクスポート等）の優先度・費用合意
-- リリース判定会議の日程
-```
-
-**次回リリース予定：**
-
-```
-第14週末（残り3.5週間）
-顧客が社内告知済みのため、納期変更は困難
+Week 10 Progress Notes:
+- External integration core implementation finished
+- Unit testing not yet started
+- Test plan author finally designated this week; kickoff planned
+- Only 3.5 weeks remaining until release; high anxiety regarding testing window
+- Client Lead A submitted additional feature requests (batch export); policy unconfirmed
 ```
 
 ---
 
-## Prompt
+## Prompts for Claude Code
 
-Claude Codeに対して以下のように依頼します：
-
-### 通常版
-
+### Standard Prompt
 ```text
-.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
-このリポジトリの現在の状況をPM視点でレビューしてください。
+After loading .claude/skills/pm-review/SKILL.md and contexts/PM_CONTEXT.md,
+perform a senior PM audit of the current state of this repository.
 
-レビュー対象：
-- このファイル（README）
-- Issueリスト
-- 進捗メモ
-- 仕様メモ
-- 顧客確認待ち事項
+Review scope:
+- README
+- Issue backlog
+- Progress notes
+- Specification memos
+- Pending client items
 
-以下の観点で整理してください。
-1. 状況要約
-2. 危険度（低・中・高・緊急）
-3. 主要リスク
-4. PMが次に確認すべきこと
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次アクション（優先順位付き）
+Structure your findings across:
+1. Executive Situation Summary
+2. Risk Level Rating & Rationale
+3. Primary Critical Risks
+4. Items PM Must Clarify Internally
+5. Confirmations Needed from Client
+6. Internal Managerial Decisions Required
+7. Prioritized Immediate Action Plan
 ```
 
-### Claude向けXMLタグ版
-
+### Claude Structured XML Prompt
 ```text
 <task>
-.claude/skills/pm-review/SKILL.md と contexts/PM_CONTEXT.md を読み込んだ上で、
-このリポジトリの現在の状況をPM視点でレビューしてください。
+Perform a senior PM review of this repository based on .claude/skills/pm-review/SKILL.md and contexts/PM_CONTEXT.md.
 </task>
 <input>
-レビュー対象：
-- このファイル（README）
-- Issueリスト
-- 進捗メモ
-- 仕様メモ
-- 顧客確認待ち事項
+Review scope:
+- README
+- Issue backlog
+- Progress notes
+- Specification memos
+- Pending client items
 </input>
 <constraints>
-- 入力情報に根拠がない指摘は断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- 納期・費用・責任範囲の判断は断定しないでください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Base findings strictly on evidence; tag inferences as "(Inferred)".
+- Highlight unassigned issues as governance vulnerabilities.
+- Format outputs as decision-support materials.
 </constraints>
 <output_format>
-1. 状況要約
-2. 危険度（低・中・高・緊急）と理由
-3. 主要リスク
-4. PMが次に確認すべきこと
-5. 顧客に確認すべきこと
-6. 社内で決めるべきこと
-7. 次アクション（優先順位付き）
+1. Executive Situation Summary
+2. Risk Level Rating & Rationale
+3. Primary Critical Risks
+4. Items PM Must Clarify Internally
+5. Confirmations Needed from Client
+6. Internal Managerial Decisions Required
+7. Prioritized Immediate Action Plan
 </output_format>
 ```
 
@@ -170,96 +137,72 @@ Claude Codeに対して以下のように依頼します：
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 状況要約
-
-サンプル案件は開発中盤で全体70%進捗。外部連携機能の実装は完了したが、単体テスト・結合テストが未着手。テスト設計書は今週着手予定だが担当者が先週まで未定だった。リリースまで3.5週間で、テスト工程の圧縮リスクが高い。顧客からの追加要望・仕様詳細待ちが複数あり、方針が決まっていない事項が多い。
-
----
-
-### 2. 危険度
-
-**高**
-
-- 残り3.5週間でテスト設計・単体テスト・結合テスト・受入テスト・リリース判定をこなす必要がある
-- 担当者・期限が未定のIssueが複数存在する
-- 顧客確認待ち事項が未解決のまま開発が進んでいる
+### 1. Executive Situation Summary
+Project Alpha stands at ~70% completion with 3.5 weeks until the immovable release deadline. While integration implementation is complete, unit and integration testing remain pending. Test plan drafting is only now kicking off under an unassigned issue. Multiple critical governance tasks lack owners or deadlines, creating an acute risk of compressed QA sweeps and delivery failure.
 
 ---
 
-### 3. 主要リスク
+### 2. Risk Level Rating
 
-| # | リスク | 理由 |
+**🔴 High (Immediate Action Required)**
+
+- Completing test planning, unit testing, partner integration, and UAT within 3.5 weeks is on the brink of failure.
+- Multiple critical issues (#21, #24, #27, #30) lack assigned owners or deadlines.
+- Unapproved client scope requests threaten to disrupt final release preparations.
+
+---
+
+### 3. Primary Critical Risks
+
+| # | Critical Risk | Operational Rationale |
 |---|---|---|
-| 1 | テスト期間の圧縮 | テスト設計書がこれから着手で、結合テストまでの工程が詰まっている |
-| 2 | 担当者・期限不明のIssueが多数 | Issue #21・#24・#27・#30 が担当者未定または期限未定 |
-| 3 | 顧客確認待ち事項の未解決 | 仕様詳細・追加要望の方針・リリース判定日程がすべて未確定 |
-| 4 | 追加要望の受け入れ判断が未決 | 追加要望への対応可否・費用合意が決まらないまま期限が近づいている |
-| 5 | バグ管理表が未整備 | テスト開始後の不具合管理ができない状態になっている |
+| 1 | Compressed Testing Window | Test plan is only starting; downstream integration and UAT windows are severely squeezed. |
+| 2 | Pervasive Governance Vacuum | Issues #21, #24, #27, and #30 have no designated accountability. |
+| 3 | Decision Latency on Scope Creep | Client batch export request remains unaddressed, risking last-minute injection. |
+| 4 | QA Defect Tracking Absence | No standardized bug tracking register deployed prior to test execution. |
 
 ---
 
-### 4. PMが次に確認すべきこと
+### 4. Items PM Must Clarify Internally
 
-- Issue #21（テスト設計書）の担当者・完成期限を確定
-- Issue #24（結合テスト）・#27（リリース判定）・#30（バグ管理表）の担当者・期限を確定
-- 追加要望（一括エクスポート等）への対応方針を上長と合意
-- テスト全体のスケジュールを再計算し、残り3.5週間で現実的かを確認
-
----
-
-### 5. 顧客に確認すべきこと
-
-- 項目Yの詳細仕様メモをいつ送付してもらえるか
-- 追加要望の優先度・費用合意の意向
-- リリース判定会議の日程確認（上長への確認結果の共有依頼）
+- Assign explicit owner and lock completion date for Issue #21 (Test Plan).
+- Assign owners to Issues #24 (Partner Testing), #27 (Release Gate), and #30 (Bug Tracker).
+- Re-estimate critical path timeline to confirm feasibility of the 3.5-week release date.
 
 ---
 
-### 6. 社内で決めるべきこと
+### 5. Confirmations Needed from Client
 
-- 追加要望を受け入れるか・費用をどう扱うかの上長承認
-- テスト期間が足りない場合のリカバリー方針（リソース追加・スコープ絞り込みなど）
-- バグ管理表の運用ルール・フォーマット
+- Obtain formal sign-off deferring new batch export requests to Phase 1.1.
+- Finalize date and attendee requirements for the formal Release Gate meeting.
 
 ---
 
-### 7. 次アクション（優先順位付き）
+### 6. Internal Managerial Decisions Required
 
-| 優先度 | アクション | 担当 |
-|---|---|---|
-| 最高 | Issue #21 担当者・期限確定 | PM担当者 |
-| 最高 | テスト全体スケジュールの再計算 | PM担当者・開発リーダー |
-| 高 | 顧客担当者Aへのリリース判定日程調整依頼 | PM担当者 |
-| 高 | 追加要望の対応方針を上長と合意 | PM担当者 |
-| 高 | 項目Y仕様メモの受領フォローアップ | PM担当者 |
-| 中 | Issue #24・#30 の担当者・期限確定 | PM担当者 |
-| 中 | バグ管理表の整備 | 開発リーダー |
+- Authorize policy on client feature additions (reject for v1.0, queue for v1.1).
+- Approve contingency plan for test window compression (test case prioritization).
+
+---
+
+### 7. Prioritized Immediate Action Plan
+
+| Priority | Action Item | Assigned Role | Target Deadline |
+|---|---|---|---|
+| P1 - Critical | Assign owner and deadline to Issue #21 (Test Plan) | PM | Immediate |
+| P1 - Critical | Recalculate critical path schedule with engineering leads | PM / Tech Lead | Today |
+| P2 - High | Align with client on deferring new scope to v1.1 | PM | Tomorrow |
+| P2 - High | Assign owners and dates to Issues #24, #27, #30 | PM | Tomorrow |
+| P3 - Medium | Deploy standardized defect tracking board | Tech Lead | End of Week |
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 状況要約が実際のリポジトリ・プロジェクトの状況と一致しているか
-- 危険度の判断が実際の制約（納期・体制・顧客状況）を踏まえているか
-- 次アクションの優先順位が実際の判断と合っているか
-- AIが指摘していない、自分だけが知っているリスクや背景情報がないか確認する
-- 担当者欄を実際の担当者に修正してから利用する
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 顧客提出・社内報告・納期回答・費用判断に使用する場合は、必ず担当者が内容を確認してください。
->
-> Claude Codeを使う場合でも、hooks・コマンド・MCP設定・自動実行・自動コミット・自動デプロイは設定しないでください。AIによる自動操作は本サンプルの対象外です。
+Before acting:
+- Verify that issue owners assigned in the action plan reflect real team staffing availability.
+- Ensure that the scope rejection message for the client is diplomatically framed.

@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Security Policy
     url: https://github.com/techaide-jp/project-management-ai-toolkit/blob/main/.github/SECURITY.md
-    about: セキュリティ上の懸念がある場合は、機密情報を書かずにSECURITY.mdを確認してください。
+    about: For security concerns, review SECURITY.md without posting confidential details publicly.

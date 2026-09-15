@@ -1,87 +1,87 @@
 # Claude Code Skills for PM × AI
 
-このディレクトリには、PM業務とAI活用を支援するClaude Code向けSkillを配置しています。
+This directory contains specialized Claude Code Skills designed to support Project Managers, PMOs, and Tech Leads in applying AI across daily delivery operations.
 
-各Skillは **Markdownドキュメントのみ** です。hooks、command、shell script、MCP設定、GitHub Actions、自動コミット、自動デプロイは含みません。
+All Skills in this directory are **pure Markdown documentation files**. They contain no executable hooks, background commands, shell scripts, MCP server configurations, GitHub Actions workflows, automated commits, or auto-deploy scripts.
 
 ---
 
-## まず使う
+## Getting Started (First Entry Point)
 
-迷ったときや、自分の状況に合うContextやSkillを選びたいときは、ここから始めてください。
+When unsure where to begin or which Context or Skill fits your immediate project challenge, start here:
 
 - **`pm-ai-diagnosis/SKILL.md`**
-  - PM課題・AI活用課題を切り分け、使うべきContextやSkillを案内する
-  - **最初に使うならこのSkillが起点です**
+  - Diagnoses project delivery friction and AI adoption hurdles; guides you to the right Contexts and Skills.
+  - **Recommended starting point for new users.**
 
 ---
 
-## リスクを見つける
+## Risk Detection & Audit
 
 - **`project-risk-radar/SKILL.md`**
-  - 進捗メモ・課題一覧・会議メモから、表面化していないリスクを検知する
+  - Uncovers latent, unstated project risks from raw progress updates, issue logs, and meeting minutes.
 - **`issue-risk-review/SKILL.md`**
-  - 課題・リスクの抜け漏れ、担当者不明、期限不明を確認する
+  - Audits issue backlogs for missing owners, open-ended deadlines, and ambiguous scopes.
 
 ---
 
-## 判断する
+## Decision Support
 
 - **`pm-decision-support/SKILL.md`**
-  - エスカレーション、顧客説明、方針選択などのPM判断を構造化する
+  - Structures critical PM decisions, trade-off evaluations, customer negotiations, and escalation paths.
 
 ---
 
-## 伝える
+## Stakeholder Communication
 
 - **`stakeholder-strategy/SKILL.md`**
-  - 顧客・上長・開発チーム・経営層など、相手別の伝え方を整理する
+  - Calibrates communication strategies by audience tier: clients, executive sponsors, engineering teams.
 - **`client-communication/SKILL.md`**
-  - 顧客向け説明文・相談文・報告文のたたき台を作成する
+  - Drafts objective, diplomatic briefing memos, delay notices, and consultation messages for clients.
 - **`status-report/SKILL.md`**
-  - 社内向け・顧客向け・上長向けの進捗報告を整理する
+  - Generates tailored progress reports for internal engineering leadership, executive sponsors, and clients.
 
 ---
 
-## AI出力を確認する
+## AI Governance & Verification
 
 - **`ai-output-governance-review/SKILL.md`**
-  - AI出力を実務利用する前に、断定表現・機密情報・契約リスクを確認する
+  - Audits AI-generated drafts for overcommitments, unverified claims, data leaks, and contractual liabilities prior to distribution.
 
 ---
 
-## 会議・変更・遅延を整理する
+## Meeting, Change & Crisis Framing
 
 - **`meeting-minutes/SKILL.md`**
-  - 会議メモから議事録・決定事項・TODO・次回確認事項を整理する
+  - Structures raw notes into executive minutes, decision logs, actionable TODOs, and follow-up agendas.
 - **`scope-change-review/SKILL.md`**
-  - 仕様変更・スコープ変更の影響範囲・工数・納期・費用を整理する
+  - Evaluates scope change requests against baseline commitments; assesses impacts on effort, timeline, and cost.
 - **`delay-recovery/SKILL.md`**
-  - 遅延発生時の原因・影響範囲・リカバリー案・説明方針を整理する
+  - Structures schedule slip recovery plans: critical path crashing, fast-tracking, and customer communication.
 - **`fire-response-first-72h/SKILL.md`**
-  - 炎上初動72時間で事実・影響・未確認事項・初動対応を整理する
+  - Frames crisis triage during the critical first 72 hours: separates facts from speculation and sets containment actions.
 
 ---
 
-## 汎用レビュー・ヘルスチェック
+## General Review & Health Check
 
 - **`pm-review/SKILL.md`**
-  - PM視点でプロジェクト状況・Issue・進捗・課題・リスク・次アクションをレビューする
+  - Comprehensive senior PM review evaluating repositories, backlogs, velocity, issues, and immediate next actions.
 - **`project-health-check/SKILL.md`**
-  - プロジェクト全体の健全度を定期確認し、危険度・リスク・次アクションを整理する
+  - Periodic multi-dimensional audit rating delivery health (High / Medium / Low) and uncovering blind spots.
 
 ---
 
-## 注意事項
+## Important Operational Notices
 
-- 各Skillはドキュメントのみです。実行系の自動化機能は提供しません
-- AI出力は業務判断・契約判断・法務判断・納期判断・品質判断の代替ではありません
-- 出力内容は必ず人間が確認・修正してから利用してください
-- 顧客名・個人名・会社名・契約情報・認証情報・議事録全文・本番コードを入力しないでください
-- 業務情報を使う場合は、匿名化・要約化・マスキングしてください
-- hooks / command / shell script / MCP設定 / GitHub Actions / 自動コミット / 自動デプロイは含みません
+- All Skills are advisory documentation files. They provide no autonomous execution or command execution.
+- AI outputs never substitute for professional management decisions, contractual arbitration, legal counsel, or delivery commitments.
+- Always review, verify, and validate all outputs before operational or external use.
+- Never enter real client names, corporate identities, personal information, contract figures, or credentials into the AI.
+- Sanitize and abstract all project details prior to processing.
+- No hooks, commands, shell scripts, MCP configurations, GitHub Actions, or auto-commits are included.
 
-関連ドキュメント：
+Related Documentation:
 - [`docs/ai-safety.md`](../../docs/ai-safety.md)
 - [`docs/use-case-map.md`](../../docs/use-case-map.md)
 - [`docs/tools/claude-code.md`](../../docs/tools/claude-code.md)

@@ -1,39 +1,39 @@
 ---
 name: Security notice
-about: セキュリティ上の懸念を報告する。ただし機密情報は書かないでください
+about: Report a security concern without posting confidential details
 title: "[Security]: "
 labels: security
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。**
+> **This Issue is public.**
 >
-> **APIキー、パスワード、トークン、顧客情報、個人情報、契約情報、社内機密情報は、このIssueに絶対に記載しないでください。**
+> **NEVER include API keys, passwords, tokens, client information, personal data, contract terms, or confidential internal secrets in this Issue.**
 >
-> 詳細に機密情報が含まれる場合は、公開Issueには書かず、[`SECURITY.md`](../SECURITY.md) を確認してください。
+> If your report involves sensitive data, do not post in this public Issue; follow the instructions in [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## セキュリティ上の懸念の概要
+## Security Concern Summary
 
-<!-- 懸念内容を、機密情報を含まない範囲で簡潔に説明してください -->
+<!-- Briefly describe the concern without disclosing confidential data -->
 
-## 対象ファイル
+## Target File
 
-<!-- 懸念が含まれるファイルのパスを記載してください -->
-例: `contexts/PM_CONTEXT.md`
+<!-- Path of the file involved -->
+Example: `contexts/PM_CONTEXT.md`
 
-## 公開して問題ない範囲での説明
+## Publicly Disclosable Explanation
 
-<!-- 懸念の詳細を、公開しても問題ない範囲で説明してください -->
-<!-- 顧客名・個人名・会社名・案件名・APIキー・パスワード等は絶対に記載しないでください -->
+<!-- Describe the issue within the strict boundaries of what can be safely shared publicly -->
+<!-- NEVER disclose client names, personal identities, company names, API keys, or credentials -->
 
 ---
 
-## 確認事項
+## Confirmation Checklist
 
-- [ ] このIssueに機密情報・個人情報・認証情報を含めていません
-- [ ] APIキー・パスワード・トークンを含めていません
-- [ ] 顧客名・個人名・会社名・案件名を含めていません
-- [ ] 詳細を共有する場合は `SECURITY.md` の案内に従うことを確認しました
+- [ ] This Issue contains no confidential information, personal data, or credentials
+- [ ] No API keys, passwords, or tokens are included
+- [ ] No real client names, personal identities, company names, or real project titles are included
+- [ ] I confirmed that sharing sensitive details requires following the private reporting protocol in `SECURITY.md`

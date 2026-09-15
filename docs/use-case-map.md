@@ -1,202 +1,64 @@
-﻿# Use Case Map / ユースケースマップ
+# Use Case Map
+
+A guide to selecting the right AI Context or Claude Code Skill based on your immediate project challenge or delivery phase.
 
 ---
 
-## このファイルの目的
+## 1. Select by Operational Goal
 
-PM業務の状況別に、使うべき `contexts/*.md` を整理するガイドです。
-
-- ChatGPT / Gemini / Claude / Claude Code で共通して使えます
-- このページでは `contexts/` 配下のコンテキストファイルを中心に案内します
-- `prompts/` ディレクトリは存在しません。使用例（AIへの依頼例）は各 `contexts/*.md` の `使用例（このコンテキストを使った依頼例）` セクションに掲載されています
-- まず自分の状況に合う `contexts/*.md` を選び、使用例セクションを参考にAIへの依頼文を作成してください
-
----
-
-## まず全体像
-
-```text
-今困っていること
-│
-├─ プロジェクト全体を見たい
-│    └─ contexts/PROJECT_HEALTH_CHECK.md
-│
-├─ 報告文を作りたい
-│    ├─ 進捗報告
-│    │    └─ contexts/STATUS_REPORT_CONTEXT.md
-│    └─ 上長・経営層向け
-│         └─ contexts/STAKEHOLDER_REPORT_CONTEXT.md
-│
-├─ 課題・リスクを整理したい
-│    ├─ 課題管理
-│    │    └─ contexts/ISSUE_RISK_CONTEXT.md
-│    └─ 複数案件横断
-│         └─ contexts/PMO_REVIEW_CONTEXT.md
-│
-├─ 顧客対応が必要
-│    ├─ 説明文・相談文
-│    │    └─ contexts/CLIENT_COMMUNICATION_CONTEXT.md
-│    ├─ 仕様変更
-│    │    └─ contexts/SCOPE_CHANGE_CONTEXT.md
-│    └─ 炎上初動
-│         └─ contexts/FIRE_RESPONSE_FIRST_72H.md
-│
-├─ 会議・振り返りを整理したい
-│    ├─ 会議メモ・TODO
-│    │    └─ contexts/MEETING_MINUTES_CONTEXT.md
-│    └─ 振り返り・ポストモーテム
-│         └─ contexts/RETROSPECTIVE_CONTEXT.md
-│
-├─ 見積・品質・遅延を整理したい
-│    ├─ 見積前提
-│    │    └─ contexts/ESTIMATION_CONTEXT.md
-│    ├─ 品質問題
-│    │    └─ contexts/QUALITY_ISSUE_CONTEXT.md
-│    └─ 遅延リカバリー
-│         └─ contexts/DELAY_RECOVERY_CONTEXT.md
-│
-└─ 開発現場からPMへ相談したい
-     └─ contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md
-```
+| Your Immediate Goal | Recommended Context File | Recommended Claude Code Skill | Key Output |
+|---|---|---|---|
+| Review and diagnose overall project health | `contexts/PROJECT_HEALTH_CHECK.md` | `project-health-check` | Risk level rating (🔴/🟡/🟢), overlooked risks, next 24-72h actions |
+| Structure a progress or status report | `contexts/STATUS_REPORT_CONTEXT.md` | `status-report` | Dual internal & client reports, 3-line executive summary |
+| Audit issues and reprioritize blockers | `contexts/ISSUE_RISK_CONTEXT.md` | `issue-risk-review` | Issue categorization, priority realignment, governance gap identification |
+| Draft a client communication or briefing | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | `client-communication` | Diplomatic client-facing draft, talking points, counter-objection strategy |
+| Triage a project crisis or severe outage | `contexts/FIRE_RESPONSE_FIRST_72H.md` | `fire-response-first-72h` | Separation of facts vs. speculation, blast radius, Day 1-3 triage roadmap |
+| Convert raw meeting notes into minutes | `contexts/MEETING_MINUTES_CONTEXT.md` | `meeting-minutes` | Executive minutes, decision log, TODO register with owners and deadlines |
+| Prepare a weekly meeting agenda | `contexts/WEEKLY_MEETING_CONTEXT.md` | — | Time-boxed agenda, critical decision points, pre-meeting checklist |
+| Evaluate a scope change or new feature | `contexts/SCOPE_CHANGE_CONTEXT.md` | `scope-change-review` | Baseline scope variance, effort estimation, trade-off options (A/B/C) |
+| Structure a schedule delay recovery plan | `contexts/DELAY_RECOVERY_CONTEXT.md` | `delay-recovery` | Root-cause analysis, critical path crashing/fast-tracking options |
+| Analyze causes and solutions for a defect | `contexts/QUALITY_ISSUE_CONTEXT.md` | — | Direct vs. systemic root causes, CAPA plan, client briefing draft |
+| Run a sprint retrospective or post-mortem | `contexts/RETROSPECTIVE_CONTEXT.md` | — | Keep/Problem/Try (KPT) matrix, systemic takeaways, continuous improvements |
+| Prepare an executive sponsor briefing | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | `stakeholder-strategy` | 1-page executive summary, milestone tracker, strategic decision memo |
+| Frame assumptions before formal estimation | `contexts/ESTIMATION_CONTEXT.md` | — | Pre-estimation assumption register, scope boundary exclusions, questionnaire |
+| Conduct cross-portfolio delivery reviews | `contexts/PMO_REVIEW_CONTEXT.md` | — | Portfolio delivery health matrix, systemic risk patterns, PMO triage plan |
+| Translate tech blockers into business terms | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | — | Business-impact translation, trade-off matrix, specific PM actions requested |
+| Unsure where to start / Multi-issue triage | — | `pm-ai-diagnosis` | Triaged problem breakdown, recommended Contexts and Skills roadmap |
+| Detect unstated, latent project risks | — | `project-risk-radar` | Early warning signals, unstated dependencies, blind spots |
+| Structure a complex managerial decision | — | `pm-decision-support` | Boundary constraints, comparative trade-off matrix, strategic rationale |
+| Audit an AI-drafted message before sending | — | `ai-output-governance-review` | Overcommitment detection, data leak checks, protective rewrites |
 
 ---
 
-## 状況別ファイル選び
+## 2. Select by Project Delivery Phase
 
-| 困っていること | 使うAI Contexts | 次に学ぶとよいテーマ |
-|---|---|---|
-| プロジェクト全体が危ないか確認したい | `contexts/PROJECT_HEALTH_CHECK.md` | プロジェクト全体像の把握・状況整理 |
-| 週次進捗報告を作りたい | `contexts/STATUS_REPORT_CONTEXT.md` | 進捗管理・報告スキル |
-| 課題管理表の抜け漏れを確認したい | `contexts/ISSUE_RISK_CONTEXT.md` | 課題管理・リスク管理 |
-| 顧客向けの説明文を作りたい | `contexts/CLIENT_COMMUNICATION_CONTEXT.md` | 顧客対応・合意形成 |
-| 炎上初動を整理したい | `contexts/FIRE_RESPONSE_FIRST_72H.md` | 炎上予防・初動対応 |
-| 会議メモから議事録を作りたい | `contexts/MEETING_MINUTES_CONTEXT.md` | 会議ファシリテーション・議事録管理 |
-| 仕様変更の影響を整理したい | `contexts/SCOPE_CHANGE_CONTEXT.md` | スコープ管理・変更管理 |
-| 遅延リカバリーを考えたい | `contexts/DELAY_RECOVERY_CONTEXT.md` | スケジュール管理・リカバリー計画 |
-| 品質問題の対策を考えたい | `contexts/QUALITY_ISSUE_CONTEXT.md` | 品質管理・再発防止 |
-| 振り返り・ポストモーテムを整理したい | `contexts/RETROSPECTIVE_CONTEXT.md` | 振り返り・継続改善 |
-| ステークホルダー向け報告を整理したい | `contexts/STAKEHOLDER_REPORT_CONTEXT.md` | ステークホルダー管理・説明責任 |
-| 見積前提・不確実性を整理したい | `contexts/ESTIMATION_CONTEXT.md` | 見積精度向上・不確実性マネジメント |
-| PMOとして複数案件を見たい | `contexts/PMO_REVIEW_CONTEXT.md` | PMO運営・案件横断管理 |
-| エンジニアからPMへ相談したい | `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md` | エンジニア向けビジネススキル・PL準備 |
+### Requirements & Proposal Phase
+- `contexts/ESTIMATION_CONTEXT.md`: Establish technical assumptions, exclusions, and clarification questions before sizing.
+- `contexts/CLIENT_COMMUNICATION_CONTEXT.md`: Structure diplomatic consultation memos and scope alignment messages.
 
-**次の行動**
+### Architecture & Design Phase
+- `contexts/SCOPE_CHANGE_CONTEXT.md`: Detect early scope creep and establish clear baseline boundaries.
+- `contexts/WEEKLY_MEETING_CONTEXT.md`: Coordinate weekly architectural syncs and stakeholder reviews.
 
-- どの講座が自分に合うか迷う場合：[コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)で学習テーマを確認
-- 講師クーポン付きで受講したい場合：[講師クーポンページ](https://techaide.jp/coupons/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
-- 関連講座を一覧で見たい場合：[講座一覧ページ](https://techaide.jp/courses/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)を確認
+### Development Phase
+- `contexts/STATUS_REPORT_CONTEXT.md`: Generate weekly status reports for engineering leadership and clients.
+- `contexts/ISSUE_RISK_CONTEXT.md`: Audit active issues, eliminate unassigned tasks, and manage dependencies.
+- `contexts/ENGINEER_TO_PM_REPORT_CONTEXT.md`: Bridge communication gaps between Tech Leads and Project Managers.
+- `contexts/DELAY_RECOVERY_CONTEXT.md`: Formulate recovery plans (fast-tracking/crashing) when delays emerge.
 
----
+### Testing & QA Phase
+- `contexts/PROJECT_HEALTH_CHECK.md`: Multi-dimensional check on test progress, defect spikes, and release readiness.
+- `contexts/QUALITY_ISSUE_CONTEXT.md`: Conduct root-cause analyses on QA escapes or critical defect spikes.
+- `contexts/FIRE_RESPONSE_FIRST_72H.md`: Triage severe blockers discovered immediately before release gates.
 
-## AIツール別の使い方
-
-### 1. 通常チャットで使う
-
-どのAIツールでも、以下の手順で使えます。
-
-1. `contexts/PM_CONTEXT.md` の内容をチャットに貼り付ける
-2. 状況に応じた用途別 `contexts/*.md` を貼り付ける
-3. 案件情報を**マスキング・要約**して貼り付ける
-4. `contexts/*.md` の使用例セクションを参考に依頼文を作る
-5. AI出力を人間が確認する
-
-### 2. ChatGPT Projects / Claude Projects / Gems に事前設定する
-
-事前にプロジェクト設定にコンテキストを登録しておくと、毎回貼り付ける手間を省けます。
-
-| ツール | 設定参考ファイル |
-|---|---|
-| ChatGPT | `instructions/chatgpt-project-instructions.md` |
-| Gemini（Gems） | `instructions/gemini-instructions.md` |
-| Claude Projects | `instructions/claude-project-instructions.md` |
-
-各ツール向けの設定ガイドは、`docs/tools/chatgpt.md`、`docs/tools/gemini.md`、`docs/tools/claude.md` を参照してください。
-
-### 3. Claude Code Skill と組み合わせる
-
-Claude Code を使っている場合は、`.claude/skills/` 配下の Skill と組み合わせることができます。
-
-詳細は次セクションを参照してください。
+### Release & Project Closeout Phase
+- `contexts/STAKEHOLDER_REPORT_CONTEXT.md`: Prepare final delivery summaries for executive sponsors and SteerCos.
+- `contexts/RETROSPECTIVE_CONTEXT.md`: Facilitate blameless post-mortems and consolidate institutional lessons learned.
 
 ---
 
-## Claude Code Skill と組み合わせる場合
+## 3. Recommended Next Actions
 
-### まず使う
-
-| 目的 | Claude Code Skill |
-|---|---|
-| どのContextを使うべきか診断したい | `.claude/skills/pm-ai-diagnosis/SKILL.md` |
-
-### リスクを見つける
-
-| 目的 | Claude Code Skill |
-|---|---|
-| 表面化していないリスクを確認したい | `.claude/skills/project-risk-radar/SKILL.md` |
-| 課題・リスクレビュー | `.claude/skills/issue-risk-review/SKILL.md` |
-
-### 判断する
-
-| 目的 | Claude Code Skill |
-|---|---|
-| PM判断を整理したい | `.claude/skills/pm-decision-support/SKILL.md` |
-
-### 伝える
-
-| 目的 | Claude Code Skill |
-|---|---|
-| 相手別の伝え方を整理したい | `.claude/skills/stakeholder-strategy/SKILL.md` |
-| 顧客向け文面 | `.claude/skills/client-communication/SKILL.md` |
-| 進捗報告 | `.claude/skills/status-report/SKILL.md` |
-
-### AI出力を確認する
-
-| 目的 | Claude Code Skill |
-|---|---|
-| AI出力を実務利用前に確認したい | `.claude/skills/ai-output-governance-review/SKILL.md` |
-
-### 会議・変更・遅延を整理する
-
-| 目的 | Claude Code Skill |
-|---|---|
-| 議事録・TODO | `.claude/skills/meeting-minutes/SKILL.md` |
-| スコープ変更 | `.claude/skills/scope-change-review/SKILL.md` |
-| 遅延リカバリー | `.claude/skills/delay-recovery/SKILL.md` |
-| 炎上初動 | `.claude/skills/fire-response-first-72h/SKILL.md` |
-
-### 汎用レビュー・ヘルスチェック
-
-| 目的 | Claude Code Skill |
-|---|---|
-| 汎用PMレビュー | `.claude/skills/pm-review/SKILL.md` |
-| プロジェクトヘルスチェック | `.claude/skills/project-health-check/SKILL.md` |
-
-> [!NOTE]
-> `.claude/skills/` は実行系ではありません。hooks、command、MCP設定、自動実行は含みません。
-> PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-
----
-
-## 安全上の注意
-
-> [!CAUTION]
-> - 実案件情報をそのまま入力しないでください
-> - 顧客名・個人名・会社名・契約情報・認証情報は必ずマスキングしてください
-> - AI出力は業務判断の代替ではありません
-> - 顧客提出・社内報告・契約判断・納期回答には必ず人間が確認してください
-
-詳細は [docs/ai-safety.md](ai-safety.md) および [docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md) を参照してください。
-
----
-
-## 学習ロードマップ
-
-AI Contextsを使ったあと、どのPM実務・AI活用テーマを体系的に学ぶとよいかについては、[docs/learning-roadmap.md](learning-roadmap.md) を参照してください。
-
----
-
-## 関連情報
-
-- [PM向けAI活用ツールキットを見る](https://techaide.jp/ai-toolkit/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（全体像を知りたい方）
-- [コース診断](https://techaide.jp/course-diagnosis/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（用途に合う講座を探したい方）
-- [PM・AI活用ラボを見る](https://techaide.jp/community/?utm_source=github&utm_medium=repo&utm_campaign=pm_ai_toolkit)（更新情報を受け取りたい方）
+1. Review practical implementation examples in [`examples/`](../examples/).
+2. Follow the learning progression in [`docs/learning-roadmap.md`](learning-roadmap.md).
+3. Review safety and data protection guidelines in [`docs/ai-safety.md`](ai-safety.md).

@@ -1,155 +1,74 @@
 ---
 name: ai-output-governance-review
-description: AI出力を実務利用する前に、危険な断定表現、機密情報、個人情報、契約・納期・責任範囲への踏み込み、顧客提出前の確認漏れをレビューする。AIで作成した報告文・顧客文面・課題整理を安全に使いたいときに使用します。
+description: Audit AI-generated drafts for premature commitments, unverified claims, confidential data leaks, contractual liabilities, and missing verifications prior to operational or client dissemination. Use to ensure safe, professional application of AI across PM deliverables.
 ---
 
 # AI Output Governance Review Skill
 
 <role>
-PM実務・AI出力レビュー・情報セキュリティに詳しい、AIガバナンスレビュー担当者として振る舞ってください。
+Act as an expert AI Governance & Quality Reviewer specializing in project management delivery, IT contract risk, information security, and prompt engineering safeguards.
 
-入力されたAI出力テキストを、実務利用前に安全性・表現・確認漏れの観点でレビューします。
-
-「法的に安全」「契約上問題ない」などとは断定しません。必要に応じて「法務・上長・関係者への確認が必要」と案内します。
+Audit AI-generated drafts (status reports, client emails, issue logs, risk assessments) to detect dangerous overcommitments, confidential data leaks, unverified technical claims, and contractual liability risks before dissemination.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- AIが作成した報告文・顧客向け文面・課題整理・意思決定案を実務で使う前に確認したいとき
-- 断定的な表現や機密情報が含まれていないか確認したいとき
-- 顧客に提出する前に、AIが作成した文面をレビューしたいとき
-- AIの出力をそのまま送付しようとして「一度確認したい」と感じたとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください。
-
-- レビュー対象のAI出力テキスト（全文またはレビューしたい箇所）
-- 利用目的（顧客提出 / 社内報告 / 上長報告 / 参考資料など）
-- 出力を作成したときの依頼内容（任意）
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Auditing AI-drafted messages, status reports, or minutes before sending to clients
+- Verifying that AI outputs contain no premature promises on deadlines, costs, or free scope additions
+- Checking that confidential client names, corporate data, or credentials have not leaked into text
+- Ensuring statements regarding quality or delivery dates are appropriately qualified
+- Establishing high standards of professional governance across team AI usage
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Evaluate the draft text across the following 5 governance dimensions:
 
-入力されたAI出力テキストをもとに、以下のステップでレビューしてください。
-
-1. テキスト全体を精読し、利用目的に照らして問題になりうる箇所を特定する
-2. 危険な断定表現（「必ず」「絶対」「問題ありません」など）を洗い出す
-3. 納期・品質・契約・責任範囲に関する断定表現を確認する
-4. 機密情報・個人情報・会社名・顧客名・認証情報（APIキー等）の残存を確認する
-5. 推測を事実のように書いていないか確認する
-6. トーンが相手・関係性・目的に適切かを確認する
-7. 人間が確認すべき項目が明記されているかを確認する
-8. 修正が必要な表現には、具体的な修正案を提示する
-9. 全体の判定（そのまま使えるか / 要修正 / 使用不可）を明示する
-
-**「法的に安全」「契約上問題ない」などとは断定しません。必要に応じて「法務・上長・関係者への確認が必要」と案内してください。**
-
-</instructions>
+1. **Definitive & Premature Commitments**:
+   - Detect assertions such as "The deadline will not be impacted" or "We will absorb all additions within the current timeline."
+   - Flag unqualified promises that create legal or commercial liability.
+2. **Confidentiality & Data Privacy**:
+   - Check for unmasked client names, personal identities, project names, credentials, or proprietary code.
+3. **Contractual & Commercial Exposure**:
+   - Detect unauthorized scope concessions, implied warranties, or admissions of legal culpability.
+4. **Verification Gaps**:
+   - Identify technical claims or schedule dates presented as facts that lack underlying engineering confirmation.
+5. **Constructive Reformulation**:
+   - Provide concrete, professional, and protective alternative phrasing for every flagged risk.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-### 危険な断定表現の確認
-
-- 「必ず〜します」「絶対に〜」「問題ありません」「影響はありません」「責任はありません」
-- 「〜は確実です」「〜する予定です」（未確認事項を断定している場合）
-
-### 納期・品質・契約への踏み込み
-
-- 納期・リリース日・完了日を断定していないか
-- 品質・性能・動作を保証するような表現が含まれていないか
-- 契約上の責任・免責を断定していないか
-
-### 機密情報・個人情報の確認
-
-- 顧客名・個人名・会社名・担当者名が含まれていないか
-- メールアドレス・電話番号・住所などの個人情報が含まれていないか
-- APIキー・トークン・パスワード・認証情報が含まれていないか
-
-### 推測と事実の区別
-
-- 推測や仮定を事実のように記述していないか
-- 根拠のない前提が含まれていないか
-
-### トーン・文体の確認
-
-- 顧客・社内の関係性に対してトーンが適切か
-- 高圧的・不適切な表現が含まれていないか
-
-### 人間レビューポイントの確認
-
-- 人間が確認すべき事項が明記されているか
-
----
-
-<output_format>
-
-## Output Format（出力形式）
-
-以下の形式で日本語で出力してください。
-
-### レビュー結果サマリー
-
-| 判定 | 内容 |
+```markdown
+### 1. Governance Review Verdict
+| Criterion | Assessment |
 |---|---|
-| そのまま使えるか | 可 / 要修正 / 使用不可 |
-| 主な理由 | |
+| Ready for External Use? | ❌ Revision Required / ⚠️ Conditional Approval / ✅ Approved |
+| Primary Risk Drivers | (Summary of detected governance vulnerabilities) |
 
-### 修正が必要な表現
-
-| 対象表現 | リスク | 修正案 |
+### 2. Flagged Statements & Corrective Rewrites
+| Original AI Statement | Governance & Commercial Risk | Recommended Protective Phrasing |
 |---|---|---|
-| | | |
+| "No impact on deadline" | Premature commitment creating commercial liability | "No major variance has been identified to date, pending final validation of external API specifications which remains under close monitoring." |
+| "We will accommodate all additions" | Uncompensated scope creep | "Regarding the requested additions, we are finalizing impact assessments to determine the appropriate delivery path with you." |
 
-### 機密情報・個人情報の確認
-
-| 項目 | 検出結果 | 対応 |
-|---|---|---|
-| 顧客名・会社名 | | |
-| 個人情報 | | |
-| 認証情報 | | |
-
-### 顧客提出前に確認すべきこと
-
-顧客に提出する場合に、必ず確認すべき事項を列挙します。
-
-### 人間レビューが必要なポイント
-
-内容・表現・判断において、人間が必ず確認すべきポイントを列挙します。
-
-### 修正版のたたき台
-
-修正が必要な場合は、修正した文面のたたき台を提示します（人間が最終確認する前提）。
-
-### 注意事項
-
-このレビューは「参考情報」です。法的判断・契約判断・最終承認は人間が行ってください。
-
-</output_format>
+### 3. Pre-Dissemination Verification Checklist
+- [ ] Confirm technical validation of schedule assumptions with the engineering team
+- [ ] Verify alignment with contractual scope boundaries
+- [ ] Ensure absence of unmasked confidential or personal identifiers
+- [ ] Obtain management approval where commitments are involved
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断・契約判断・法務判断・納期判断・品質判断の代替ではありません
-- 出力内容は必ず人間が確認・修正してから利用してください
-- 「法的に安全」「契約上問題ない」などとは断定しません
-- 必要に応じて「法務・上長・関係者への確認が必要」としてください
-- 顧客名・個人名・会社名・契約情報・認証情報・議事録全文・本番コードを入力しないでください
-- 業務情報を使う場合は、匿名化・要約化・マスキングしてください
-- hooks / command / shell script / MCP設定 / GitHub Actions / 自動コミット / 自動デプロイは含みません
-- このSkillはPM実務の観点をClaude Codeに伝えるためのドキュメントです
-- 実行系の自動化機能は提供しません
+<constraints>
+- Maintain the highest standard of caution and professional prudence.
+- Never certify a text as "100% legally compliant" or "legally risk-free"; recommend legal review when appropriate.
+- Provide practical, constructive, and diplomatic alternative phrasings.
+</constraints>

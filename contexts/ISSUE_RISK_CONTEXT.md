@@ -1,289 +1,158 @@
-﻿# 課題・リスク管理用コンテキスト / Issue & Risk Management Context
+# Issue & Risk Management Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-プロジェクトの課題一覧やリスク情報をAIに渡し、PM視点での抜け漏れ確認・分類・優先度の見直し・エスカレーション候補の抽出を補助してもらうためのコンテキストです。
+This context assists Project Managers in auditing active issue registers and risk matrices, uncovering governance gaps, re-evaluating priorities, and identifying escalation candidates.
 
-**AIはリスク評価や業務上の優先度判断を行うものではありません。** 出力はあくまで整理・分類の補助です。最終的な判断は必ず人間が行ってください。
-
----
-
-## Use Case（このコンテキストを使う場面）
-
-- 課題リストの抜け漏れ・曖昧さを確認したいとき
-- 課題・リスクの優先度を見直したいとき
-- 担当者不明・期限不明の課題を洗い出したいとき
-- エスカレーションが必要な課題を判断する材料が欲しいとき
-- 顧客確認が必要な課題・リスクをまとめたいとき
+**AI does not perform legal liability assessments or contractual priority determinations.** All outputs are structured decision-support materials. Final managerial decisions rest solely with human leadership.
 
 ---
 
-## Input（AIに渡す情報）
+## Use Cases
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報をマスキングして）渡してください。
+- Auditing issue backlogs for missing owners, ambiguous scopes, or open-ended deadlines
+- Re-evaluating relative priority levels based on critical path dependencies
+- Uncovering latent systemic delivery risks hidden beneath surfaced operational issues
+- Preparing structured escalation rationale for executive sponsors or steering committees
+- Consolidating items requiring formal customer clarification or arbitration
+
+---
+
+## Input (Information to Provide to the AI)
+
+After loading this context, submit active issue and risk logs with confidential details masked:
 
 ```
-### 課題一覧
+### Project Context
+- Project Name (Sanitized):
+- Current Delivery Phase:
+- Milestone Deadlines:
 
-| No. | 課題・問題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 | 対応方針 |
-|---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
+### Active Issue Backlog
+For each active issue:
+- Issue ID:
+- Title / Summary:
+- Current Status: (Open, In Progress, Blocked)
+- Assigned Owner (Role):
+- Target Resolution Date:
+- Impact Scope:
+- Current Action Plan:
+- External Dependencies:
 
-### 未決事項（誰も対応していない事項）
--
-
-### 外部依存（顧客・外部ベンダー・外部API等の確認待ち）
--
-
-### 顧客確認待ちの事項
--
-
-### リスク一覧（まだ課題化していないが、顕在化する可能性があるもの）
-
-| No. | リスクの内容 | 発生確率（高/中/低） | 影響度（高/中/低） | 対応方針 |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-```
-
----
-
-## Output（AIに期待する出力）
-
-### 1. 課題の分類
-
-以下の観点で課題を分類したもの。
-
-- 至急対応が必要（高影響・高緊急度）
-- 注意が必要（中影響・中緊急度）
-- 管理継続（低影響・低緊急度）
-- 判断不能（情報不足）
-
-### 2. 優先度の見直し
-
-現在の優先度に過不足がないか、PM視点での指摘。
-
-### 3. 担当者不明の課題
-
-担当が未設定・不明確な課題の一覧。
-
-### 4. 期限不明の課題
-
-期限が未設定・不明確な課題の一覧。
-
-### 5. 影響範囲が曖昧な課題
-
-影響範囲が「不明」「未確認」「TBD」になっている課題の一覧。
-
-### 6. 表面化していないリスク
-
-入力情報をもとに、PMが見落としている可能性があるリスクの指摘。
-
-### 7. エスカレーション候補
-
-以下のいずれかに該当する課題・リスクの一覧。
-
-- PMだけで判断できない重大な問題
-- 納期・品質・顧客関係に重大な影響を与える可能性がある
-- 社内リソース・体制の問題で、上長の判断が必要
-
-### 8. 次アクション
-
-直近で実施すべきアクションの一覧。
-
----
-
-## 出力形式（表形式テンプレート）
-
-AIへの出力指示に以下の形式を指定できます。
-
-```text
-以下の形式で出力してください。
-
-## 課題整理サマリー
-
-| 分類 | 件数 | 主な内容 |
-|---|---|---|
-| 至急対応 | | |
-| 注意が必要 | | |
-| 管理継続 | | |
-| 担当者不明 | | |
-| 期限不明 | | |
-
-## エスカレーション候補
-
-| No. | 内容 | 理由 | 推奨する対応 |
-|---|---|---|---|
-| | | | |
-
-## 次アクション一覧
-
-| 優先度 | アクション | 担当（役割） | 期限 |
-|---|---|---|---|
-| | | | |
+### Risk Register (Known & Potential)
+- Risk Description:
+- Estimated Probability:
+- Impact Severity:
+- Mitigation / Contingency Strategy:
+- Current Trigger Status:
 ```
 
 ---
 
-## Caution（利用時の注意）
+## Expected Output
+
+### 1. Issue Categorization Matrix
+Grouping issues by structural origin: Client/External Dependencies, Internal Technical Architecture, or Governance/Resource Bottlenecks.
+
+### 2. Priority Re-alignment
+Re-evaluating urgency and impact against the critical path (Critical, High, Medium, Low) with explicit technical justifications.
+
+### 3. Governance Gap Identification
+Explicitly highlighting issues lacking designated owners, definite target dates, or clear action plans.
+
+### 4. Ambiguous Scope Alerts
+Flagging issues where the blast radius is poorly defined or understated.
+
+### 5. Latent Risk Detection
+Uncovering second-order delivery risks (e.g., test cycle compression, third-party vendor alignment failure).
+
+### 6. Escalation Candidate Shortlist
+Identifying critical issues exceeding the PM's delegated authority that require immediate executive or steering committee intervention.
+
+### 7. Action Plan & Next Steps
+Concrete operational next steps with assigned owners and deadlines.
+
+---
+
+## Caution & Operational Safeguards
 
 > [!CAUTION]
-> AI出力の課題・リスク整理は、専門家によるリスク評価・監査・診断を代替しません。
+> AI-generated risk evaluations do not substitute for formal PMO audits, legal compliance, or contractual determinations.
 >
-> エスカレーション要否・対応優先度の最終判断は、必ず人間が行ってください。
+> All escalation decisions and priority shifts must be validated by human management.
 >
-> 機密情報・個人情報・契約情報・認証情報はAIサービスに入力しないでください。
+> Do not input real client names, corporate identities, contract figures, or credentials into AI tools.
 
 ---
 
-## 使用例（このコンテキストを使った依頼例）
-
-### 【基本テンプレート】課題・リスクをまとめてレビューする
+## Standard Prompt Template
 
 ```text
-# 課題・リスクレビューの依頼
+# Issue and Risk Audit Request
 
-以下のコンテキストを前提として、課題・リスクをPM視点でレビューしてください。
+Using the contexts below, perform a rigorous review of the active issue backlog and risk register from a senior PM perspective.
 
-## コンテキスト
+## Contexts
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 課題・リスク情報（機密情報はマスキング済み）
-
-### 課題一覧
-
-| No. | 課題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 |
-|---|---|---|---|---|---|
-| 1 | | | | | |
-
-### リスク一覧
-
-| No. | リスクの内容 | 発生確率 | 影響度 | 対応方針 |
-|---|---|---|---|---|
-| 1 | | | | |
-
-### 顧客確認待ち・外部依存
--
+[Paste contents of ISSUE_RISK_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Active Issues and Risk Data (Sanitized)
 
-1. 担当者不明・期限不明・影響範囲が曖昧な課題の一覧
-2. 優先度の見直し（高/中/低の分類）
-3. 見落としている可能性があるリスク
-4. エスカレーション候補と理由
-5. 次アクション一覧（優先度・担当役割・期限）
-
-※ AI出力は判断材料です。最終判断は人間が行ってください。
-```
-
+[Paste sanitized issue and risk data here]
 
 ---
 
-### 【リスク洗い出し】入力情報から潜在リスクを抽出する
+## Requested Deliverables
 
-```text
-以下のコンテキストを前提として、案件状況からリスクを洗い出してください。
-現在認識されているリスクに加え、見落としている可能性があるリスクを
-PM視点で指摘してください。
+1. Issue Categorization Matrix
+2. Priority Re-alignment with Rationale
+3. Governance Gap Identification (Missing Owners/Deadlines)
+4. Ambiguous Impact Alerts
+5. Latent Delivery Risks
+6. Escalation Candidate Shortlist
+7. Immediate Action Plan
 
-## コンテキスト
-
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
-
----
-
-## 案件状況（機密情報はマスキング済み）
-
-### プロジェクト概要
-- フェーズ：
-- 規模感：
-
-### 現在認識しているリスク
--
-
-### 課題一覧（ある場合）
--
-
-### 外部依存・顧客確認待ち
--
-
-### 体制・チームの状況
--
-
----
-
-## 出力してほしいこと
-
-1. 現在認識されているリスクの整理（発生確率・影響度・対応方針）
-2. 見落としている可能性があるリスク
-3. リスクの優先度分類（高/中/低）
-4. 対応方針が未定のリスクへの推奨アクション
-5. エスカレーションが必要なリスクの指摘
-
-※ AI出力は判断材料です。最終判断は人間が行ってください。
-※ 機密情報・個人情報・認証情報はAIに入力しないでください。
+*Note: AI output serves as analytical support. Final operational decisions remain human responsibility.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の課題・リスク情報をPM視点でレビューしてください。
-担当者不明・期限不明の課題、潜在リスク、エスカレーション候補を整理してください。
+Audit the provided issue backlog and risk matrix from a senior PM perspective.
+Output categorization, reprioritization, governance gaps, latent risks, escalation candidates, and next actions.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[ISSUE_RISK_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of ISSUE_RISK_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【課題・リスク情報（機密情報はマスキング済み）】
-
-### 課題一覧
-
-| No. | 課題の内容 | ステータス | 担当（役割） | 期限 | 影響範囲 |
-|---|---|---|---|---|---|
-| 1 | | | | | |
-
-### リスク一覧
-
-| No. | リスクの内容 | 発生確率 | 影響度 | 対応方針 |
-|---|---|---|---|---|
-| 1 | | | | |
-
-### 顧客確認待ち・外部依存
--
+[Paste sanitized issue and risk data here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 入力情報に根拠がないリスクは断定しないでください。
-- 推測が含まれる場合は「（推測）」と明示してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Base findings strictly on supplied data; tag inferences explicitly as "(Inferred)".
+- Highlight any issue missing an owner or deadline as an urgent governance vulnerability.
+- Maintain a decision-support framing; do not make binding contractual conclusions.
 </constraints>
 <output_format>
-1. 課題分類（担当者不明・期限不明・影響範囲が曖昧なものを特定）
-2. 優先度の見直し（高/中/低）
-3. 潜在リスク（見落としている可能性があるもの）
-4. エスカレーション候補と理由
-5. 次アクション一覧（優先度・担当役割・期限）
+1. Issue Categorization Matrix
+2. Priority Re-alignment with Technical Rationale
+3. Governance Gap Identification (Unassigned/No Deadline)
+4. Ambiguous Impact Alerts
+5. Latent Delivery Risks
+6. Escalation Candidate Shortlist
+7. Immediate Action Plan
 </output_format>
 ```

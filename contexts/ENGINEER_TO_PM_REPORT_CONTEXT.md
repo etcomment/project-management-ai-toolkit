@@ -1,208 +1,134 @@
-﻿# エンジニアからPMへの相談整理コンテキスト / Engineer to PM Report Context
+# Engineer to PM Report Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-開発リーダー・エンジニアが、技術課題・制約・影響・選択肢をPMに相談するための文面を整理するためのコンテキストです。技術的な問題をPMが理解しやすい形に整理し、判断依頼・選択肢提示の構成を補助します。
+This context assists Tech Leads, Senior Engineers, and Architects in translating technical blockers, architectural constraints, technical debt, and engineering trade-offs into business-impact language that Project Managers and business stakeholders can readily understand and arbitrate.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・文面のたたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace engineering leadership judgment.** AI assists in framing and translating technical complexity. Technical recommendations and architectural decisions must be owned by the engineering leads.
 
 > [!CAUTION]
-> ソースコード・認証情報・APIキー・パスワード・詳細な技術仕様をAIに入力しないでください。
-> 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-> 技術情報は概念・影響・リスクの観点で抽象化して入力してください。
+> Never enter proprietary source code, secrets, API keys, passwords, or detailed technical credentials into the AI.
+> Do not input real client names, corporate identities, or contractual figures.
+> Abstract technical challenges into concepts, dependencies, delivery risks, and business impacts.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 技術的な問題をPMに報告・相談したいとき
-- PMに判断を依頼するための文面のたたき台を作りたいとき
-- 技術選択肢の比較をPMにわかりやすく提示したいとき
-- 技術制約が納期・品質に与える影響を整理して伝えたいとき
-- PMに相談すべき論点を整理したいとき
+- Translating complex technical blockers into business risk and schedule impact for the PM
+- Structuring escalation memos when technical debt or infrastructure issues threaten milestones
+- Presenting clear technical decision options (e.g., Quick Patch vs. Clean Refactor) with schedule/cost trade-offs
+- Requesting PM assistance to unblock client-side technical dependencies or API access
+- Aligning engineering realities with commercial project commitments
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 技術的な問題・困っていること（概念・影響の観点で記載。コードは含めないこと）
-（例：外部APIの仕様変更により既存の処理フローが使えなくなった など）
+### Technical Issue Metadata
+- Module / Feature Name (Sanitized):
+- Nature of Challenge: (Architectural bottleneck, external API defect, performance degradation, technical debt)
+- Delivery Target at Risk:
 
-### 影響範囲
-（この問題によって影響を受ける機能・工程・納期・品質）
+### Technical Details (Abstracted / Conceptual)
+- What is happening technically:
+- Why it cannot be resolved with standard development effort:
+- Estimated time/effort to resolve under different approaches:
 
-### 選択肢
-（対応策として考えられる選択肢を箇条書きで）
+### Impact on Schedule & Quality
+- Features or dependencies blocked:
+- Impact on upcoming test cycles or release dates:
 
-### 判断してほしいこと
-（PMに判断・意思決定してほしい事項）
-
-### 希望する対応・推奨案
-（エンジニア視点での推奨案とその理由）
-
-### 技術的制約
-（技術・環境・スキル面での制約の概要）
-
-### 納期・品質への影響
-（各選択肢が納期・品質にどう影響するかの概要）
+### Potential Options / Solutions
+- Option 1 (e.g., Quick workaround / high technical debt):
+- Option 2 (e.g., Proper architectural refactor / requires schedule extension):
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. PM向け相談文（骨子）
+### 1. Executive Problem Summary (PM-Friendly)
+Translating the technical blocker into plain, concise business terminology without jargon.
 
-PMが現状を把握し判断できるよう整理された相談文の骨子。
+### 2. Business & Milestone Blast Radius
+Explicitly showing how the engineering challenge translates into schedule delays, testing compression, or budget risks.
 
-### 2. 論点整理
+### 3. Structured Solution Options Matrix
+Comparing Option A, Option B, and Option C across Effort, Timeline Impact, Quality/Debt Risk, and Feasibility.
 
-PMに判断してほしい論点の一覧。
+### 4. Action Requested from PM
+Concrete steps requested from management (e.g., renegotiate API deadline with client, authorize 3-day schedule buffer).
 
-### 3. 判断依頼の明確化
-
-何を・いつまでに・どの粒度で判断してほしいかの整理。
-
-### 4. 選択肢の比較
-
-各選択肢の概要・メリット・デメリット・リスクの比較表。
-
-### 5. 推奨案とその理由
-
-エンジニア視点での推奨案と、その推奨理由。
-
-### 6. リスク説明
-
-各選択肢・判断が遅れることによるリスクの整理。
-
-### 7. 次アクション
-
-PMの判断を受けた後の次のアクションの案。
+### 5. Synchronous Alignment Talking Points
+Concise talking points for the Tech Lead to use during the next 1-on-1 with the PM.
 
 ---
 
-## Caution（利用時の注意）
-
-- **ソースコード・認証情報・APIキー・パスワードをAIに入力しないでください。**
-- 技術情報は概念・影響・リスクの観点で抽象化して入力してください。
-- 顧客名・社名・個人名・契約情報はAIに入力しないでください。
-- AI出力の相談文はたたき台です。実際の状況・関係性に合わせて人間が修正してください。
-- 納期・費用・責任範囲に関わる内容は特に慎重に確認してください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、技術課題をPM向けに整理してください。
+# Engineer to PM Technical Escalation Request
 
-## コンテキスト
+Using the contexts below, translate the engineering challenge into a structured, business-aligned escalation memo for the Project Manager.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[ENGINEER_TO_PM_REPORT_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 相談内容（機密情報はマスキング済み・コードは含めないこと）
-
-### 技術的な問題・困っていること
-（記入）
-
-### 影響範囲
-（記入）
-
-### 選択肢
-（記入）
-
-### 判断してほしいこと
-（記入）
-
-### 希望する対応・推奨案
-（記入）
-
-### 技術的制約
-（記入）
-
-### 納期・品質への影響
-（記入）
+[Paste contents of ENGINEER_TO_PM_REPORT_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Technical Challenge Data (Sanitized)
 
-1. PM向け相談文の骨子
-2. 論点の整理
-3. 判断依頼の明確化（何を・いつまでに・どの粒度で）
-4. 選択肢の比較表（概要・メリット・デメリット・リスク）
-5. 推奨案とその理由
-6. リスク説明
-7. PMの判断後の次アクション案
+[Paste sanitized engineering details here]
 
-※ ソースコード・認証情報はAIに入力しないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+---
+
+## Requested Deliverables
+
+1. Executive Problem Summary (PM-Friendly)
+2. Business & Milestone Blast Radius
+3. Structured Solution Options Matrix (Trade-Offs)
+4. Specific Action Requested from the PM
+5. 1-on-1 Meeting Talking Points
+
+*Note: AI output serves as communication support. Technical evaluations remain engineering leadership responsibility.
 ```
 
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の技術的な相談内容を、PM向けの相談文・論点整理・判断依頼の形に整理してください。
+Translate the provided technical engineering challenge into a structured, business-aligned escalation memo for the PM.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[ENGINEER_TO_PM_REPORT_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of ENGINEER_TO_PM_REPORT_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【相談内容（機密情報はマスキング済み・コードは含めないこと）】
-
-### 技術的な問題・困っていること
-（記入）
-
-### 影響範囲
-（記入）
-
-### 選択肢
-（記入）
-
-### 判断してほしいこと
-（記入）
-
-### 希望する対応・推奨案
-（記入）
-
-### 技術的制約
-（記入）
-
-### 納期・品質への影響
-（記入）
+[Paste sanitized engineering details here]
 </input>
 <constraints>
-- ソースコード・認証情報・顧客名・個人名・会社名はAIに入力しないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 技術的な判断・設計判断の最終決定はエンジニア・PMが行う前提で出力してください。
+- Avoid raw technical jargon; emphasize business impact, critical path risk, and quality implications.
+- Present clear, balanced trade-offs for each proposed technical option.
+- Keep recommendations actionable and respectful of PM delivery constraints.
 </constraints>
 <output_format>
-1. PM向け相談文の骨子
-2. 論点の整理
-3. 判断依頼の明確化（何を・いつまでに・どの粒度で）
-4. 選択肢の比較表（概要・メリット・デメリット・リスク）
-5. 推奨案とその理由
-6. PMの判断後の次アクション案
+1. Executive Problem Summary (PM-Friendly)
+2. Business & Milestone Blast Radius
+3. Structured Solution Options Matrix (Trade-Offs)
+4. Specific Action Requested from the PM
+5. 1-on-1 Meeting Talking Points
 </output_format>
 ```

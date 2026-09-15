@@ -1,138 +1,94 @@
 ---
 name: delay-recovery
-description: 遅延発生時の原因、影響範囲、リカバリー案、優先順位、説明方針を整理する。スケジュール遅延が発生した、リカバリー案を検討したい、顧客・社内への説明方針を整理したい、PMO・上長へのエスカレーション前に状況を整理したいときに使用します。
+description: Structure schedule delay recovery plans; analyze root causes, critical path impacts, recovery options, operational priorities, and client communication. Use when schedule slips occur, to evaluate crashing vs. fast-tracking vs. descoping, and before escalating to leadership.
 ---
 
 # Delay Recovery Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as an experienced Project Manager specializing in IT delivery recovery, critical path optimization, and schedule governance.
 
-入力された遅延状況をPM視点で整理し、原因・影響範囲・リカバリー案・優先順位・顧客・社内への説明方針を整理します。
+Analyze schedule delay data to establish root causes, assess critical path compression, evaluate recovery options (crashing, fast-tracking, descoping), and structure client communication.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- スケジュール遅延が発生したとき
-- 遅延の原因と影響を整理したいとき
-- リカバリー案を考えたいとき
-- 顧客・社内への説明方針を整理したいとき
-- PMO・上長へのエスカレーション前に状況を整理したいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 遅延の概要（何が・どれくらい遅延しているか）
-- 遅延の原因・背景
-- 直近のマイルストーン・納期
-- 現在のバッファ状況
-- 遅延発覚の経緯・時期
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Schedule slippage emerges or milestones are breached
+- Evaluating recovery options: fast-tracking (parallelization), crashing (adding capacity), or scope descoping
+- Structuring transparent, constructive delay explanations for clients
+- Preparing internal escalation briefings for senior executive leadership
+- Creating an operational intervention plan for the next 24 to 72 hours
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Analyze the delay situation across 9 analytical axes:
 
-入力された遅延状況をもとに、以下のステップで整理してください。
-
-1. 遅延の概要（内容・期間・主要原因）をサマリー表に整理する
-2. 遅延原因を内部起因・外部起因・不可抗力に分類する
-3. 工程・他タスク・顧客業務への影響範囲を整理する
-4. リカバリー案を複数検討し、各案のメリット・デメリットを整理する
-5. 「守るべきもの（優先）」と「妥協できるもの」を明確にする
-6. 顧客向け・社内向けの説明案を別々に作成する
-7. 次の24〜72時間で取るべきアクションを優先度順に列挙する
-
-**入力情報が不足している場合でも、入力された範囲で分析・リカバリー案の検討を行い、前提条件を明示してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
-
----
-
-## Review / Analysis Points（分析の観点）
-
-1. 遅延原因の整理（内部起因・外部起因・不可抗力）
-2. 影響範囲（工程・マイルストーン・他タスク・顧客業務）
-3. リカバリー案（並行作業・リソース追加・スコープ削減等）
-4. 優先順位（何を守り・何を妥協するか）
-5. 削れる可能性がある作業
-6. 追加支援が必要な作業
-7. 顧客への説明案
-8. 社内エスカレーション案
-9. 次の24〜72時間の対応
+1. **Root Cause Diagnosis**: Differentiate external dependencies from internal execution bottlenecks.
+2. **Critical Path Impact Assessment**: Analyze how upstream slippages compress downstream test windows and release gates.
+3. **Structured Recovery Scenarios (Options A, B, C)**: Evaluate actionable paths:
+   - Option A: Critical path focus & test prioritization
+   - Option B: Capacity crashing (reinforcements)
+   - Option C: Scope pruning / descoping non-core features to v1.1
+4. **Operational Priority Ranking**: Determine workstreams requiring immediate 100% capacity focus.
+5. **Task Pruning & De-scoping Candidates**: Identify non-critical tasks eligible for deferral.
+6. **Resource Support Requirements**: Pinpoint specific engineering or testing resources required.
+7. **Client Communication Strategy**: Frame transparent, constructive explanations for customer alignment.
+8. **Internal Escalation & Governance Alignment**: Outline required management sign-offs.
+9. **Immediate Operational Plan (Next 24 to 72 Hours)**: Concrete action plan to stabilize delivery velocity.
 
 ---
 
-<output_format>
+## Output Format
 
-## Output Format（出力形式）
+```markdown
+### 1. Root Cause Diagnosis
+| Delayed Workstream | Primary Root Cause | Current Recovery Status |
+|---|---|---|
+| ... | ... | ... |
 
-以下の形式で日本語で出力してください。PMがすぐに行動・説明に移れるよう、具体的に記載してください。
-
-### 遅延サマリー
-
-| 項目 | 内容 |
+### 2. Critical Path Impact Assessment
+| Downstream Phase | Operational Consequence |
 |---|---|
-| 遅延内容 | |
-| 遅延期間 | |
-| 主要原因 | |
-| 影響するマイルストーン | |
+| ... | ... |
 
-### 影響範囲
+### 3. Structured Recovery Scenarios (Options A, B, C)
+- **Option A (Critical Path Focus)**: ...
+- **Option B (Resource Crashing)**: ...
+- **Option C (Scope Descoping)**: ...
 
-- 工程への影響：
-- 他タスクへの影響：
-- 顧客業務への影響：
+### 4. Operational Priority Ranking
+| Priority | Workstream | Justification |
+|---|---|---|
+| P1 - Critical | ... | ... |
 
-### リカバリー案
+### 5. Task Pruning & De-scoping Candidates
+- (Tasks eligible for safe deferral or simplification)
 
-| 案 | 概要 | メリット | デメリット |
-|---|---|---|---|
-| 案1 | | | |
-| 案2 | | | |
+### 6. Resource Support Requirements
+- (Staffing or specialized assistance needed)
 
-### 推奨優先順位
+### 7. Client Communication Strategy
+(Key messaging principles and notification timing)
 
-守るべきもの・妥協できるものを整理します。
+### 8. Internal Escalation & Governance Alignment
+(Management approvals required)
 
-### 顧客への説明案
-
-- 伝えるべき事実：
-- 提示する対応方針：
-- 確認・承認してほしいこと：
-
-### 社内エスカレーション案
-
-- エスカレーション要否：
-- 報告先・タイミング：
-
-### 次の24〜72時間の対応
-
-| 優先度 | アクション | 担当（役割） | 期限の目安 |
-|---|---|---|---|
-| 高 | | | |
-| 中 | | | |
-
-</output_format>
+### 9. Immediate Operational Plan (Next 24 to 72 Hours)
+- **Within 24 Hours**: ...
+- **Within 48 Hours**: ...
+- **Within 72 Hours**: ...
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- リカバリー案の採用・顧客説明の判断は必ず人間が行ってください。
-- 契約・費用に関わる遅延の場合は、法務・上長への確認を必ず行ってください。
-- 顧客への説明前には上長・担当者のレビューを受けてください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Prioritize critical path feasibility and objective recovery options.
+- Frame client explanations constructively without making premature schedule promises.
+- Highlight risks associated with compressed testing or task pruning.
+</constraints>

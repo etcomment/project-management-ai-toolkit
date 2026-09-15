@@ -1,218 +1,138 @@
-﻿# 議事録作成用コンテキスト / Meeting Minutes Context
+# Meeting Minutes Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-会議メモ・発言メモ・決定事項らしき内容・未決事項をAIに渡し、議事録・TODO一覧・次回確認事項の整理を補助してもらうためのコンテキストです。
+This context assists Project Managers in transforming raw meeting notes, rapid jottings, tentative agreements, and open questions into structured meeting minutes, actionable TODO lists, and next-session agendas.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace professional PM judgment.** AI serves as a force multiplier for structuring notes and highlighting action items. Final minutes and stakeholder distributions must be reviewed and approved by human management.
 
 > [!CAUTION]
-> 参加者の実名・顧客名・社名・個人が特定できる情報はAIに入力しないでください。
-> 会議内容に契約情報・認証情報・機密情報が含まれる場合は、マスキングまたは除外してください。
+> Never submit real participant names, client identities, corporate names, or personally identifiable information into the AI.
+> Mask or remove all contract financials, credentials, or sensitive commercial details before submission.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 走り書きの会議メモから議事録のたたき台を作りたいとき
-- 発言内容から決定事項と未決事項を分けて整理したいとき
-- TODO一覧と担当者・期限を抽出したいとき
-- 次回確認すべき事項をまとめたいとき
-- 会議メモからリスク・懸念点を見つけたいとき
+- Structuring raw meeting notes from client steering committees or internal standups
+- Delineating verified decisions from unconfirmed discussion points
+- Creating an actionable TODO list with assigned owners and clear deadlines
+- Identifying blind spots: action items discussed without explicit owners or target dates
+- Setting up the agenda and follow-up items for the subsequent meeting
 
 ---
 
-## Input（AIに渡す情報）
+## Input (Information to Provide to the AI)
 
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+After loading this context, submit the meeting notes with all confidential data masked:
 
 ```
-### 会議の目的
-（例：週次定例、要件確認、レビュー会議、障害対応会議 など）
+### Meeting Metadata
+- Meeting Purpose / Type: (e.g., Weekly Client Steering, Technical Architecture Sync)
+- Date / Cycle: (e.g., Week 10, Wednesday)
+- Roles of Attendees: (e.g., PM, Tech Lead, Client Sponsor, Operations Lead)
 
-### 会議種別
-（例：社内定例、顧客定例、社内レビュー、キックオフ など）
-
-### 参加者の役割（実名は入力しないこと）
-（例：PM、開発リーダー、インフラ担当、顧客担当者A など）
-
-### 会議メモ・発言メモ（機密情報はマスキング済み）
-（箇条書き・メモ書きのまま貼り付けてよい）
-
-### 決定事項らしき内容
-（確定したと思われる事項を箇条書きで）
-
-### 未決事項
-（まだ決まっていない・保留になっている事項）
-
-### TODOらしき内容
-（誰かが「やる」と言っていた・やるべきと思われる事項）
-
-### 次回確認したいこと
-（次回の会議で確認しようと思っていること）
+### Raw Meeting Notes (Jottings / Bullet Points)
+- Key topics discussed:
+- Tentative decisions:
+- Open issues / items carried over:
+- Technical or timeline concerns raised:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 会議サマリー
+### 1. Executive Meeting Summary
+Concise synthesis of core achievements, major discussions, and primary outcomes.
 
-会議全体の目的と結果の概要（3〜5行程度）。
+### 2. Confirmed Decisions
+Formal table of agreed-upon decisions and approved orientations.
 
-### 2. 決定事項
+### 3. Open Issues & Pending Arbitrations
+Items remaining in discussion, along with the designated party responsible for providing clarification.
 
-会議で確定した事項の一覧。
+### 4. Action Item Register (TODOs)
+Structured matrix containing Action Item, Owner (Role), Deadline, and Deliverable.
 
-### 3. 未決事項
+### 5. Unassigned Actions & Governance Gaps
+Actionable tasks identified in conversation that lack an assigned owner or deadline.
 
-まだ決まっていない・保留になっている事項の一覧。
+### 6. Agenda Items for Next Meeting
+Topics queued for formal review or sign-off during the subsequent session.
 
-### 4. TODO一覧
-
-| No. | 作業内容 | 担当（役割） | 期限 | 備考 |
-|---|---|---|---|---|
-
-### 5. 担当者不明のTODO
-
-担当が決まっていない・不明確なTODOの一覧。
-
-### 6. 次回確認事項
-
-次回の会議で確認すべき事項の一覧。
-
-### 7. リスク・懸念点
-
-会議メモから読み取れるリスクや懸念点の指摘。
+### 7. Emergent Risks & Concerns
+Underlying risks or unstated dependencies surfaced during discussions.
 
 ---
 
-## Caution（利用時の注意）
-
-- **参加者の実名・顧客名・社名をAIに入力しないでください。** 役割（PM、顧客担当者A など）に置き換えてください。
-- AI出力の議事録はたたき台です。事実との齟齬がないか、必ず人間が確認してください。
-- 顧客提出用の議事録は、AI出力をそのまま使わず、必ず人間が確認・修正してください。
-- 機密情報・契約情報・認証情報が含まれる発言はAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、会議メモから議事録・TODO一覧・次回確認事項を整理してください。
+# Meeting Minutes Structuring Request
 
-## コンテキスト
+Using the contexts below, convert the raw meeting notes into professional meeting minutes and an actionable TODO register.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[MEETING_MINUTES_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 会議情報（機密情報はマスキング済み）
-
-### 会議の目的
-（記入）
-
-### 会議種別
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 会議メモ・発言メモ
-（記入）
-
-### 決定事項らしき内容
-（記入）
-
-### 未決事項
-（記入）
-
-### TODOらしき内容
-（記入）
-
-### 次回確認したいこと
-（記入）
+[Paste contents of MEETING_MINUTES_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Meeting Notes (Sanitized)
 
-1. 会議サマリー（3〜5行）
-2. 決定事項一覧
-3. 未決事項一覧
-4. TODO一覧（担当・期限・備考を含む）
-5. 担当者不明のTODO一覧
-6. 次回確認事項
-7. リスク・懸念点の指摘
+[Paste sanitized raw meeting notes here]
 
-※ AI出力は整理のたたき台です。顧客提出前・社内報告前に必ず人間が確認してください。
+---
+
+## Requested Deliverables
+
+1. Executive Meeting Summary
+2. Confirmed Decisions
+3. Open Issues & Pending Arbitrations
+4. Action Item Register (TODOs with Owner & Deadline)
+5. Unassigned Actions (Governance Blind Spots)
+6. Agenda Items for Next Meeting
+7. Emergent Risks & Concerns
+
+*Note: AI output serves as analytical support. Final meeting minutes require human validation prior to distribution.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の会議メモから、議事録・決定事項・未決事項・TODO・次回確認事項を整理してください。
+Structure the provided raw meeting notes into executive meeting minutes, a decision log, an action item register, and a follow-up agenda.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[MEETING_MINUTES_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of MEETING_MINUTES_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【会議情報（機密情報はマスキング済み）】
-
-### 会議の目的
-（記入）
-
-### 会議種別
-（記入）
-
-### 参加者の役割（実名は入力しないこと）
-（記入）
-
-### 会議メモ・発言メモ
-（記入）
-
-### 決定事項らしき内容
-（記入）
-
-### 未決事項
-（記入）
-
-### TODOらしき内容
-（記入）
-
-### 次回確認したいこと
-（記入）
+[Paste sanitized raw meeting notes here]
 </input>
 <constraints>
-- 参加者の実名・顧客名・会社名・個人が特定できる情報はマスキング済みの前提で扱ってください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- 契約・納期・費用に関する確約表現は含めないでください。
-- AI出力は整理のたたき台であり、顧客提出・社内報告前に人間が確認してください。
+- Clearly distinguish confirmed decisions from open issues.
+- Flag any discussed action that lacks a definitive owner or deadline.
+- Ensure the tone is objective, professional, and ready for human executive review.
 </constraints>
 <output_format>
-1. 会議サマリー（3〜5行）
-2. 決定事項一覧
-3. 未決事項一覧
-4. TODO一覧（担当役割・期限・備考）
-5. 担当者不明のTODO一覧
-6. 次回確認事項
-7. リスク・懸念点の指摘
+1. Executive Meeting Summary
+2. Confirmed Decisions
+3. Open Issues & Pending Arbitrations
+4. Action Item Register (TODOs with Owner & Deadline)
+5. Unassigned Actions (Governance Blind Spots)
+6. Agenda Items for Next Meeting
+7. Emergent Risks & Concerns
 </output_format>
 ```

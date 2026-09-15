@@ -1,14 +1,12 @@
-# 遅延時のリカバリー方針整理 — 実用サンプル
+# Schedule Delay Recovery — Practical Scenario
 
 ## Use Case
 
-外部連携機能とテスト工程に遅延が発生した場面を想定しています。
-
-遅延発生時のリカバリー方針をAIに整理させ、対応の優先順位・選択肢・顧客への説明案をまとめる例です。
+Structuring a schedule recovery plan when critical path delays impact both external integration modules and QA test planning.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/DELAY_RECOVERY_CONTEXT.md`
@@ -17,51 +15,37 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-確認日：第10週時点
+Project: Project Alpha (Fictitious)
+Review Date: Week 10
 
-【遅延している作業】
-1. 外部連携機能（実装・単体テスト）：当初予定より1.5週間遅延
-2. テスト設計書の作成：着手が1週間遅れており、現在進行中
+[Delayed Workstreams]
+1. External Integration Module (Implementation & Unit Testing): Currently 1.5 weeks behind baseline
+2. QA Test Plan Specification: Kickoff delayed by 1 week; currently drafting
 
-【遅延理由】
-1. 外部連携機能：データ連携仕様の顧客確認待ちで開発が停止していた（現在は仕様確定済み）
-2. テスト設計書：担当者の確定が遅れ、着手が遅くなった
+[Root Causes]
+1. External Integration: Development frozen awaiting client data specifications (now confirmed)
+2. Test Plan: Delay in designating and onboarding a qualified QA author
 
-【遅延日数・規模感】
-- 外部連携機能の遅延を回収するには、最低でも1週間の追加対応が必要
-- テスト設計書は現在進行中。予定より3〜4日遅れて完成見込み
+[Variance Scale & Recovery Work Remaining]
+- Recovering external integration slip requires a minimum of 1 focused engineer-week
+- Test plan drafting is in progress, tracking 3 to 4 days behind schedule
+- Outstanding tasks: Integration unit tests, partner test alignment, integration test execution, UAT, Release Gate meeting
 
-【残作業】
-- 外部連携機能：単体テスト、外部連携先との結合テスト調整、結合テスト実施
-- テスト設計書：作成中（今週末完成予定）
-- 結合テスト：未着手（テスト設計書完成後に着手）
-- 受入テスト：未着手
-- リリース判定：日程未確定
+[Critical Path]
+External Integration Completion -> Integration Testing -> UAT Testing -> Release Gate Decision
 
-【クリティカルパス】
-外部連携機能の完了 → 結合テスト → 受入テスト → リリース判定
+[Available Resources & Levers]
+- Lead Developer: Currently 100% focused on external integration
+- QA Team: Ready to mobilize as soon as test plan is stabilized
+- External contractor support: Feasible, but onboarding takes several business days
 
-【使えるリソース】
-- 開発担当者：現在外部連携機能に集中中
-- テスト担当者：テスト設計書完成後から稼働可能
-- 追加リソース（外部支援）：検討可能だが、調整に数日かかる
-
-【変えられない納期・制約】
-- 最終納期まで残り3.5週間（顧客が社内告知済みのため延期困難）
-- リリース判定会議の日程は未確定
-
-【顧客影響】
-- 顧客は納期を前提に社内調整を進めている
-- 現時点での遅延状況は顧客担当者Aに未報告
-
-【すでに実施した対応】
-- 外部連携機能の仕様確定（先週）
-- テスト設計書の担当者確定・着手（今週）
-- 開発担当者が外部連携機能の実装に集中して進行中
+[Immovable Constraints]
+- 3.5 weeks remaining until final go-live deadline (immovable corporate date announced by client)
+- Release Gate meeting date remains unconfirmed
+- Delay status has not yet been formally notified to Client Lead A
 ```
 
 ---
@@ -69,151 +53,121 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、遅延発生時のリカバリー方針を整理してください。
+After loading the context files below, formulate a structured schedule delay recovery strategy.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/DELAY_RECOVERY_CONTEXT.md
 
-【状況】
-（上記の Sanitized Input を貼り付ける）
+[Project Situation]
+(Paste the Sanitized Input above)
 
-以下の観点で整理してください。
-1. 遅延原因の整理
-2. 影響範囲
-3. リカバリー案
-4. 優先順位
-5. 削れる可能性がある作業
-6. 追加支援が必要な作業
-7. 顧客への説明案
-8. 社内エスカレーション案
-9. 次の24〜72時間の対応
+Please structure the recovery plan across:
+1. Root Cause Diagnosis
+2. Critical Path Impact Assessment
+3. Structured Recovery Scenarios (Options A, B, C)
+4. Operational Priority Ranking
+5. Task Pruning & De-scoping Candidates
+6. Resource Support Requirements
+7. Client Communication Strategy
+8. Internal Escalation & Governance Alignment
+9. Immediate Operational Plan (Next 24 to 72 Hours)
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 遅延原因の整理
+### 1. Root Cause Diagnosis
 
-| 遅延作業 | 主な原因 | 現在の状況 |
+| Delayed Task | Primary Root Cause | Current Recovery Status |
 |---|---|---|
-| 外部連携機能 | 仕様確認待ちによる開発停止 | 仕様確定済み。実装・テスト進行中 |
-| テスト設計書 | 担当者確定の遅れ | 着手済み。今週末完成見込み |
+| External Integration | External blocker (waiting for client data specs) | Specifications approved; coding actively proceeding |
+| Test Plan Specification | Internal governance lag (delayed staffing assignment) | Author assigned; drafting underway |
 
-外部起因（顧客仕様確認待ち）と内部起因（担当者確定の遅れ）が重なっている。
-
----
-
-### 2. 影響範囲
-
-| 影響対象 | 内容 |
-|---|---|
-| 結合テスト開始時期 | 外部連携機能の完了待ち。現状ではテスト設計書完成後すぐに着手できない |
-| 受入テスト期間 | 結合テストの遅れが受入テスト期間を圧縮する |
-| リリース判定 | 日程が未確定のままでは判定に向けた準備ができない |
-| 最終納期 | 現状の遅延を回収できなければ、最終納期に間に合わない可能性がある |
+Delays result from compounding external dependency stalls and internal staffing latency.
 
 ---
 
-### 3. リカバリー案
+### 2. Critical Path Impact Assessment
 
-**案A：外部連携機能を最優先に集中する（推奨）**
-- 外部連携機能の実装・単体テストを今週中に完了させ、来週から結合テストに着手
-- テスト期間を最小限に抑えるためのテスト範囲の優先度付けを行う
-- リスク：テストの抜けが生じる可能性がある
-
-**案B：追加リソースを投入して並行対応**
-- 外部連携機能の対応に追加担当者を投入し、テスト準備も並行して進める
-- リスク：リソース調整に数日かかるため、即効性は低い
-
-**案C：スコープ・受入基準の見直しを顧客と協議**
-- 優先度の低い機能を次フェーズに移すことで、コアスコープに集中する
-- リスク：顧客との合意交渉が必要。納期との兼ね合いを要確認
+- **Integration Testing Kickoff**: Blocked until external integration finishes. QA engineers cannot begin testing upon test plan completion alone.
+- **UAT Window**: The slip in integration testing directly compresses the client UAT window.
+- **Release Gate**: Absence of a confirmed date prevents reverse-scheduling alignment.
+- **Milestone Feasibility**: Without immediate compression of testing cycles, the 3.5-week deadline will be breached.
 
 ---
 
-### 4. 優先順位
+### 3. Structured Recovery Scenarios (Options A, B, C)
 
-| 優先度 | 作業 | 理由 |
+- **Option A: Focused Critical Path Acceleration (Recommended)**
+  - Finish external integration unit tests by end of Week 10; launch integration testing early in Week 11.
+  - Prioritize P1 test cases to compress testing duration without sacrificing core quality.
+  - Risk: Reduced test coverage on secondary administrative flows.
+- **Option B: Resource Crashing (Inject Additional Developer)**
+  - Add contractor developer to assist with unit testing and test harness setup.
+  - Risk: Onboarding overhead reduces immediate net velocity over a 3.5-week horizon.
+- **Option C: Scope Descoping (Trade-off with Client)**
+  - De-scope non-critical secondary connectors to v1.1 to safeguard core delivery.
+  - Risk: Requires urgent executive negotiation and client agreement.
+
+---
+
+### 4. Operational Priority Ranking
+
+| Priority | Workstream | Operational Justification |
 |---|---|---|
-| 最高 | 外部連携機能の実装・単体テスト完了 | クリティカルパス上にある。ここが詰まると後工程すべてが遅れる |
-| 高 | テスト設計書の完成と確認 | テスト設計が遅れると結合テストの着手が遅れる |
-| 高 | リリース判定会議の日程確定 | 日程が決まらないと逆算でのスケジュール管理ができない |
-| 中 | 外部連携先との結合テスト日程調整 | 外部連携先の都合に依存するため、早めに調整を開始する |
+| **P1 - Critical** | Complete External Integration Module & Unit Tests | Directly on the critical path; all downstream testing is blocked until complete. |
+| **P2 - High** | Finalize QA Test Plan Specification | Prerequisite for structured, efficient integration test execution. |
+| **P2 - High** | Lock in Release Gate Meeting Schedule | Essential for reverse-planning and managing stakeholder alignment. |
+| **P3 - Medium** | Align Integration Test Windows with Partner | Prevent idle waiting times once code is ready. |
 
 ---
 
-### 5. 削れる可能性がある作業
+### 5. Task Pruning & De-scoping Candidates
 
-> **注意：** 作業の削減・省略は品質リスクを伴います。最終判断は担当者・上長が行ってください。
-
-- テスト設計の一部（優先度の低い機能の詳細テストケース）を簡略化できる可能性がある
-- 受入テスト期間中に顧客に確認してもらう範囲を絞り込めれば、期間を短縮できる可能性がある
-- 一部の非クリティカルな機能のテストを受入テスト後のバグ修正対応に回すことを検討できるか
+- Simplify detailed test cases for secondary non-critical features.
+- Focus UAT exclusively on core business transaction journeys to accelerate client sign-off.
+- Defer non-critical cosmetic UI defect fixes to a post-launch maintenance patch.
 
 ---
 
-### 6. 追加支援が必要な作業
+### 6. Resource Support Requirements
 
-- **外部連携機能の結合テスト**：外部連携先（担当者B）のスケジュール確保が必要。調整が遅れると全体が止まる
-- **テスト実施**：テスト担当者の稼働が今週末以降のため、テスト設計完成後すぐに着手できる状態に準備が必要
-- **追加リソース（案Bの場合）**：外部支援の調整に数日かかるため、今週中に判断が必要
-
----
-
-### 7. 顧客への説明案
-
-> **注意：** 顧客への報告内容・タイミング・表現は、契約条件・顧客との関係性・社内の判断を踏まえて決定してください。AI出力をそのまま使わないでください。
-
-**報告のポイント（たたき台）：**
-
-- 外部連携仕様の確定後、開発を再開しており現在進行中であること
-- 遅延を回収するためのリカバリー対応を進めていること
-- 現時点の見通しと、納期に向けた対応方針を説明すること
-- 顧客にも確認・判断いただきたい事項がある場合は合わせて提示すること（例：スコープ見直しの可能性）
+- Reserve dedicated test alignment windows with the external integration partner counterpart.
+- Ensure staging environments are pre-configured so testing starts the moment code is deployed.
 
 ---
 
-### 8. 社内エスカレーション案
+### 7. Client Communication Strategy
 
-- 現状の遅延規模と残り期間を踏まえると、上長への状況報告が必要
-- 追加リソース投入の判断・顧客への納期延長交渉の判断は、PM単独では行わず上長の承認が必要
-- スコープ変更・費用変更を伴う場合は、法務・営業への確認が必要
+- Transparently state that development resumed at full velocity immediately following spec approval.
+- Present the accelerated critical path plan designed to safeguard the 3.5-week launch deadline.
+- Emphasize collaborative prioritization of testing scenarios to ensure high stability on core journeys.
 
 ---
 
-### 9. 次の24〜72時間の対応
+### 8. Internal Escalation & Governance Alignment
 
-| 時間軸 | 対応 |
-|---|---|
-| 今日中 | 外部連携機能の実装進捗を開発担当者と確認。今週末に完了できるか見通しを確認する |
-| 明日 | テスト設計書の進捗確認。リリース判定会議の日程調整を顧客担当者Aに依頼する |
-| 72時間以内 | 外部連携先への結合テスト日程調整の連絡。追加リソース投入の要否を上長と判断。顧客への状況報告の方針を社内で合意する |
+- Present status update to the Delivery Director; secure approval for Option A (test prioritization).
+- Align with Account Executive regarding the client communication framing.
+
+---
+
+### 9. Immediate Operational Plan (Next 24 to 72 Hours)
+
+- **Within 24h**: Review daily burndown with Lead Dev; confirm Friday unit test completion target.
+- **Within 48h**: Complete test plan review; submit Release Gate scheduling request to Client Lead A.
+- **Within 72h**: Confirm partner testing windows; hold internal executive checkpoint on velocity.
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- リカバリー案の実現可能性が実際のチーム・リソース状況と合っているか
-- 削れる可能性がある作業の削減が品質・契約上許容できるか確認する
-- 顧客への説明案の内容・トーンが実際の関係性・契約条件に合っているか
-- エスカレーションの判断基準が組織のルールと合っているか確認する
-- 次の対応の優先順位が案件の実態と合っているか確認する
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 納期回答・費用判断・スコープ変更・エスカレーションの判断はAI出力をそのまま使用せず、必ず担当者・上長が確認した上で行ってください。
+Before executing:
+- Verify that QA leadership agrees with the prioritized test coverage strategy.
+- Ensure the tone of client messaging remains constructive and forward-looking.

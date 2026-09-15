@@ -1,48 +1,48 @@
 ---
 name: Improvement request
-about: ドキュメントやコンテキストの改善を提案する
+about: Propose an enhancement for documentation or context files
 title: "[Improvement]: "
 labels: enhancement
 assignees: ""
 ---
 
 > [!CAUTION]
-> **このIssueは公開されます。APIキー、パスワード、トークン、顧客名、個人名、会社名、案件名、契約情報、社内機密情報は絶対に記載しないでください。**
-> セキュリティ上の懸念は [`SECURITY.md`](../SECURITY.md) を確認してください。
+> **This Issue is public. NEVER include API keys, passwords, tokens, client names, personal data, company names, contract terms, or confidential internal information.**
+> For security concerns, review [`SECURITY.md`](../SECURITY.md).
 
 ---
 
-## 改善したい内容
+## Proposed Improvement
 
-<!-- 何を改善したいか簡潔に説明してください -->
+<!-- Briefly describe the improvement you would like to see -->
 
-## 対象ファイル
+## Target File
 
-<!-- 改善対象のファイルのパスを記載してください -->
-例: `prompts/status-report.md`
+<!-- Path of the target file -->
+Example: `prompts/status-report.md`
 
-## 背景
+## Background & Rationale
 
-<!-- なぜこの改善が必要か、どのような状況で不足を感じたかを説明してください（機密情報を含まない範囲で） -->
+<!-- Explain why this improvement is needed and what operational gap was observed (without confidential data) -->
 
-## 提案内容
+## Detailed Proposal
 
-<!-- 改善案を具体的に説明してください -->
+<!-- Concretely describe your suggested improvement -->
 
-## 期待する効果
+## Expected Benefits
 
-<!-- この改善によって何が良くなるか説明してください -->
+<!-- Explain how this change adds value for project managers -->
 
-## 安全上の懸念（任意）
+## Security & Safety Considerations (Optional)
 
-<!-- 改善案に安全性・機密情報保護の観点での懸念がある場合は記載してください -->
+<!-- Mention any considerations regarding data privacy, confidentiality, or safety -->
 
 ---
 
-## Safety checklist
+## Safety Checklist
 
-投稿前に以下を確認してください。
+Verify before submitting:
 
-- [ ] このIssueに機密情報を含めていません
-- [ ] 実在する顧客名・個人名・会社名・案件名を含めていません
-- [ ] APIキー・パスワード・トークン・認証情報を含めていません
+- [ ] This Issue contains no confidential or proprietary information
+- [ ] No real client names, personal data, company names, or real project titles are included
+- [ ] No API keys, passwords, tokens, or credentials are included

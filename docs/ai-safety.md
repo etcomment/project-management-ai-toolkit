@@ -1,237 +1,55 @@
-# AI利用時の安全ガイド / AI Safety Guide
+# AI Safety & Governance Guidelines
+
+This document outlines mandatory data protection standards, operational safeguards, and governance principles for using generative AI in project management operations.
 
 ---
 
-## はじめに
+## 1. Strictly Prohibited Information (Never Input to AI)
 
-このガイドは、本リポジトリのコンテキストファイルやプロンプトテンプレートを生成AIサービスで利用する際の、安全に関するガイドです。
+Do not enter any of the following information into public or commercial generative AI platforms:
 
-**AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。**
-
----
-
-## AIサービスに入力してはいけない情報
-
-以下の情報は、外部のAIサービス（ChatGPT、Gemini、Claude等）に入力しないでください。
-
-### 個人情報・顧客情報
-
-- 顧客名・顧客企業名
-- 顧客担当者の氏名・役職・連絡先
-- 個人のメールアドレス・電話番号・住所
-- プロジェクトメンバーの個人情報
-
-### 契約情報・機密情報
-
-- 契約書の内容・条件・金額
-- NDAで保護されている情報
-- 見積の詳細金額
-- 社内の未公開事業情報・財務情報
-
-### 議事録・会議メモの原文
-
-- 参加者氏名が記載された議事録全文
-- 顧客先での発言の記録
-- 社内の内部情報を含む会議メモの原文
-
-### 技術的な機密情報
-
-- 本番環境のソースコード（自社・顧客のプロダクトコード）
-- APIキー・アクセストークン・シークレット
-- パスワード・認証情報
-- 本番サーバーのIP・ドメイン・インフラ構成の詳細
-- セキュリティ上の脆弱性情報
+- **Client & Corporate Identifiers**: Real client names, corporate identities, partner company names, project code names.
+- **Personally Identifiable Information (PII)**: Full names, email addresses, phone numbers, employee IDs.
+- **Commercial & Contract Terms**: Financial figures, hourly rates, profit margins, confidential contract clauses, NDA materials.
+- **Security Credentials**: API keys, access tokens, passwords, database connection strings, private SSH keys.
+- **Proprietary Intellectual Property**: Unreleased source code, core proprietary algorithms, internal business strategies.
 
 ---
 
-## AIに入力する前の確認フロー
+## 2. Sanitization & Anonymization Protocols
 
-入力したい情報がある場合、以下の順番で確認してから入力してください。
+Always sanitize your project information prior to submitting prompts:
 
-```text
-AIに入力したい情報がある
-│
-├─ 顧客名・個人名・会社名を含む？
-│    ├─ はい → マスキングする
-│    └─ いいえ
-│
-├─ 契約情報・NDA対象情報を含む？
-│    ├─ はい → 入力しない / 社内確認
-│    └─ いいえ
-│
-├─ APIキー・パスワード・トークンを含む？
-│    ├─ はい → 削除する
-│    └─ いいえ
-│
-├─ 議事録全文・ソースコードを含む？
-│    ├─ はい → 要約・抽象化する
-│    └─ いいえ
-│
-└─ 社内規程・顧客契約・AIサービス規約を確認
-     │
-     v
-AIに入力できる範囲か最終確認
-     │
-     v
-AIに入力
-     │
-     v
-AI出力を人間が確認・修正
-```
-
-> [!IMPORTANT]
-> 「入力してよい」かどうかの最終判断は、所属組織の情報セキュリティ規程・顧客契約・NDA・利用するAIサービスの規約を確認したうえで、利用者自身が行ってください。
-
----
-
-## マスキングすべき情報と方法
-
-業務情報を入力する場合は、以下のように匿名化・抽象化してから使用してください。
-
-| 情報の種類 | マスキング前（例） | マスキング後（例） |
+| Sensitive Category | Original Real Data | Sanitized / Abstracted Placeholder |
 |---|---|---|
-| 顧客名 | 株式会社〇〇システムズ | 顧客A（流通業界のクライアント） |
-| 担当者名 | 山田 花子 | 顧客担当者A |
-| 自社担当者名 | 鈴木 一郎 PM | PM担当者B |
-| 契約金額 | 2,800万円 | 数千万円規模 |
-| 納期 | 2025年3月31日 | 第1四半期末 |
-| 議事録原文 | 「山田さんから、〇〇機能の仕様を変更したいとの要望があった」 | 「顧客から、主要機能の仕様変更要望があった（未決定）」 |
-| APIキー | sk-xxxxxxxxxxxxxxxxxx | （削除） |
+| Client Name | MegaCorp Global Logistics | Client A / Enterprise Customer |
+| Stakeholder Name | John Doe (VP of Operations) | Client Sponsor A / Executive Stakeholder |
+| Feature / Module | Automated High-Frequency FX Execution | Critical Financial Processing Engine |
+| Delay Cause | Third-party vendor failed SOC2 audit | External compliance review bottleneck |
+| Financial Terms | 120,000 USD Fixed-Price Avenant | Fixed-Price Change Order |
 
 ---
 
-## 入力してよい情報の例
+## 3. Operational Risk Categories in PM AI Applications
 
-以下のような、適切に抽象化された情報は入力できます。
+### 1. Premature Commercial Commitments
+- **Risk**: AI generating phrasing like "We will absorb this change within the existing timeline at no extra cost."
+- **Mitigation**: Run [`ai-output-governance-review`](../.claude/skills/ai-output-governance-review/SKILL.md) to detect and neutralize unauthorized scope or schedule concessions.
 
-### 安全な入力例 1：進捗状況の報告整理
+### 2. Hallucinated or Inferred Claims
+- **Risk**: AI filling gaps with plausible-sounding domain assumptions that contradict the actual software architecture.
+- **Mitigation**: Enforce the constraint: *"Explicitly tag unverified assumptions as (Inferred). If data is insufficient, state: Insufficient information to make an assessment."*
 
-```
-今週の状況を整理してください。
-
-- フェーズ：設計レビュー完了、開発フェーズ開始
-- 完了した作業：画面設計レビュー（3画面）、DB設計確定
-- 未完了：API仕様の確定（顧客確認待ち）
-- 遅延：テスト環境構築が2営業日遅れ
-- リスク：API仕様が確定しないと、開発着手できない機能が4件ある
-- 来週の予定：開発着手（6機能）、顧客との週次定例
-```
-
-### 安全な入力例 2：課題リストのレビュー依頼
-
-```
-以下の課題リストをPM視点でレビューしてください。
-担当者不明・期限不明・影響範囲が曖昧なものを指摘してください。
-
-| No. | 課題 | ステータス | 担当 | 期限 |
-|---|---|---|---|---|
-| 1 | 外部API仕様の確定 | 未対応 | 未定 | 未定 |
-| 2 | テスト環境の構築 | 対応中 | 担当者A | 来週月曜 |
-| 3 | 顧客確認待ちの仕様変更対応 | 保留 | — | — |
-```
-
-### 安全な入力例 3：顧客向け説明文のたたき台作成
-
-```
-以下の状況で、顧客へのメール案を作成してください。
-
-- 状況：外部API連携の仕様が確定しておらず、開発着手が遅れている
-- こちらの見解：仕様確定が今週中であれば、納期への影響は最小限に抑えられる
-- 顧客に確認したいこと：仕様確定の見込み時期、代替案（仕様なしで仮実装する可否）
-- 避けたい表現：責任の所在を断定するような表現
-
-※ 生成されたメール案は、そのまま送信せず、必ず人間が内容を確認・修正してから使用してください。
-```
+### 3. Diplomatic Friction & Blame Placement
+- **Risk**: AI generating defensive, argumentative, or accusatory language in client drafts.
+- **Mitigation**: Use blameless, fact-focused templates like [`contexts/CLIENT_COMMUNICATION_CONTEXT.md`](../contexts/CLIENT_COMMUNICATION_CONTEXT.md).
 
 ---
 
-## 危険な入力例
+## 4. Organizational AI Usage Checklist
 
-以下のような入力は行わないでください。
-
-### 危険な入力例 1：顧客名や個人名を含む入力
-
-```
-❌ 危険な入力例
-株式会社〇〇システムズの山田様から、先週の定例で「3月末の納期は絶対に守ってほしい」
-と言われました。弊社の鈴木PMが「調整します」と回答しましたが、実際には間に合わない
-可能性があります。顧客への説明文を作ってください。
-```
-
-→ 顧客名・担当者名・具体的発言が含まれています。マスキングしてから入力してください。
-
-### 危険な入力例 2：認証情報を含む入力
-
-```
-❌ 危険な入力例
-本番環境の設定を確認したいのですが、APIキーは「sk-xxxxxxxxxx」で、
-DBのパスワードは「pass1234」です。この構成でセキュリティ上問題ありますか？
-```
-
-→ APIキーやパスワードは絶対に入力しないでください。AIサービスへの送信はセキュリティリスクになります。
-
-### 危険な入力例 3：議事録全文・契約情報を含む入力
-
-```
-❌ 危険な入力例
-以下の議事録を要約してください。
-[議事録全文：参加者氏名、顧客企業名、契約金額、仕様変更内容の詳細、発言の記録...]
-```
-
-→ 議事録全文には個人情報・機密情報が含まれている可能性があります。要約・匿名化してから入力してください。
-
----
-
-## 顧客提出文書・報告書に利用する場合の注意
-
-AI出力を以下の目的で利用する場合は、特に注意が必要です。
-
-- 顧客への提出文書・説明資料
-- 社内への進捗報告・障害報告
-- 契約・発注・見積に関連する文書
-- 納期回答・品質判断に関わる文書
-
-**これらの文書に AI 出力をそのまま使わないでください。**
-
-必ず以下を確認してください。
-
-1. AI出力の内容が事実と一致しているか
-2. 案件の実態・背景・経緯と合っているか
-3. 顧客・社内の関係性に合わせた表現になっているか
-4. 契約条件・責任範囲に関する表現が適切か
-5. 上長・法務・関係者の確認が必要か
-
----
-
-## AIサービスの規約・社内規程の確認
-
-生成AIサービスを業務利用する前に、必ず以下を確認してください。
-
-- 利用するAIサービスの利用規約
-- プライバシーポリシー
-- **データ利用条件（入力した内容がモデル学習に使われるか否か）**
-- 所属組織の情報セキュリティ規程
-- 顧客との契約・NDAの内容
-
-組織によっては、外部AIサービスへの業務情報の入力を禁止・制限している場合があります。事前に確認してください。
-
----
-
-## AI出力の利用制限
-
-AI出力を以下の判断に**そのまま使わないでください**。必ず人間が確認し、必要に応じて専門家や上長の承認を得てください。
-
-- 顧客への提出文書・説明資料
-- 契約・発注・見積に関する判断
-- 法務判断・税務判断・労務判断
-- セキュリティ判断
-- 納期回答・品質判断
-
----
-
-## 関連文書
-
-- 免責事項：[docs/legal/DISCLAIMER.md](legal/DISCLAIMER.md)
-- 利用規約：[docs/legal/TERMS.md](legal/TERMS.md)
-- 使い方ガイド：[docs/usage-guide.md](usage-guide.md)
-- コミュニティの注意事項：[docs/community.md](community.md)
+Before deploying AI across your PM or delivery team:
+- [ ] Confirm your organization's IT Security Policy regarding enterprise AI tools (opt-out of model training).
+- [ ] Review client contracts and Non-Disclosure Agreements (NDAs) for clauses governing third-party data processing.
+- [ ] Establish team-wide sanitization protocols (mandatory placeholder usage).
+- [ ] Mandate that no AI-generated document is sent externally without explicit senior PM review.

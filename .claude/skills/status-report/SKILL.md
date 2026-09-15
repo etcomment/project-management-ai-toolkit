@@ -1,122 +1,77 @@
 ---
 name: status-report
-description: 進捗情報を社内向け・顧客向け・上長向けに整理する。週次・月次の進捗報告を作成したい、社内報告と顧客報告を使い分けたい、上長への簡潔なサマリーが必要なとき、リスクを明示した状況共有が必要なときに使用します。
+description: Structure project progress updates for internal management, client stakeholders, and executive leadership. Use when drafting weekly/monthly status reports, tailoring messaging by audience tier, providing 3-line executive summaries, or highlighting risks transparently.
 ---
 
 # Status Report Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as a senior Project Manager specializing in IT delivery, enterprise systems, and client governance.
 
-入力された今週・今月の進捗情報をPM視点で整理し、社内向け・顧客向け・上長向けの報告文を作成します。
+Structure the provided weekly or monthly progress updates into tailored, professional reports for internal leadership, external clients, and executive sponsors.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- 週次・月次の進捗報告を作成したいとき
-- 社内報告と顧客報告で使い分けたいとき
-- 上長への簡潔なサマリーを作成したいとき
-- リスクを明示した形で状況を共有したいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 報告対象期間
-- 完了したこと
-- 進行中のこと（進捗率や状態も）
-- 遅延・課題・懸念事項
-- 次週・来月の予定
-- リスク・確認待ち事項
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Drafting periodic (weekly/monthly) progress reports
+- Generating audience-specific views: internal operational focus vs. diplomatic client reporting
+- Providing concise 3-line executive summaries for senior leadership
+- Transparently communicating schedule variances, active blockers, and mitigation plans
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Transform raw progress updates into structured reporting sections calibrated for specific audience tiers:
 
-入力された情報をもとに、以下のステップで報告文を作成してください。
-
-1. 完了・進行中・未着手の状態を整理し、全体進捗を把握する
-2. 遅延・バッファ消費・リスクの有無を確認する
-3. 社内向け（リスク・課題を率直に記載）と顧客向け（トーンを配慮し、確認事項を明確化）で表現を使い分ける
-4. 上長向けには3行以内で要点を凝縮する
-5. リスク一覧を影響度・対応方針とともに整理する
-
-**入力された情報をもとに、確認を求めることなく報告文のたたき台を直接作成してください。情報が不足している項目は「（要確認）」と記載してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
+1. **Internal Leadership Report**: Full operational transparency highlighting variance, team velocity, and internal blockers.
+2. **Client-Facing Report**: Diplomatic, respectful, and constructive update emphasizing achievements, forward plan, and clear customer action items.
+3. **Executive Summary (3 Lines Max)**: High-level synthesis for senior executive review.
+4. **Risk-Weighted Status Table**: Correlating active risks, blast radius, and proactive containment plans.
+5. **Next Period Action Checklist**: Prioritized tasks and milestones for the upcoming cycle.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-1. 完了・進行・未着手の状態整理
-2. 遅延・バッファ消費の有無
-3. 顧客向けにトーン調整が必要な箇所（課題・遅延の表現を柔らかくする等）
-4. リスク・課題の表現方法（社内 vs 顧客）
-5. 次アクションの明確化
+```markdown
+### 1. Internal Management Status Report
+- **Subject**: [Project Name] - Status Report - [Period]
+- **Overall Status**: (Operational synthesis)
+- **Completed Work**: (Bulleted list)
+- **Incomplete / Carried-Over Work**: (Bulleted list with root causes)
+- **Variances & Concerns**: (Detailed analysis)
+- **Next Period Plan**: (Key milestones)
 
----
+### 2. Client-Facing Status Report
+- **Subject**: [Project Name] - Progress Update - [Period]
+- **Salutation & Summary**: (Professional, diplomatic opening)
+- **Key Achievements**: (Customer-validated progress)
+- **Upcoming Deliverables**: (Milestones for next period)
+- **Action Items for Client**: (Pending approvals with due dates)
 
-<output_format>
+### 3. Executive Summary (3 Lines Max)
+(Line 1: Status & Velocity | Line 2: Critical Variance / Blocker | Line 3: Immediate Mitigation)
 
-## Output Format（出力形式）
-
-以下の形式で日本語で出力してください。たたき台として直接使える形で作成し、人間が調整しやすいよう補足・注意点も添えてください。
-
-### 【社内向け】進捗報告
-
-**全体状況：**
-
-**完了事項：**
-
-**進行中：**
-
-**課題・懸念：**
-
-**次週の予定：**
-
----
-
-### 【顧客向け】進捗報告
-
-**全体状況：**
-
-**完了事項：**
-
-**今後の予定：**
-
-**確認・相談事項：**
-
----
-
-### 【上長向け】サマリー（3行以内）
-
----
-
-### リスク一覧
-
-| リスク | 影響 | 対応方針 |
+### 4. Risk-Weighted Status Table
+| Risk Description | Severity & Blast Radius | Mitigation / Contingency Plan |
 |---|---|---|
+| ... | High / Med / Low | ... |
 
-</output_format>
+### 5. Next Period Action Checklist
+| # | Action Item | Assigned Role | Target Date |
+|---|---|---|---|
+| 1 | ... | ... | ... |
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 顧客提出前には必ず上長・担当者のレビューを受けてください。
-- トーン・表現は案件・顧客の関係性に合わせて必ず調整してください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Never include unverified commitments regarding delivery dates, free scope additions, or legal liabilities.
+- Append a mandatory human review notice to all client-facing draft sections.
+- Ensure all outputs are based on sanitized data.
+</constraints>

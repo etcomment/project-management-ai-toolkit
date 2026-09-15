@@ -1,14 +1,12 @@
-# 会議メモから議事録・TODOを作る — 実用サンプル
+# Meeting Minutes & Action Item Structuring — Practical Scenario
 
 ## Use Case
 
-週次定例の会議メモから、議事録・決定事項・TODO・次回確認事項を作成する場面を想定しています。
-
-会議メモを整理する手間をAIに補助させる例です。
+Transforming raw, unstructured meeting notes taken during a client progress meeting into professional meeting minutes, confirmed decision logs, open issues, and an assigned action register (TODOs).
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/MEETING_MINUTES_CONTEXT.md`
@@ -17,28 +15,26 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-会議の目的：週次定例
-会議種別：顧客定例
-日時：第9週 水曜日
-参加者の役割：PM（自社）、開発リーダー（自社）、顧客担当者A
+Meeting Type: Weekly Client Progress Sync
+Date / Cycle: Week 9, Wednesday
+Attendee Roles: PM (Internal), Tech Lead (Internal), Client Lead A
 
-【会議メモ（箇条書き・走り書き）】
-
-- 先週の宿題：データ仕様確認の回答 → 顧客担当者Aから回答あり（後述）
-- データ連携仕様について、顧客担当者Aから方針が示された
-  - 項目Xは今回スコープ外にする
-  - 項目Yは仕様を簡略化して対応する（詳細は顧客担当者Aが別途メモを送ってくれる）
-  - 項目Zは当初仕様で進める
-- 外部連携機能の実装は来週末を目標にする（遅延回復中）
-- テスト設計書の着手確認 → 開発リーダーが来週月曜から着手する予定
-- テスト期間の確保について懸念あり → 開発リーダーから「期間が5日は厳しい」と発言
-  - 「延ばせるか検討が必要」とPMが伝えたが、方針は未決定
-- リリース判定会議について → 顧客担当者Aに日程を確認したが、「上長に確認する」とのこと。回答待ち
-- 次回定例：来週水曜日
-  - 顧客担当者Aが確認事項の回答を持ってくる予定
+[Raw Meeting Notes (Rapid Jottings)]
+- Carried-over action item: Data specification confirmation -> Client Lead A presented formal orientation during meeting
+- Data synchronization decisions agreed:
+  - Item X: De-scoped from current release phase
+  - Item Y: Simplified interface specification adopted (Client Lead A will provide details in a separate memo)
+  - Item Z: Maintain baseline specification without changes
+- External integration module development targeting completion by end of next week (schedule recovery underway)
+- QA Test Plan design kickoff confirmed -> Tech Lead will initiate drafting next Monday
+- Test window duration concern raised -> Tech Lead voiced: "5 business days for integration testing is insufficient"
+  - PM replied that extending the testing window should be evaluated, but no formal decision reached yet
+- Release Gate meeting schedule -> Inquired with Client Lead A, who indicated need to verify with executive sponsor. Awaiting response
+- Next weekly sync: Next Wednesday
+  - Client Lead A expected to bring leadership feedback
 ```
 
 ---
@@ -46,119 +42,100 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、会議メモから議事録・TODOを整理してください。
+After loading the context files below, structure the raw meeting notes into professional meeting minutes and an actionable TODO register.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/MEETING_MINUTES_CONTEXT.md
 
+[Raw Meeting Notes]
+(Paste the Sanitized Input above)
 
-【会議メモ】
-（上記の Sanitized Input を貼り付ける）
-
-以下の観点で整理してください。
-1. 会議サマリー
-2. 決定事項
-3. 未決事項
-4. TODO一覧（担当者・期限付き）
-5. 担当者不明のTODO
-6. 次回確認事項
-7. リスク・懸念点
+Please structure the output as follows:
+1. Executive Meeting Summary
+2. Confirmed Decisions
+3. Open Issues & Pending Arbitrations
+4. Action Item Register (TODOs with Owner & Deadline)
+5. Unassigned Actions (Governance Blind Spots)
+6. Agenda Items for Next Meeting
+7. Emergent Risks & Concerns
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 会議サマリー
-
-第9週週次定例において、懸案だったデータ連携仕様の方針が顧客担当者Aより示された。外部連携機能は来週末を目標に実装を進める。テスト設計書は来週月曜から着手予定だが、テスト期間の短さについて懸念が出ており、方針は未決定。リリース判定会議の日程は引き続き確認中。
+### 1. Executive Meeting Summary
+During the Week 9 weekly sync, key orientations on data integration specifications were formally agreed upon with Client Lead A (Item X de-scoped, Item Y simplified, Item Z maintained). Implementation of external integration targets completion by end of next week. QA test plan design kicks off next Monday under the Tech Lead. However, technical concerns regarding the compressed 5-day testing window necessitate an urgent schedule review. Confirmation of the formal Release Gate date remains pending client executive approval.
 
 ---
 
-### 2. 決定事項
+### 2. Confirmed Decisions
 
-| # | 決定内容 |
+| # | Confirmed Decision |
 |---|---|
-| 1 | データ連携仕様：項目Xは今回スコープ外 |
-| 2 | データ連携仕様：項目Yは仕様を簡略化して対応 |
-| 3 | データ連携仕様：項目Zは当初仕様で進める |
-| 4 | 外部連携機能の実装完了目標：来週末 |
-| 5 | テスト設計書：開発リーダーが来週月曜から着手 |
+| 1 | Data Sync: Item X de-scoped from current release milestone. |
+| 2 | Data Sync: Item Y simplified specification approved for development. |
+| 3 | Data Sync: Item Z baseline specification confirmed without modification. |
+| 4 | External integration module development target locked for end of Week 10. |
+| 5 | QA Test Plan drafting kickoff confirmed for Monday of Week 10. |
 
 ---
 
-### 3. 未決事項
+### 3. Open Issues & Pending Arbitrations
 
-| # | 内容 | 確認先 |
+| # | Open Topic | Action Required / Responsible Party |
 |---|---|---|
-| 1 | テスト期間の延長可否 | PM・上長・顧客担当者Aとの調整が必要 |
-| 2 | リリース判定会議の日程 | 顧客担当者Aが上長に確認中 |
-| 3 | 項目Yの簡略化仕様の詳細 | 顧客担当者Aからのメモ待ち |
+| 1 | Integration test window extension | PM to evaluate schedule impact; tripartite decision required |
+| 2 | Release Gate meeting date | Client Lead A confirming with executive sponsor |
+| 3 | Item Y simplified technical details | Awaiting specification memo from Client Lead A |
 
 ---
 
-### 4. TODO一覧
+### 4. Action Item Register (TODOs)
 
-| # | TODO | 担当 | 期限 |
+| # | Action Item | Assigned Role | Target Deadline |
 |---|---|---|---|
-| 1 | 外部連携機能の実装完了 | 開発担当者 | 来週末 |
-| 2 | テスト設計書の着手 | 開発リーダー | 来週月曜 |
-| 3 | 項目Yの仕様メモの受領確認 | PM担当者 | 今週中（顧客担当者A送付後） |
-| 4 | テスト期間延長の検討・方針決定 | PM担当者 | 来週定例前 |
-| 5 | リリース判定会議の日程フォローアップ | PM担当者 | 来週定例時に確認 |
+| 1 | Complete external integration module implementation | Dev Team | End of Week 10 |
+| 2 | Kick off QA Test Plan Specification drafting | Tech Lead | Monday, Week 10 |
+| 3 | Receive and review Item Y specification memo | PM / Tech Lead | Upon client transmission |
+| 4 | Evaluate schedule feasibility of extending test window | PM | Prior to next sync |
+| 5 | Follow up on Release Gate date confirmation | PM | Next weekly sync |
 
 ---
 
-### 5. 担当者不明のTODO
+### 5. Unassigned Actions & Governance Blind Spots
 
-- 項目Yの簡略化仕様の内部レビュー：仕様メモが届いた後、誰がレビューするかが会議メモから読み取れない
-
----
-
-### 6. 次回確認事項
-
-来週水曜の定例で確認すること：
-
-- リリース判定会議の日程（顧客担当者Aが上長に確認して回答予定）
-- テスト期間の延長可否に関するPM側の方針
-- 外部連携機能の実装進捗
-- テスト設計書の着手状況
+- **Reviewing Item Y Technical Memo**: Who reviews and approves the feasibility of Item Y once the client sends it? Action should be explicitly assigned to the Tech Lead to avoid integration stalls.
 
 ---
 
-### 7. リスク・懸念点
+### 6. Agenda Items for Next Meeting
 
-| リスク | 内容 |
+- Confirmation of the Release Gate meeting schedule (Client leadership feedback)
+- PM proposal regarding integration test window adjustment
+- External integration module implementation progress review
+- QA Test Plan design kickoff status review
+
+---
+
+### 7. Emergent Risks & Concerns
+
+| Risk Description | Operational Analysis & Impact |
 |---|---|
-| テスト期間の圧縮 | 現計画5日のテスト期間は不足との懸念が出た。方針未決定のまま進むとリリース品質に影響する可能性がある |
-| 仕様決定の遅れ | 項目Yの詳細仕様が未着。受領後に内部での確認・実装調整が発生するため、受領日によっては遅延リスクがある |
-| リリース判定基準の未合意 | 日程も基準も未確定のまま開発が進んでいる。リリース直前での認識ズレを避けるため、早期合意が必要 |
+| Test Window Compression | 5 days of integration testing is deemed unfeasible by engineering. Maintaining this timeline without adjustments risks catastrophic QA escapes into production. |
+| Item Y Specification Latency | If the client memo is delayed, external integration completion will slip past the end of Week 10. |
+| Unconfirmed Release Gate Date | Absence of firm acceptance criteria creates significant risk of subjective release disputes. |
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 決定事項の内容が会議での合意内容と一致しているか（AIの誤解読みがないか）
-- 未決事項に漏れがないか
-- TODO の担当者・期限が実際に合意した内容と一致しているか
-- 担当者名を実際の担当者名に修正したか
-- 議事録として顧客と共有する場合、表現が適切かを確認する
-- リスク・懸念点に、会議の場では言いにくかった内容が正しく反映されているか
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 顧客と共有する議事録は、必ず担当者が内容を確認・修正してから送付してください。
+Before sharing with the client or internal team:
+- Verify that agreed-upon scope de-scopings (Item X) match verbal consensus exactly.
+- Confirm whether the tone of the testing window extension is diplomatically calibrated.
+- Replace generic role placeholders with exact team member names.

@@ -1,111 +1,90 @@
-# AI Output Governance Review の利用例
+# AI Output Governance Review — Practical Scenario
 
-## このサンプルの目的
+## Use Case
 
-このサンプルは、`.claude/skills/ai-output-governance-review/SKILL.md` を使って、AIが作成した顧客向け文面を実務利用前にレビューする例です。
-
-> [!IMPORTANT]
-> すべて架空データです。実在する顧客名・会社名・個人名・案件名は含みません。  
-> 実案件で利用する場合は、必ずマスキング・要約化してください。
-
-> [!WARNING]
-> AI出力は業務判断の代替ではありません。最終判断は必ず人間が行ってください。
+Utilizing `.claude/skills/ai-output-governance-review/SKILL.md` to audit an AI-generated draft client announcement for premature commitments, data leaks, and contractual liabilities prior to sending.
 
 ---
 
-## 使用するSkill
+## Contexts & Skills Used
 
 - `.claude/skills/ai-output-governance-review/SKILL.md`
-
-## 関連Context
-
 - `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
 - `docs/ai-safety.md`
 
 ---
 
-## 入力例
+## Sanitized Input
 
-### 通常版
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
-```text
-.claude/skills/ai-output-governance-review/SKILL.md の内容を前提として、
-以下の顧客向け文面に、危険な断定表現、機密情報、確認漏れ、契約・納期・責任範囲への踏み込みがないかレビューしてください。
-【レビュー対象文面】
-現時点では納期への影響はありません。
-外部API仕様が確定次第、予定通り実装を進めます。
-追加要望についても、現在のスケジュール内で対応可能です。
-品質面も問題ありませんので、予定通りリリースできます。
-【利用目的】
-顧客向け進捗報告のたたき台
-※ 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+```
+[Draft Message for Review]
+"At this stage, there is absolutely no impact on the target delivery date.
+As soon as external API specifications are finalized, we will implement the features as scheduled.
+Regarding your additional feature requests, we will accommodate them all within the current project schedule.
+Quality is completely under control, and the production release will proceed without issue on the planned date."
+
+[Intended Use]
+Draft text for the weekly progress report email to Client Lead A.
+(All company and client names have been masked.)
 ```
 
-### Claude向けXMLタグ版
+---
 
+## Prompts for Claude Code
+
+### Standard Prompt
+```text
+Based on .claude/skills/ai-output-governance-review/SKILL.md,
+audit the draft message above for dangerous overcommitments, unverified claims, and contractual liabilities.
+```
+
+### Claude Structured XML Prompt
 ```text
 <task>
-.claude/skills/ai-output-governance-review/SKILL.md の内容を前提として、
-以下の顧客向け文面に、危険な断定表現、機密情報、確認漏れ、契約・納期・責任範囲への踏み込みがないかレビューしてください。
+Audit the provided draft client communication using .claude/skills/ai-output-governance-review/SKILL.md.
 </task>
 <input>
-【レビュー対象文面】
-現時点では納期への影響はありません。
-外部API仕様が確定次第、予定通り実装を進めます。
-追加要望についても、現在のスケジュール内で対応可能です。
-品質面も問題ありませんので、予定通りリリースできます。
-【利用目的】
-顧客向け進捗報告のたたき台
+[Paste Sanitized Input above]
 </input>
 <constraints>
-- 顧客提出前提の文面として、安全性・表現・確認漏れをレビューしてください。
-- 「法的に安全」「契約上問題ない」とは断定しないでください。
-- 必要に応じて上長・法務・関係者への確認が必要と明記してください。
-- 顧客名・個人名・会社名などの機密情報はマスキング済みです。
+- Evaluate the communication assuming it will be sent directly to the customer.
+- Flag statements that create premature commercial or legal liability.
+- Provide professional, protective alternative phrasings for all flagged statements.
 </constraints>
 ```
 
 ---
 
-## 期待する出力例
+## Expected Output
 
-### レビュー結果サマリー
+An illustrative example of the expected AI evaluation:
 
-| 判定 | 内容 |
+---
+
+### 1. Governance Review Verdict
+
+| Criterion | Assessment |
 |---|---|
-| そのまま使えるか | 要修正 |
-| 主な理由 | 納期・品質・追加要望対応を断定しており、確認不足のまま顧客に確約する表現になっている |
+| **Ready for External Dissemination?** | **❌ Revision Required (Do Not Send As-Is)** |
+| **Primary Risk Drivers** | Definitive promises regarding timeline integrity, unapproved absorption of scope additions without change orders, and unqualified quality warranties. |
 
-### 修正が必要な表現
+---
 
-| 対象表現 | リスク | 修正案 |
+### 2. Flagged Statements & Corrective Rewrites
+
+| Original AI Statement | Governance & Commercial Risk | Recommended Protective Phrasing |
 |---|---|---|
-| 現時点では納期への影響はありません | 納期影響を断定している | 現時点では大きな影響は確認されていませんが、外部API仕様の確定状況を踏まえて継続確認します |
-| 現在のスケジュール内で対応可能です | 追加要望対応を確約している | 追加要望については、影響範囲を確認したうえで対応方針をご相談します |
-| 品質面も問題ありません | 品質を保証する表現になっている | 現在確認できている範囲では重大な品質懸念は確認されていません |
-
-### 顧客提出前に確認すべきこと
-
-- 外部API仕様の確定予定日
-- 追加要望の影響範囲
-- スケジュールへの影響
-- 上長レビューの要否
-- 契約・スコープ上の扱い
+| *"There is absolutely no impact on the target delivery date"* | Premature commitment creating commercial liability if external API stalls persist | *"At this stage, no major schedule variance has been confirmed, pending final stabilization of the external API specifications which remains under close monitoring."* |
+| *"Regarding your additional feature requests, we will accommodate them all within the current project schedule"* | Uncompensated scope concession binding the team to unestimated work | *"Regarding the requested additions, we are finalizing operational impact assessments to determine the appropriate delivery path and options with you."* |
+| *"Quality is completely under control, and the release will proceed without issue"* | Unqualified warranty implying zero-defect liability | *"Quality gates are actively being executed, and preliminary checks have identified no critical blockers to proceeding with scheduled test phases."* |
 
 ---
 
-## Human Review Points
+### 3. Pre-Dissemination Verification Checklist
 
-- 顧客に対して確約しすぎていないか
-- 納期・品質・費用・責任範囲を断定していないか
-- 上長・関係者レビューが必要な内容を見落としていないか
-- 機密情報・個人情報が含まれていないか
-
----
-
-## 次に確認するとよいページ
-
-- `docs/ai-safety.md`
-- `contexts/CLIENT_COMMUNICATION_CONTEXT.md`
-- `.claude/skills/stakeholder-strategy/SKILL.md`
+- [ ] Obtain technical validation of the revised wording from the Lead Developer.
+- [ ] Confirm alignment with Account Executive regarding feature addition policy.
+- [ ] Ensure all dates and milestones referenced match approved contract schedules.

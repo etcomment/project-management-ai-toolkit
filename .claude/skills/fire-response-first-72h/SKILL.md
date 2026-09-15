@@ -1,128 +1,85 @@
 ---
 name: fire-response-first-72h
-description: 炎上初動72時間で事実、影響、未確認事項、初動対応を整理する。本番障害・重大バグ・データ問題・顧客クレーム・炎上が発生した、どこから手をつければいいかわからない状況を整理したい、初動72時間の対応計画をまとめたいときに使用します。
+description: Structure operational triage during the first 72 hours of a project crisis, severe production outage, or critical defect. Use when facing production outages, data corruption, client escalations, or delivery breakdowns to separate facts from speculation and establish immediate containment actions.
 ---
 
 # Fire Response First 72h Skill
 
 <role>
-ITプロジェクト・受託開発・Web/アプリ開発・業務システム開発に詳しい、PMとして振る舞ってください。
+Act as an experienced Project Manager specializing in crisis management, incident command, and delivery recovery.
 
-炎上・重大障害・トラブル発生時の初動72時間に必要な情報整理を支援します。原因追及より先に、事実・影響・選択肢・次アクションを整理することを優先します。
+Structure an immediate operational response for the critical first 72 hours following an emergency, prioritizing verified facts, blast radius, containment options, and immediate actions over premature root-cause analysis.
 </role>
 
 ---
 
-## When to Use（このSkillを使う場面）
+## When to Use This Skill
 
-- 本番障害・重大バグ・データ問題が発生したとき
-- 顧客クレーム・炎上状態が発生したとき
-- 「どこから手をつければいいかわからない」状況を整理したいとき
-- 初動72時間の対応計画をPM視点でまとめたいとき
-
----
-
-## Input（入力内容）
-
-以下の情報を入力してください（わかる範囲で構いません）。
-
-- 発生事象の概要（何が起きたか）
-- 発覚した時刻・経緯
-- 現時点でわかっている影響範囲
-- 現在の対応状況
-- 未確認の事項
-
-> [!IMPORTANT]
-> 顧客情報・個人情報・認証情報（APIキー・パスワード等）は入力しないでください。情報漏洩・セキュリティリスクを防ぐためです。
-> 固有名詞は「顧客A」「担当者A」「プロジェクトX」等に置き換えてください。
+- Critical production outages or severe defects discovered shortly before release
+- Severe customer escalations, breach-of-contract warnings, or executive crises
+- Irreversible schedule slips impacting immovable delivery deadlines
+- Catastrophic team disruptions or sudden departures of key personnel
+- Clarifying immediate priorities when the team is overwhelmed by a sudden breakdown
 
 ---
 
-<instructions>
+## Instructions
 
-## Approach（取り組み方）
+Analyze the incident details and structure the response across 8 operational dimensions:
 
-入力された情報をもとに、以下のステップで整理してください。初動対応では「正確な原因究明」より「今わかっていることの整理と次の一手」を優先します。
-
-1. 確認済みの事実と推測・未確認事項を明確に分類する（混在させない）
-2. ユーザー・データ・業務・契約への影響範囲を整理する（不明な場合は「未確認」と明示）
-3. 今日中に確認すべき事項を優先度順に列挙する
-4. 顧客への第一報方針を整理する（伝えるべき事実 / まだ伝えてはいけないこと / タイミング）
-5. 社内エスカレーション要否と報告先・タイミングを判断する
-6. 72時間以内の対応チェックリストを作成する
-
-**入力情報が断片的でも、入力された範囲で最大限整理してください。不明な事項は「未確認」と明示してください。入力に含まれない情報を一般知識で補完する場合は「（推測）」と明示し、判断に十分な情報がない場合は「この情報だけでは判断できません」と明記してください。**
-
-</instructions>
+1. **Segregation of Facts vs. Speculation**: Separate confirmed objective facts from working hypotheses and unverified rumors.
+2. **Blast Radius & Impact Mapping**: Evaluate affected modules, user workflows, deployment schedules, and stakeholder commitments.
+3. **Critical Day-0 Verifications**: Identify questions the engineering team must resolve within the next few hours.
+4. **Client Communication Framing**: Calibrated messaging that acknowledges active investigations without making unverified promises.
+5. **Internal Executive Arbitrations**: Key management decisions required from leadership (Go/No-Go criteria, resource mobilization).
+6. **Immediate Containment Checklist**: Assigned tasks for the technical and management teams covering the immediate hours.
+7. **72-Hour Phased Operational Plan**: Triage roadmap across Day 1 (Triage & Containment), Day 2 (Fix & Validate), and Day 3 (Final Go/No-Go & Resolution).
+8. **Escalation Protocols**: Determining required escalation to executive leadership or legal counsel.
 
 ---
 
-## Review / Analysis Points（分析の観点）
+## Output Format
 
-1. 事実と推測の切り分け
-2. 影響範囲の整理（ユーザー・データ・業務・契約への影響）
-3. 今日中に確認すべきこと
-4. 顧客に伝えるべきこと・まだ伝えてはいけないこと
-5. 社内で決めるべきこと（エスカレーション要否含む）
-6. 初動対応リスト
-7. 72時間以内の対応計画
+```markdown
+### 1. Segregation of Facts vs. Speculation
+- **Confirmed Facts**: (Verified events and statuses)
+- **Active Inferences / Unknowns**: (Unconfirmed assumptions tagged as "(Inferred)")
 
----
+### 2. Blast Radius & Impact Mapping
+| Dimension | Impact Status | Investigation Detail |
+|---|---|---|
+| ... | ... | ... |
 
-<output_format>
+### 3. Critical Day-0 Verifications (Due Today)
+- [ ] (Verification 1)
+- [ ] (Verification 2)
 
-## Output Format（出力形式）
+### 4. Client Communication Framing
+(Holding statement and briefing guidelines)
 
-以下の形式で日本語で出力してください。混乱した状況でもすぐに行動に移せるよう、各セクションを具体的かつ簡潔に記載してください。
+### 5. Internal Executive Arbitrations Required
+- (Key management decisions needed from leadership)
 
-### 事実と推測の切り分け
+### 6. Immediate Containment Checklist
+| # | Action Item | Assigned Role | Target Time |
+|---|---|---|---|
+| 1 | ... | ... | ... |
 
-| 種別 | 内容 |
-|---|---|
-| 確認済み事実 | |
-| 推測・未確認 | |
+### 7. 72-Hour Phased Operational Plan
+- **Day 1**: (Triage, containment, alignment)
+- **Day 2**: (Fix development, status briefing, Go/No-Go checkpoint)
+- **Day 3**: (Verification, regression testing, final decision)
 
-### 影響範囲
-
-- ユーザーへの影響：
-- データへの影響：
-- 業務・納期への影響：
-- 契約・費用への影響：
-
-### 今日中に確認すべきこと
-
-優先度順に列挙します。各項目に「確認担当（役割）」を添えてください。
-
-### 顧客への初動対応方針
-
-- 伝えるべきこと：
-- まだ確認が必要なこと（伝えるのを待つべきこと）：
-- 第一報の目安タイミング：
-
-### 社内エスカレーション
-
-- エスカレーション要否：
-- 報告先・タイミング：
-
-### 初動対応チェックリスト（72時間以内）
-
-- [ ] 事実確認完了
-- [ ] 影響範囲確定
-- [ ] 顧客への第一報
-- [ ] 社内エスカレーション
-- [ ] 暫定対応実施
-- [ ] 恒久対策の検討開始
-
-</output_format>
+### 8. Escalation Protocols & Executive Briefing Needs
+(Escalation recommendations and governance boundaries)
+```
 
 ---
 
-## Caution（注意事項）
+## Constraints
 
-- AI出力は業務判断の代替ではありません。出力内容は必ず人間が確認・修正してください。
-- 顧客への連絡・エスカレーションの判断は必ず人間が行ってください。
-- 推測・仮説での顧客説明は避けてください。確認済み事実のみを伝えてください。
-- 法的責任・契約違反が疑われる場合は、法務・上長に必ず確認してください。
-- このSkillは hooks、command、shell script、MCP設定、GitHub Actions、自動実行、自動コミット、自動デプロイを含みません。
-- このファイルは、PM実務の観点をClaude Codeに伝えるためのドキュメントです。
-- 実行系の自動化機能は提供しません。
+<constraints>
+- Prioritize containment and factual clarity over assigning blame.
+- Never draft unverified promises regarding resolution timelines.
+- Output serves as decision support; executive leadership retains final authority.
+</constraints>

@@ -1,87 +1,67 @@
-# Examples — 実用サンプル集
+# Examples — Practical Use Cases
 
-このディレクトリは、`contexts/` の使い方を具体的に示すサンプル集です。
-
----
-
-## このディレクトリの目的
-
-各コンテキストファイルを実際にどのように使うのか、入力例・プロンプト例・期待する出力例を通じて確認できます。
+This directory contains concrete, real-world practical scenarios illustrating how to apply the toolkit's AI Contexts and Claude Code Skills.
 
 ---
 
-## 注意事項
+## Purpose of This Directory
+
+Explore how to use each context file effectively through realistic input data, tailored prompts, and expected AI outputs.
+
+---
+
+## Critical Notices & Safeguards
 
 > [!IMPORTANT]
-> **すべてのサンプルは架空データです。** 実在する顧客名・会社名・個人名・案件名・認証情報は含まれていません。
+> **All examples are strictly based on fabricated, fictitious data.** No real client names, corporate identities, personal information, or credentials are included.
 >
-> 実案件の情報（顧客名、案件名、個人情報、認証情報、契約情報）をAIサービスに入力しないでください。
-> 入力前に必ずマスキング・抽象化を行ってください。詳細は [docs/ai-safety.md](../docs/ai-safety.md) を参照してください。
+> Never enter confidential operational data (client names, contract figures, proprietary source code, credentials) into AI services.
+> Always sanitize and abstract project data prior to prompting. See [`docs/ai-safety.md`](../docs/ai-safety.md).
 
 > [!WARNING]
-> **AI出力は業務判断の代替ではありません。** 出力内容は必ず人間が確認・修正してください。
-> 顧客提出・社内報告・契約判断・納期回答・費用判断に使用する場合は、担当者が内容を確認した上で利用してください。
+> **AI outputs never substitute for professional project management judgment.** All generated outputs must be reviewed, verified, and adapted by a human manager.
+> Always validate content before transmitting to clients, submitting to leadership, or committing to deadlines and budgets.
 
 ---
 
-## サンプル一覧
+## Practical Scenarios Catalog
 
-| サンプルファイル | 内容 |
+| Scenario File | Operational Focus |
 |---|---|
-| [project-health-check-example.md](project-health-check-example.md) | プロジェクト状況のヘルスチェック例 |
-| [status-report-example.md](status-report-example.md) | 進捗報告作成例 |
-| [issue-risk-review-example.md](issue-risk-review-example.md) | 課題・リスクレビュー例 |
-| [meeting-minutes-example.md](meeting-minutes-example.md) | 会議メモから議事録・TODOを作る例 |
-| [fire-response-first-72h-example.md](fire-response-first-72h-example.md) | 炎上初動72時間の整理例 |
-| [scope-change-example.md](scope-change-example.md) | 仕様変更・スコープ変更の整理例 |
-| [delay-recovery-example.md](delay-recovery-example.md) | 遅延時のリカバリー方針整理例 |
-| [claude-code-pm-review-example.md](claude-code-pm-review-example.md) | Claude CodeでPMレビューSkillを使う例 |
-| [pm-ai-diagnosis-example.md](pm-ai-diagnosis-example.md) | PM課題・AI活用課題を診断し、使うべきContextとSkillを選ぶ例 |
-| [project-risk-radar-example.md](project-risk-radar-example.md) | 進捗メモから表面化していないリスクを検知する例 |
-| [ai-output-governance-review-example.md](ai-output-governance-review-example.md) | AI出力を顧客提出前にレビューする例 |
+| [project-health-check-example.md](project-health-check-example.md) | Comprehensive diagnostic audit of project health |
+| [status-report-example.md](status-report-example.md) | Progress reporting tailored for management and clients |
+| [issue-risk-review-example.md](issue-risk-review-example.md) | Backlog audit, gap detection, and risk reprioritization |
+| [meeting-minutes-example.md](meeting-minutes-example.md) | Converting raw meeting notes into structured minutes & TODOs |
+| [fire-response-first-72h-example.md](fire-response-first-72h-example.md) | Crisis triage and containment during the first 72 hours |
+| [scope-change-example.md](scope-change-example.md) | Scope change impact assessment and trade-off options |
+| [delay-recovery-example.md](delay-recovery-example.md) | Schedule delay recovery planning (crashing / fast-tracking) |
+| [claude-code-pm-review-example.md](claude-code-pm-review-example.md) | Utilizing Claude Code Skills to audit project repositories |
+| [pm-ai-diagnosis-example.md](pm-ai-diagnosis-example.md) | Diagnosing delivery friction and navigating Contexts/Skills |
+| [project-risk-radar-example.md](project-risk-radar-example.md) | Detecting latent, unstated project risks from raw updates |
+| [ai-output-governance-review-example.md](ai-output-governance-review-example.md) | Auditing AI-drafted messages before external transmission |
 
 ---
 
-## 使用するファイルの対応表
+## File Mapping Matrix
 
-| サンプル | 使用するファイル |
+| Scenario | Associated Contexts & Skills |
 |---|---|
-| project-health-check-example.md | `contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md` |
-| status-report-example.md | `contexts/PM_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md` |
-| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md` |
-| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`、`contexts/MEETING_MINUTES_CONTEXT.md` |
-| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`、`contexts/FIRE_RESPONSE_FIRST_72H.md` |
-| scope-change-example.md | `contexts/PM_CONTEXT.md`、`contexts/SCOPE_CHANGE_CONTEXT.md` |
-| delay-recovery-example.md | `contexts/PM_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
-| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`、`.claude/skills/pm-review/SKILL.md` |
-| pm-ai-diagnosis-example.md | `.claude/skills/pm-ai-diagnosis/SKILL.md`、`contexts/PM_CONTEXT.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
-| project-risk-radar-example.md | `.claude/skills/project-risk-radar/SKILL.md`、`contexts/PROJECT_HEALTH_CHECK.md`、`contexts/ISSUE_RISK_CONTEXT.md`、`contexts/DELAY_RECOVERY_CONTEXT.md` |
-| ai-output-governance-review-example.md | `.claude/skills/ai-output-governance-review/SKILL.md`、`contexts/CLIENT_COMMUNICATION_CONTEXT.md`、`contexts/STATUS_REPORT_CONTEXT.md`、`docs/ai-safety.md` |
+| project-health-check-example.md | `contexts/PM_CONTEXT.md`, `contexts/PROJECT_HEALTH_CHECK.md` |
+| status-report-example.md | `contexts/PM_CONTEXT.md`, `contexts/STATUS_REPORT_CONTEXT.md` |
+| issue-risk-review-example.md | `contexts/PM_CONTEXT.md`, `contexts/ISSUE_RISK_CONTEXT.md` |
+| meeting-minutes-example.md | `contexts/PM_CONTEXT.md`, `contexts/MEETING_MINUTES_CONTEXT.md` |
+| fire-response-first-72h-example.md | `contexts/PM_CONTEXT.md`, `contexts/FIRE_RESPONSE_FIRST_72H.md` |
+| scope-change-example.md | `contexts/PM_CONTEXT.md`, `contexts/SCOPE_CHANGE_CONTEXT.md` |
+| delay-recovery-example.md | `contexts/PM_CONTEXT.md`, `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| claude-code-pm-review-example.md | `contexts/PM_CONTEXT.md`, `.claude/skills/pm-review/SKILL.md` |
+| pm-ai-diagnosis-example.md | `.claude/skills/pm-ai-diagnosis/SKILL.md`, `contexts/PM_CONTEXT.md`, `contexts/PROJECT_HEALTH_CHECK.md`, `contexts/STATUS_REPORT_CONTEXT.md`, `contexts/ISSUE_RISK_CONTEXT.md`, `contexts/CLIENT_COMMUNICATION_CONTEXT.md` |
+| project-risk-radar-example.md | `.claude/skills/project-risk-radar/SKILL.md`, `contexts/PROJECT_HEALTH_CHECK.md`, `contexts/ISSUE_RISK_CONTEXT.md`, `contexts/DELAY_RECOVERY_CONTEXT.md` |
+| ai-output-governance-review-example.md | `.claude/skills/ai-output-governance-review/SKILL.md`, `contexts/CLIENT_COMMUNICATION_CONTEXT.md`, `contexts/STATUS_REPORT_CONTEXT.md`, `docs/ai-safety.md` |
 
 ---
 
-## AI出力を実務で使う前の確認
+## Human Review Points
 
-各サンプルの「Human Review Points」セクションに、AIの出力を確認すべき観点を記載しています。
+Every scenario includes a dedicated **Human Review Points** section highlighting critical operational checkpoints that human managers must inspect before adopting AI-generated outputs.
 
-AIの出力をそのまま顧客提出・社内報告・契約関連文書に使わないでください。最終的な判断と責任は、必ず人間が持ってください。
-
-詳細は [docs/usage-guide.md](../docs/usage-guide.md) および [docs/legal/DISCLAIMER.md](../docs/legal/DISCLAIMER.md) を参照してください。
-
----
-
-## サンプルから学べること
-
-- AIに渡す前提情報（AI Contexts）の整理方法
-- PMとして確認すべき観点
-- AIに任せてよい部分と、人間が判断すべき部分
-- 顧客・上司・チームに共有する前のレビュー観点
-
----
-
-## 次に確認するとよいページ
-
-- 用途別に選びたい方：[`docs/use-case-map.md`](../docs/use-case-map.md)
-- 学習順を知りたい方：[`docs/learning-roadmap.md`](../docs/learning-roadmap.md)
-- 安全に使うための注意点：[`docs/ai-safety.md`](../docs/ai-safety.md)
-- Claude Code Skill一覧：[`../.claude/skills/README.md`](../.claude/skills/README.md)
+Refer to [`docs/usage-guide.md`](../docs/usage-guide.md) and [`docs/legal/DISCLAIMER.md`](../docs/legal/DISCLAIMER.md) for full governance details.

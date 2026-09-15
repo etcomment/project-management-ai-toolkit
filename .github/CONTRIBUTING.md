@@ -1,95 +1,94 @@
-# Contributing
+# Contributing Guidelines
 
-このリポジトリは、株式会社テックエイドが管理・保守する公式コンテンツです。
+This repository is official educational and reference content maintained by TechAide Inc. (TechAide Co., Ltd.).
 
-誤字脱字・安全上の懸念・改善提案は歓迎しますが、外部からのPull Requestを積極的に募集するものではありません。
+While bug reports, typo fixes, security notices, and improvement suggestions are welcome, this project does not actively solicit external Pull Requests for feature development.
 
-改善提案はIssueで受け付け、採用・反映は管理者が判断します。
-大幅な構成変更、マーケティング導線の変更、利用条件・免責表現の変更は、原則として管理者側で判断します。
+Improvement proposals should be submitted via GitHub Issues. Decisions on adoption and integration are made exclusively by the repository maintainers. Architectural restructurings, commercial pathway updates, and modifications to terms or disclaimers remain under the exclusive authority of the maintainers.
 
-Pull Request や Issue の投稿前に、必ず以下の方針と注意事項を確認してください。
-
----
-
-## 歓迎する改善提案
-
-以下のような改善提案を歓迎します（反映はIssueでの確認後に管理者が判断します）。
-
-- 誤字脱字の修正
-- 表現の改善
-- 安全注意・免責表現の改善提案
-- 利用例の改善提案
+Please review the policies and guidelines below prior to submitting an Issue or Pull Request.
 
 ---
 
-## 貢献前の注意
+## Welcome Contributions
+
+The following contributions are appreciated (evaluated via Issues by the maintainers):
+
+- Fixing typographical errors or grammatical issues
+- Refining phrasing and improving clarity
+- Strengthening security warnings, disclaimer language, or data safety notes
+- Improving the clarity of practical scenarios and use cases
+
+---
+
+## Strict Rules Before Contributing
 
 > [!CAUTION]
-> Pull Request や Issue には、以下の情報を含めないでください。
+> Never include any of the following information in Pull Requests or Issues:
 
-- 実在する顧客名・会社名・個人名・案件名
-- 顧客との契約情報・NDA対象情報・議事録全文・社内機密情報
-- APIキー・パスワード・トークン・認証情報
-- ソースコードや業務上の秘密情報
-- 機密性の高い社内資料・未公開情報
+- Real client names, corporate identities, personal names, or real project titles
+- Client contracts, NDA-restricted information, full meeting transcripts, or internal business secrets
+- API keys, passwords, access tokens, or security credentials
+- Proprietary source code or trade secrets
+- Confidential internal documents or non-public information
 
-**サンプルは必ず架空データにしてください。**
+**All examples and pull requests must use strictly fabricated, fictitious data.**
 
-AI生成文を追加する場合も、人間が内容を確認・修正したうえで投稿してください。
-
----
-
-## 受け付けにくい変更
-
-以下の変更は、このリポジトリの方針に沿わないため受け付けにくい場合があります。
-
-- hooks、command、自動実行・自動コミット・自動デプロイの追加
-- MCP設定、GitHub Actions、ワークフローの追加
-- APIキーや外部サービス連携を前提にしたサンプルの追加
-- 免責や安全上の注意を弱める変更
-- Udemyや自社サービスへの導線を過度に増やす変更
-- 実案件の詳細を含む変更
-
-このリポジトリはAI Contexts、Prompt Template、Claude Code Skillsを含むPM向けAI活用ツールキットであり、実行系の自動化リポジトリではありません。
+If submitting AI-generated text, ensure a human has thoroughly verified, edited, and validated the content prior to submission.
 
 ---
 
-## 貢献フロー
+## Contributions Unlikely to Be Accepted
+
+The following types of contributions do not align with repository principles and will generally not be accepted:
+
+- Adding executable hooks, background commands, shell scripts, or automated commit/deploy mechanisms
+- Adding MCP server configurations, GitHub Actions pipelines, or automated daemon workflows
+- Adding examples that require real commercial API keys or external service integrations
+- Weakening disclaimers, liability limitations, or data safety warnings
+- Adding excessive promotional links or commercial pathways
+- Incorporating details from real, confidential client projects
+
+This repository is an advisory AI toolkit (AI Contexts, Prompt Templates, Claude Code Skills) and deliberately avoids becoming an automated execution environment.
+
+---
+
+## Contribution Workflow
 
 ```text
-改善案を思いつく
+Have an improvement idea
 │
-├─ 機密情報を含む？
-│    ├─ はい → 投稿しない / マスキングする
-│    └─ いいえ
+├─ Contains confidential information?
+│    ├─ Yes → Do not submit / Sanitize thoroughly
+│    └─ No
 │
-├─ 変更種別は？
-│    ├─ 誤字・軽微修正 → Pull Request
-│    ├─ 新規提案       → Issueで提案
-│    └─ セキュリティ懸念 → SECURITY.mdを確認
+├─ Type of change?
+│    ├─ Typo / Minor wording fix → Pull Request
+│    ├─ New feature / Context proposal → Open an Issue
+│    └─ Security concern → Consult SECURITY.md
 │
-├─ Safety checklistを確認
+├─ Complete the Safety Checklist
 │
-├─ レビュー
+├─ Maintainer Review
 │
-└─ 採用判断
+└─ Integration Decision
 ```
 
 ---
 
-## Pull Request の流れ
+## Pull Request Submission Process
 
-1. Issue またはPRで提案内容を共有する
-2. 変更内容を簡潔に説明する
-3. 追加・修正したファイルと理由を記載する
-4. 機密情報が含まれていないことを自身で確認する
-5. Markdown 表示を確認する
+1. Share your proposal in an Issue or describe the PR thoroughly.
+2. Summarize the changes clearly.
+3. List added or modified files along with the rationale.
+4. Personally verify that no confidential data or credentials are included.
+5. Verify clean Markdown formatting.
 
-Pull Request テンプレートの Safety checklist を必ず確認・チェックしてください。
+Ensure you complete and check all items in the Pull Request Safety Checklist.
 
 ---
 
-## コミットメッセージ例
+## Example Commit Messages
 
 ```
 Fix typo in README
@@ -101,11 +100,10 @@ Update meeting minutes prompt
 
 ---
 
-## 免責
+## Legal & Responsibility
 
-- 投稿された内容はレビュー後に採用判断されます。
-- 必ず採用されるわけではありません。
-- 投稿者は、投稿内容に第三者の権利侵害や機密情報が含まれていないことを確認する責任を負います。
-- 投稿した内容がリポジトリに取り込まれた場合、本リポジトリのライセンス（LICENSE.md）が適用されます。
+- All submitted contributions are reviewed prior to integration; acceptance is not guaranteed.
+- Contributors assume full responsibility for ensuring their submissions do not infringe on third-party intellectual property or violate confidentiality agreements.
+- Accepted contributions become subject to the repository license (`LICENSE.md`).
 
-詳細は `docs/legal/TERMS.md`、`docs/legal/DISCLAIMER.md`、`.github/SECURITY.md` を確認してください。
+For details, refer to `docs/legal/TERMS.md`, `docs/legal/DISCLAIMER.md`, and `.github/SECURITY.md`.

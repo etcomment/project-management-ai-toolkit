@@ -1,194 +1,129 @@
-﻿# PMO横断レビューコンテキスト / PMO Review Context
+# PMO Review Context
 
 ---
 
-## Purpose（このコンテキストの目的）
+## Purpose
 
-PMO・管理職が複数案件を横断的にレビューし、危険案件・共通リスク・支援が必要なPMや案件・エスカレーション候補を整理するためのコンテキストです。
+This context assists PMO Directors, Delivery Heads, and Program Managers in conducting cross-project portfolio reviews, identifying high-risk engagements, surfacing systemic risks, and triaging management interventions across multiple delivery streams.
 
-**AIはPMの判断を代替しません。** AIは情報の整理・分類・たたき台作成を補助するツールです。最終的な判断は、必ず人間が行ってください。
+**AI does not replace executive PMO judgment.** AI assists in synthesizing multi-project updates and detecting portfolio-wide correlations. Final staffing, commercial, and organizational decisions remain human responsibilities.
 
 > [!CAUTION]
-> 個人の評価・人事判断にAI出力を使わないでください。
-> 顧客名・社名・個人名・契約情報・認証情報はAIに入力しないでください。
-> 各PMの個人的な状況や評価に関する内容はAIに入力しないでください。
+> Never use AI outputs for individual employee evaluations or HR performance management.
+> Do not input real client names, company identities, employee names, or contractual commercials.
+> Treat all portfolio data with strict sanitization and operational abstraction.
 
 ---
 
-## Use Case（このコンテキストを使う場面）
+## Use Cases
 
-- 複数案件の状況を横断的に確認したいとき
-- 危険な状態にある案件を特定したいとき
-- 複数案件に共通して発生している問題を把握したいとき
-- 支援が必要なPM・案件を整理したいとき
-- 経営層向けのPMOレポートの骨子を作りたいとき
+- Conducting monthly or quarterly cross-portfolio delivery health reviews
+- Detecting systemic patterns (e.g., recurring QA bottlenecks across 3 separate projects)
+- Triage and prioritization of PMO coaching or senior engineering interventions
+- Preparing consolidated executive dashboards for executive leadership
+- Flagging projects requiring immediate governance audit or recovery intervention
 
 ---
 
-## Input（AIに渡す情報）
-
-このコンテキストを読み込ませた上で、以下の情報を（機密情報・個人情報をマスキングして）渡してください。
+## Input (Information to Provide to the AI)
 
 ```
-### 複数案件の一覧（案件名は「案件A」「案件B」のように抽象化すること）
+### Portfolio Scope
+- Portfolio / Division Name (Sanitized):
+- Number of Active Engagements:
+- General Delivery Framework: (Agile, Waterfall, Hybrid)
 
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限・マイルストーン | 支援要否 |
-|---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
-| 案件C | | | | | | | | |
-
-### 共通して気になっていること
-（複数案件にまたがって感じている懸念・傾向を箇条書きで）
-
-### 支援が必要そうな案件
-（PMO視点で支援・介入が必要と感じている案件とその理由）
-
-### 組織・体制上の課題
-（体制・リソース・スキル面での組織的な課題）
+### Multi-Project Summaries (Sanitized)
+For each project (Project Alpha, Project Beta, Project Gamma):
+- Current Phase & Completion Rate:
+- Delivery Health Status: (Green / Amber / Red)
+- Active Blockers & Schedule Variance:
+- Critical Staffing or Technical Constraints:
+- Client Counterpart Dynamics:
 ```
 
 ---
 
-## Output（AIに期待する出力）
+## Expected Output
 
-### 1. 危険案件一覧
+### 1. Portfolio Delivery Health Matrix
+Consolidated scorecard ranking all projects by risk profile and milestone stability.
 
-現状から見て特に注意が必要な案件の一覧と、その理由。
+### 2. High-Risk Engagement Triage (Red / Amber Deep-Dives)
+Deep-dive into struggling projects with explicit failure modes and critical path vulnerabilities.
 
-### 2. 共通して発生している問題
+### 3. Cross-Cutting Systemic Risks
+Identifying portfolio-wide patterns (e.g., dependency on a shared infrastructure team, common third-party API delays).
 
-複数案件にまたがって見られる共通の問題・傾向の整理。
+### 4. PMO Intervention & Resource Allocation Plan
+Targeted recommendations for where senior PMO coaching, technical triage, or resource rebalancing will yield the highest return.
 
-### 3. 支援が必要なPM・案件
-
-PMO・管理職からの支援が必要と思われる案件・担当者（役割）の整理。
-
-### 4. エスカレーション候補
-
-経営層・関係部門へのエスカレーションが必要と思われる案件・課題の一覧。
-
-### 5. 横断的な改善テーマ
-
-組織・プロセス・体制として横断的に取り組むべき改善テーマの提案。
-
-### 6. 経営層向け報告サマリー
-
-経営層向けに1〜2分で状況を伝えるためのサマリー骨子。
-
-### 7. PMOとして次に確認すべきこと
-
-PMOが次のアクションとして確認・実施すべき事項の一覧。
+### 5. Executive Portfolio Briefing (3 Lines per Project)
+High-level summary for the COO, CTO, or Head of Delivery.
 
 ---
 
-## Caution（利用時の注意）
-
-- **個人の評価・人事判断にAI出力を使わないでください。** PMOレビューはプロセス・体制・案件状況の改善を目的とします。
-- 顧客名・社名・個人名はAIに入力しないでください。役割・「案件A」などに置き換えてください。
-- 各PMの個人的な状況・評価に関する内容はAIに入力しないでください。
-- 契約情報・認証情報・機密情報はAIに入力しないでください。
-- **AI出力は業務判断の代替ではありません。** 最終的な判断は人間が行ってください。
-
----
-
-## 使用例（このコンテキストを使った依頼例）
-
-以下のテンプレートをコピーし、案件情報を埋めてから使用してください。
+## Standard Prompt Template
 
 ```text
-以下のコンテキストを前提として、複数案件を横断的にレビューしてください。
+# Cross-Portfolio PMO Review Request
 
-## コンテキスト
+Using the contexts below, conduct a comprehensive cross-project delivery audit across the portfolio updates provided.
 
-[PM_CONTEXT.md の内容をここに貼り付ける]
-[PMO_REVIEW_CONTEXT.md の内容をここに貼り付ける]
+## Contexts
 
----
+[Paste contents of PM_CONTEXT.md here]
 
-## 案件一覧（機密情報はマスキング済み・案件名は抽象化済み）
-
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限 | 支援要否 |
-|---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
-| 案件C | | | | | | | | |
-
-### 共通して気になっていること
-（記入）
-
-### 支援が必要そうな案件
-（記入）
-
-### 組織・体制上の課題
-（記入）
+[Paste contents of PMO_REVIEW_CONTEXT.md here]
 
 ---
 
-## 出力してほしいこと
+## Multi-Project Status Data (Sanitized)
 
-1. 危険案件一覧と理由
-2. 複数案件に共通する問題・傾向
-3. 支援が必要なPM・案件の整理
-4. エスカレーション候補
-5. 横断的な改善テーマ
-6. 経営層向け報告サマリーの骨子
-7. PMOとして次に確認すべきこと
+[Paste sanitized multi-project updates here]
 
-※ 個人の評価・人事判断にAI出力を使わないでください。
-※ AI出力は整理のたたき台です。最終的な判断は必ず人間が行ってください。
+---
+
+## Requested Deliverables
+
+1. Portfolio Delivery Health Matrix
+2. High-Risk Engagement Triage
+3. Cross-Cutting Systemic Risk Analysis
+4. PMO Intervention & Resource Rebalancing Plan
+5. Executive Portfolio Briefing
+
+*Note: AI output serves as analytical support. Operational interventions require human PMO executive approval.
 ```
 
-
 ---
 
-## Claude向け使用例（XMLタグ版）
-
-Claudeに渡す場合は、以下のXMLタグ構造を使うと依頼内容・入力・制約を明確に分けられます。
+## Claude Prompt Template (XML Tag Version)
 
 ```text
 <task>
-以下の案件一覧をPMO視点で横断的にレビューしてください。
-危険案件、共通課題、支援が必要なPM・案件、エスカレーション候補を整理してください。
+Conduct a cross-project delivery audit and portfolio risk synthesis based on the provided multi-project status data.
 </task>
 <context>
 <pm_context>
-[PM_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PM_CONTEXT.md here]
 </pm_context>
 <specific_context>
-[PMO_REVIEW_CONTEXT.md の内容をここに貼り付ける]
+[Paste contents of PMO_REVIEW_CONTEXT.md here]
 </specific_context>
 </context>
 <input>
-【案件一覧（機密情報はマスキング済み・案件名は抽象化済み）】
-
-| 案件ID | 進捗状況 | 課題数 | 主要リスク | 担当PM（役割） | 顧客状況 | 体制状況 | 次の期限 | 支援要否 |
-|---|---|---|---|---|---|---|---|---|
-| 案件A | | | | | | | | |
-| 案件B | | | | | | | | |
-
-### 共通して気になっていること
-（記入）
-
-### 支援が必要そうな案件
-（記入）
-
-### 組織・体制上の課題
-（記入）
+[Paste sanitized multi-project updates here]
 </input>
 <constraints>
-- 顧客名・個人名・会社名・契約情報・認証情報はマスキング済みの前提で扱ってください。
-- 個人の評価・人事判断にAI出力を使わないでください。
-- 入力情報に含まれない内容を補う場合は「（推測）」と明示してください。
-- AI出力は判断材料であり、最終判断は人間が行う前提で出力してください。
+- Focus on portfolio-wide governance, systemic bottlenecks, and critical delivery risks.
+- Maintain an objective, constructive, and analytical tone.
+- Do not evaluate individual personal performance; focus on project operational dynamics.
 </constraints>
 <output_format>
-1. 危険案件一覧と理由
-2. 複数案件に共通する問題・傾向
-3. 支援が必要なPM・案件の整理
-4. エスカレーション候補
-5. 横断的な改善テーマ
-6. 経営層向け報告サマリーの骨子
-7. PMOとして次に確認すべきこと
+1. Portfolio Delivery Health Matrix
+2. High-Risk Engagement Triage
+3. Cross-Cutting Systemic Risk Analysis
+4. PMO Intervention & Resource Rebalancing Plan
+5. Executive Portfolio Briefing
 </output_format>
 ```

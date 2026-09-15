@@ -1,14 +1,12 @@
-# 進捗報告作成 — 実用サンプル
+# Status Report Drafting — Practical Scenario
 
 ## Use Case
 
-今週の作業状況から、社内向け・顧客向けの進捗報告を作成する場面を想定しています。
-
-週次で発生する報告文の作成をAIに補助させる例です。
+Drafting tailored weekly progress reports for both internal engineering leadership and external client stakeholders from raw weekly work logs.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/STATUS_REPORT_CONTEXT.md`
@@ -17,42 +15,42 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-報告対象週：第8週
-報告先：社内上長、顧客担当者A
+Project: Project Alpha (Fictitious)
+Reporting Cycle: Week 8
+Audiences: Internal Delivery Head, Client Lead A
 
-【今週完了した作業】
-- 画面設計（一覧画面、詳細画面）のレビュー完了
-- DB設計書 v1.1 の修正対応完了
-- 外部連携機能の基本実装（単体テスト未実施）
+[Completed This Week]
+- UI screen design review (List and Detail views) completed and approved
+- Database Architecture Specification v1.1 revisions finalized
+- Core implementation of External Integration Module completed (unit tests pending)
 
-【未完了の作業（今週予定だったが持ち越し）】
-- 外部連携機能の単体テスト（来週前半に実施予定）
-- テスト設計書の初版作成（来週中に着手予定）
+[Incomplete / Carried-Over Work]
+- Unit testing for External Integration Module (deferred to early next week)
+- Test Plan Specification v1.0 initial draft (scheduled to kick off next week)
 
-【遅延している作業】
-- 外部連携機能：当初予定より1週間遅延
-  遅延理由：仕様確認待ちで開発が一時停止していた
+[Variances & Delays]
+- External Integration Module: Currently 1 week behind baseline
+  Root Cause: Development paused awaiting client data specification confirmation
 
-【課題】
-- 顧客担当者Aからのデータ仕様確認が未回答（先週から持ち越し）
-- バックエンドI/F定義の認識齟齬について、今週の打ち合わせで一部解消したが、まだ1点未確定
+[Active Blockers]
+- Data specification clarification from Client Lead A pending response (carried over from Week 7)
+- Backend I/F alignment partially resolved in weekly sync; 1 technical point remains unconfirmed
 
-【リスク】
-- テスト設計が未着手のまま進むと、後半工程の圧迫リスクあり
-- 外部連携先との結合テスト調整が未完了
+[Active Delivery Risks]
+- Test plan design delay risks compressing downstream integration testing
+- Schedule alignment with external partner system for integration testing unconfirmed
 
-【顧客確認待ち】
-- データ仕様確認（回答期限を今週末に設定して催促済み）
+[Items Awaiting Client Action]
+- Data specification confirmation (escalated with response deadline set for end of this week)
 
-【来週の予定】
-- 外部連携機能の単体テスト実施
-- テスト設計書 初版作成
-- 週次定例（顧客担当者Aとの打ち合わせ）
-- バックエンドI/F定義の残り1点を確定させる
+[Upcoming Plan (Next Week)]
+- Execute unit testing for External Integration Module
+- Draft Test Plan Specification v1.0
+- Weekly client progress sync (alignment with Client Lead A)
+- Finalize remaining backend I/F definition point
 ```
 
 ---
@@ -60,132 +58,118 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、進捗報告を作成してください。
+After loading the context files below, draft a comprehensive status report based on the provided weekly update.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/STATUS_REPORT_CONTEXT.md
 
-【進捗情報】
-（上記の Sanitized Input を貼り付ける）
+[Weekly Project Data]
+(Paste the Sanitized Input above)
 
-以下の報告を作成してください。
-1. 社内向け進捗報告（上長向け）
-2. 顧客向け進捗報告
-3. 上長向けサマリー（3行以内）
-4. リスク付き報告（リスクを明示した版）
-5. 次アクション一覧
+Please generate:
+1. Internal Management Status Report (for Delivery Head / PMO)
+2. Client-Facing Status Report
+3. Executive Summary (3 lines maximum)
+4. Risk-Weighted Status Table
+5. Immediate Action Item Checklist
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 社内向け進捗報告（上長向け）
+### 1. Internal Management Status Report (Delivery Head & PMO)
 
-**件名：** サンプル案件 第8週 進捗報告
+**Subject:** Project Alpha - Weekly Status Report - Week 8
 
-**全体状況：**
-今週は画面設計レビューおよびDB設計書の修正対応が完了しました。外部連携機能は基本実装が完了しましたが、仕様確認待ちによる遅延が1週間発生しており、回復に向けた対応を進めています。
+**Overall Status:**
+This week, screen design reviews and DB specification updates were successfully concluded. The core implementation of the external integration module was completed; however, it remains 1 week behind baseline due to delayed client data specifications. A recovery plan is underway to absorb the variance once specifications are approved.
 
-**完了事項：**
-- 画面設計（一覧画面・詳細画面）レビュー完了
-- DB設計書 v1.1 修正対応完了
-- 外部連携機能 基本実装完了
+**Completed Deliverables:**
+- Screen design review completed for List and Detail views
+- DB Architecture Specification v1.1 revisions signed off
+- External Integration Module core logic implemented
 
-**持ち越し事項：**
-- 外部連携機能 単体テスト（来週前半実施予定）
-- テスト設計書 初版作成（来週中着手予定）
+**Carried-Over Work:**
+- External Integration unit testing (rescheduled for early Week 9)
+- Test Plan v1.0 initial draft (rescheduled for Week 9)
 
-**遅延・懸念事項：**
-- 外部連携機能が1週間遅延中。顧客仕様確認の回答次第で今週末から回復開始予定
-- テスト設計未着手。後半工程の圧迫を防ぐため来週早期に着手する
+**Variances & Concerns:**
+- External integration is 1 week behind. Recovery trajectory depends on receiving client data specs by end of this week.
+- Test design has not started. Early Week 9 kickoff is critical to safeguard the downstream qualification window.
 
-**顧客確認待ち：**
-- データ仕様確認（回答期限：今週末）
+**Pending Client Actions:**
+- Data specification approval (Due: End of this week).
 
-**来週予定：**
-外部連携機能の単体テスト、テスト設計書初版作成、週次定例対応
-
----
-
-### 2. 顧客向け進捗報告
-
-**件名：** 【サンプル案件】第8週 進捗ご報告
-
-担当者A様
-
-いつもお世話になっております。
-今週の進捗についてご報告いたします。
-
-**今週の完了事項：**
-- 画面設計（一覧画面・詳細画面）のレビューが完了しました
-- DB設計書の修正対応が完了しました
-- 外部連携機能の基本実装が完了しました
-
-**来週の予定：**
-- 外部連携機能の単体テストを実施します
-- テスト設計書の初版を作成します
-- 週次定例にてご確認いただきたい点があります
-
-**ご確認のお願い：**
-先週よりご確認をお願いしているデータ仕様について、今週末までにご回答いただけますと幸いです。
-ご回答が遅れますと、後続作業のスケジュールに影響が生じる可能性があります。
-
-引き続きどうぞよろしくお願いいたします。
+**Next Week Plan:**
+Execute external integration unit tests, draft test plan specification, conduct weekly steering sync.
 
 ---
 
-### 3. 上長向けサマリー（3行以内）
+### 2. Client-Facing Status Report
 
-外部連携機能が1週間遅延中。顧客仕様確認の回答を今週末に期待しており、来週から回復予定。テスト設計未着手のリスクに対し、来週早期に着手予定。
+**Subject:** [Project Alpha] Weekly Progress Update - Week 8
+
+Dear Client Lead A,
+
+Please find below our progress summary for Week 8.
+
+**Key Achievements This Week:**
+- Successfully finalized and signed off the UI design reviews for both List and Detail views.
+- Updated and incorporated feedback into the Database Architecture Specification.
+- Completed the foundational implementation for the External Integration Module.
+
+**Upcoming Milestones (Next Week):**
+- Execute unit and functional validation on integration modules.
+- Formulate the initial draft of the Test Plan Specification.
+- Align on remaining technical checkpoints during our weekly sync.
+
+**Action Items & Approvals Requested:**
+Regarding the data specifications submitted for review last week, we would greatly appreciate receiving your formal confirmation by the end of this week. This sign-off is essential to maintain our target delivery trajectory for subsequent integration gates.
+
+Thank you for your ongoing partnership.
+
+Sincerely,  
+Project Management Team
 
 ---
 
-### 4. リスク付き報告
+### 3. Executive Summary (3 Lines Max)
 
-| リスク | 影響度 | 対応状況 |
+External integration module is 1 week behind baseline awaiting client data specifications, with confirmation expected by week-end to enable schedule recovery. Test plan design kicks off early next week to prevent downstream compression of the QA window.
+
+---
+
+### 4. Risk-Weighted Status Table
+
+| Risk Description | Severity & Blast Radius | Mitigation / Contingency Plan |
 |---|---|---|
-| 外部連携機能の遅延継続 | 高：後工程に連鎖する可能性あり | 顧客への回答期限設定済み。来週から回復予定 |
-| テスト設計未着手 | 高：後半工程を圧迫するリスク | 来週着手予定。担当者・スケジュールを確定させる必要あり |
-| 外部連携先との結合テスト未調整 | 中：日程調整が遅れると全体に影響 | 来週以降に調整開始予定 |
+| Continued external integration slip | High: Will propagate across critical path | Response deadline set with client; recovery dev plan ready upon receipt |
+| Unstarted test plan design | High: Threatens to compress QA window | Early Week 9 kickoff locked; resources assigned |
+| Partner system test alignment unconfirmed | Medium: Risks integration test delay | Initiate formal scheduling alignment next week |
 
 ---
 
-### 5. 次アクション一覧
+### 5. Immediate Action Item Checklist
 
-| # | アクション | 担当 | 期限 |
+| # | Action Item | Assigned Role | Target Deadline |
 |---|---|---|---|
-| 1 | 顧客担当者Aへのデータ仕様確認フォローアップ | PM担当者 | 今週末 |
-| 2 | 外部連携機能 単体テスト実施 | 開発担当者 | 来週前半 |
-| 3 | テスト設計書 着手・担当者確定 | PM担当者・開発リーダー | 来週中 |
-| 4 | バックエンドI/F定義の残1点確定 | 開発リーダー | 来週定例にて |
-| 5 | 外部連携先との結合テスト日程調整開始 | PM担当者 | 来週中 |
+| 1 | Follow up on client data spec approval with Client Lead A | PM | End of Week 8 |
+| 2 | Execute External Integration unit tests | Dev Team | Early Week 9 |
+| 3 | Kick off Test Plan Specification draft | PM / Tech Lead | Mid Week 9 |
+| 4 | Finalize remaining backend I/F definition point | Tech Lead | Weekly Sync |
+| 5 | Initiate integration testing schedule alignment with partner | PM | Week 9 |
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 顧客向けメール文のトーン・敬語表現が実際の顧客との関係性に合っているか
-- 遅延の説明が実際の経緯・合意内容と一致しているか
-- 顧客への確認催促の表現が適切か（強すぎる・弱すぎる表現になっていないか）
-- リスク表の影響度・対応状況が実態を反映しているか
-- 次アクションの担当者欄を実際の担当者名に修正したか
-- 社内報告の内容が上長の期待するレベルの情報量になっているか
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 顧客提出・社内報告に使用する場合は、必ず担当者が内容を確認・修正してから送付してください。
+Before sending:
+- Verify that client communication tone aligns with established relationship diplomacy.
+- Ensure factual justifications for delays match previously approved steering committee minutes.
+- Confirm assigned roles reflect actual team staffing.

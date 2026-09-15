@@ -1,14 +1,12 @@
-# 仕様変更・スコープ変更の整理 — 実用サンプル
+# Scope Change Evaluation — Practical Scenario
 
 ## Use Case
 
-開発中盤で顧客から追加要望が発生した場面を想定しています。
-
-仕様変更・スコープ変更・追加要望をAIに整理させ、影響範囲・選択肢・確認事項を明確にする例です。
+Evaluating customer scope change requests mid-development to quantify impacts on engineering effort, critical path milestones, budgets, and commercial contract boundaries.
 
 ---
 
-## 使用するファイル
+## Context Files Used
 
 - `contexts/PM_CONTEXT.md`
 - `contexts/SCOPE_CHANGE_CONTEXT.md`
@@ -17,49 +15,40 @@
 
 ## Sanitized Input
 
-> **注意：** 以下はすべて架空のデータです。実在する顧客名・案件名・個人名は含みません。
+> **Notice:** All data below is completely fictitious. No real client, company, or individual names are used.
 
 ```
-案件名：サンプル案件
-フェーズ：開発中盤（全体70%進捗）
+Project: Project Alpha (Fictitious)
+Phase: Mid-Development (70% overall completion)
 
-【変更要望】
-顧客担当者Aから、以下の追加要望が挙がった。
+[Scope Change Requests]
+Client Lead A has submitted the following three requests:
+- Request 1: Add a "Batch Export Functionality" to the Admin Management Console.
+- Request 2: Add a "Month-over-Month Comparative Analytics Graph" to the Dashboard.
+- Request 3: Expand input validation rules on the Registration Form (specific rules unconfirmed).
 
-要望1：管理画面に「一括エクスポート機能」を追加してほしい
-要望2：ダッシュボード画面に「先月比グラフ」を追加してほしい
-要望3：登録フォームのバリデーション項目を追加してほしい（詳細は未確定）
+[Business Context & Origin]
+- Senior client executives requested improved operational ergonomics for operational field staff.
+- Operational workflows were overlooked by the client during initial requirements gathering.
 
-【変更が出た背景】
-- 上位の管理者層から「現場が使いやすい機能にしてほしい」という要求が出た
-- 要件定義時には想定していなかった運用ニーズが後から明らかになった
+[Approved Contractual Baseline Scope]
+- Admin Console: Search, view, and single-record export only.
+- Dashboard: Current fiscal period summary aggregations only.
+- Form Validation: Limited strictly to fields defined in Requirements Specification v1.0.
 
-【当初スコープ】
-- 管理画面には閲覧・検索・個別エクスポート機能のみ含まれていた
-- ダッシュボードは今期分の集計表示のみが対象
-- バリデーションは画面設計書に記載の項目のみが対象
+[Preliminary Effort Estimates]
+- Batch Export: 3 to 5 engineer-days (preliminary rough order of magnitude).
+- MoM Analytics Graph: 2 to 3 engineer-days (preliminary rough order of magnitude).
+- Form Validation Additions: Cannot estimate until detailed rules are provided.
 
-【追加になりそうな作業】
-- 一括エクスポート機能：設計・実装・テストで3〜5営業日と想定（未確認）
-- 先月比グラフ：設計・実装・テストで2〜3営業日と想定（未確認）
-- バリデーション追加：詳細不明なため工数算出不可
+[Potential Technical Impacts]
+- Data export consistency: Batch export format must align with single-record exports.
+- Database impact: MoM queries may require schema indexing or caching optimizations.
 
-【影響しそうな機能】
-- データ出力形式の統一に影響する可能性（一括エクスポートと既存エクスポートの整合性）
-- DB設計への影響は現時点では不明
-
-【納期制約】
-- 最終納期まで残り4週間
-- 納期の変更は困難（顧客が社内公表済み）
-
-【費用制約】
-- 現時点では追加費用についての合意はない
-- 追加費用が発生するか、顧客がどう受け取るかが未確認
-
-【顧客に確認したいこと】
-- 追加要望の優先度（3件すべて必須か、優先度があるか）
-- 要望3（バリデーション追加）の詳細仕様
-- 追加費用・納期延長が発生した場合の顧客側の受け入れ可否
+[Delivery Constraints]
+- 4 weeks (20 business days) remaining until final release gate.
+- Target launch date has been announced internally by client executives (hard constraint).
+- No commercial agreement reached yet regarding additional fees or change orders.
 ```
 
 ---
@@ -67,152 +56,119 @@
 ## Prompt
 
 ```text
-以下のコンテキストファイルを読み込んだ上で、仕様変更・スコープ変更の状況を整理してください。
+After loading the context files below, evaluate the scope change requests against baseline delivery commitments.
 
-【読み込むファイル】
+[Context Files]
 - contexts/PM_CONTEXT.md
 - contexts/SCOPE_CHANGE_CONTEXT.md
 
-【変更状況】
-（上記の Sanitized Input を貼り付ける）
+[Scope Change Details]
+(Paste the Sanitized Input above)
 
-以下の観点で整理してください。
-1. 変更内容の整理
-2. 当初スコープとの差分
-3. 影響範囲
-4. 工数影響
-5. 納期影響
-6. 費用影響が生じうるポイント
-7. 顧客に確認すべきこと
-8. 提示する選択肢
-9. エスカレーション要否
+Please structure the evaluation as follows:
+1. Scope Change Categorization Matrix
+2. Baseline Scope Variance Analysis
+3. Cross-Functional Blast Radius
+4. Technical Effort Assessment
+5. Timeline & Milestone Impact
+6. Contractual & Commercial Considerations
+7. Clarifications Needed from Client
+8. Structured Decision Options (Options A, B, C)
+9. Internal Escalation Requirements
 ```
 
 ---
 
 ## Expected Output
 
-AIに期待する出力例です。実際の出力はAIや入力内容によって異なります。
+An illustrative example of the expected AI evaluation:
 
 ---
 
-### 1. 変更内容の整理
+### 1. Scope Change Categorization Matrix
 
-| # | 要望内容 | 当初スコープ | 変更区分 |
+| # | Requested Feature | Baseline Status | Change Type |
 |---|---|---|---|
-| 1 | 管理画面に一括エクスポート機能を追加 | スコープ外 | 追加要望 |
-| 2 | ダッシュボードに先月比グラフを追加 | スコープ外 | 追加要望 |
-| 3 | 登録フォームのバリデーション項目追加 | 既存バリデーションのみ対象 | 拡張要望（詳細未定） |
+| 1 | Admin Console Batch Export | Out of Scope | Major Functional Addition |
+| 2 | Dashboard MoM Comparative Graph | Out of Scope | Minor Enhancement |
+| 3 | Expanded Registration Validations | Out of Scope | Scope Expansion (Undefined) |
 
 ---
 
-### 2. 当初スコープとの差分
+### 2. Baseline Scope Variance Analysis
 
-- 管理画面：閲覧・検索・個別エクスポートのみ → 一括エクスポートは追加
-- ダッシュボード：今期分集計表示のみ → 先月比グラフは追加
-- バリデーション：画面設計書記載の項目のみ → 追加項目は要件定義外
+- **Admin Console**: Contractual baseline covers single-record exports. Batch export requires asynchronous background job processing to avoid thread exhaustion.
+- **Dashboard**: Baseline covers current-period metrics. MoM requires historical data aggregation and caching.
+- **Validation**: Exceeds the approved field validation rules cataloged in Requirements v1.0.
 
-いずれも要件定義書・画面設計書に含まれていない内容と想定される。
-
----
-
-### 3. 影響範囲
-
-| 影響対象 | 内容 |
-|---|---|
-| 設計書・仕様書 | 追加要望を反映した設計変更が必要 |
-| 実装工数 | 要望1・2・3ともに追加実装が発生 |
-| テスト工数 | 追加実装に伴うテストケース追加が必要 |
-| 既存機能との整合性 | 一括エクスポートと既存エクスポートのデータ形式・動作の整合性確認が必要 |
-| DB設計 | 先月比グラフの実現方法によってはDB変更が必要になる可能性あり（要確認） |
+None of the three requests are included in the approved contractual scope.
 
 ---
 
-### 4. 工数影響
+### 3. Cross-Functional Blast Radius
 
-| 要望 | 想定追加工数 | 備考 |
+- **Documentation**: Functional specifications and UI designs must be formally revised and re-approved.
+- **Engineering Effort**: Implementation across 3 distinct architectural layers.
+- **Testing Window**: New test cases, edge cases, and performance testing for batch exports required.
+- **Data Model**: Historical MoM queries may require database index restructuring.
+
+---
+
+### 4. Technical Effort Assessment
+
+| Request | Estimated Effort (Days) | Remarks |
 |---|---|---|
-| 一括エクスポート | 3〜5営業日（未確認） | 正確な見積には仕様確定が必要 |
-| 先月比グラフ | 2〜3営業日（未確認） | DB変更が生じれば増加する可能性あり |
-| バリデーション追加 | 不明 | 詳細仕様が確定するまで見積不可 |
-| 合計 | 5〜8営業日以上 | 仕様確定後に正式見積が必要 |
+| Batch Export | 3 to 5 days | Requires async worker design |
+| MoM Graph | 2 to 3 days | Contingent on query optimization |
+| Expanded Validations | Indeterminate | Cannot estimate without rule definitions |
+| **Total Estimated Effort** | **5 to 8+ engineer-days** | Subject to validation spec complexity |
 
 ---
 
-### 5. 納期影響
+### 5. Timeline & Milestone Impact
 
-残り4週間（20営業日）の中で追加対応を行う場合、現在の開発遅延と合わせて、テスト期間がさらに圧縮される。
+With only 4 weeks (20 business days) remaining and ongoing schedule recovery on external integrations, adding 5 to 8 days of development will compress regression testing to a dangerous breaking point.
 
-- 3件すべてを対応した場合：5〜8営業日以上の追加作業が発生し、現計画では納期内に完了できない可能性がある
-- 一部対応（優先度が高いもののみ）の場合：選択次第では納期内に収まる可能性はある
-- バリデーション追加（要望3）は詳細不明のため、工数によっては別扱いが望ましい
-
-**納期延長なしで全件対応は困難な見通し。**
+- **Absorbing All 3 Requests**: Schedule breach is virtually guaranteed without an extension.
+- **Selective Scope Inclusion**: Feasible only if strictly limited to 2 days of work.
+- **Conclusion**: Delivering all requested additions within the current deadline is technically unfeasible.
 
 ---
 
-### 6. 費用影響が生じうるポイント
+### 6. Contractual & Commercial Considerations
 
-> **注意：** 費用・契約に関する判断はAI出力をそのまま使用しないでください。法務・上長・契約書の確認が必要です。
-
-- 追加要望はいずれも要件定義書に含まれていない内容であるため、追加費用の発生根拠になりうる
-- 追加費用の発生可否・金額・合意方法は、契約形態（請負・準委任等）によって異なる
-- 顧客との費用合意が取れない場合、追加要望を受け入れることでPM・会社がリスクを負う可能性がある
+- Accepting additions informally without a signed change order sets a harmful commercial precedent and erodes project profitability.
+- Under fixed-price terms, scope expansions without corresponding budget/schedule extensions create unhedged delivery liabilities.
 
 ---
 
-### 7. 顧客に確認すべきこと
+### 7. Clarifications Needed from Client
 
-- 3件の要望に優先度はあるか（全件必須か、選択可能か）
-- 要望3（バリデーション追加）の詳細仕様を早急に確定してほしい
-- 追加工数が発生する場合、納期延長または追加費用の受け入れ可否
-- 追加費用が発生する場合の合意プロセスの確認
+- Establish priority ranking among the 3 requests (which are mandatory vs. nice-to-have).
+- Provide detailed business rules for Request 3 within 48 hours.
+- Confirm whether the client leadership will approve a change order with schedule/budget adjustments.
 
 ---
 
-### 8. 提示する選択肢
+### 8. Structured Decision Options (Options A, B, C)
 
-顧客に提示する選択肢の案（たたき台）：
-
-| 選択肢 | 内容 | 納期 | 費用 |
+| Option | Scope Delivered | Timeline Impact | Commercial Impact |
 |---|---|---|---|
-| A：全件対応（納期延長あり） | 3件すべてを対応。納期を延長する | 要交渉 | 要交渉 |
-| B：優先2件のみ対応（納期固定） | 要望1・2のみ対応（バリデーションは次フェーズ） | 現納期 | 要交渉 |
-| C：現スコープで進める（追加なし） | 追加要望は次フェーズ以降に持ち越す | 現納期 | 変更なし |
-
-> **注意：** この選択肢はたたき台です。実際の提示前に、上長・法務・顧客との契約内容を確認してください。
+| **Option A: Full Scope with Deadline Extension** | Deliver all 3 requests once specifications are finalized | Postpone launch by 2-3 weeks | Formal Change Order with additional fees |
+| **Option B: Core Baseline Launch + Phased v1.1** | Launch baseline scope in 4 weeks; deliver new features in v1.1 sprint 3 weeks later | Target deadline guaranteed | Change Order for Phase 1.1 sprint |
+| **Option C: Scope Swap (Trade-off)** | Implement Batch Export in exchange for de-scoping a non-critical baseline feature | Target deadline guaranteed | Cost-neutral amendment |
 
 ---
 
-### 9. エスカレーション要否
+### 9. Internal Escalation Requirements
 
-**エスカレーション推奨：**
-
-- 追加費用・納期延長の判断は、PM単独では行わず上長の承認が必要
-- 契約変更が伴う場合は、法務・営業担当への確認が必要
-- 顧客への費用・納期に関する回答は、社内合意後に行うことを推奨
+- Inform Account Executive and Delivery Director immediately.
+- Enforce strict instructions to the engineering team prohibiting any coding on these requests until commercial sign-off is achieved.
 
 ---
 
 ## Human Review Points
 
-AIの出力を実務で使用する前に、以下の観点で確認してください。
-
-- 当初スコープとの差分が実際の要件定義書・契約書と一致しているか
-- 工数の想定が実際の開発チームの見立てと合っているか
-- 費用影響の指摘が実際の契約形態と一致しているか
-- 顧客への選択肢提示の内容・表現を実際の関係性・契約条件に合わせて修正する
-- 社内エスカレーションの基準が組織のルールと合っているか確認する
-
----
-
-## Caution
-
-> [!IMPORTANT]
-> このサンプルはすべて架空データです。実在する顧客名・案件名・個人名は含みません。
->
-> 実案件の情報をAIに入力する前に、必ず機密情報・個人情報・顧客情報をマスキングしてください。
->
-> **AI出力は業務判断の代替ではありません。** 契約・納期・費用・責任範囲に関する判断はAI出力をそのまま使用せず、必ず担当者・上長・法務が確認した上で判断してください。
->
-> 顧客への回答・社内報告・契約変更の判断にAI出力をそのまま使用しないでください。
+Before meeting with the client:
+- Verify that the 5-8 day estimate is corroborated by the lead developers.
+- Validate the preferred option (Option B is typically optimal for enterprise stability) with account leadership.
