@@ -1,7 +1,7 @@
 <!--
 > [!CAUTION]
 > **Cette Pull Request sera publique. N'incluez JAMAIS de clés d'API, de mots de passe, de jetons, de noms de clients réels, de données nominatives, de noms d'entreprises, de noms de projets confidentiels, d'éléments contractuels ou d'informations internes confidentielles.**
-> Pour plus de détails, veuillez consulter [`CONTRIBUTING.md`](../CONTRIBUTING.md) et [`SECURITY.md`](../SECURITY.md).
+> Pour plus de détails, veuillez consulter [`CONTRIBUTING.md`](./CONTRIBUTING.md) et [`SECURITY.md`](./SECURITY.md).
 -->
 
 ## Résumé (Summary)

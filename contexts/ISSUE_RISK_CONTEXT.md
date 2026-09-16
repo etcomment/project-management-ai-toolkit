@@ -76,7 +76,7 @@ Identifiez si la priorité actuelle est appropriée, du point de vue du PM.
 
 Liste des problèmes dont le responsable n'est pas défini ou est peu clair.
 
-### 4. Problèmes sans date limite clairs
+### 4. Problèmes sans date limite claire
 
 Liste des problèmes dont la date limite n'est pas définie ou est peu claire.
 
@@ -195,6 +195,53 @@ Sur la base de ce contexte, veuillez revoir les problèmes et risques du point d
 6. Liste des prochaines actions (priorité, responsable, date limite)
 
 ※ Le résultat de l'IA est un support de décision. La décision finale doit toujours être prise par un humain.
+```
+
+---
+
+### 【Extraction des risques】Extraire les risques potentiels à partir des informations d'entrée
+
+```text
+Sur la base de ce contexte, veuillez identifier les risques à partir de la situation du projet.
+En plus des risques actuellement reconnus, signalez les risques susceptibles d'être passés sous silence du point de vue du PM.
+
+## Contexte
+
+[Collez ici le contenu de PM_CONTEXT.md]
+[Collez ici le contenu d'ISSUE_RISK_CONTEXT.md]
+
+---
+
+## Situation du projet (informations confidentielles masquées)
+
+### Vue d'ensemble du projet
+- Phase :
+- Ampleur :
+
+### Risques actuellement reconnus
+-
+
+### Liste des problèmes (le cas échéant)
+-
+
+### Dépendances externes / confirmations client en attente
+-
+
+### Situation de l'organisation / de l'équipe
+-
+
+---
+
+## Résultat attendu
+
+1. Organisation des risques actuellement reconnus (probabilité, impact, politique de réponse)
+2. Risques susceptibles d'être passés sous silence
+3. Classification de priorité des risques (élevée / moyenne / faible)
+4. Actions recommandées pour les risques sans politique de réponse définie
+5. Signalement des risques nécessitant une escalade
+
+※ Le résultat de l'IA est un support de décision. La décision finale doit toujours être prise par un humain.
+※ N'envoyez pas d'informations confidentielles, personnelles ou d'authentification à l'IA.
 ```
 
 ---

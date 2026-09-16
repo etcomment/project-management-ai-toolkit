@@ -71,7 +71,7 @@ Brouillon d'email client incluant objet, corps et conclusion.
 
 ### 2. Texte d'explication de la situation
 
-Texte concise expliquant la situation.
+Texte concis expliquant la situation.
 
 ### 3. Texte de consultation
 
@@ -104,4 +104,216 @@ Mémo structurant les points à transmettre lors de la réunion.
 >
 > Ces éléments doivent toujours être confirmés et corrigés par un humain, adaptés à la situation du cas, aux conditions du contrat et à la politique interne.
 >
-> Ne transmettez pas d'informations confidentielles, de données personnelles, de informations de contrat ou d'informations d'authentification à l'IA.
+> Ne transmettez pas d'informations confidentielles, de données personnelles, d'informations de contrat ou d'informations d'authentification à l'IA.
+
+---
+
+## Exemple d'utilisation (template)
+
+### 【Modèle de base】Créer un brouillon de texte client
+
+```text
+# Demande de rédaction d'un texte client
+
+En vous appuyant sur les contextes ci-dessous, veuillez créer un brouillon de texte destiné au client.
+
+## Contextes
+
+[Coller ici le contenu de PM_CONTEXT.md]
+
+[Coller ici le contenu de CLIENT_COMMUNICATION_CONTEXT.md]
+
+---
+
+## Objet de la demande (informations confidentielles masquées)
+
+### Ce que vous souhaitez transmettre au client
+-
+
+### Contexte / historique
+-
+
+### Situation actuelle
+-
+
+### Votre point de vue
+-
+
+### Ce que vous souhaitez consulter / confirmer au client
+-
+
+### Options à présenter (le cas échéant)
+-
+
+### Expressions / ton à éviter
+-
+
+### Relation avec le client
+-
+
+---
+
+## Livrables attendus
+
+1. Brouillon d'email au client (objet, corps, conclusion)
+2. Texte d'explication de la situation
+3. Texte de présentation des options (le cas échéant)
+4. Mémo d'explication avant la réunion
+
+---
+
+## Précautions
+
+※ La sortie de l'IA est un brouillon. Ne l'envoyez pas tel quel au client.
+※ Les expressions relatives au contrat, aux délais, aux coûts et au périmètre de responsabilité doivent impérativement être vérifiées par un humain.
+※ La transmission finale doit être validée par le responsable / la hiérarchie.
+```
+
+---
+
+### 【Confirmation des spécifications】Brouillon d'email pour confirmer les spécifications avec le client
+
+```text
+En vous appuyant sur les contextes ci-dessous, veuillez créer un brouillon d'email de confirmation des spécifications.
+
+## Contextes
+
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de CLIENT_COMMUNICATION_CONTEXT.md]
+
+---
+
+## Contenu de la demande (informations confidentielles masquées)
+
+### Spécifications / exigences à confirmer
+-
+
+### Contexte / raison justifiant la confirmation
+-
+
+### Travaux impactés si absence de confirmation
+-
+
+### Délai de réponse souhaité (le cas échéant)
+-
+
+---
+
+## Livrables attendus
+
+1. Proposition d'objet
+2. Corps (confirmation structurée sous forme de liste)
+3. Ton : courtois, coopératif, posture de demande de confirmation
+
+※ N'incluez aucune expression qui engage la responsabilité ou confirme des délais.
+※ La sortie de l'IA est un brouillon. Ne l'envoyez pas tel quel.
+※ N'envoyez pas d'informations confidentielles ou personnelles à l'IA.
+```
+
+---
+
+### 【Consultation sur le retard】Brouillon d'email pour consulter / expliquer le retard au client
+
+```text
+En vous appuyant sur les contextes ci-dessous, veuillez créer un brouillon d'email pour consulter le client au sujet du retard.
+Adoptez un ton de consultation sur l'explication de la situation et la politique de réponse, plutôt qu'une excuse unilatérale.
+
+## Contextes
+
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de CLIENT_COMMUNICATION_CONTEXT.md]
+
+---
+
+## Situation du retard (informations confidentielles masquées)
+
+### Travaux / jalons en retard
+-
+
+### Durée / période de retard estimée
+-
+
+### Cause du retard (dans la limite de ce qui peut être expliqué au client)
+-
+
+### Impact sur le client
+-
+
+### Politique de réponse / plan de récupération de notre côté
+-
+
+### Éléments à consulter / confirmer auprès du client
+-
+
+---
+
+## Livrables attendus
+
+1. Proposition d'objet
+2. Corps (faits du retard, impacts, politique de réponse, consultation du client)
+3. Le cas échéant, organisation des options à présenter
+
+※ N'incluez aucune expression engageant la responsabilité, la compensation ou les dommages.
+※ Les expressions confirmant des délais doivent être vérifiées par un humain avant rédaction.
+※ La sortie de l'IA est un brouillon. Validez auprès de votre hiérarchie avant envoi.
+```
+
+---
+
+## Exemple d'utilisation pour Claude (version XML)
+
+Lors d'un échange avec Claude, la structure à balises XML suivante permet de distinguer clairement la demande, les informations d'entrée et les contraintes.
+
+```text
+<task>
+À partir de la situation ci-dessous, créez un brouillon de texte destiné au client (email, texte d'explication, texte de consultation).
+Restituez la situation, le texte client et les remarques / points de vigilance.
+</task>
+<context>
+<pm_context>
+[Coller ici le contenu de PM_CONTEXT.md]
+</pm_context>
+<specific_context>
+[Coller ici le contenu de CLIENT_COMMUNICATION_CONTEXT.md]
+</specific_context>
+</context>
+<input>
+【Objet de la demande (informations confidentielles masquées)】
+
+### Ce que vous souhaitez transmettre au client
+-
+
+### Contexte / historique
+-
+
+### Situation actuelle
+-
+
+### Votre point de vue
+-
+
+### Ce que vous souhaitez consulter / confirmer au client
+-
+
+### Options à présenter (le cas échéant)
+-
+
+### Expressions / ton à éviter
+-
+
+### Relation avec le client
+-
+</input>
+<constraints>
+- Considérez que les noms de clients, de personnes, de sociétés, les informations contractuelles et les informations d'authentification sont masqués.
+- N'affirmez aucune expression relative au contrat, aux délais, aux coûts, au périmètre de responsabilité ou à la compensation.
+- N'affirmez pas qu'un point est « juridiquement sans problème » ou « contractuellement sans problème ».
+- La sortie de l'IA est un élément d'aide à la décision ; la transmission finale doit être vérifiée et corrigée par un humain.
+</constraints>
+<output_format>
+1. Organisation de la situation (contexte, impact client, points à trancher)
+2. Brouillon d'email au client (objet, corps, conclusion)
+3. Texte de présentation des options (le cas échéant)
+4. Remarques / points de vigilance (éléments devant être vérifiés par un humain)
+</output_format>
+```

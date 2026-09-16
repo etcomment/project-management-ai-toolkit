@@ -85,4 +85,4 @@ Veillez à vérifier et cocher scrupuleusement la Safety checklist du modèle de
 - Le contributeur engage sa propre responsabilité quant à l'absence de violation de droits tiers et d'informations confidentielles dans ses propositions.
 - En cas d'acceptation dans le dépôt, les contenus soumis sont placés sous les conditions de la licence du projet (LICENSE.md).
 
-Pour plus de précisions, veuillez consulter ,  et .
+Pour plus de précisions, veuillez consulter `docs/legal/TERMS.md`, `docs/legal/DISCLAIMER.md` et `.github/SECURITY.md`.

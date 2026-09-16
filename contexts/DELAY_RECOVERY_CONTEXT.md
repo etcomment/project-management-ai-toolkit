@@ -105,3 +105,126 @@ Liste des actions immédiates et prioritaires.
 - **Le texte d'explication du retard au client est un brouillon ; la confirmation finale doit être validée par un humain avant envoi.**
 - **Ne transmettez pas d'informations personnellement identifiables, de données confidentielles, de données contractuelles ou d'informations d'authentification à l'IA.**
 - **Les décisions finales concernant la situation doivent toujours être prises par un humain.**
+
+---
+
+## Exemple d'utilisation (template)
+
+Copiez le modèle ci-dessous, complétez-le avec les informations du projet, puis utilisez-le.
+
+```text
+En vous appuyant sur les contextes ci-dessous, veuillez examiner la situation de retard et définir une politique de récupération.
+
+## Contextes
+
+[Coller ici le contenu de PM_CONTEXT.md]
+[Coller ici le contenu de DELAY_RECOVERY_CONTEXT.md]
+
+---
+
+## Situation du retard (informations confidentielles masquées)
+
+### Travaux retardés
+(Listez les travaux, fonctionnalités ou étapes en retard)
+
+### Raison du retard
+(Listez les raisons possibles du retard)
+
+### Délai de retard / ampleur
+(Indiquez le nombre de jours / de semaines de retard et l'ampleur de l'impact)
+
+### Travaux restants
+(Listez les travaux restants)
+
+### Chemin critique
+(Flux de travaux directement impactant les délais)
+
+### Ressources disponibles
+(Personnes disponibles, ressources externes disponibles, etc.)
+
+### Délais / contraintes inchangés
+(Dates / contraintes contractuelles qui ne peuvent pas être modifiées)
+
+### Impact sur le client
+(Impact du retard sur le client, les utilisateurs)
+
+### Actions déjà entreprises
+(Tout ce qui a déjà été fait pour faire face au retard)
+
+---
+
+## Livrables attendus
+
+1. Organisation des causes de retard (causes directes, facteurs contextuels)
+2. Périmètre d'impact
+3. Options de récupération (plusieurs options, avec arbitrages / trade-offs)
+4. Proposition de priorisation des travaux restants
+5. Identification des travaux potentiellement supprimables
+6. Identification des travaux nécessitant une assistance supplémentaire
+7. Ossature de l'explication de retard au client
+8. Ossature du plan d'escalade interne
+9. Actions à entreprendre dans les 24 à 72 prochaines heures
+
+※ Toute décision relative aux délais, aux coûts et au périmètre de responsabilité doit être prise par un humain.
+※ La sortie de l'IA est un brouillon de synthèse. Vérifiez impérativement par un humain avant toute communication au client.
+```
+
+---
+
+## Exemple d'utilisation pour Claude (version XML)
+
+Lors d'un échange avec Claude, la structure à balises XML suivante permet de distinguer clairement la demande, les informations d'entrée et les contraintes.
+
+```text
+<task>
+Sur la base de la situation de retard ci-dessous, organisez les causes du retard, le périmètre d'impact, les options de récupération, les priorités et la politique d'explication au client.
+</task>
+<context>
+<pm_context>
+[Coller ici le contenu de PM_CONTEXT.md]
+</pm_context>
+<specific_context>
+[Coller ici le contenu de DELAY_RECOVERY_CONTEXT.md]
+</specific_context>
+</context>
+<input>
+【Situation du retard (informations confidentielles masquées)】
+
+### Travaux retardés
+(Entrez)
+
+### Raison du retard
+(Entrez)
+
+### Délai de retard / ampleur
+(Entrez)
+
+### Travaux restants
+(Entrez)
+
+### Délais / contraintes inchangés
+(Entrez)
+
+### Impact sur le client
+(Entrez)
+
+### Actions déjà entreprises
+(Entrez)
+</input>
+<constraints>
+- Considérez que les noms de clients, de personnes, de sociétés, les informations contractuelles et les informations d'authentification sont masqués.
+- Tout élément complété en dehors des informations d'entrée doit être signalé comme « (Hypothèse) ».
+- N'incluez aucune expression qui confirme des délais, des coûts ou le périmètre de responsabilité.
+- Précisez que le brouillon d'explication au client doit être validé par la hiérarchie / les parties concernées.
+- La sortie de l'IA est un élément d'aide à la décision ; la décision finale revient à un humain.
+</constraints>
+<output_format>
+1. Organisation des causes de retard (causes directes, facteurs contextuels)
+2. Périmètre d'impact
+3. Options de récupération (plusieurs options, avec arbitrages / trade-offs)
+4. Proposition de priorisation des travaux restants
+5. Ossature de l'explication de retard au client (brouillon)
+6. Ossature du plan d'escalade interne
+7. Actions à entreprendre dans les 24 à 72 prochaines heures
+</output_format>
+```

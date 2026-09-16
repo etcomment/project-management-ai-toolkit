@@ -4,7 +4,7 @@
 
 ## Purpose (objectif de ce contexte)
 
-Avant de fournir un devis, ce contexte permet d'organiser les notes de exigences, les hypothèses, les points inconnus, les contraintes, la portée non incluse et l'incertitude. Il aide à vérifier les conditions préalables et à organiser la demande de confirmation au client.
+Avant de fournir un devis, ce contexte permet d'organiser les notes d'exigences, les hypothèses, les points inconnus, les contraintes, la portée non incluse et l'incertitude. Il aide à vérifier les conditions préalables et à organiser la demande de confirmation au client.
 
 **L'IA ne remplace pas la décision du PM.** ** Ne demandez pas à l'IA de calculer ou de valider des montants ou des conditions contractuelles. ** L'IA ne sert qu'à organiser les conditions préalables et à lister les éléments à vérifier.
 
@@ -18,7 +18,7 @@ Avant de fournir un devis, ce contexte permet d'organiser les notes de exigences
 ## Use Case (scénarios d'utilisation)
 
 - Organiser les conditions préalables et les points inconnus avant de commencer le devis
-- Identifier les incertitudes et les risques à partir des notes de exigences
+- Identifier les incertitudes et les risques à partir des notes d'exigences
 - Organiser les éléments à exclure de la portée du devis
 - Organiser les conditions qui entraîneraient un devis supplémentaire
 - Créer une liste de questions à poser au client
@@ -30,7 +30,7 @@ Avant de fournir un devis, ce contexte permet d'organiser les notes de exigences
 Après avoir chargé ce contexte, transmettez (en masquant les informations confidentielles et les données personnelles) :
 
 ```
-### Notes de exigences / résumé des demandes du client
+### Notes d'exigences / résumé des demandes du client
 (Notes sur les fonctions / exigences. Ne pas inclure de code source ou d'informations d'authentification)
 
 ### Conditions préalables confirmées
@@ -110,7 +110,7 @@ Basé sur ce contexte, organisez les conditions préalables du devis et les poin
 
 ## Informations préalables (informations confidentielles masquées)
 
-### Notes de exigences / résumé des demandes du client
+### Notes d'exigences / résumé des demandes du client
 (Entrez)
 
 ### Conditions préalables confirmées
@@ -163,7 +163,7 @@ Basé sur ce contexte, identifiez les incertitudes impactant le devis.
 
 ## Informations sur le projet (informations confidentielles masquées)
 
-### Notes de exigences / résumé des demandes du client
+### Notes d'exigences / résumé des demandes du client
 (Entrez)
 
 ### Incertitudes actuelles
@@ -201,7 +201,7 @@ Basé sur ce contexte, organisez les éléments à exclure de la portée du devi
 
 ## Informations sur la portée (informations confidentielles masquées)
 
-### Notes de exigences / résumé des demandes du client
+### Notes d'exigences / résumé des demandes du client
 (Entrez)
 
 ### Éléments à ne pas inclure dans le devis
@@ -242,7 +242,7 @@ Organisez les conditions préalables du devis, les incertitudes, les questions �
 <input>
 【Informations préalables (informations confidentielles masquées)】
 
-### Notes de exigences / résumé des demandes du client
+### Notes d'exigences / résumé des demandes du client
 (Entrez)
 
 ### Conditions préalables confirmées
